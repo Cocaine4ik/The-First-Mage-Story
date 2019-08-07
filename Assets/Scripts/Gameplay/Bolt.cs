@@ -26,8 +26,9 @@ public class Bolt : MonoBehaviour {
         boltDeathTimer.SetTimerName(TimerName.BoltDeathTimer);
         boltDeathTimer.Duration = boltAliveTime;
         boltDeathTimer.Run();
-        
 
+        rb.velocity = transform.right * speed;
+        
     }
     // Let the rigidbody take control and detect collisions.
 

@@ -15,6 +15,8 @@ public abstract class Character : MonoBehaviour {
 
     protected abstract void Atack();
 
+    protected abstract void TakeDamage(int damage);
+
     protected abstract void Hurt();
 
     protected abstract void Die();

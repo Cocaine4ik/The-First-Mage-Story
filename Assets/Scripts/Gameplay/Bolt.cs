@@ -8,6 +8,7 @@ public class Bolt : MonoBehaviour {
 
     private Timer boltDeathTimer;
     private Rigidbody2D rb;
+    private Animator animator;
 
     private float direction = 1;
 
@@ -21,6 +22,7 @@ public class Bolt : MonoBehaviour {
     private void Start() {
 
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         boltDeathTimer = GetComponent<Timer>();
         boltDeathTimer.SetTimerName(TimerName.BoltDeathTimer);
@@ -40,6 +42,18 @@ public class Bolt : MonoBehaviour {
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+
+        AnimationManager.Play(AnimationName.MagicArrowImpactEffect);
+
+        Destroy(gameObject);
+        
+    }
+
+    private void OnDestroy() {
+        
+
+    }
     #endregion
 
 

@@ -14,7 +14,6 @@ public class CharacterController2D : Character {
 
     protected float moveX;
 
-    private bool atackPointTransfered = false;
     #endregion
 
     #region Methods
@@ -43,6 +42,7 @@ public class CharacterController2D : Character {
         animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
+    // flip left and right
     protected override void Flip(float moveX) {
 
         if(moveX > 0 && !isRight || moveX < 0 && isRight) {
@@ -53,11 +53,16 @@ public class CharacterController2D : Character {
 
 
     }
+    // set atack is true and play atack animation
     protected override void Atack() {
 
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
 
+    }
+
+    protected override void TakeDamage(int damage) {
+        throw new System.NotImplementedException();
     }
 
     protected override void Hurt() {

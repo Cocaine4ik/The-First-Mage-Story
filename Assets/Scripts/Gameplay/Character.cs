@@ -4,8 +4,7 @@ using UnityEngine;
 
 public abstract class Character : MonoBehaviour {
 
-    [SerializeField] protected Transform rightSideAtackPoint;
-    [SerializeField] protected Transform leftSideAtackPoint;
+    [SerializeField] protected Transform atackPoint;
 
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected int hp;

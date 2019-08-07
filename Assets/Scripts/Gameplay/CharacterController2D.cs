@@ -14,7 +14,7 @@ public class CharacterController2D : Character {
 
     protected float moveX;
 
-    private bool atackPointTranfered = false;
+    private bool atackPointTransfered = false;
     #endregion
 
     #region Methods
@@ -30,21 +30,6 @@ public class CharacterController2D : Character {
 
     protected virtual void FixedUpdate() {
 
-        // on left idle
-        if (moveX < 0) {
-            //isRight = true;
-            //animator.SetBool("IsLeft", isLeft);
-           // animator.SetFloat("Speed", moveX);
-         
-        }
-        // off left idle
-        else if (moveX > 0) {
-            //isRight = false;
-            //nimator.SetBool("IsLeft", isLeft);
-           // animator.SetFloat("Speed", moveX);
-        }
-
-        animator.SetFloat("Speed", moveX);
         Flip(moveX);
   
     }
@@ -94,12 +79,6 @@ public class CharacterController2D : Character {
     protected void OnAtackEnd() {
         isAtack = false;
         animator.SetBool("IsAtack", isAtack);
-    }
-    // if left atack end stop animation
-    protected void OnLeftAtackEnd() {
-       // isLeft = true;
-       // animator.SetBool("IsLeft", isLeft);
-        OnAtackEnd();
     }
 
     #endregion

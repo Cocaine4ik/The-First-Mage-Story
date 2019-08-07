@@ -12,7 +12,7 @@ public class Bolt : MonoBehaviour {
     private float direction = 1;
 
     [SerializeField] private float boltAliveTime = 2f;
-    [SerializeField] private float forcePower = 5f;
+    [SerializeField] private float speed = 5f;
 
     #endregion
 
@@ -27,7 +27,7 @@ public class Bolt : MonoBehaviour {
         boltDeathTimer.Duration = boltAliveTime;
         boltDeathTimer.Run();
 
-        rb.AddForce(new Vector2(direction * forcePower, 0), ForceMode2D.Impulse);
+        rb.velocity = transform.right * speed;
     }
 
     private void Update() {
@@ -37,9 +37,7 @@ public class Bolt : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-    private void AddForce() {
 
-    }
     #endregion
 
 

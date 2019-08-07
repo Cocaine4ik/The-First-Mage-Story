@@ -48,13 +48,9 @@ public class MagicCharacterController : CharacterController2D {
     }
 
     protected void RangeAtack() {
-        /*
-        if (isLeft) {
-            Instantiate(boltPrefab, leftSideAtackPoint.position, leftSideAtackPoint.rotation);
-        }
-        else {
-            Instantiate(boltPrefab, rightSideAtackPoint.position, rightSideAtackPoint.rotation);
-        }*/
+
+        Instantiate(boltPrefab, atackPoint.position, atackPoint.rotation);
+
     }
     #endregion
 }

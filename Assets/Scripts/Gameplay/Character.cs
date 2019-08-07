@@ -11,6 +11,8 @@ public abstract class Character : MonoBehaviour {
 
     protected abstract void Move(float moveX);
 
+    protected abstract void Flip(float moveX);
+
     protected abstract void Atack();
 
     protected abstract void Hurt();

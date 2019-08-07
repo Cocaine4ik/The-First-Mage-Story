@@ -49,7 +49,7 @@ public class MagicCharacterController : CharacterController2D {
 
     protected void RangeAtack() {
 
-        Instantiate(boltPrefab, atackPoint.position, atackPoint.rotation);
+            Instantiate(boltPrefab, atackPoint.position, atackPoint.rotation);
 
     }
     #endregion

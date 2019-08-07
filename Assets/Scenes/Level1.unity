@@ -320,8 +320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c252ddb6c57824eb95ee32a5d2b13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightSideAtackPoint: {fileID: 1070152499}
-  leftSideAtackPoint: {fileID: 1580109965}
+  atackPoint: {fileID: 1070152499}
   speed: 5
   hp: 0
   mana: 0
@@ -383,7 +382,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children:
   - {fileID: 1070152499}
-  - {fileID: 1580109965}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -585,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1070152499}
   m_Layer: 0
-  m_Name: Right Side Atack Point
+  m_Name: Atack Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,31 +668,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1580109964
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1580109965}
-  m_Layer: 0
-  m_Name: Left Side Atack Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1580109965
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1580109964}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.7, y: -0.16499996, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 0}
-  m_Children: []
-  m_Father: {fileID: 718930605}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}

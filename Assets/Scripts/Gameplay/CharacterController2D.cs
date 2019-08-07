@@ -43,15 +43,12 @@ public class CharacterController2D : Character {
         animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
-    protected void Flip(float moveX) {
+    protected override void Flip(float moveX) {
 
         if(moveX > 0 && !isRight || moveX < 0 && isRight) {
 
             isRight = !isRight;
-
-            Vector2 scale = transform.localScale;
-            scale.x *= -1;
-            transform.localScale = scale;
+            transform.Rotate(0, 180, 0);
         }
 
 

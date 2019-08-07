@@ -4,6 +4,5 @@ using UnityEngine;
 
 public enum EventName {
 
-    TimerFinished,
-    SpawnBalt
+    TimerFinished
 }

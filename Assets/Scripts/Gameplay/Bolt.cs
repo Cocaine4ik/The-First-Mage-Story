@@ -44,16 +44,11 @@ public class Bolt : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        AnimationManager.Play(AnimationName.MagicArrowImpactEffect);
-
+        Debug.Log(collision.name);
         Destroy(gameObject);
         
     }
 
-    private void OnDestroy() {
-        
-
-    }
     #endregion
 
 

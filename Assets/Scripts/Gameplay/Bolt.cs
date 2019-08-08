@@ -14,7 +14,7 @@ public class Bolt : MonoBehaviour {
 
     [SerializeField] private float boltAliveTime = 2f;
     [SerializeField] private float speed = 5f;
-
+    [SerializeField] private GameObject impactEffect;
     #endregion
 
     #region Methods
@@ -38,17 +38,22 @@ public class Bolt : MonoBehaviour {
 
         if(boltDeathTimer.Finished) {
 
-            Destroy(gameObject);
+            SelfDestroy();
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        Debug.Log(collision.name);
-        Destroy(gameObject);
-        
-    }
+        SelfDestroy();
 
+    }
+    // play impact effect animation and destroy yourself
+    private void SelfDestroy() {
+
+        Instantiate(impactEffect, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+
+    }
     #endregion
 
 

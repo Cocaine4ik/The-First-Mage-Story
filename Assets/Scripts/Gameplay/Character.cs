@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour {
 
     [SerializeField] protected Transform atackPoint;
-
+    [SerializeField] protected GameObject corpse;
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected int hp;
 

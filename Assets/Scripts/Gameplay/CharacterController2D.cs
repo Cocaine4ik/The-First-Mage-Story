@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor.Animations;
 
 public class CharacterController2D : Character {
 
@@ -8,10 +9,13 @@ public class CharacterController2D : Character {
 
     protected Rigidbody2D rb;
     protected Animator animator;
+    protected AnimatorController animatorController;
 
-    protected bool isRight;
+    [SerializeField] protected bool isRight = true;
+    protected bool isAlive = true;
     protected bool isAtack = false;
-
+    protected bool isHurt = false;
+    
     protected float moveX;
 
     #endregion
@@ -23,10 +27,18 @@ public class CharacterController2D : Character {
          // init rigidbody and animator
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        isRight = true;
+        animatorController = (AnimatorController)animator.runtimeAnimatorController;
+                    
+        if(animatorController.parameters.Length == 0) {
+            AddAnimatorParametes();
+        }
+        animator.SetBool("IsAlive", isAlive);
 
     }
 
+    protected virtual void Update() {
+        Die();
+    }
     protected virtual void FixedUpdate() {
 
         Flip(moveX);
@@ -61,19 +73,41 @@ public class CharacterController2D : Character {
 
     }
 
-    protected override void TakeDamage(int damage) {
-        throw new System.NotImplementedException();
-    }
-
     protected override void Hurt() {
-        throw new System.NotImplementedException();
+        isHurt = true;
+        animator.SetBool("IsHurt", isHurt);
     }
 
     protected override void Die() {
-        throw new System.NotImplementedException();
+        
+        if(hp <= 0) {
+            Debug.Log("Test");
+            isAlive = false;
+            animator.SetBool("IsAlive", isAlive);
+        }
     }
 
+    protected void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Projectile") {
+            int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
+            TakeDamage(receivedDamage);
+            Hurt();
+        }
+    }
+    protected override void TakeDamage(int damage) {
+
+        hp = hp - damage;
+    }
+
+    protected virtual void AddAnimatorParametes() {
+
+        animatorController.AddParameter("Speed", AnimatorControllerParameterType.Float);
+        animatorController.AddParameter("IsAlive", AnimatorControllerParameterType.Bool);
+        animatorController.AddParameter("IsAtack", AnimatorControllerParameterType.Bool);
+        animatorController.AddParameter("IsHurt", AnimatorControllerParameterType.Bool);
+    }
     #endregion
+
 
     #region Animation Events
 
@@ -83,5 +117,15 @@ public class CharacterController2D : Character {
         animator.SetBool("IsAtack", isAtack);
     }
 
+    protected void OnHurt() {
+        isHurt = false;
+        animator.SetBool("IsHurt", isHurt);
+
+    }
+    // left the body after death
+    protected void OnDeath() {
+        Instantiate(corpse, gameObject.transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
     #endregion
 }

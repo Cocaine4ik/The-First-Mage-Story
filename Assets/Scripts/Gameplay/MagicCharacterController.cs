@@ -7,7 +7,7 @@ public class MagicCharacterController : CharacterController2D {
     #region Fields
 
     [SerializeField] protected int mana;
-    [SerializeField] protected GameObject boltPrefab;
+    [SerializeField] protected GameObject projectilePrefab;
     protected Vector2 teleportPosition;
 
     protected bool isTeleportedIn = false;
@@ -31,6 +31,11 @@ public class MagicCharacterController : CharacterController2D {
 
     }
 
+    protected override void AddAnimatorParametes() {
+        base.AddAnimatorParametes();
+        animatorController.AddParameter("IsTeleportedIn", AnimatorControllerParameterType.Bool);
+        animatorController.AddParameter("IsTeleportedOut", AnimatorControllerParameterType.Bool);
+    }
     #endregion
 
     #region Animation Events
@@ -49,8 +54,8 @@ public class MagicCharacterController : CharacterController2D {
 
     protected void RangeAtack() {
 
-            Instantiate(boltPrefab, atackPoint.position, atackPoint.rotation);
-
+            Instantiate(projectilePrefab, atackPoint.position, atackPoint.rotation);
     }
+
     #endregion
 }

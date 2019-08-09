@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : CharacterController2D {
+public class Enemy : CharacterController2D {
 
-
-
+    
 }

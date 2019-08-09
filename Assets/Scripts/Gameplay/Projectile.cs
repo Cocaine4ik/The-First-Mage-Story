@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bolt : MonoBehaviour {
+public class Projectile : MonoBehaviour {
 
     #region Fields
 
@@ -14,9 +14,17 @@ public class Bolt : MonoBehaviour {
 
     [SerializeField] private float boltAliveTime = 2f;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private int damage;
     [SerializeField] private GameObject impactEffect;
     #endregion
 
+    #region Properties
+
+    public int Damage {
+        get { return damage; }
+    }
+
+    #endregion
     #region Methods
 
     private void Start() {

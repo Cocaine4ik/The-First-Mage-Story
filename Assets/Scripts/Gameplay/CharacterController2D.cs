@@ -81,7 +81,6 @@ public class CharacterController2D : Character {
     protected override void Die() {
         
         if(hp <= 0) {
-            Debug.Log("Test");
             isAlive = false;
             animator.SetBool("IsAlive", isAlive);
         }

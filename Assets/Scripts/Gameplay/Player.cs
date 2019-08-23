@@ -8,7 +8,9 @@ public class Player : MagicCharacterController {
     #region Methods
 
     // Update is called once per frame
-    private void Update () {
+    protected override void Update () {
+
+        base.Update();
 
         // atack if atack button down
         if (Input.GetButtonDown("Fire1")) {

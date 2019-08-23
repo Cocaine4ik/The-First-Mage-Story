@@ -9,7 +9,6 @@ public class CharacterController2D : Character {
 
     protected Rigidbody2D rb;
     protected Animator animator;
-    protected AnimatorController animatorController;
 
     [SerializeField] protected bool isRight = true;
     protected bool isAlive = true;
@@ -27,11 +26,7 @@ public class CharacterController2D : Character {
          // init rigidbody and animator
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        animatorController = (AnimatorController)animator.runtimeAnimatorController;
-                    
-        if(animatorController.parameters.Length == 0) {
-            AddAnimatorParametes();
-        }
+                   
         animator.SetBool("IsAlive", isAlive);
 
     }
@@ -98,13 +93,6 @@ public class CharacterController2D : Character {
         hp = hp - damage;
     }
 
-    protected virtual void AddAnimatorParametes() {
-
-        animatorController.AddParameter("Speed", AnimatorControllerParameterType.Float);
-        animatorController.AddParameter("IsAlive", AnimatorControllerParameterType.Bool);
-        animatorController.AddParameter("IsAtack", AnimatorControllerParameterType.Bool);
-        animatorController.AddParameter("IsHurt", AnimatorControllerParameterType.Bool);
-    }
     #endregion
 
 

@@ -7,6 +7,7 @@ public class MagicCharacterController : CharacterController2D {
     #region Fields
 
     [SerializeField] protected int mana;
+    [SerializeField] protected const int manaPerTeleport = 5;
     [SerializeField] protected GameObject projectilePrefab;
     protected Vector2 teleportPosition;
 
@@ -30,22 +31,42 @@ public class MagicCharacterController : CharacterController2D {
         gameObject.transform.position = point;
 
     }
+    // calculate hoew much mana will burned for teleport to point
+    private int ManaBurnedForTeleport(Vector2 teleportPosition) {
 
-    protected override void AddAnimatorParametes() {
-        base.AddAnimatorParametes();
-        animatorController.AddParameter("IsTeleportedIn", AnimatorControllerParameterType.Bool);
-        animatorController.AddParameter("IsTeleportedOut", AnimatorControllerParameterType.Bool);
+        // calculate X teleport distance
+        float teleportDistanceX = Mathf.Abs(teleportPosition.x - gameObject.transform.position.x);
+        // calculate Y teleport distance
+        float teleportDistanceY = Mathf.Abs(teleportPosition.y - gameObject.transform.position.y);
+        // calculate all telport distance
+        float teleportDistance = teleportDistanceX + teleportDistanceY;
+
+        return manaPerTeleport * (int)teleportDistance;
     }
     #endregion
 
     #region Animation Events
 
     protected void OnTeleport() {
+
         isTeleportedIn = false;
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
-        TeleportToPoint(teleportPosition);
-        isTeleportedOut = true;
-        animator.SetBool("IsTeleportedOut", isTeleportedOut);
+
+        int manaBurnedForTeleport = ManaBurnedForTeleport(teleportPosition);
+
+        if (mana >= manaBurnedForTeleport) {
+
+            // Debug.Log(manaBurnedForTeleport);
+            mana -= manaBurnedForTeleport;
+            // Debug.Log("Mana: " + mana);
+
+            TeleportToPoint(teleportPosition);
+            isTeleportedOut = true;
+            animator.SetBool("IsTeleportedOut", isTeleportedOut);
+        }
+        else {
+            Debug.Log("Not enough mana for teleportation!");
+        }
     }
     protected void OutTeleport() {
         isTeleportedOut = false;

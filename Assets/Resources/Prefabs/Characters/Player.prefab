@@ -152,7 +152,7 @@ MonoBehaviour:
   speed: 5
   hp: 100
   isRight: 1
-  mana: 0
+  mana: 100
   projectilePrefab: {fileID: 1606735044020938, guid: 8d31877715ba0b2438574d567c33ea6e,
     type: 2}
 --- !u!212 &212627689848446570

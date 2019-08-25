@@ -11,10 +11,19 @@ public class CharacterController2D : Character {
     protected Animator animator;
 
     [SerializeField] protected bool isRight = true;
+
     protected bool isAlive = true;
     protected bool isAtack = false;
     protected bool isHurt = false;
-    
+    protected bool isJump = false;
+
+    protected bool isGrounded;
+
+    [SerializeField] protected Transform feetPos;
+    [SerializeField] protected float checkRadius;
+    [SerializeField] protected float jumpForce;
+    [SerializeField] protected LayerMask whatIsGround;
+
     protected float moveX;
 
     #endregion
@@ -33,6 +42,21 @@ public class CharacterController2D : Character {
 
     protected virtual void Update() {
         Die();
+
+        // ground controll
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        
+        // jump controllling
+        if (isGrounded) {
+            isJump = false;
+            animator.SetBool("IsJump", isJump);
+
+        }
+        else {
+            isJump = true;
+            animator.SetBool("IsJump", isJump);
+        }
+
     }
     protected virtual void FixedUpdate() {
 
@@ -59,12 +83,18 @@ public class CharacterController2D : Character {
         }
 
 
-    }
+    } 
     // set atack is true and play atack animation
     protected override void Atack() {
 
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
+
+    }
+
+    protected override void Jump(float jumpForce) {
+
+        rb.velocity = Vector2.up * jumpForce;
 
     }
 
@@ -81,7 +111,7 @@ public class CharacterController2D : Character {
         }
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision) {
+    protected virtual void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Projectile") {
             int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
             TakeDamage(receivedDamage);

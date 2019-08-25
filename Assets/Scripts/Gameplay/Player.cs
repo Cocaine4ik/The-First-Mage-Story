@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MagicCharacterController {
 
+    private bool canCollect = false;
+
+    private GameObject item;
 
     #region Methods
 
@@ -24,8 +27,28 @@ public class Player : MagicCharacterController {
             Teleport();
 
         }
+        // jump if jump button down
+        if(isGrounded && Input.GetButtonDown("Jump")) {
+
+            Jump(jumpForce);
+
+        }
+
+        if (canCollect && Input.GetButtonDown("Grab")) {
+
+            Grab();
+
+        }
+
     }
 
+    // grab smth or collect item
+    private void Grab() {
+
+        animator.SetBool("CanCollect", canCollect);
+        Destroy(item);
+
+    }
     protected override void FixedUpdate() {
 
         moveX = Input.GetAxis("Horizontal");
@@ -33,5 +56,26 @@ public class Player : MagicCharacterController {
         Move(moveX);
     }
 
+    protected override void OnTriggerEnter2D(Collider2D collision) {
+
+        base.OnTriggerEnter2D(collision);
+
+        if(collision.gameObject.tag == "Item") {
+            canCollect = true;
+
+            item = collision.gameObject;
+        }
+
+    }
     #endregion
+
+    #region Animation Events
+
+    private void OnCollectEnd() {
+        canCollect = false;
+        animator.SetBool("CanCollect", canCollect);
+    }
+
+    #endregion
+
 }

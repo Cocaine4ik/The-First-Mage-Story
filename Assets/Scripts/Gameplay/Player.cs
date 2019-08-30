@@ -47,7 +47,7 @@ public class Player : MagicCharacterController {
 
         animator.SetBool("CanCollect", canCollect);
         Destroy(item);
-
+        EventManager.TriggerEvent(EventName.ExpChange, new EventArg());
     }
     protected override void FixedUpdate() {
 
@@ -74,6 +74,7 @@ public class Player : MagicCharacterController {
     private void OnCollectEnd() {
         canCollect = false;
         animator.SetBool("CanCollect", canCollect);
+
     }
 
     #endregion

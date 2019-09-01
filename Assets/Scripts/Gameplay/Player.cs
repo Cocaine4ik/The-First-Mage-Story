@@ -43,11 +43,12 @@ public class Player : MagicCharacterController {
     }
 
     // grab smth or collect item
-    private void Grab() {
+    private void Pickup() {
 
         animator.SetBool("CanCollect", canCollect);
+        EventManager.TriggerEvent(EventName.PickupItem, new EventArg(item));
         Destroy(item);
-        EventManager.TriggerEvent(EventName.ExpChange, new EventArg());
+        
     }
     protected override void FixedUpdate() {
 
@@ -60,7 +61,7 @@ public class Player : MagicCharacterController {
 
         base.OnTriggerEnter2D(collision);
 
-        if(collision.gameObject.tag == "Item") {
+        if(collision.gameObject.GetComponent<Item>() != null) {
             canCollect = true;
 
             item = collision.gameObject;

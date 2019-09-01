@@ -16,15 +16,33 @@ public class ConfigurationData{
 
     #region Propeties
 
+    #region Properties for "Experience to reach level"
+
     /// <summary>
     /// Gets the number of experience to reach level two
     /// </summary>
-    public int ExpToReachLeveTwo {
+    public int ExpToReachLevelTwo {
 
         get { return (int)values[ConfigurationDataValueName.ExpToReachLeveTwo]; }
 
     }
+    /// <summary>
+    /// Gets the number of experience to reach level three
+    /// </summary>
+    public int ExpToReachLevelThree {
 
+        get { return (int)values[ConfigurationDataValueName.ExpToReachLevelThree]; }
+
+    }
+    /// <summary>
+    /// Gets the number of experience to reach level four
+    /// </summary>
+    public int ExpToReachLevelFour {
+
+        get { return (int)values[ConfigurationDataValueName.ExpToReachLevelFour]; }
+
+    }
+    #endregion
 
     #endregion
 

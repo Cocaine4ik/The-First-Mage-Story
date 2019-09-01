@@ -5,6 +5,7 @@ using UnityEngine;
 public enum EventName {
 
     TimerFinished,
+    PickupItem,
     HpChange,
     ManaChange,
     ExpChange

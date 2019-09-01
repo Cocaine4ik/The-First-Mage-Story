@@ -9,6 +9,7 @@ public class EventArg {
     private int firstIntArg;
     private bool firstBoolArg;
     private TimerName timerName;
+    private Item item;
 
     #endregion
 
@@ -17,6 +18,7 @@ public class EventArg {
     public int FirstIntArg { get { return firstIntArg; } }
     public bool FirstBoolArg { get { return firstBoolArg; } }
     public TimerName TimerName { get { return timerName; } }
+    public Item Item { get { return item; } }
 
     #endregion
 
@@ -39,6 +41,11 @@ public class EventArg {
     // constructor with TimerName
     public EventArg(TimerName timerName) {
         this.timerName = timerName;
+    }
+
+    // constructor with Item
+    public EventArg(Item item) {
+        this.item = item;
     }
     #endregion
 }

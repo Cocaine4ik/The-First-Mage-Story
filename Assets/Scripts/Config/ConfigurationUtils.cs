@@ -12,6 +12,16 @@ public static class ConfigurationUtils {
 
     #region Properties
 
+    #region Properties for "Experience to reach level"
+    /// <summary>
+    /// Gets the number of experience to reach level two
+    /// </summary>
+    public static int ExpToReachLevelTwo {
+        get { return configurationData.ExpToReachLevelTwo; }
+    }
+
+    #endregion
+
     #endregion
 
     #region Methods

@@ -11,11 +11,11 @@ public class GUI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        EventManager.StartListening(EventName.ExpChange, GUIPlayerExpChange);
+        EventManager.StartListening(EventName.PickupItem, GUIPlayerExpChange);
     }
 
     private void OnDestroy() {
-        EventManager.StopListening(EventName.ExpChange, GUIPlayerExpChange);
+        EventManager.StopListening(EventName.PickupItem, GUIPlayerExpChange);
     }
     // Update is called once per frame
     void Update () {
@@ -23,6 +23,7 @@ public class GUI : MonoBehaviour {
 	}
 
     public void GUIPlayerExpChange(EventArg arg) {
+        
         expBar.fillAmount = 0.1f;
     }
 

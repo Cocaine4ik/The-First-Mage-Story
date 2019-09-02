@@ -45,5 +45,26 @@ public class Item : MonoBehaviour {
     public bool IsQuestItem {
         get { return isQuestItem; }
     }
+
+    /// <summary>
+    /// Get true if item is lore item
+    /// </summary>
+    public bool IsLoreItem {
+        get { return isLoreItem; }
+    }
+
+    /// <summary>
+    /// Get value of the item price
+    /// </summary>
+    public int ItemPrice {
+        get { return itemPrice; }
+    }
+
+    /// <summary>
+    /// Get the item description
+    /// </summary>
+    public string ItemDescription {
+        get { return itemDescription; }
+    }
     #endregion
 }

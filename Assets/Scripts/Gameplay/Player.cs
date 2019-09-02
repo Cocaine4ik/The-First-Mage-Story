@@ -5,11 +5,20 @@ using UnityEngine;
 public class Player : MagicCharacterController {
 
     private bool canCollect = false;
-
+    private int ExpToLevelUp;
     private GameObject item;
 
     #region Methods
 
+    private void OnEnable()
+    {
+        EventManager.StartListening(EventName.LevelUp, )
+    }
+    protected override void Start()
+    {
+        base.Start();
+        
+    }
     // Update is called once per frame
     protected override void Update () {
 
@@ -36,17 +45,19 @@ public class Player : MagicCharacterController {
 
         if (canCollect && Input.GetButtonDown("Grab")) {
 
-            Grab();
+            Pickup();
 
         }
 
     }
 
-    // grab smth or collect item
+    // pickup smth or collect item
     private void Pickup() {
 
+        Item pickupItem = GetComponent<Item>();
+
         animator.SetBool("CanCollect", canCollect);
-        EventManager.TriggerEvent(EventName.PickupItem, new EventArg(item));
+        EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
         Destroy(item);
         
     }
@@ -67,6 +78,22 @@ public class Player : MagicCharacterController {
             item = collision.gameObject;
         }
 
+    }
+
+    /// <summary>
+    /// Set exp
+    /// </summary>
+    /// <param name="expAmount"></param>
+    public void SetExp(int expAmount)
+    {
+        exp = expAmount;
+    }
+    /// <summary>
+    /// level up
+    /// </summary>
+    private void OnLevelUp(EventArg arg)
+    {
+        lvl = arg.FirstIntArg;
     }
     #endregion
 

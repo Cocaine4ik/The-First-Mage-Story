@@ -12,6 +12,8 @@ public class GUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         EventManager.StartListening(EventName.PickupItem, GUIPlayerExpChange);
+
+
     }
 
     private void OnDestroy() {

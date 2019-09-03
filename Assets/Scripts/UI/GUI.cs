@@ -11,23 +11,35 @@ public class GUI : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        EventManager.StartListening(EventName.PickupItem, GUIPlayerExpChange);
 
+        EventManager.StartListening(EventName.LevelUp, OnLevelUp);
+        EventManager.StartListening(EventName.AddExp, OnAddExp);
+
+        expBar.fillAmount = 0.0f;
 
     }
 
     private void OnDestroy() {
-        EventManager.StopListening(EventName.PickupItem, GUIPlayerExpChange);
+
+        EventManager.StopListening(EventName.LevelUp, OnLevelUp);
+        EventManager.StopListening(EventName.AddExp, OnAddExp);
+
     }
     // Update is called once per frame
     void Update () {
 		
 	}
 
-    public void GUIPlayerExpChange(EventArg arg) {
+    public void OnAddExp(EventArg arg) {
         
-        expBar.fillAmount = 0.1f;
+
     }
 
+    private void OnLevelUp(EventArg arg)
+    {
+        Debug.Log("Level: " + arg.FirstIntArg);
+        Debug.Log("ExpForLevel: " + arg.SecondIntArg);
+        expBar.fillAmount = 0.0f;
+    }
 
 }

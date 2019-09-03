@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class LevelUpCalculator : MonoBehaviour
 {
     #region Fields
@@ -10,36 +11,37 @@ public class LevelUpCalculator : MonoBehaviour
     [SerializeField] private int expToReachLevel;
     [SerializeField] private int currentLevel;
 
-    private Player player;
-
     #endregion
 
     #region Methods
 
     private void Start()
     {
-        player = GetComponent<Player>();
-        currentLevel = player.Lvl;
-        currentExp = player.Exp;
-        SetExpToReachLevel(currentLevel);
+        EventManager.StartListening(EventName.AddExp, OnAddExp);
+
     }
 
+    private void OnDestroy()
+    {
+        EventManager.StopListening(EventName.AddExp, OnAddExp);
+    }
     private void Update()
     {
-        LevelUp();
-        SetExpToReachLevel(currentLevel);
+        if (currentExp >= expToReachLevel)
+        {
+            LevelUp();
+        }
+
+
     }
     /// <summary>
     /// if experince >= experience to reach level trigget level up event
     /// </summary>
     private void LevelUp()
     {
-        currentExp = player.Exp;
-
-        if (currentExp >= expToReachLevel)
-        {
-            EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel++));
-        }
+            currentLevel += 1;
+            SetExpToReachLevel(currentLevel);
+            EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel, expToReachLevel));
     }
     
     /// <summary>
@@ -52,6 +54,7 @@ public class LevelUpCalculator : MonoBehaviour
         {
             case 1: expToReachLevel = ConfigurationUtils.ExpToReachLevelTwo; break;
             case 2: expToReachLevel = ConfigurationUtils.ExpToReachLevelThree; break;
+            /*
             case 3: expToReachLevel = ConfigurationUtils.ExpToReachLevelFour; break;
             case 4: break;
             case 5: break;
@@ -70,14 +73,15 @@ public class LevelUpCalculator : MonoBehaviour
             case 18: break;
             case 19: break;
             case 20: break;
+            */
         }
     }
 
-    public void AddExp(int expAmount)
+    private void OnAddExp(EventArg arg)
     {
-
-        player.SetExp(expAmount);
+        currentExp += arg.FirstIntArg;
 
     }
+
     #endregion
 }

@@ -28,22 +28,6 @@ public class CharacterController2D : Character {
 
     #endregion
 
-    #region Properties
-
-    /// <summary>
-    /// Get level
-    /// </summary>
-    public int Lvl {
-        get { return lvl; }
-    }
-
-    /// <summary>
-    /// Get experience
-    /// </summary>
-    public int Exp {
-        get { return exp; }
-    }
-    #endregion
     #region Methods
 
     protected virtual void Start() {

@@ -67,4 +67,10 @@ public class Item : MonoBehaviour {
         get { return itemDescription; }
     }
     #endregion
+
+    #region Methods
+
+
+
+    #endregion
 }

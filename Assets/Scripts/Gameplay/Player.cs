@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class Player : MagicCharacterController {
 
+    #region Fields
+
     private bool canCollect = false;
-    private int ExpToLevelUp;
     private GameObject item;
+
+    [SerializeField] private int expToReachLevel;
+    #endregion
+
+    #region Properties
+
+    #endregion
 
     #region Methods
 
-    private void OnEnable()
-    {
-        EventManager.StartListening(EventName.LevelUp, )
-    }
-    protected override void Start()
-    {
-        base.Start();
-        
-    }
     // Update is called once per frame
     protected override void Update () {
 
@@ -80,21 +80,6 @@ public class Player : MagicCharacterController {
 
     }
 
-    /// <summary>
-    /// Set exp
-    /// </summary>
-    /// <param name="expAmount"></param>
-    public void SetExp(int expAmount)
-    {
-        exp = expAmount;
-    }
-    /// <summary>
-    /// level up
-    /// </summary>
-    private void OnLevelUp(EventArg arg)
-    {
-        lvl = arg.FirstIntArg;
-    }
     #endregion
 
     #region Animation Events

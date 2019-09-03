@@ -7,6 +7,7 @@ public class EventArg {
     #region Fields
 
     private int firstIntArg;
+    private int secondIntArg;
     private bool firstBoolArg;
     private TimerName timerName;
     private Item item;
@@ -16,6 +17,8 @@ public class EventArg {
     #region Properties
 
     public int FirstIntArg { get { return firstIntArg; } }
+
+    public int SecondIntArg {  get { return secondIntArg; } }
     public bool FirstBoolArg { get { return firstBoolArg; } }
     public TimerName TimerName { get { return timerName; } }
     public Item Item { get { return item; } }
@@ -31,6 +34,13 @@ public class EventArg {
     // constructor with one int arg
     public EventArg(int arg) {
         this.firstIntArg = arg;
+    }
+
+    // constructor with two int arg
+    public EventArg(int arg, int arg2)
+    {
+        this.firstIntArg = arg;
+        this.secondIntArg = arg2;
     }
 
     // constructor with one bool arg

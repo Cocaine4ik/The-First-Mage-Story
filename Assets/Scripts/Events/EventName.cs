@@ -6,5 +6,8 @@ public enum EventName {
 
     TimerFinished,
     PickupItem,
-    LevelUp
+    LevelUp,
+    AddExp,
+    HpChange,
+    ManaChange
 }

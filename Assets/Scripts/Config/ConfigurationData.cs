@@ -26,6 +26,7 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.ExpToReachLeveTwo]; }
 
     }
+    
     /// <summary>
     /// Gets the number of experience to reach level three
     /// </summary>
@@ -34,6 +35,7 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.ExpToReachLevelThree]; }
 
     }
+    /*
     /// <summary>
     /// Gets the number of experience to reach level four
     /// </summary>
@@ -42,6 +44,7 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.ExpToReachLevelFour]; }
 
     }
+    */
     #endregion
 
     #endregion
@@ -97,8 +100,9 @@ public class ConfigurationData{
         /// <summary>
         /// Values for experience need to reach levels
         /// </summary>
-        values.Add(ConfigurationDataValueName.ExpToReachLeveTwo, 500);
+        values.Add(ConfigurationDataValueName.ExpToReachLeveTwo, 500);  
         values.Add(ConfigurationDataValueName.ExpToReachLevelThree, 1000);
+        /*
         values.Add(ConfigurationDataValueName.ExpToReachLevelFour, 3000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelFive, 5000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelSix, 8000);
@@ -116,6 +120,7 @@ public class ConfigurationData{
         values.Add(ConfigurationDataValueName.ExpToReachLevelEighteen, 88000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelNineteen, 93000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelTwelve, 100000);
+        */
     }
 
     #endregion

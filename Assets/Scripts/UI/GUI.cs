@@ -13,7 +13,7 @@ public class GUI : MonoBehaviour {
     void Start () {
 
         EventManager.StartListening(EventName.LevelUp, OnLevelUp);
-        EventManager.StartListening(EventName.AddExp, OnAddExp);
+        EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
 
         expBar.fillAmount = 0.0f;
 
@@ -22,7 +22,7 @@ public class GUI : MonoBehaviour {
     private void OnDestroy() {
 
         EventManager.StopListening(EventName.LevelUp, OnLevelUp);
-        EventManager.StopListening(EventName.AddExp, OnAddExp);
+        EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
 
     }
     // Update is called once per frame
@@ -30,8 +30,9 @@ public class GUI : MonoBehaviour {
 		
 	}
 
-    public void OnAddExp(EventArg arg) {
-        
+    public void OnGUIExpChange(EventArg arg) {
+
+        expBar.fillAmount = arg.FirstFloatArg;
 
     }
 

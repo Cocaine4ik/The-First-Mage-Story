@@ -41,7 +41,7 @@ public class LevelUpCalculator : MonoBehaviour
     {
             currentLevel += 1;
             SetExpToReachLevel(currentLevel);
-            EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel, expToReachLevel));
+            EventManager.TriggerEvent(EventName.LevelUp, new EventArg());
     }
     
     /// <summary>
@@ -80,7 +80,9 @@ public class LevelUpCalculator : MonoBehaviour
     private void OnAddExp(EventArg arg)
     {
         currentExp += arg.FirstIntArg;
-
+        float expPercent = arg.FirstIntArg / expToReachLevel;
+        Debug.Log("Exp added: " + arg.FirstIntArg + " Exp: " + currentExp + " " + expPercent);
+        EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
 
     #endregion

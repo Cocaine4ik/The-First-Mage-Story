@@ -8,6 +8,7 @@ public class EventArg {
 
     private int firstIntArg;
     private int secondIntArg;
+    private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
     private Item item;
@@ -17,8 +18,8 @@ public class EventArg {
     #region Properties
 
     public int FirstIntArg { get { return firstIntArg; } }
-
     public int SecondIntArg {  get { return secondIntArg; } }
+    public float FirstFloatArg { get { return firstFloatArg; } }
     public bool FirstBoolArg { get { return firstBoolArg; } }
     public TimerName TimerName { get { return timerName; } }
     public Item Item { get { return item; } }
@@ -43,6 +44,14 @@ public class EventArg {
         this.secondIntArg = arg2;
     }
 
+    /// <summary>
+    /// constructor with one float arg
+    /// </summary>
+    /// <param name="arg"></param>
+    public EventArg(float arg)
+    {
+        this.firstFloatArg = arg;
+    }
     // constructor with one bool arg
     public EventArg(bool arg) {
         this.firstBoolArg = arg;

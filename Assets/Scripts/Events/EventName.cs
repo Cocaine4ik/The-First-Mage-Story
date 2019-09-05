@@ -8,6 +8,7 @@ public enum EventName {
     PickupItem,
     LevelUp,
     AddExp,
+    GUIExpChange,
     HpChange,
     ManaChange
 }

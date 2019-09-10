@@ -25,23 +25,19 @@ public class LevelUpCalculator : MonoBehaviour
     {
         EventManager.StopListening(EventName.AddExp, OnAddExp);
     }
-    private void Update()
-    {
-        if (currentExp >= expToReachLevel)
-        {
-            LevelUp();
-        }
 
-
-    }
     /// <summary>
     /// if experince >= experience to reach level trigget level up event
     /// </summary>
-    private void LevelUp()
-    {
-            currentLevel += 1;
-            SetExpToReachLevel(currentLevel);
-            EventManager.TriggerEvent(EventName.LevelUp, new EventArg());
+    private void LevelUp()  {
+
+        currentLevel += 1;
+
+        int previousLevelMaxExp = expToReachLevel;
+
+        SetExpToReachLevel(currentLevel);
+        EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
+        ChangeExpValue(currentExp - previousLevelMaxExp);
     }
     
     /// <summary>
@@ -80,10 +76,22 @@ public class LevelUpCalculator : MonoBehaviour
     private void OnAddExp(EventArg arg)
     {
         currentExp += arg.FirstIntArg;
-        float expPercent = arg.FirstIntArg / expToReachLevel;
-        Debug.Log("Exp added: " + arg.FirstIntArg + " Exp: " + currentExp + " " + expPercent);
-        EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
+        ChangeExpValue(arg.FirstIntArg);
+
+        if (currentExp >= expToReachLevel)
+        {
+            LevelUp();
+        }
+
     }
 
+    private void ChangeExpValue(int exp)
+    {
+
+        float expPercent = (float)exp/ expToReachLevel;
+        Debug.Log("Exp added: " + exp + " Exp: " + currentExp + " ExpToReach " + expToReachLevel + " " + expPercent);
+
+        EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
+    }
     #endregion
 }

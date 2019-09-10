@@ -7,6 +7,7 @@ public class MagicCharacterController : CharacterController2D {
     #region Fields
 
     [SerializeField] protected int mana;
+    [SerializeField] protected int currentMana;
     [SerializeField] protected const int manaPerTeleport = 5;
     [SerializeField] protected GameObject projectilePrefab;
     protected Vector2 teleportPosition;
@@ -18,6 +19,11 @@ public class MagicCharacterController : CharacterController2D {
 
     #region Methods
 
+    protected override void Start()
+    {
+        base.Start();
+        currentMana = mana;
+    }
     protected void Teleport() {
 
         teleportPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -47,22 +53,27 @@ public class MagicCharacterController : CharacterController2D {
 
     #region Animation Events
 
-    protected void OnTeleport() {
+    protected virtual void OnTeleport() {
 
         isTeleportedIn = false;
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
 
         int manaBurnedForTeleport = ManaBurnedForTeleport(teleportPosition);
 
-        if (mana >= manaBurnedForTeleport) {
+        if (currentMana >= manaBurnedForTeleport) {
 
-            // Debug.Log(manaBurnedForTeleport);
-            mana -= manaBurnedForTeleport;
-            // Debug.Log("Mana: " + mana);
+            currentMana -= manaBurnedForTeleport;
 
             TeleportToPoint(teleportPosition);
             isTeleportedOut = true;
             animator.SetBool("IsTeleportedOut", isTeleportedOut);
+
+            if(gameObject.GetComponent<Player>() != null)
+            {
+                float manaPercent = (float)manaBurnedForTeleport / mana;
+                EventManager.TriggerEvent(EventName.ManaChange, new EventArg(manaPercent));
+            } 
+
         }
         else {
             Debug.Log("Not enough mana for teleportation!");

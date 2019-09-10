@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GUI : MonoBehaviour {
 
     [SerializeField] private Image hpBar;
     [SerializeField] private Image manaBar;
     [SerializeField] private Image expBar;
+    [SerializeField] private TextMeshProUGUI lvlLabel;
 
     // Use this for initialization
     void Start () {
 
         EventManager.StartListening(EventName.LevelUp, OnLevelUp);
         EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
+        EventManager.StartListening(EventName.ManaChange, OnGUIManaChange);
 
         expBar.fillAmount = 0.0f;
 
@@ -23,6 +26,7 @@ public class GUI : MonoBehaviour {
 
         EventManager.StopListening(EventName.LevelUp, OnLevelUp);
         EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
+        EventManager.StopListening(EventName.ManaChange, OnGUIManaChange);
 
     }
     // Update is called once per frame
@@ -32,14 +36,17 @@ public class GUI : MonoBehaviour {
 
     public void OnGUIExpChange(EventArg arg) {
 
-        expBar.fillAmount = arg.FirstFloatArg;
+        expBar.fillAmount += arg.FirstFloatArg;
 
     }
 
+    public void OnGUIManaChange(EventArg arg)
+    {
+        manaBar.fillAmount -= arg.FirstFloatArg;
+    }
     private void OnLevelUp(EventArg arg)
     {
-        Debug.Log("Level: " + arg.FirstIntArg);
-        Debug.Log("ExpForLevel: " + arg.SecondIntArg);
+        lvlLabel.text = "lvl: " + arg.FirstIntArg;
         expBar.fillAmount = 0.0f;
     }
 

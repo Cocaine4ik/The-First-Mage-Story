@@ -61,6 +61,7 @@ public class Player : MagicCharacterController {
         Destroy(item);
         
     }
+
     protected override void FixedUpdate() {
 
         moveX = Input.GetAxis("Horizontal");

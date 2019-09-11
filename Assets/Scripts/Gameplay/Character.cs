@@ -8,6 +8,7 @@ public abstract class Character : MonoBehaviour {
     [SerializeField] protected GameObject corpse;
     [SerializeField] protected float speed = 5f;
     [SerializeField] protected int hp;
+    [SerializeField] protected int currentHp;
 
     protected abstract void Move(float moveX);
 

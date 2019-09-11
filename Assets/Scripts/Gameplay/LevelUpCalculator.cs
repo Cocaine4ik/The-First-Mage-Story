@@ -13,6 +13,13 @@ public class LevelUpCalculator : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public int CurrentExp { get { return currentExp; } }
+    public int ExpToReachLevel { get { return expToReachLevel; } }
+    public int CurrentLevel { get { return CurrentLevel; } }
+
+    #endregion
     #region Methods
 
     private void Start()

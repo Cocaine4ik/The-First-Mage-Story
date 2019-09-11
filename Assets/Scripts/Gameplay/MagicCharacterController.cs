@@ -17,6 +17,13 @@ public class MagicCharacterController : CharacterController2D {
 
     #endregion
 
+    #region Properties
+
+    public int Mana { get { return mana; } }
+    public int CurrentMana { get { return currentMana; } }
+
+    #endregion
+
     #region Methods
 
     protected override void Start()

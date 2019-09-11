@@ -28,6 +28,12 @@ public class CharacterController2D : Character {
 
     #endregion
 
+    #region Properties
+
+    public int Hp { get { return hp; } }
+    public int CurrentHp { get { return currentHp; } }
+
+    #endregion
     #region Methods
 
     protected virtual void Start() {
@@ -37,6 +43,8 @@ public class CharacterController2D : Character {
         animator = GetComponent<Animator>();
                    
         animator.SetBool("IsAlive", isAlive);
+
+        currentHp = Hp;
 
     }
 

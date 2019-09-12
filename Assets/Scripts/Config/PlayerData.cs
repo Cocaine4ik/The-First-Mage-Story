@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [System.Serializable]
 public class PlayerData {
 
@@ -13,7 +14,7 @@ public class PlayerData {
     private int hp;
     private int mana;
 
-    private float[] postion;
+    private float[] position;
     #endregion
 
     #region Constructor
@@ -21,7 +22,6 @@ public class PlayerData {
     public PlayerData(GameObject player) {
 
         if (player != null) {
-
             Player playerMain = player.GetComponent<Player>();
             LevelUpCalculator playerExp = player.GetComponent<LevelUpCalculator>();
 
@@ -32,10 +32,10 @@ public class PlayerData {
             hp = playerMain.Hp;
             
 
-            postion = new float[3];
-            postion[0] = player.transform.position.x;
-            postion[1] = player.transform.position.y;
-            postion[2] = player.transform.position.z;
+            position = new float[3];
+            position[0] = player.transform.position.x;
+            position[1] = player.transform.position.y;
+            position[2] = player.transform.position.z;
         }
 
         else {

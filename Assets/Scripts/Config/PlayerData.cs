@@ -25,17 +25,17 @@ public class PlayerData {
             Player playerMain = player.GetComponent<Player>();
             LevelUpCalculator playerExp = player.GetComponent<LevelUpCalculator>();
 
-            level = playerExp.CurrentLevel;
+            level = playerExp.CurrentExp;
             exp = playerExp.CurrentExp;
             expToReachLevel = playerExp.ExpToReachLevel;
-
-            hp = playerMain.Hp;
-            
 
             position = new float[3];
             position[0] = player.transform.position.x;
             position[1] = player.transform.position.y;
             position[2] = player.transform.position.z;
+
+            hp = playerMain.Hp;
+            
         }
 
         else {

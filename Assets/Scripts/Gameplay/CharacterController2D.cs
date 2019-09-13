@@ -33,6 +33,8 @@ public class CharacterController2D : Character {
     public int Hp { get { return hp; } }
     public int CurrentHp { get { return currentHp; } }
 
+    public bool IsAlive {  get { return IsAlive; } }
+
     #endregion
     #region Methods
 

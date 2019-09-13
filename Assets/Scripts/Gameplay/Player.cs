@@ -49,6 +49,9 @@ public class Player : MagicCharacterController {
 
         }
 
+        if (Input.GetKeyDown(KeyCode.F5)) {
+            SavePLayer();
+        }
     }
 
     // pickup smth or collect item
@@ -76,11 +79,17 @@ public class Player : MagicCharacterController {
         if(collision.gameObject.GetComponent<Item>() != null) {
             canCollect = true;
 
+            collision.gameObject.GetComponent<Item>().IsPickup = true;
             item = collision.gameObject;
         }
 
     }
 
+
+    public void SavePLayer() {
+
+        SaveSystem.SavePlayer(this.gameObject);
+    }
     #endregion
 
     #region Animation Events

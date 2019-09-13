@@ -12,13 +12,14 @@ public static class SaveSystem {
         BinaryFormatter formatter = new BinaryFormatter();
 
         // C:/Users/Cocaine/AppData/LocalLow/DefaultCompany/The First Mage Story
-        string path = Application.persistentDataPath + "Player.fun";
+        string path = Application.persistentDataPath + "/Player.fun";
         FileStream stream = new FileStream(path, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
 
         formatter.Serialize(stream, data);
         stream.Close();
+        Debug.Log("Save Complete.");
         
     }
 

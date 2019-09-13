@@ -17,7 +17,7 @@ public class LevelUpCalculator : MonoBehaviour
 
     public int CurrentExp { get { return currentExp; } }
     public int ExpToReachLevel { get { return expToReachLevel; } }
-    public int CurrentLevel { get { return CurrentLevel; } }
+    public int СurrentLevel { get { return currentLevel; } }
 
     #endregion
     #region Methods

@@ -14,6 +14,8 @@ public class Item : MonoBehaviour {
     [SerializeField] private int itemPrice;
     [SerializeField] private string itemDescription;
 
+    private bool isPickup;
+
     #endregion
 
     #region Properties
@@ -68,9 +70,23 @@ public class Item : MonoBehaviour {
     }
     #endregion
 
+    /// <summary>
+    /// Get, set if the item is pickup
+    /// </summary>
+    public bool IsPickup {
+        get { return isPickup; }
+        set { isPickup = value; }
+    }
+
+    /// <summary>
+    /// initialize isPickup field
+    /// </summary>
     #region Methods
 
+    private void Start() {
 
+        isPickup = false;
+    }
 
     #endregion
 }

@@ -25,7 +25,7 @@ public static class SaveSystem {
 
     public static PlayerData LoadPlayer() {
 
-        string path = Application.persistentDataPath + "Player.fun";
+        string path = Application.persistentDataPath + "/Player.fun";
         
         if(File.Exists(path)) {
 

@@ -12,13 +12,27 @@ public class PlayerData {
     private int exp;
     private int expToReachLevel;
     private int hp;
+    private int currentHp;
     private int mana;
+    private int currentMana;
 
     private float[] position;
     #endregion
 
+    #region Properties
+
+    public int Level { get { return level; } }
+    public int Exp{ get { return exp; } }
+    public int ExpToReachLevel { get { return expToReachLevel; } }
+    public int Hp { get { return hp; } }
+    public int CurrentHp { get { return currentHp; } }
+    public int Mana { get { return mana; } }
+    public int CurrentMana { get { return currentHp; } }
+    public float[] Position { get { return position; } }
+
+    #endregion
+
     #region Constructor
-    ///
     public PlayerData(GameObject player) {
 
         if (player != null) {
@@ -35,6 +49,9 @@ public class PlayerData {
             position[2] = player.transform.position.z;
 
             hp = playerMain.Hp;
+            currentHp = playerMain.CurrentHp;
+            mana = playerMain.Mana;
+            currentMana = playerMain.CurrentMana;
             
         }
 

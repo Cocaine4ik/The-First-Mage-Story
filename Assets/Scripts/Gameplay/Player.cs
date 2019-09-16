@@ -52,6 +52,11 @@ public class Player : MagicCharacterController {
         if (Input.GetKeyDown(KeyCode.F5)) {
             SavePLayer();
         }
+
+        if(Input.GetKeyDown(KeyCode.F6)) {
+            LoadPlayer();
+        }
+
     }
 
     // pickup smth or collect item
@@ -67,9 +72,13 @@ public class Player : MagicCharacterController {
 
     protected override void FixedUpdate() {
 
-        moveX = Input.GetAxis("Horizontal");
-        base.FixedUpdate();
-        Move(moveX);
+        if(Input.GetAxis("Horizontal") != 0) {
+
+            moveX = Input.GetAxis("Horizontal");
+            base.FixedUpdate();
+            Move(moveX);
+        }
+
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
@@ -89,6 +98,15 @@ public class Player : MagicCharacterController {
     public void SavePLayer() {
 
         SaveSystem.SavePlayer(this.gameObject);
+    }
+
+    public void LoadPlayer() {
+
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        currentMana = data.CurrentMana;
+        gameObject.transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
+
     }
     #endregion
 

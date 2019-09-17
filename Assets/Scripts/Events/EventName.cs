@@ -10,5 +10,7 @@ public enum EventName {
     AddExp,
     GUIExpChange,
     HpChange,
-    ManaChange
+    ManaChange,
+    Save,
+    Load
 }

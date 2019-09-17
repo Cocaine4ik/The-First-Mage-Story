@@ -6,11 +6,23 @@ using TMPro;
 
 public class GUI : MonoBehaviour {
 
+    #region Fields
+
     [SerializeField] private Image hpBar;
     [SerializeField] private Image manaBar;
     [SerializeField] private Image expBar;
     [SerializeField] private TextMeshProUGUI lvlLabel;
 
+    #endregion
+
+    #region Properties
+
+    public Image HpBar { get { return hpBar; } }
+    public Image ManaBar { get { return manaBar; } }
+    public Image ExpBar { get { return expBar; } }
+    public TextMeshProUGUI LvlLabel { get { return lvlLabel; } }
+
+    #endregion
     // Use this for initialization
     void Start () {
 

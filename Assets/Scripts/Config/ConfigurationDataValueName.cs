@@ -25,5 +25,10 @@ public enum ConfigurationDataValueName{
     ExpToReachLevelSeventeen,
     ExpToReachLevelEighteen,
     ExpToReachLevelNineteen,
-    ExpToReachLevelTwenty
+    ExpToReachLevelTwenty,
+    // default values for attributes
+    SpiritDeafault,
+    KnowledgeDefault,
+    WisdomDefault,
+    PersonalityDefault
 }

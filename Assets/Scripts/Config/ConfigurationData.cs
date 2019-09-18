@@ -35,6 +35,14 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.ExpToReachLevelThree]; }
 
     }
+    /// <summary>
+    /// Gets the spirit attribute number
+    /// </summary>
+    public int SpiritDeafult {
+        get { return (int)values[ConfigurationDataValueName.SpiritDeafault]; }
+    }
+
+    public int
     /*
     /// <summary>
     /// Gets the number of experience to reach level four

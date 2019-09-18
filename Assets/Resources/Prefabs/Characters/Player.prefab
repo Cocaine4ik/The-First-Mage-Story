@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 95733135540165986}
   - component: {fileID: 114349441289081656}
   - component: {fileID: 4557483816960451022}
+  - component: {fileID: 2100994989823232021}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -167,9 +168,8 @@ MonoBehaviour:
   atackPoint: {fileID: 4735104052038380}
   corpse: {fileID: 0}
   speed: 3
-  lvl: 1
-  exp: 0
   hp: 100
+  currentHp: 0
   isRight: 1
   feetPos: {fileID: 4920649152002598}
   checkRadius: 0.3
@@ -178,6 +178,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   mana: 100
+  currentMana: 0
   projectilePrefab: {fileID: 1606735044020938, guid: 8d31877715ba0b2438574d567c33ea6e,
     type: 3}
   expToReachLevel: 0
@@ -196,6 +197,22 @@ MonoBehaviour:
   currentExp: 0
   expToReachLevel: 0
   currentLevel: 0
+--- !u!114 &2100994989823232021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1121661219429204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2809b5dd388521f46b87def5483bdf9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spirit: 0
+  knowledge: 0
+  wisdom: 0
+  personality: 0
 --- !u!1 &1603638208729370
 GameObject:
   m_ObjectHideFlags: 0

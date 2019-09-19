@@ -31,7 +31,8 @@ public class Attributes : MonoBehaviour
     #region Methods
 
     private void Awake() {
-        spirit = 
+        spirit = ConfigurationUtils.SpiritDefault;
+
     }
 
     #endregion

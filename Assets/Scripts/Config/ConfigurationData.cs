@@ -42,7 +42,7 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.SpiritDeafault]; }
     }
 
-    public int
+    
     /*
     /// <summary>
     /// Gets the number of experience to reach level four

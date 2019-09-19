@@ -35,6 +35,10 @@ public static class ConfigurationUtils {
         get { return configurationData.ExpToReachLevelFour; }
     }
     */
+
+    public static int SpiritDefault {
+        get { return configurationData.SpiritDeafult; }
+    }
     #endregion
 
     #endregion

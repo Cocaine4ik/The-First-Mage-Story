@@ -16,7 +16,7 @@ public class ConfigurationData{
 
     #region Propeties
 
-    #region Properties for "Experience to reach level"
+    #region Experience to reach level
 
     /// <summary>
     /// Gets the number of experience to reach level two
@@ -35,14 +35,8 @@ public class ConfigurationData{
         get { return (int)values[ConfigurationDataValueName.ExpToReachLevelThree]; }
 
     }
-    /// <summary>
-    /// Gets the spirit attribute number
-    /// </summary>
-    public int SpiritDeafult {
-        get { return (int)values[ConfigurationDataValueName.SpiritDeafault]; }
-    }
 
-    
+
     /*
     /// <summary>
     /// Gets the number of experience to reach level four
@@ -53,6 +47,51 @@ public class ConfigurationData{
 
     }
     */
+    #endregion
+
+    #region Attributes default
+
+    /// <summary>
+    /// Gets the health default value
+    /// </summary>
+    public int HpDeafult {
+        get { return (int)values[ConfigurationDataValueName.HpDefault]; }
+    }
+
+    /// <summary>
+    /// Gets the mana default value
+    /// </summary>
+    public int ManaDfault {
+        get { return (int)values[ConfigurationDataValueName.ManaDefault]; }
+    }
+
+    /// <summary>
+    /// Gets the spirit attribute default value
+    /// </summary>
+    public int SpiritDeafult {
+        get { return (int)values[ConfigurationDataValueName.SpiritDeafault]; }
+    }
+
+    /// <summary>
+    /// Gets the knowledge attribute default value
+    /// </summary>
+    public int KnowledgeDeafult {
+        get { return (int)values[ConfigurationDataValueName.KnowledgeDefault]; }
+    }
+
+    /// <summary>
+    /// Get the wisdom attribute default value
+    /// </summary>
+    public int WisdomDefault {
+        get { return (int)values[ConfigurationDataValueName.WisdomDefault]; }
+    }
+
+    /// <summary>
+    /// Get the personality default value
+    /// </summary>
+    public int PersonalityDefault {
+        get { return (int)values[ConfigurationDataValueName.PersonalityDefault]; }
+    }
     #endregion
 
     #endregion
@@ -84,6 +123,7 @@ public class ConfigurationData{
 
             // set default values if something went wrong
             SetDefaultValues();
+            Debug.Log("Setting default values...");
         }
         finally {
 
@@ -129,6 +169,13 @@ public class ConfigurationData{
         values.Add(ConfigurationDataValueName.ExpToReachLevelNineteen, 93000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelTwelve, 100000);
         */
+        values.Add(ConfigurationDataValueName.HpDefault, 100);
+        values.Add(ConfigurationDataValueName.ManaDefault, 100);
+
+        values.Add(ConfigurationDataValueName.SpiritDeafault, 10);
+        values.Add(ConfigurationDataValueName.KnowledgeDefault, 10);
+        values.Add(ConfigurationDataValueName.WisdomDefault, 10);
+        values.Add(ConfigurationDataValueName.PersonalityDefault, 10);
     }
 
     #endregion

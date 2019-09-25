@@ -7,6 +7,8 @@ public class Player : MagicCharacterController {
 
     #region Fields
 
+    Attributes stats;
+
     private bool canCollect = false;
     private GameObject item;
 
@@ -50,13 +52,18 @@ public class Player : MagicCharacterController {
         }
 
         if (Input.GetKeyDown(KeyCode.F5)) {
-            SavePLayer();
+            stats.SavePlayer();
         }
 
         if(Input.GetKeyDown(KeyCode.F6)) {
-            LoadPlayer();
+            stats.LoadPlayer();
         }
 
+    }
+
+    protected override void Start() {
+        base.Start();
+        stats = GetComponent<Attributes>();
     }
 
     // pickup smth or collect item
@@ -94,20 +101,6 @@ public class Player : MagicCharacterController {
 
     }
 
-
-    public void SavePLayer() {
-
-        SaveSystem.SavePlayer(this.gameObject);
-    }
-
-    public void LoadPlayer() {
-
-        PlayerData data = SaveSystem.LoadPlayer();
-
-        currentMana = data.CurrentMana;
-        gameObject.transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
-
-    }
     #endregion
 
     #region Animation Events

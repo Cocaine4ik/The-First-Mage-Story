@@ -7,7 +7,6 @@ public class MagicCharacterController : CharacterController2D {
     #region Fields
 
     [SerializeField] protected int mana;
-    [SerializeField] protected int currentMana;
     [SerializeField] protected const int manaPerTeleport = 5;
     [SerializeField] protected GameObject projectilePrefab;
     protected Vector2 teleportPosition;
@@ -19,18 +18,12 @@ public class MagicCharacterController : CharacterController2D {
 
     #region Properties
 
-    public int Mana { get { return mana; } }
-    public int CurrentMana { get { return currentMana; } }
+    public int Mana { get; set; }
 
     #endregion
 
     #region Methods
 
-    protected override void Start()
-    {
-        base.Start();
-        currentMana = mana;
-    }
     protected void Teleport() {
 
         teleportPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -67,9 +60,9 @@ public class MagicCharacterController : CharacterController2D {
 
         int manaBurnedForTeleport = ManaBurnedForTeleport(teleportPosition);
 
-        if (currentMana >= manaBurnedForTeleport) {
+        if (mana >= manaBurnedForTeleport) {
 
-            currentMana -= manaBurnedForTeleport;
+            mana -= manaBurnedForTeleport;
 
             TeleportToPoint(teleportPosition);
             isTeleportedOut = true;

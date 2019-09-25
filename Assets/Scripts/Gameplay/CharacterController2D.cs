@@ -30,8 +30,7 @@ public class CharacterController2D : Character {
 
     #region Properties
 
-    public int Hp { get { return hp; } }
-    public int CurrentHp { get { return currentHp; } }
+    public int Hp { get; set; }
 
     public bool IsAlive {  get { return IsAlive; } }
 
@@ -45,8 +44,6 @@ public class CharacterController2D : Character {
         animator = GetComponent<Animator>();
                    
         animator.SetBool("IsAlive", isAlive);
-
-        currentHp = Hp;
 
     }
 

@@ -11,9 +11,9 @@ public class PlayerData {
     private int level;
     private int exp;
     private int expToReachLevel;
-    private int hp;
+    private int maxHp;
     private int currentHp;
-    private int mana;
+    private int maxMana;
     private int currentMana;
 
     private float[] position;
@@ -24,9 +24,9 @@ public class PlayerData {
     public int Level { get { return level; } }
     public int Exp{ get { return exp; } }
     public int ExpToReachLevel { get { return expToReachLevel; } }
-    public int Hp { get { return hp; } }
+    public int MaxHp { get { return maxHp; } }
     public int CurrentHp { get { return currentHp; } }
-    public int Mana { get { return mana; } }
+    public int MaxMana { get { return maxMana; } }
     public int CurrentMana { get { return currentHp; } }
     public float[] Position { get { return position; } }
 
@@ -36,7 +36,7 @@ public class PlayerData {
     public PlayerData(GameObject player) {
 
         if (player != null) {
-            Player playerMain = player.GetComponent<Player>();
+            Attributes stats = player.GetComponent<Attributes>();
             LevelUpCalculator playerExp = player.GetComponent<LevelUpCalculator>();
 
             level = playerExp.CurrentExp;
@@ -48,10 +48,10 @@ public class PlayerData {
             position[1] = player.transform.position.y;
             position[2] = player.transform.position.z;
 
-            hp = playerMain.Hp;
-            currentHp = playerMain.CurrentHp;
-            mana = playerMain.Mana;
-            currentMana = playerMain.CurrentMana;
+            maxHp = stats.MaxHp;
+            currentHp = stats.CurrentHp;
+            maxMana = stats.MaxMana;
+            currentMana = stats.CurrentMana;
             
         }
 

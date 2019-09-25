@@ -12,7 +12,7 @@ public static class ConfigurationUtils {
 
     #region Properties
 
-    #region Properties for "Experience to reach level"
+    #region Experience to reach level
 
     /// <summary>
     /// Gets the number of experience to reach level two
@@ -35,9 +35,49 @@ public static class ConfigurationUtils {
         get { return configurationData.ExpToReachLevelFour; }
     }
     */
+    #endregion
 
+    #region Attributes default
+
+    /// <summary>
+    /// Gets the health default value
+    /// </summary>
+    public static int HpDefault {
+        get { return configurationData.HpDeafult; }
+    }
+
+    /// <summary>
+    /// Gets the mana default value
+    /// </summary>
+    public static int ManaDefault {
+        get { return configurationData.ManaDfault; }
+    }
+    /// <summary>
+    /// Gets the spirit attribute default value
+    /// </summary>
     public static int SpiritDefault {
         get { return configurationData.SpiritDeafult; }
+    }
+
+    /// <summary>
+    /// Gets the knowledge attribute default value
+    /// </summary>
+    public static int KnowledgeDefault {
+        get { return configurationData.KnowledgeDeafult; }
+    }
+
+    /// <summary>
+    /// Gets the wisdom attribute default value
+    /// </summary>
+    public static int WisdomDefault {
+        get { return configurationData.WisdomDefault; }
+    }
+
+    /// <summary>
+    /// Gets the personality attribute default value
+    /// </summary>
+    public static int PersonalityDefault {
+        get { return configurationData.PersonalityDefault; }
     }
     #endregion
 

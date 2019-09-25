@@ -4,9 +4,8 @@ using UnityEngine;
 
 public enum ConfigurationDataValueName{
 
-    /// <summary>
-    /// Values for experience need to reach levels
-    /// </summary>
+    #region Values for experience need to reach levels
+
     ExpToReachLeveTwo,
     ExpToReachLevelThree,
     ExpToReachLevelFour,
@@ -26,9 +25,17 @@ public enum ConfigurationDataValueName{
     ExpToReachLevelEighteen,
     ExpToReachLevelNineteen,
     ExpToReachLevelTwenty,
-    // default values for attributes
+
+    #endregion
+
+    #region Attributes default values
+
+    HpDefault,
+    ManaDefault,
     SpiritDeafault,
     KnowledgeDefault,
     WisdomDefault,
     PersonalityDefault
+
+    #endregion
 }

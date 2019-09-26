@@ -88,6 +88,11 @@ public class Player : MagicCharacterController {
 
     }
 
+    private void LateUpdate()
+    {
+        stats.SetMana(mana);
+        stats.SeteHp(hp);
+    }
     protected override void OnTriggerEnter2D(Collider2D collision) {
 
         base.OnTriggerEnter2D(collision);

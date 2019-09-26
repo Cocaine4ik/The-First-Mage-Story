@@ -96,7 +96,6 @@ public class LevelUpCalculator : MonoBehaviour
     {
 
         float expPercent = (float)exp/ expToReachLevel;
-        Debug.Log("Exp added: " + exp + " Exp: " + currentExp + " ExpToReach " + expToReachLevel + " " + expPercent);
 
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }

@@ -28,7 +28,7 @@ public class ConfigurationData{
     }
     
     /// <summary>
-    /// Gets the number of experience to reach level three
+    /// 
     /// </summary>
     public int ExpToReachLevelThree {
 

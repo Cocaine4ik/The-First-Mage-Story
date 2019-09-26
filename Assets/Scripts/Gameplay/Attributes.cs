@@ -56,10 +56,19 @@ public class Attributes : MonoBehaviour
 
     private void Start() {
 
+        EventManager.StartListening(EventName.AddExp, OnAddExp);
+
         player = GetComponent<Player>();
 
+        // initialize start hp and mana
         maxHp = ConfigurationUtils.HpDefault;
         maxMana = ConfigurationUtils.ManaDefault;
+        currentHp = maxHp;
+        currentMana = maxMana;
+
+        player.Hp = currentHp;
+        player.Mana = currentMana;
+
 
         spirit = ConfigurationUtils.SpiritDefault;
         knowledge = ConfigurationUtils.KnowledgeDefault;
@@ -68,13 +77,18 @@ public class Attributes : MonoBehaviour
 
     }
 
-    private void Update() {
-
-        player.Hp = currentHp;
-        player.Mana = currentMana;
-        
+    private void OnDestroy() {
+        EventManager.StopListening(EventName.AddExp, OnAddExp);
     }
 
+
+
+    public void SetMana(int mana) {
+        currentMana = mana;
+    }
+    public void SeteHp(int hp) {
+        currentHp = hp;
+    }
     public void SavePlayer() {
 
         SaveSystem.SavePlayer(this.gameObject);
@@ -87,6 +101,70 @@ public class Attributes : MonoBehaviour
         currentMana = data.CurrentMana;
         gameObject.transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
 
+    }
+
+    private void OnAddExp(EventArg arg)
+    {
+        currentExp += arg.FirstIntArg;
+        ChangeExpValue(arg.FirstIntArg);
+
+        if (currentExp >= expToReachLevel)
+        {
+            LevelUp();
+        }
+
+    }
+    private void LevelUp()
+    {
+
+        currentLevel += 1;
+
+        int previousLevelMaxExp = expToReachLevel;
+
+        SetExpToReachLevel(currentLevel);
+        EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
+        ChangeExpValue(currentExp - previousLevelMaxExp);
+    }
+
+    /// <summary>
+    /// Set exp to reach next level
+    /// </summary>
+    /// <param name="lvl"></param>
+    private void SetExpToReachLevel(int lvl)
+    {
+        switch (lvl)
+        {
+            case 1: expToReachLevel = ConfigurationUtils.ExpToReachLevelTwo; break;
+            case 2: expToReachLevel = ConfigurationUtils.ExpToReachLevelThree; break;
+                /*
+                case 3: expToReachLevel = ConfigurationUtils.ExpToReachLevelFour; break;
+                case 4: break;
+                case 5: break;
+                case 6: break;
+                case 7: break;
+                case 8: break;
+                case 9: break;
+                case 10: break;
+                case 11: break;
+                case 12: break;
+                case 13: break;
+                case 14: break;
+                case 15: break;
+                case 16: break;
+                case 17: break;
+                case 18: break;
+                case 19: break;
+                case 20: break;
+                */
+        }
+    }
+
+    private void ChangeExpValue(int exp)
+    {
+
+        float expPercent = (float)exp / expToReachLevel;
+
+        EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
     #endregion
 }

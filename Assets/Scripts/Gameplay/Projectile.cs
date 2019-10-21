@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour {
     [SerializeField] private float speed = 5f;
     [SerializeField] private int damage;
     [SerializeField] private GameObject impactEffect;
+    [SerializeField] private GameObject owner;
     #endregion
 
     #region Properties
@@ -21,6 +22,9 @@ public class Projectile : MonoBehaviour {
         get { return damage; }
     }
 
+    public GameObject Owner {
+        get { return owner; }
+    }
     #endregion
     #region Methods
 
@@ -48,9 +52,14 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        SelfDestroy();
+        if (collision.gameObject.name != owner.name) {
 
+            SelfDestroy();
+
+        }
     }
+ 
+
     // play impact effect animation and destroy yourself
     private void SelfDestroy() {
 

@@ -25,10 +25,8 @@ public class Reward : MonoBehaviour
 
         if(enemy != null && enemy.IsAlive == false) {
 
-            if(gameObject.GetComponent<Enemy>().IsAlive == false) {
+            EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
 
-                EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
-            }
         }
 
     }

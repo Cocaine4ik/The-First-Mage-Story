@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AI : CharacterController2D
+public class NPC : CharacterController2D
 {
     [SerializeField] private bool isPatrol;
     [SerializeField] private bool isGuard;
     [SerializeField] private float guardTime;
+    [SerializeField] private Transform rangePoint;
+    private List<string> enemyTags;
+
     private Timer guardTimer;
 
     protected override void Start() {
 
         base.Start();
+
+        enemyTags = new List<string>();
+        AddEnemyTags();
 
         guardTimer = GetComponent<Timer>();
         guardTimer.SetTimerName(TimerName.GuardTimer);
@@ -35,7 +41,7 @@ public class AI : CharacterController2D
         if (isPatrol) {
             Patrol();
         }
-
+        Raycast();
     }
     protected override void OnTriggerEnter2D(Collider2D collision) {
         base.OnTriggerEnter2D(collision);
@@ -48,6 +54,12 @@ public class AI : CharacterController2D
             isGuard = true;
 
         }
+    }
+
+    protected void Raycast() {
+
+        Debug.DrawLine(atackPoint.position, rangePoint.position, Color.red);
+        Physics2D.Linecast(atackPoint.position, rangePoint.position);
     }
     protected void Patrol() {
 
@@ -70,6 +82,12 @@ public class AI : CharacterController2D
             }
             Move(moveX);
         }
+
+    }
+
+    protected virtual void AddEnemyTags() {
+
+        enemyTags.Add("Enemy");
 
     }
 }

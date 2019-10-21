@@ -32,7 +32,7 @@ public class CharacterController2D : Character {
 
     public int Hp { get; set; }
 
-    public bool IsAlive {  get { return IsAlive; } }
+    public bool IsAlive {  get { return isAlive; } }
 
     #endregion
     #region Methods
@@ -73,11 +73,12 @@ public class CharacterController2D : Character {
 
     protected override void Move(float moveX) {
 
-        if (isAtack == false) { 
+        if (!isAtack && isAlive && !isHurt) { 
             rb.velocity = new Vector2(speed * moveX, rb.velocity.y);
         }
 
-        animator.SetFloat("Speed", Mathf.Abs(moveX));
+            animator.SetFloat("Speed", Mathf.Abs(moveX));
+ 
     }
 
     // flip left and right
@@ -87,6 +88,7 @@ public class CharacterController2D : Character {
 
             isRight = !isRight;
             transform.Rotate(0, 180, 0);
+
         }
 
 
@@ -107,6 +109,7 @@ public class CharacterController2D : Character {
 
     protected override void Hurt() {
         isHurt = true;
+        animator.SetFloat("Speed", 0);
         animator.SetBool("IsHurt", isHurt);
     }
 
@@ -117,6 +120,7 @@ public class CharacterController2D : Character {
             animator.SetBool("IsAlive", isAlive);
         }
     }
+
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Projectile") {
@@ -148,7 +152,7 @@ public class CharacterController2D : Character {
     }
     // left the body after death
     protected void OnDeath() {
-        Instantiate(corpse, gameObject.transform.position, Quaternion.identity);
+        Instantiate(corpse, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
     }
     #endregion

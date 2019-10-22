@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class NPC : CharacterController2D
 {
+    #region Fields
+
     [SerializeField] private bool isPatrol;
     [SerializeField] private bool isGuard;
     [SerializeField] private float guardTime;
     [SerializeField] private Transform rangePoint;
-    private List<string> enemyTags;
 
-    private Timer guardTimer;
+    protected List<string> enemyTags;
+    protected Timer guardTimer;
+
+    #endregion
 
     protected override void Start() {
 
@@ -46,9 +50,9 @@ public class NPC : CharacterController2D
     protected override void OnTriggerEnter2D(Collider2D collision) {
         base.OnTriggerEnter2D(collision);
 
-        if (collision.CompareTag("Turn") && !isGuard) {
+        if (collision.CompareTag("Turn") && !isGuard && isPatrol) {
 
-            moveX = Vector2.zero.x;
+            StopMovement();
             guardTimer.Run();
 
             isGuard = true;
@@ -56,10 +60,50 @@ public class NPC : CharacterController2D
         }
     }
 
+    protected virtual void OnCollisionEnter2D(Collision2D collision) {
+        
+        foreach(string enemy in enemyTags) {
+            if (collision.gameObject.CompareTag(enemy)) {
+
+                StopMovement();
+
+                Debug.Log("Atack");
+                Atack();
+            }
+        }
+
+    }
     protected void Raycast() {
 
         Debug.DrawLine(atackPoint.position, rangePoint.position, Color.red);
-        Physics2D.Linecast(atackPoint.position, rangePoint.position);
+        RaycastHit2D[] hits = Physics2D.LinecastAll(atackPoint.position, rangePoint.position);
+        
+        foreach(RaycastHit2D hit in hits) {
+
+            if (hit.collider != null) {
+
+                Charge();
+                foreach (string enemytag in enemyTags) {
+
+                    if (hit.transform.gameObject.CompareTag(enemytag)) {
+
+                        if (isPatrol || isGuard) {
+
+                            isPatrol = false;
+                            isGuard = false;
+                        }
+
+                        Move(moveX);
+
+                        Debug.Log(hit.collider.name);
+
+                    }
+                }
+
+            }
+        }
+        
+
     }
     protected void Patrol() {
 
@@ -85,9 +129,14 @@ public class NPC : CharacterController2D
 
     }
 
+    protected virtual void Charge() {
+
+    }
     protected virtual void AddEnemyTags() {
 
         enemyTags.Add("Enemy");
 
     }
+
+ 
 }

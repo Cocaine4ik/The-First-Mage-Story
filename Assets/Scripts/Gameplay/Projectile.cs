@@ -26,6 +26,7 @@ public class Projectile : MonoBehaviour {
         get { return owner; }
     }
     #endregion
+
     #region Methods
 
     private void Start() {
@@ -52,7 +53,7 @@ public class Projectile : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.name != owner.name) {
+        if (collision.gameObject.name != owner.name && !collision.gameObject.CompareTag("Turn")) {
 
             SelfDestroy();
 

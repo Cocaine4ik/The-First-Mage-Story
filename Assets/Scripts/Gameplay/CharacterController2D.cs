@@ -96,8 +96,10 @@ public class CharacterController2D : Character {
     // set atack is true and play atack animation
     protected override void Atack() {
 
+        StopMovement();
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
+
 
     }
 
@@ -139,6 +141,7 @@ public class CharacterController2D : Character {
 
         moveX = Vector2.zero.x;
 
+        Move(moveX);
     }
 
     protected virtual void RestoreMovement() {
@@ -149,6 +152,8 @@ public class CharacterController2D : Character {
         else {
             moveX = Vector2.left.x;
         }
+
+        Move(moveX);
     }
     #endregion
 

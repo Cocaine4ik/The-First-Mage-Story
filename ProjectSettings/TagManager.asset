@@ -8,6 +8,8 @@ TagManager:
   - Projectile
   - Item
   - Turn
+  - Enemy
+  - NPC
   layers:
   - Default
   - TransparentFX

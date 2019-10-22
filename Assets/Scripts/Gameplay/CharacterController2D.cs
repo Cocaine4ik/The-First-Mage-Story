@@ -109,7 +109,7 @@ public class CharacterController2D : Character {
 
     protected override void Hurt() {
         isHurt = true;
-        animator.SetFloat("Speed", 0);
+        StopMovement();
         animator.SetBool("IsHurt", isHurt);
     }
 
@@ -117,6 +117,7 @@ public class CharacterController2D : Character {
         
         if(hp <= 0) {
             isAlive = false;
+            StopMovement();
             animator.SetBool("IsAlive", isAlive);
         }
     }
@@ -131,9 +132,24 @@ public class CharacterController2D : Character {
     }
     protected override void TakeDamage(int damage) {
 
-        hp = hp - damage;
+        hp -= damage;
     }
 
+    protected virtual void StopMovement() {
+
+        moveX = Vector2.zero.x;
+
+    }
+
+    protected virtual void RestoreMovement() {
+
+        if (isRight) {
+            moveX = Vector2.right.x;
+        }
+        else {
+            moveX = Vector2.left.x;
+        }
+    }
     #endregion
 
 

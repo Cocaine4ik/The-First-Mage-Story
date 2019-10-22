@@ -8,6 +8,7 @@ public class NPC : CharacterController2D
 
     [SerializeField] private bool isPatrol;
     [SerializeField] private bool isGuard;
+    [SerializeField] private bool isCharge;
     [SerializeField] private float guardTime;
     [SerializeField] private Transform rangePoint;
 
@@ -66,7 +67,6 @@ public class NPC : CharacterController2D
             if (collision.gameObject.CompareTag(enemy)) {
 
                 StopMovement();
-
                 Debug.Log("Atack");
                 Atack();
             }
@@ -82,24 +82,8 @@ public class NPC : CharacterController2D
 
             if (hit.collider != null) {
 
-                Charge();
-                foreach (string enemytag in enemyTags) {
-
-                    if (hit.transform.gameObject.CompareTag(enemytag)) {
-
-                        if (isPatrol || isGuard) {
-
-                            isPatrol = false;
-                            isGuard = false;
-                        }
-
-                        Move(moveX);
-
-                        Debug.Log(hit.collider.name);
-
-                    }
-                }
-
+                Charge(hit);
+               
             }
         }
         
@@ -112,9 +96,10 @@ public class NPC : CharacterController2D
             if(guardTimer.Finished) {
 
                 if(isGuard) {
+                    isGuard = false;
                     if (isRight) {
                         moveX = Vector2.left.x;
-                        isGuard = false;
+    
                     }
 
                     else if (!isRight) {
@@ -129,8 +114,30 @@ public class NPC : CharacterController2D
 
     }
 
-    protected virtual void Charge() {
+    protected virtual void Charge(RaycastHit2D hit) {
 
+        if(!isAtack) {
+
+            foreach (string enemytag in enemyTags) {
+
+                if (hit.transform.gameObject.CompareTag(enemytag)) {
+
+                    if (isPatrol || isGuard) {
+
+                        isPatrol = false;
+                        isGuard = false;
+
+                    }
+                    isCharge = true;
+
+                    RestoreMovement();
+
+                    Debug.Log(hit.collider.name);
+
+                }
+            }
+        }
+  
     }
     protected virtual void AddEnemyTags() {
 

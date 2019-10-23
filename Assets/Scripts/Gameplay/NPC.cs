@@ -43,20 +43,39 @@ public class NPC : CharacterController2D
     }
     protected override void Update() {
         base.Update();
+
+        Raycast();
         if (isPatrol) {
             Patrol();
         }
-        Raycast();
+
+        if(isGuard && guardTimer.Finished) {
+
+            if(isRight) {
+                Debug.Log("Flip left");
+                moveX = Vector2.left.x;
+
+            }
+            if(!isRight) {
+                Debug.Log("Flip Right");
+                moveX = Vector2.right.x;
+            }
+            isGuard = false;
+            //isPatrol = true;
+        }
+        
     }
+
     protected override void OnTriggerEnter2D(Collider2D collision) {
         base.OnTriggerEnter2D(collision);
 
         if (collision.CompareTag("Turn") && !isGuard && isPatrol) {
 
+            isPatrol = false;
+            isGuard = true;
             StopMovement();
             guardTimer.Run();
 
-            isGuard = true;
 
         }
     }
@@ -73,45 +92,24 @@ public class NPC : CharacterController2D
         }
 
     }
-    protected void Raycast() {
+    protected RaycastHit2D[] Raycast() {
 
         Debug.DrawLine(atackPoint.position, rangePoint.position, Color.red);
         RaycastHit2D[] hits = Physics2D.LinecastAll(atackPoint.position, rangePoint.position);
-        
-        foreach(RaycastHit2D hit in hits) {
-
-            if (hit.collider != null) {
-
-                Charge(hit);
-               
-            }
-        }
-        
+        return hits;
 
     }
     protected void Patrol() {
 
-        if (isAlive && !isHurt) {
+        if (isAlive && !isHurt && !isCharge) {
 
-            if(guardTimer.Finished) {
-
-                if(isGuard) {
-                    isGuard = false;
-                    if (isRight) {
-                        moveX = Vector2.left.x;
-    
-                    }
-
-                    else if (!isRight) {
-                        moveX = Vector2.right.x;
-                        isGuard = false;
-                    }
+            foreach (RaycastHit2D hit in Raycast()) {
+                if (hit.transform.gameObject.CompareTag("Turn")) {
+                    RestoreMovement();
                 }
-
             }
-            Move(moveX);
-        }
 
+        }
     }
 
     protected virtual void Charge(RaycastHit2D hit) {
@@ -134,6 +132,10 @@ public class NPC : CharacterController2D
 
                     Debug.Log(hit.collider.name);
 
+                }
+
+                else {
+                    isCharge = false;
                 }
             }
         }

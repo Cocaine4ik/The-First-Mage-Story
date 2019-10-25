@@ -49,8 +49,12 @@ public class NPC : CharacterController2D
             Patrol();
         }
 
-        if(isGuard && guardTimer.Finished) {
+        bool oldIsRight;
 
+        if (isGuard && guardTimer.Finished) {
+
+            oldIsRight = isRight;
+            Debug.Log(oldIsRight);
             if(isRight) {
                 Debug.Log("Flip left");
                 moveX = Vector2.left.x;
@@ -61,9 +65,10 @@ public class NPC : CharacterController2D
                 moveX = Vector2.right.x;
             }
             isGuard = false;
-            //isPatrol = true;
+
+
+
         }
-        
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {

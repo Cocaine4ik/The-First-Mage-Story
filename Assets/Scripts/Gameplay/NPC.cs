@@ -12,6 +12,8 @@ public class NPC : CharacterController2D
     [SerializeField] private float guardTime;
     [SerializeField] private Transform rangePoint;
 
+    private bool oldIsRight;
+
     protected List<string> enemyTags;
     protected Timer guardTimer;
 
@@ -42,19 +44,20 @@ public class NPC : CharacterController2D
 
     }
     protected override void Update() {
+
         base.Update();
+
+
 
         Raycast();
         if (isPatrol) {
             Patrol();
+            oldIsRight = isRight;
         }
-
-        bool oldIsRight;
 
         if (isGuard && guardTimer.Finished) {
 
-            oldIsRight = isRight;
-            Debug.Log(oldIsRight);
+
             if(isRight) {
                 Debug.Log("Flip left");
                 moveX = Vector2.left.x;
@@ -68,6 +71,9 @@ public class NPC : CharacterController2D
 
 
 
+        }
+        if(oldIsRight != isRight) {
+            isPatrol = true;
         }
     }
 

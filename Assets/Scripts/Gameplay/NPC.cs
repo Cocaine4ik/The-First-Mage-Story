@@ -72,9 +72,10 @@ public class NPC : CharacterController2D
 
 
         }
-        if(oldIsRight != isRight) {
+        if(oldIsRight != isRight && !isCharge) {
             isPatrol = true;
         }
+        Charge();
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
@@ -86,7 +87,6 @@ public class NPC : CharacterController2D
             isGuard = true;
             StopMovement();
             guardTimer.Run();
-
 
         }
     }
@@ -123,30 +123,29 @@ public class NPC : CharacterController2D
         }
     }
 
-    protected virtual void Charge(RaycastHit2D hit) {
+    protected virtual void Charge() {
 
-        if(!isAtack) {
+        if(!isAtack && !isCharge) {
 
-            foreach (string enemytag in enemyTags) {
 
-                if (hit.transform.gameObject.CompareTag(enemytag)) {
+            foreach (RaycastHit2D hit in Raycast()) {
 
-                    if (isPatrol || isGuard) {
+                foreach (string enemytag in enemyTags) {
 
-                        isPatrol = false;
-                        isGuard = false;
+                    if (hit.transform.gameObject.CompareTag(enemytag)) {
 
+                        isCharge = true;
+
+                        if(isPatrol) {
+                            isPatrol = false;
+                        }
+                        if(isGuard) {
+                            isGuard = false;
+
+                        }
+                        RestoreMovement();
+                        Debug.Log("Fuck");
                     }
-                    isCharge = true;
-
-                    RestoreMovement();
-
-                    Debug.Log(hit.collider.name);
-
-                }
-
-                else {
-                    isCharge = false;
                 }
             }
         }

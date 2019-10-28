@@ -63,7 +63,6 @@ public class CharacterController2D : Character {
             isJump = true;
             animator.SetBool("IsJump", isJump);
         }
-
     }
     protected virtual void FixedUpdate() {
 

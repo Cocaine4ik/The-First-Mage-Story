@@ -98,6 +98,7 @@ public class CharacterController2D : Character {
         StopMovement();
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
+        atackPoint.gameObject.SetActive(false);
 
 
     }
@@ -125,11 +126,24 @@ public class CharacterController2D : Character {
 
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Projectile") {
+
+        if (collision.gameObject.tag == "Projectile" && 
+            collision.gameObject.GetComponent<Projectile>().Owner.name != gameObject.name) {
+
             int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
             TakeDamage(receivedDamage);
             Hurt();
         }
+
+        if(collision.gameObject.tag == "Atack Point" && 
+            collision.gameObject.GetComponent<AtackTrigger>().Owner.name != gameObject.name) {
+
+            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
+            TakeDamage(receivedDamage);
+            // Hurt();
+            Debug.Log(receivedDamage);
+        }
+
     }
     protected override void TakeDamage(int damage) {
 
@@ -160,9 +174,10 @@ public class CharacterController2D : Character {
     #region Animation Events
 
     // if atack end stop animation
-    protected void OnAtackEnd() {
+    protected virtual void OnAtackEnd() {
         isAtack = false;
         animator.SetBool("IsAtack", isAtack);
+        atackPoint.gameObject.SetActive(true);
     }
 
     protected void OnHurt() {

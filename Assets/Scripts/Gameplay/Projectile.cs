@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour {
+public class Projectile : AtackTrigger {
 
     #region Fields
 
@@ -11,20 +11,7 @@ public class Projectile : MonoBehaviour {
 
     [SerializeField] private float projectileAliveTime = 2f;
     [SerializeField] private float speed = 5f;
-    [SerializeField] private int damage;
     [SerializeField] private GameObject impactEffect;
-    [SerializeField] private GameObject owner;
-    #endregion
-
-    #region Properties
-
-    public int Damage {
-        get { return damage; }
-    }
-
-    public GameObject Owner {
-        get { return owner; }
-    }
     #endregion
 
     #region Methods

@@ -10,6 +10,7 @@ TagManager:
   - Turn
   - Enemy
   - NPC
+  - Atack Point
   layers:
   - Default
   - TransparentFX

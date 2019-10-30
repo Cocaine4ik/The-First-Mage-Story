@@ -8,7 +8,7 @@ public class NPC : CharacterController2D
 
     [SerializeField] private bool isPatrol;
     [SerializeField] private bool isGuard;
-    [SerializeField] private bool isCharge;
+    [SerializeField] protected bool isCharge;
     [SerializeField] private float guardTime;
     [SerializeField] private Transform rangePoint;
 
@@ -30,18 +30,6 @@ public class NPC : CharacterController2D
         guardTimer.SetTimerName(TimerName.GuardTimer);
         guardTimer.Duration = guardTime;
 
-
-        if (!isGuard) {
-
-            if (isRight) {
-                moveX = Vector2.right.x;
-            }
-            else {
-                moveX = Vector2.left.x;
-            }
-        }
-
-
     }
     protected override void Update() {
 
@@ -58,24 +46,15 @@ public class NPC : CharacterController2D
         if (isGuard && guardTimer.Finished) {
 
 
-            if(isRight) {
-                Debug.Log("Flip left");
-                moveX = Vector2.left.x;
-
-            }
-            if(!isRight) {
-                Debug.Log("Flip Right");
-                moveX = Vector2.right.x;
-            }
+            ChangeDirection();
             isGuard = false;
-
-
 
         }
         if(oldIsRight != isRight && !isCharge) {
             isPatrol = true;
         }
-        Charge();
+
+        DetectEnemy();
     }
 
     protected override void OnTriggerEnter2D(Collider2D collision) {
@@ -123,33 +102,59 @@ public class NPC : CharacterController2D
         }
     }
 
-    protected virtual void Charge() {
+    protected virtual void DetectEnemy() {
 
-        if(!isAtack && !isCharge) {
+        int enemiesInRange = 0;
 
-
-            foreach (RaycastHit2D hit in Raycast()) {
+        foreach (RaycastHit2D hit in Raycast()) {
 
                 foreach (string enemytag in enemyTags) {
 
                     if (hit.transform.gameObject.CompareTag(enemytag)) {
 
-                        isCharge = true;
-
-                        if(isPatrol) {
-                            isPatrol = false;
-                        }
-                        if(isGuard) {
-                            isGuard = false;
-
-                        }
-                        RestoreMovement();
-                        Debug.Log("Fuck");
+                    enemiesInRange++;    
+                    
                     }
                 }
-            }
         }
-  
+        // Debug.Log(enemiesInRange);
+
+        if(enemiesInRange > 0) {
+            Charge();
+        }
+        else {
+            if(isHurt) {
+
+                ChangeDirection();
+            }
+            else {
+                isCharge = false;
+            }
+
+        }
+    }
+
+    protected void Charge() {
+
+        if (!isAtack) {
+
+            isCharge = true;
+
+            if (isPatrol) {
+
+                isPatrol = false;
+
+            }
+
+            if (isGuard) {
+
+                isGuard = false;
+
+
+            }
+            RestoreMovement();
+
+        }
     }
     protected virtual void AddEnemyTags() {
 
@@ -157,5 +162,22 @@ public class NPC : CharacterController2D
 
     }
 
- 
+    protected override void OnAtackEnd() {
+        base.OnAtackEnd();
+        isCharge = false;
+    }
+
+    protected void ChangeDirection() {
+
+        if (isRight) {
+            Debug.Log("Flip left");
+            moveX = Vector2.left.x;
+
+        }
+        if (!isRight) {
+            Debug.Log("Flip Right");
+            moveX = Vector2.right.x;
+        }
+    }
+
 }

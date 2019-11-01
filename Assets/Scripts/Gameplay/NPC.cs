@@ -120,6 +120,7 @@ public class NPC : CharacterController2D
             foreach (RaycastHit2D hit in Raycast()) {
                 if (hit.transform.gameObject.CompareTag("Turn")) {
 
+                    isPatrol = true;
                     RestoreMovement();
 
                 }

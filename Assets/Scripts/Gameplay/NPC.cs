@@ -132,6 +132,9 @@ public class NPC : CharacterController2D
     /// </summary>
     protected virtual void DetectEnemy() {
 
+        if(IsAlive) {
+
+       
         int enemiesInRange = 0;
         bool turnInRange = false;
 
@@ -175,6 +178,7 @@ public class NPC : CharacterController2D
                 isCharge = false;
             }
 
+        }
         }
     }
 

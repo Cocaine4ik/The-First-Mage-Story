@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atackPoint: {fileID: 4735104052038380}
-  corpse: {fileID: 0}
+  corpse: {fileID: 1850058002940947310, guid: aec2ce83bf3720544b55430aae67da28, type: 3}
   speed: 3
   hp: 100
   isRight: 1

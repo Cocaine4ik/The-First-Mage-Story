@@ -48,3 +48,24 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3954754787
+    locked: 0
+  - name: Midground
+    uniqueID: 550692379
+    locked: 0
+  - name: Weather
+    uniqueID: 3545279713
+    locked: 0
+  - name: NPC
+    uniqueID: 191646293
+    locked: 0
+  - name: Player
+    uniqueID: 1480044915
+    locked: 0
+  - name: New Layer
+    uniqueID: 4093094505
+    locked: 0
+  - name: Foreground
+    uniqueID: 4092743771
+    locked: 0

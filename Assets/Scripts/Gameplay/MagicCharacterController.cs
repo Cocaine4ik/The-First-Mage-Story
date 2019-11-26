@@ -86,7 +86,7 @@ public class MagicCharacterController : CharacterController2D {
 
     protected void RangeAtack() {
 
-            Instantiate(projectilePrefab, new Vector3(atackPoint.position.x, atackPoint.position.y, 0), atackPoint.rotation);
+            Instantiate(projectilePrefab, new Vector3(atackPoint.position.x, atackPoint.position.y, atackPoint.position.z), atackPoint.rotation);
     }
 
     #endregion

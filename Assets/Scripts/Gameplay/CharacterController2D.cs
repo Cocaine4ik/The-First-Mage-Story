@@ -132,6 +132,7 @@ public class CharacterController2D : Character {
 
             int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
             TakeDamage(receivedDamage);
+            Debug.Log("Wolf HP:" + hp);
             Hurt();
         }
 

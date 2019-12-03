@@ -232,6 +232,12 @@ public class NPC : CharacterController2D
             moveX = Vector2.right.x;
         }
     }
+
+    protected override void StopMovement() {
+        isCharge = false;
+        base.StopMovement();
+ 
+    }
     #endregion
 
     #region Events

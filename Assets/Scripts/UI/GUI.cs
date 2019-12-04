@@ -29,6 +29,7 @@ public class GUI : MonoBehaviour {
         EventManager.StartListening(EventName.LevelUp, OnLevelUp);
         EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StartListening(EventName.ManaChange, OnGUIManaChange);
+        EventManager.StartListening(EventName.HpChange, OnGUIHealthChange);
 
         expBar.fillAmount = 0.0f;
 
@@ -47,14 +48,19 @@ public class GUI : MonoBehaviour {
 	}
 
     public void OnGUIExpChange(EventArg arg) {
-
-        expBar.fillAmount += arg.FirstFloatArg;
+        expBar.fillAmount =+ arg.FirstFloatArg;
 
     }
 
     public void OnGUIManaChange(EventArg arg)
     {
         manaBar.fillAmount -= arg.FirstFloatArg;
+    }
+
+    public void OnGUIHealthChange (EventArg arg) {
+
+        hpBar.fillAmount -= arg.FirstFloatArg;
+
     }
     private void OnLevelUp(EventArg arg)
     {

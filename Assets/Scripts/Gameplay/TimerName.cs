@@ -6,4 +6,5 @@ public enum TimerName {
 
     ProjectileDeathTimer,
     GuardTimer,
+    JumpControlTimer
 }

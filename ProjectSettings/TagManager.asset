@@ -21,14 +21,14 @@ TagManager:
   - 
   - 
   - Ground
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Enemy
+  - NPC
+  - Item
+  - Trigger
+  - Player Projectile
+  - Enemy Projectile
+  - NPC Projectile
   - 
   - 
   - 

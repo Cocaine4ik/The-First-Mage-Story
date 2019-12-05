@@ -27,7 +27,7 @@ public class Player : MagicCharacterController {
         base.Update();
 
         // atack if atack button down
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && !isAtack) {
 
             Atack();
            
@@ -81,7 +81,13 @@ public class Player : MagicCharacterController {
 
         if(Input.GetAxis("Horizontal") != 0) {
 
-            moveX = Input.GetAxis("Horizontal");
+            if(!isGrounded && !jumpControlTimer.IsRunnig) {
+                moveX = 0;
+            }
+            else {
+                moveX = Input.GetAxis("Horizontal");
+            }
+
             base.FixedUpdate();
             Move(moveX);
         }
@@ -91,7 +97,7 @@ public class Player : MagicCharacterController {
     private void LateUpdate()
     {
         stats.SetMana(mana);
-        stats.SeteHp(hp);
+        stats.SetHp(hp);
     }
     protected override void OnTriggerEnter2D(Collider2D collision) {
 
@@ -105,6 +111,12 @@ public class Player : MagicCharacterController {
         }
 
     }
+    protected override void TakeDamage(int damage) {
+        base.TakeDamage(damage);
+
+        float healthPercent = (float)damage / stats.MaxHp;
+        EventManager.TriggerEvent(EventName.HpChange, new EventArg(healthPercent));
+    }
 
     #endregion
 
@@ -116,6 +128,9 @@ public class Player : MagicCharacterController {
 
     }
 
+    protected override void OnTeleport(int maxManaValue) {
+        base.OnTeleport(stats.MaxMana);
+    }
     #endregion
 
 }

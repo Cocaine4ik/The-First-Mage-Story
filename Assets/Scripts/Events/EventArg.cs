@@ -52,6 +52,7 @@ public class EventArg {
     {
         this.firstFloatArg = arg;
     }
+
     // constructor with one bool arg
     public EventArg(bool arg) {
         this.firstBoolArg = arg;

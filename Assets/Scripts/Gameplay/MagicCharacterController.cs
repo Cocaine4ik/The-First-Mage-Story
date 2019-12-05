@@ -53,7 +53,7 @@ public class MagicCharacterController : CharacterController2D {
 
     #region Animation Events
 
-    protected virtual void OnTeleport() {
+    protected virtual void OnTeleport(int maxManaValue) {
 
         isTeleportedIn = false;
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
@@ -70,15 +70,13 @@ public class MagicCharacterController : CharacterController2D {
 
             if(gameObject.GetComponent<Player>() != null)
             {
-                float manaPercent = (float)manaBurnedForTeleport / mana;
+                float manaPercent = (float)manaBurnedForTeleport / maxManaValue;
                 EventManager.TriggerEvent(EventName.ManaChange, new EventArg(manaPercent));
             } 
 
         }
-        else {
-            Debug.Log("Not enough mana for teleportation!");
-        }
     }
+
     protected void OutTeleport() {
         isTeleportedOut = false;
         animator.SetBool("IsTeleportedOut", isTeleportedOut);

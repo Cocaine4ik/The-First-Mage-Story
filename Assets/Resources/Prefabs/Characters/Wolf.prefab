@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3659470988214367897}
   - component: {fileID: 9072982653465604476}
   - component: {fileID: 5889185386981150007}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Atack Point
   m_TagString: Atack Point
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 2101560476304868750}
   - component: {fileID: 2101560476304868751}
   - component: {fileID: -3696738712007474151}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Wolf
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -267,6 +267,7 @@ MonoBehaviour:
   feetPos: {fileID: 7072487292313214118}
   checkRadius: 0
   jumpForce: 0
+  jumpControlTime: 0
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
@@ -297,7 +298,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7806950878672158896}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Range Point
   m_TagString: Untagged
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -327,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7072487292313214118}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Feet Pos
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

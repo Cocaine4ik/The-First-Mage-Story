@@ -10,6 +10,7 @@ public class Player : MagicCharacterController {
     Attributes stats;
 
     private bool canCollect = false;
+    private bool isPickup = false;
     private GameObject item;
 
     [SerializeField] private int expToReachLevel;
@@ -38,14 +39,15 @@ public class Player : MagicCharacterController {
             Teleport();
 
         }
+
         // jump if jump button down
-        if(isGrounded && Input.GetButtonDown("Jump")) {
+        if (isGrounded && Input.GetButtonDown("Jump") && !isPickup) {
 
             Jump(jumpForce);
 
         }
 
-        if (canCollect && Input.GetButtonDown("Grab")) {
+        if (canCollect && Input.GetButtonDown("Grab") && isGrounded) {
 
             Pickup();
 
@@ -73,13 +75,14 @@ public class Player : MagicCharacterController {
 
         animator.SetBool("CanCollect", canCollect);
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
+        isPickup = true;
         Destroy(item);
         
     }
 
     protected override void FixedUpdate() {
 
-        if(Input.GetAxis("Horizontal") != 0) {
+        if (Input.GetAxis("Horizontal") != 0 && !isPickup) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
                 moveX = 0;
@@ -124,6 +127,7 @@ public class Player : MagicCharacterController {
 
     private void OnCollectEnd() {
         canCollect = false;
+        isPickup = false;
         animator.SetBool("CanCollect", canCollect);
 
     }

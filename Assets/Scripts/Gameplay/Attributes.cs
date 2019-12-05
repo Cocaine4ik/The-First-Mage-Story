@@ -69,7 +69,7 @@ public class Attributes : MonoBehaviour
         player.Hp = currentHp;
         player.Mana = currentMana;
 
-
+        SetExpToReachLevel(currentLevel);
         spirit = ConfigurationUtils.SpiritDefault;
         knowledge = ConfigurationUtils.KnowledgeDefault;
         wisdom = ConfigurationUtils.WisdomDefault;
@@ -86,7 +86,7 @@ public class Attributes : MonoBehaviour
     public void SetMana(int mana) {
         currentMana = mana;
     }
-    public void SeteHp(int hp) {
+    public void SetHp(int hp) {
         currentHp = hp;
     }
     public void SavePlayer() {
@@ -163,7 +163,6 @@ public class Attributes : MonoBehaviour
     {
 
         float expPercent = (float)exp / expToReachLevel;
-
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
     #endregion

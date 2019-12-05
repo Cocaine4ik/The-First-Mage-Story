@@ -9,6 +9,7 @@ public class CharacterController2D : Character {
 
     protected Rigidbody2D rb;
     protected Animator animator;
+    protected Timer jumpControlTimer;
 
     [SerializeField] protected bool isRight = true;
 
@@ -22,6 +23,7 @@ public class CharacterController2D : Character {
     [SerializeField] protected Transform feetPos;
     [SerializeField] protected float checkRadius;
     [SerializeField] protected float jumpForce;
+    [SerializeField] protected float jumpControlTime;
     [SerializeField] protected LayerMask whatIsGround;
 
     protected float moveX;
@@ -45,6 +47,9 @@ public class CharacterController2D : Character {
                    
         animator.SetBool("IsAlive", isAlive);
 
+        jumpControlTimer = gameObject.AddComponent<Timer>();
+        jumpControlTimer.SetTimerName(TimerName.JumpControlTimer);
+        jumpControlTimer.Duration = jumpControlTime;
     }
 
     protected virtual void Update() {
@@ -106,6 +111,7 @@ public class CharacterController2D : Character {
     protected override void Jump(float jumpForce) {
 
         rb.velocity = Vector2.up * jumpForce;
+        jumpControlTimer.Run();
 
     }
 
@@ -127,17 +133,15 @@ public class CharacterController2D : Character {
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.tag == "Projectile" && 
-            collision.gameObject.GetComponent<Projectile>().Owner.name != gameObject.name) {
-
+        if (collision.gameObject.tag == "Projectile") {
+            Debug.Log("Test");
             int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
             TakeDamage(receivedDamage);
             Debug.Log("Wolf HP:" + hp);
             Hurt();
         }
 
-        if(collision.gameObject.tag == "Atack Point" && 
-            collision.gameObject.GetComponent<AtackTrigger>().Owner.name != gameObject.name) {
+        if(collision.gameObject.tag == "Atack Point") {
 
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
             TakeDamage(receivedDamage);
@@ -149,6 +153,7 @@ public class CharacterController2D : Character {
     protected override void TakeDamage(int damage) {
 
         hp -= damage;
+
     }
 
     protected virtual void StopMovement() {

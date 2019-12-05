@@ -26,7 +26,7 @@ public class NPC : CharacterController2D
         enemyTags = new List<string>();
         AddEnemyTags();
 
-        guardTimer = GetComponent<Timer>();
+        guardTimer = gameObject.AddComponent<Timer>();
         guardTimer.SetTimerName(TimerName.GuardTimer);
         guardTimer.Duration = guardTime;
 
@@ -174,11 +174,12 @@ public class NPC : CharacterController2D
 
                 ChangeDirection();
             }
-            else {
-                isCharge = false;
+            // if enemie is lost we stop charge and continue patrol
+                if (isCharge && !isGuard && !isPatrol && !isAtack) {
+                    isPatrol = true;
+                    isCharge = false;
+                }
             }
-
-        }
         }
     }
 
@@ -234,7 +235,6 @@ public class NPC : CharacterController2D
     }
 
     protected override void StopMovement() {
-        isCharge = false;
         base.StopMovement();
  
     }

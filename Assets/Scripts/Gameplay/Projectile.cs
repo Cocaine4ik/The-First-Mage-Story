@@ -40,11 +40,7 @@ public class Projectile : AtackTrigger {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.name != owner.name && !collision.gameObject.CompareTag("Turn")) {
-
-            SelfDestroy();
-
-        }
+     SelfDestroy();
     }
  
 

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 61953928637078272}
   - component: {fileID: 114029235508568294}
   - component: {fileID: 114753706010164278}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MagicArrow
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -143,7 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b018249241f058f46af45d639c5bcdf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  owner: {fileID: 1121661219429204, guid: 5476f6a653dd5e448bfefde42ee580c6, type: 3}
   damage: 20
   projectileAliveTime: 2
   speed: 10

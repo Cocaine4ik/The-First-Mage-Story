@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 114349441289081656}
   - component: {fileID: 4557483816960451022}
   - component: {fileID: 2100994989823232021}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -173,7 +173,8 @@ MonoBehaviour:
   isRight: 1
   feetPos: {fileID: 4920649152002598}
   checkRadius: 0.3
-  jumpForce: 4
+  jumpForce: 5
+  jumpControlTime: 1.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
@@ -229,7 +230,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4735104052038380}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Atack Point
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -259,7 +260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4920649152002598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Feet Pos
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}

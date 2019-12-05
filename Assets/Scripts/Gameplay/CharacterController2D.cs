@@ -139,17 +139,19 @@ public class CharacterController2D : Character {
             TakeDamage(receivedDamage);
             Debug.Log("Wolf HP:" + hp);
             Hurt();
-        }
+        }    
+    }
 
-        if(collision.gameObject.tag == "Atack Point") {
+    protected virtual void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.tag == "Atack Point") {
 
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
             TakeDamage(receivedDamage);
             // Hurt();
             Debug.Log(receivedDamage);
         }
-
     }
+
     protected override void TakeDamage(int damage) {
 
         hp -= damage;

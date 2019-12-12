@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5819356957752195232}
   - component: {fileID: 7984577323730617761}
   m_Layer: 0
-  m_Name: wind_1
+  m_Name: Wind
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67,11 +67,11 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -749687583
+  m_SortingLayer: 3
+  m_SortingOrder: 700
   m_Sprite: {fileID: 21300000, guid: 2cb739bfe8bbfd140b94a49373818d66, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.019607844}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.05882353}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

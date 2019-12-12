@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DynamicTreeMaterial 3
+  m_Name: WindMaterial-Grass-1
   m_Shader: {fileID: -6465566751694194690, guid: 3fcb3cd0af6b6dd41a6bbc2b073e20ca,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
@@ -21,11 +21,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Tree:
-        m_Texture: {fileID: 2800000, guid: 753842359c3a44a49bba7b40867f7c5b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7497953ac7a10ce4dadce77a09b51806, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2983BBF0: 1
+    - Vector1_2983BBF0: 0.7
     - Vector1_A4CAB328: 0.3
-    - Vector1_BD0C4219: 1
+    - Vector1_BD0C4219: 0.5
     m_Colors: []

@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - NPC
   - Atack Point
+  - Disaster
   layers:
   - Default
   - TransparentFX
@@ -32,8 +33,8 @@ TagManager:
   - Player Atack Point
   - Enemy Atack Point
   - NPC Atack Point
-  - 
-  - 
+  - Corps
+  - Disaster
   - 
   - 
   - 

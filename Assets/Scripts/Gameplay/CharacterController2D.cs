@@ -136,7 +136,6 @@ public class CharacterController2D : Character {
             Debug.Log("Test");
             int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
             TakeDamage(receivedDamage);
-            Debug.Log("Wolf HP:" + hp);
             Hurt();
         }    
     }
@@ -150,7 +149,17 @@ public class CharacterController2D : Character {
             Debug.Log(receivedDamage);
         }
     }
+    
+    protected virtual void OnCollisionStay2D(Collision2D collision) {
+        
+        if(collision.gameObject.tag == "Disaster") {
 
+            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
+            TakeDamage(receivedDamage);
+            Hurt();
+            Debug.Log(receivedDamage);
+        }
+    }
     protected override void TakeDamage(int damage) {
 
         hp -= damage;

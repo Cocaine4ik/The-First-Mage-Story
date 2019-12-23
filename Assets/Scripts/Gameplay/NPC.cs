@@ -85,17 +85,16 @@ public class NPC : CharacterController2D
     /// if we colides with enemy we start atack him
     /// </summary>
     /// <param name="collision"></param>
-    protected virtual void OnCollisionEnter2D(Collision2D collision) {
-        
-        foreach(string enemy in enemyTags) {
+    protected override void OnCollisionStay2D(Collision2D collision) {
+        base.OnCollisionStay2D(collision);
+
+        foreach (string enemy in enemyTags) {
             if (collision.gameObject.CompareTag(enemy)) {
 
-                StopMovement();
                 Debug.Log("Atack");
                 Atack();
             }
         }
-
     }
     /// <summary>
     /// making a ray in front off us. We are return all hits in tagets in ray way

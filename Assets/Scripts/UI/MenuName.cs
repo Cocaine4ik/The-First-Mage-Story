@@ -2,9 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuName : MonoBehaviour
-{
-
-
-
+public enum MenuName {
+   
+    Main,
+    Pause,
+    Credits,
+    GameOver,
+    SpellBook,
+    Perks,
+    Inventory,
+    Journal
 }

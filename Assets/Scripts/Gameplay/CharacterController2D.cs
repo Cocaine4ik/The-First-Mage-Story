@@ -132,27 +132,28 @@ public class CharacterController2D : Character {
 
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
 
-        if (collision.gameObject.tag == "Projectile") {
-            Debug.Log("Test");
-            int receivedDamage = collision.gameObject.GetComponent<Projectile>().Damage;
-            TakeDamage(receivedDamage);
-            Hurt();
-        }    
+        CheckDamage(collision, "Projectile");
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision) {
-        if (collision.gameObject.tag == "Atack Point") {
 
-            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
-            TakeDamage(receivedDamage);
-            Hurt();
-            Debug.Log(receivedDamage);
-        }
+        CheckDamage(collision, "Atack Point");
     }
     
     protected virtual void OnCollisionStay2D(Collision2D collision) {
-        
-        if(collision.gameObject.tag == "Disaster") {
+
+        CheckDamage(collision, "Disaster");
+    }
+    /// <summary>
+    /// Check Damage
+    /// Checking if collision object is euqal damager tag, take damage, play hurt animation
+    /// </summary>
+    /// <param name="collision"></param>
+    /// <param name="damagerTag"></param>
+    /// 
+    private void CheckDamage(Collision2D collision, string damagerTag) {
+
+        if (collision.gameObject.tag == damagerTag) {
 
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
             TakeDamage(receivedDamage);
@@ -160,6 +161,23 @@ public class CharacterController2D : Character {
             Debug.Log(receivedDamage);
         }
     }
+
+    /// <summary>
+    /// Check Damage for triggers
+    /// </summary>
+    /// <param name="collision"></param>
+    /// <param name="damagerTag"></param>
+    private void CheckDamage(Collider2D collision, string damagerTag) {
+
+        if (collision.gameObject.tag == damagerTag) {
+
+            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
+            TakeDamage(receivedDamage);
+            Hurt();
+            Debug.Log(receivedDamage);
+        }
+    }
+
     protected override void TakeDamage(int damage) {
 
         hp -= damage;

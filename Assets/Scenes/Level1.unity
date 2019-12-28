@@ -55560,8 +55560,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TableId: 1wa6nFfB1HXHTC_Ca9ibcCtjYozlsiQEiNqNsI1zis9s
-  Sheets: []
-  SaveFolder: {fileID: 102900000, guid: 06602e9578385f54da4c351bc8347ef6, type: 3}
+  Sheets:
+  - Name: Menu
+    Id: 0
+  - Name: GUI
+    Id: 841644165
+  - Name: Perks
+    Id: 1834340660
+  - Name: Spells
+    Id: 1390332110
+  - Name: Items
+    Id: 1477244174
+  - Name: Cutscenes
+    Id: 388441365
+  - Name: Magic_Cliffs
+    Id: 1288807144
+  - Name: Camp
+    Id: 2042077601
+  SaveFolder: {fileID: 102900000, guid: b098b0cead4474d49a30d989dc2f5398, type: 3}
 --- !u!114 &1241865515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -55574,6 +55590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d916dc76a014824d9ab6084d2bbabc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultLanguage: 30
 --- !u!114 &1241865516
 MonoBehaviour:
   m_ObjectHideFlags: 0

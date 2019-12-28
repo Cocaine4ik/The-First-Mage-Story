@@ -38,7 +38,6 @@ using UnityEngine;
         }
 
         private IEnumerator SyncCoroutine() {
-            var folder = UnityEditor.AssetDatabase.GetAssetPath(SaveFolder);
 
             Debug.Log("<color=yellow>Sync started, please wait for confirmation message...</color>");
 
@@ -65,7 +64,7 @@ using UnityEngine;
 
                 if (downloader.error == null) {
                     var sheet = Sheets.Single(i => downloader.url == string.Format(UrlPattern, TableId, i.Id));
-                    var path = System.IO.Path.Combine(folder, sheet.Name + ".csv");
+                    var path = System.IO.Path.Combine(S, sheet.Name + ".csv");
 
                     System.IO.File.WriteAllBytes(path, downloader.bytes);
                     UnityEditor.AssetDatabase.Refresh();

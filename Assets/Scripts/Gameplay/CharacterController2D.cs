@@ -174,6 +174,7 @@ public class CharacterController2D : Character {
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
             TakeDamage(receivedDamage);
             Hurt();
+
             Debug.Log(receivedDamage);
         }
     }

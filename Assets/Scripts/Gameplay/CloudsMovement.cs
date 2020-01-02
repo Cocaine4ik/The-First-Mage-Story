@@ -16,6 +16,6 @@ public class CloudsMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector2.left * speed * Time.deltaTime;
+        rb.velocity = Vector2.right * speed * Time.deltaTime;
     }
 }

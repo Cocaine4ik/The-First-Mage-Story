@@ -76030,7 +76030,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 2575503598489135817}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2575503598489135818}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -91854,25 +91854,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02abfa5362d177042a9be8c3fed838e0, type: 3}
---- !u!1 &2575503598489135818 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2575503600227255596, guid: 02abfa5362d177042a9be8c3fed838e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 2575503598489135817}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2575503598489135819
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2575503598489135818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LocalizationKey: GUI.lvl
 --- !u!1001 &3074996303739928904
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,18 +4,32 @@ using UnityEngine;
 
 public class CloudsMovement : MonoBehaviour
 {
+    private enum MoveDirection {
 
-    Rigidbody2D rb;
+        left,
+        right
+    }
+
     [SerializeField] private float speed = 2;
+    [SerializeField] private MoveDirection moveDirection;
+
+    private Rigidbody2D rb;
+    private Vector2 direction;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        switch(moveDirection) {
+            case MoveDirection.left: direction = Vector2.left; break;
+            case MoveDirection.right: direction = Vector2.right; break;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector2.right * speed * Time.deltaTime;
+
+        rb.velocity = direction * speed * Time.deltaTime;
     }
 }

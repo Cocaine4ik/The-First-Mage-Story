@@ -8,7 +8,7 @@ public class FireLight : MonoBehaviour
 
     public void OnFireLightEnd() {
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
 
     }
 

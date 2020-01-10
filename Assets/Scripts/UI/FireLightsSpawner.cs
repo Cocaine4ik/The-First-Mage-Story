@@ -6,13 +6,15 @@ public class FireLightsSpawner : MonoBehaviour
 {
     #region Fields
     [SerializeField] private float timerDuration = 2f;
+    [SerializeField] private GameObject fireLightPrefab;
+    [SerializeField] private GameObject canvas;
 
-    [SerializeField] private GameObject[] fireLightsCastleCenter;
-    [SerializeField] private GameObject[] fireLightsCastleTowers;
-    [SerializeField] private GameObject[] fireLightsBlackHouseOne;
-    [SerializeField] private GameObject[] fireLightsBlackHouseTwo;
-    [SerializeField] private GameObject[] fireLightsChurch;
-    [SerializeField] private GameObject[] fireLightsSmallHouse;
+    [SerializeField] private Vector2[] castleCenterPos;
+    [SerializeField] private Vector2[] castleTowerPos;
+    [SerializeField] private Vector2[] blackHouseOnePos;
+    [SerializeField] private Vector2[] blackHouseTwoPos;
+    [SerializeField] private Vector2[] churchPos;
+    [SerializeField] private Vector2[] smallHousePos;
 
     Timer fireLightSpawnTimer;
 
@@ -33,22 +35,27 @@ public class FireLightsSpawner : MonoBehaviour
 
     void Update()
     {
+
         switch(queue) {
-            case 1: ShowFireLight(fireLightsChurch); break;
-            case 2: ShowFireLight(fireLightsBlackHouseOne); break;
-            case 3: ShowFireLight(fireLightsSmallHouse); break;
-            case 4: ShowFireLight(fireLightsCastleCenter); break;
-            case 5: ShowFireLight(fireLightsBlackHouseTwo); break;
-            case 6: ShowFireLight(fireLightsCastleTowers); break;
-        }
+            case 1: SpawnFireLight(churchPos); break;
+                case 2: SpawnFireLight(blackHouseOnePos); break;
+                case 3: SpawnFireLight(smallHousePos); break;
+                case 4: SpawnFireLight(castleCenterPos); break;
+                case 5: SpawnFireLight(blackHouseTwoPos); break;
+                case 6: SpawnFireLight(castleTowerPos); break;
+    }
+    
     }
 
-    private void ShowFireLight(GameObject[] fireLights) {
+    private void SpawnFireLight(Vector2[] fireLightsPos) {
 
         if(fireLightSpawnTimer.Finished) {
               
-            GameObject currentFireLight = fireLights[Random.Range(0, fireLights.Length)];
-            currentFireLight.SetActive(true);
+            Vector2 currentPos = fireLightsPos[Random.Range(0, fireLightsPos.Length)];
+
+            GameObject fireLight= Instantiate(fireLightPrefab, canvas.transform);
+            fireLight.transform.localPosition = currentPos;
+
             fireLightSpawnTimer.Run();
 
             if(queue == 6) {

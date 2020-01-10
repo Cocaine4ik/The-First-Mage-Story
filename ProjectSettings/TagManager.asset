@@ -12,6 +12,7 @@ TagManager:
   - NPC
   - Atack Point
   - Disaster
+  - FireLight
   layers:
   - Default
   - TransparentFX

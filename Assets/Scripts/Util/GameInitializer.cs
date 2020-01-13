@@ -9,6 +9,8 @@ public class GameInitializer : MonoBehaviour
     /// </summary>
     private void Awake()
     {
+        ScreenUtils.Initialize();
         ConfigurationUtils.Initialize();
+        
     }
 }

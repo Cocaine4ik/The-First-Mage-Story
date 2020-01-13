@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class MovementEffect : MonoBehaviour
 {
+    #region Enum
+
     private enum MoveDirection {
 
         left,
         right
     }
+
+    #endregion
+
+    #region Fields
 
     [SerializeField] private float speed = 2;
     [SerializeField] private MoveDirection moveDirection;
@@ -16,6 +22,10 @@ public class MovementEffect : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 direction;
+
+    #endregion
+
+    #region Methods
 
     void Start()
     {
@@ -29,9 +39,6 @@ public class MovementEffect : MonoBehaviour
         
         direction.y += angle;
 
-        if ((Camera.main.pixelHeight) > 300) {
-            speed *= 2;
-        }
     }
 
     // Update is called once per frame
@@ -41,8 +48,5 @@ public class MovementEffect : MonoBehaviour
         rb.velocity = direction * speed * Time.deltaTime;
     }
 
-    private void OnBecameInvisible() {
-
-        Destroy(gameObject);
-    }
+    #endregion
 }

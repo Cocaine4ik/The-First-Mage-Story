@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CloudsMovement : MonoBehaviour
+public class MovementEffect : MonoBehaviour
 {
     private enum MoveDirection {
 
@@ -12,6 +12,7 @@ public class CloudsMovement : MonoBehaviour
 
     [SerializeField] private float speed = 2;
     [SerializeField] private MoveDirection moveDirection;
+    [SerializeField] private float angle = 0;
 
     private Rigidbody2D rb;
     private Vector2 direction;
@@ -24,6 +25,13 @@ public class CloudsMovement : MonoBehaviour
             case MoveDirection.left: direction = Vector2.left; break;
             case MoveDirection.right: direction = Vector2.right; break;
         }
+
+        
+        direction.y += angle;
+
+        if ((Camera.main.pixelHeight) > 300) {
+            speed *= 2;
+        }
     }
 
     // Update is called once per frame
@@ -31,5 +39,10 @@ public class CloudsMovement : MonoBehaviour
     {
 
         rb.velocity = direction * speed * Time.deltaTime;
+    }
+
+    private void OnBecameInvisible() {
+
+        Destroy(gameObject);
     }
 }

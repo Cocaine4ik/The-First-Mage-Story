@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectRotation : MonoBehaviour
+public class RotationEffect : MonoBehaviour
 {
 
     #region Fields

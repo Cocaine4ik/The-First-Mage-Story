@@ -72,7 +72,6 @@ public static class ScreenUtils {
         screenRight = upperRightCornerWorld.x;
         screenTop = upperRightCornerWorld.y;
         screenBottom = lowerLeftCornerWorld.y;
-        Debug.Log(ScreenLeft + " " + ScreenRight + " " + screenBottom + " " + screenTop);
     }
 
     #endregion

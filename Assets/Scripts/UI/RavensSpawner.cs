@@ -8,6 +8,7 @@ public class RavensSpawner : MonoBehaviour
 
     [SerializeField] private GameObject ravensPrefab;
     [SerializeField] private GameObject canvas;
+    [SerializeField] private Vector2 spawnPos;
 
     // ravnesPrefab colider component
     private BoxCollider2D boxCollider2D;
@@ -51,11 +52,10 @@ public class RavensSpawner : MonoBehaviour
 
     private void SpawnRavens() {
 
-        Debug.Log(ravensPrefabWidth);
 
         GameObject ravens = Instantiate(ravensPrefab, canvas.transform);
-        Vector2 spawnPos = new Vector2(Screen.width/2 + ravensPrefabWidth , -Screen.height/2);
         ravens.transform.localPosition = spawnPos;
+
     }
 
     #endregion

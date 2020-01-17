@@ -5,6 +5,8 @@ using UnityEngine;
 public enum MenuName {
    
     Main,
+    NewGame,
+    Continue,
     Pause,
     Credits,
     Options,
@@ -14,4 +16,5 @@ public enum MenuName {
     Perks,
     Inventory,
     Journal,
+
 }

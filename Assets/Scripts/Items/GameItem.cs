@@ -2,17 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameItem : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+public class GameItem : MonoBehaviour {
+
+    #region Fields
+
+    [SerializeField] Item itemData;
+
+    private bool isPickup;
+
+    #endregion
+
+    #region Properties
+
+    /// <summary>
+    /// Get, set if the item is pickup
+    /// </summary>
+    public bool IsPickup {
+        get { return isPickup; }
+        set { isPickup = value; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    #endregion
+
+    /// <summary>
+    /// initialize isPickup field
+    /// </summary>
+    /// 
+    #region Methods
+
+    private void Start() {
+
+        isPickup = false;
     }
+
+    #endregion
 }

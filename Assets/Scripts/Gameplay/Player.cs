@@ -106,10 +106,10 @@ public class Player : MagicCharacterController {
 
         base.OnTriggerEnter2D(collision);
 
-        if(collision.gameObject.GetComponent<Item>() != null) {
+        if(collision.gameObject.GetComponent<GameItem>() != null) {
             canCollect = true;
 
-            collision.gameObject.GetComponent<Item>().IsPickup = true;
+            collision.gameObject.GetComponent<GameItem>().IsPickup = true;
             item = collision.gameObject;
         }
 

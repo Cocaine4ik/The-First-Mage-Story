@@ -15,10 +15,10 @@ public class Reward : MonoBehaviour
     /// </summary>
     private void OnDestroy()
     {
-        Item item = gameObject.GetComponent<Item>();
+        GameItem gameItem = gameObject.GetComponent<GameItem>();
         Enemy enemy = GetComponent<Enemy>();
         
-        if (item != null && item.IsPickup == true) {
+        if (gameItem != null && gameItem.IsPickup == true) {
 
                 EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
         }

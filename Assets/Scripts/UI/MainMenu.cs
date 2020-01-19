@@ -8,8 +8,31 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        AudioManager.Play(AudioClipName.MainMenuTheme);
+        PlayMusic();
     }
+
+    private void Update() {
+        
+        if(!AudioManager.IsPlaying()) {
+
+            StatusUtils.MusicOn = false;
+
+            PlayMusic();
+        }
+
+    }
+
+    private void PlayMusic() {
+
+        if(!StatusUtils.MusicOn) {
+
+            AudioManager.Play(AudioClipName.MainMenuTheme);
+            StatusUtils.MusicOn = true;
+        }
+    }
+    #endregion
+
+    #region Button Events
 
     public void OnNewGameButton() {
 
@@ -21,5 +44,6 @@ public class MainMenu : MonoBehaviour
 
         Application.Quit();
     }
+
     #endregion
 }

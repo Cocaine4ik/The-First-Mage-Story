@@ -50,12 +50,11 @@ public static class AudioManager {
     public static void Stop() {
 
         audioSource.Stop();
+        StatusUtils.MusicOn = false;
     }
 
     // return true if audio clip is plaing
     public static bool IsPlaying() {
-
-        Debug.Log(audioSource.isPlaying);
 
         return audioSource.isPlaying;
     }

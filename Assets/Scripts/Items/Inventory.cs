@@ -36,10 +36,10 @@ public class Inventory : MonoBehaviour
 
         items = new List<Item>();
         //items.Add(testItem);
-        items.Add(test);
-        if (items[0].GetType() == typeof(RelicItem)) {
+        //items.Add(test);
+        /*if (items[0].GetType() == typeof(RelicItem)) {
             Debug.Log("it's ok");
-        }
+        }*/
     }
 
     #endregion

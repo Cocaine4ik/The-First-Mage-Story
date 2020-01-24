@@ -7,21 +7,30 @@ public class Inventory : MonoBehaviour
 {
 
     #region Fields
+
     private int inventorySize;
-    [SerializeField] private RelicItem test;
-    [SerializeField] private Item testItem;
-    /// <summary>
-    /// 
-    /// </summary>
-    private List<Item> items;
-    /// <summary>
-    /// 
-    /// </summary>
-    private List<Item> relics;
+
+    [SerializeField] private List<Item> items;
+    [SerializeField] private InventoryCell inventoryCellTemplate;
+    [SerializeField] private Transform container;
+
     #endregion
 
     #region Methods
 
+    private void OnEnable() {
+
+        Render(items);
+    }
+    public void Render(List<Item> items) {
+
+        items.ForEach(item => {
+
+            var cell = Instantiate(inventoryCellTemplate, container);
+            cell.Render(item);
+
+        });
+    }
     public void AddItem(Item item) {
 
         if(items.Count < inventorySize) {
@@ -31,15 +40,8 @@ public class Inventory : MonoBehaviour
             Debug.Log("Inventory is full");
         }
     }
-
     private void Start() {
 
-        items = new List<Item>();
-        //items.Add(testItem);
-        //items.Add(test);
-        /*if (items[0].GetType() == typeof(RelicItem)) {
-            Debug.Log("it's ok");
-        }*/
     }
 
     #endregion

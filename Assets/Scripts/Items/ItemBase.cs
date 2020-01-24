@@ -19,11 +19,17 @@ public class ItemBase : ScriptableObject, IITem {
     #region Properties
 
     public string ItemName => throw new NotImplementedException();
-    public Sprite ItemIcon => throw new NotImplementedException();
+    public string ItemType => throw new NotImplementedException();
+    public Sprite ItemIcon => itemIcon;
     public string ItemDescription => throw new NotImplementedException();
 
     public string ItemNameKey => throw new NotImplementedException();
+    public string ItemTypeKey => throw new NotImplementedException();
     public string ItemDescriptionKey => throw new NotImplementedException();
+
+
+
+
 
     #endregion
 }

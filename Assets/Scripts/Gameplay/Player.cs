@@ -70,8 +70,7 @@ public class Player : MagicCharacterController {
 
     // pickup smth or collect item
     private void Pickup() {
-
-        Item pickupItem = GetComponent<Item>();
+        Item pickupItem = item.GetComponent<GameItem>().ItemData;
 
         animator.SetBool("CanCollect", canCollect);
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));

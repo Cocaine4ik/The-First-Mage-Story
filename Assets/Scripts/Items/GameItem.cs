@@ -14,6 +14,8 @@ public class GameItem : MonoBehaviour {
 
     #region Properties
 
+    public Item ItemData => itemData;
+
     /// <summary>
     /// Get, set if the item is pickup
     /// </summary>

@@ -5,12 +5,33 @@ using UnityEngine;
 public class PlayerInterfaceController : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
+    [SerializeField] private List<GameObject> inventoryChilds;
 
-    private void Update() {
+    private void Start() {
 
-        if (Input.GetKeyDown(KeyCode.I)) {
-            inventory.SetActive(!inventory.gameObject.activeSelf);
+        foreach (Transform child in inventory.transform) {
+
+            inventoryChilds.Add(child.gameObject);
+
         }
 
+        OpenCloseInventory();
+    }
+    private void Update() {
+        
+        if (Input.GetKeyDown(KeyCode.I)) {
+
+            OpenCloseInventory();
+        }
+    }
+
+    private void OpenCloseInventory() {
+
+        if (inventoryChilds != null) {
+
+            foreach (GameObject gameObject in inventoryChilds) {
+                gameObject.SetActive(!gameObject.activeSelf);
+            }
+        }
     }
 }

@@ -8,6 +8,7 @@ public class EventArg {
 
     private int firstIntArg;
     private int secondIntArg;
+    private string firstStringArg;
     private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
@@ -19,6 +20,7 @@ public class EventArg {
 
     public int FirstIntArg { get { return firstIntArg; } }
     public int SecondIntArg {  get { return secondIntArg; } }
+    public string FirstStringArg { get { return firstStringArg; } }
     public float FirstFloatArg { get { return firstFloatArg; } }
     public bool FirstBoolArg { get { return firstBoolArg; } }
     public TimerName TimerName { get { return timerName; } }
@@ -44,6 +46,9 @@ public class EventArg {
         this.secondIntArg = arg2;
     }
 
+    public EventArg(string arg) {
+        this.firstStringArg = arg;
+    }
     /// <summary>
     /// constructor with one float arg
     /// </summary>

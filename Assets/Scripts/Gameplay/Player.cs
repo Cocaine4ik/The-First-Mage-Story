@@ -11,7 +11,7 @@ public class Player : MagicCharacterController {
 
     private bool canCollect = false;
     private bool isPickup = false;
-    private GameObject item;
+    private GameObject tempPickupItem;
 
     [SerializeField] private int expToReachLevel;
     #endregion
@@ -70,12 +70,12 @@ public class Player : MagicCharacterController {
 
     // pickup smth or collect item
     private void Pickup() {
-        Item pickupItem = item.GetComponent<GameItem>().ItemData;
+        Item pickupItem = tempPickupItem.GetComponent<GameItem>().ItemData;
 
         animator.SetBool("CanCollect", canCollect);
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
         isPickup = true;
-        Destroy(item);
+        Destroy(tempPickupItem);
         
     }
 
@@ -109,7 +109,7 @@ public class Player : MagicCharacterController {
             canCollect = true;
 
             collision.gameObject.GetComponent<GameItem>().IsPickup = true;
-            item = collision.gameObject;
+            tempPickupItem = collision.gameObject;
         }
 
     }

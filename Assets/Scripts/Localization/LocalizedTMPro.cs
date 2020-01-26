@@ -6,16 +6,28 @@ using TMPro;
 
 public class LocalizedTMPro : MonoBehaviour {
 
-    public string LocalizationKey;
+    [SerializeField] private string localizationKey;
 
     public void Start() {
-        Localize();
-        LocalizationManager.LocalizationChanged += Localize;
+
+        ChangeLocalization();
+
     }
     public void OnDestroy() {
         LocalizationManager.LocalizationChanged -= Localize;
     }
     private void Localize() {
-        GetComponent<TextMeshPro>().text = LocalizationManager.Localize(LocalizationKey);
+        GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey);
+    }
+
+    public void ChangeLocalization() {
+
+        Localize();
+        LocalizationManager.LocalizationChanged += Localize;
+
+    }
+
+    public void ChangeLocalizationKey(string key) {
+        localizationKey = key;
     }
 }

@@ -46,24 +46,17 @@ public class Inventory : MonoBehaviour
 
 
     public void AddItem(EventArg arg) {
-       
+
+        items.Add(arg.Item);
+
         foreach (InventoryCell cell in inventoryCells) {
 
            if(cell.IsEmpty) {
-                cell.Render(arg.Item);
+                cell.AddItemToCell(arg.Item);
                 break;
-            }
-        }
+            }       
 
-        /*
-        if(items.Count < inventorySize) {
-            items.Add(item);
         }
-        else {
-            Debug.Log("Inventory is full");
-        }*/
     }
-
-
     #endregion
 }

@@ -4,10 +4,7 @@ using UnityEngine;
 
 public interface IITem {
 
-    string ItemName { get; }
-    string ItemType { get; }
     Sprite ItemIcon { get; }
-    string ItemDescription { get;}
 
     /// <summary>
     /// keys for localiztion

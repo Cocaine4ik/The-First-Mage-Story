@@ -1,1 +1,5 @@
 Key,Russian,English,German,Spanish,Ukrainian
+Items.Name.Default,Название Предмета,Item Name,,,
+Items.Name.BlueMagicFlower,,Blue Magic Flower,,,
+Items.Description.BlueMagicFlower,,,,,
+Items.Type.QuestItem,Квестовый,Quest,,,

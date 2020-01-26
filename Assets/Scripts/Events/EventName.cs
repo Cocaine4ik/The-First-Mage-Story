@@ -13,5 +13,6 @@ public enum EventName {
     ManaChange,
     Save,
     Load,
-    SpawnRavens
+    SpawnRavens,
+    ShowInventoryName,
 }

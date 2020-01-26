@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Items/Quest Item")]
-public class QuestItem : ItemBase
+public class QuestItem : Item
 {
 
 }

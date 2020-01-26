@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1eda598acf53f4c950acc94d149556, type: 3}
   m_Name: BlueMagicFlower
   m_EditorClassIdentifier: 
-  itemName: 
-  itemIcon: {fileID: 21300000, guid: 91419af75baf1e2438398ff8d600969a, type: 3}
-  itemDescription: 
-  itemNameKey: 
+  itemIcon: {fileID: 21300000, guid: eaf49d526b360a74badff3877f20f8de, type: 3}
+  itemNameKey: Items.Name.BlueMagicFlower
   itemDescriptionKey: 

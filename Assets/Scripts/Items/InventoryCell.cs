@@ -5,9 +5,10 @@ using UnityEngine.UI;
 
 public class InventoryCell : MonoBehaviour
 {
-    [SerializeField] private Image iconField;
+    private Image iconField;
     private string itemNameKey;
     private string itemTypeKey;
+
     [SerializeField] private int id;
     [SerializeField] private bool isEmpty;
     [SerializeField] private bool isFull;
@@ -16,6 +17,7 @@ public class InventoryCell : MonoBehaviour
 
     private void Awake() {
 
+        iconField = GetComponent<Image>();
         isEmpty = true;
         isFull = false;
     }
@@ -29,6 +31,7 @@ public class InventoryCell : MonoBehaviour
 
         iconField.sprite = item.ItemIcon;
         itemNameKey = item.ItemNameKey;
+        itemTypeKey = item.ItemTypeKey;
         isFull = true;
     }
 

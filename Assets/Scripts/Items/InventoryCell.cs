@@ -8,6 +8,7 @@ public class InventoryCell : MonoBehaviour
     private Image iconField;
     private string itemNameKey;
     private string itemTypeKey;
+    private string itemDescriptionKey;
 
     [SerializeField] private int id;
     [SerializeField] private bool isEmpty;
@@ -32,13 +33,16 @@ public class InventoryCell : MonoBehaviour
         iconField.sprite = item.ItemIcon;
         itemNameKey = item.ItemNameKey;
         itemTypeKey = item.ItemTypeKey;
+        itemDescriptionKey = item.ItemDescriptionKey;
         isFull = true;
     }
 
     public void OnInventoryCellSelected() {
 
         if (isFull == true) {
-            EventManager.TriggerEvent(EventName.ShowInventoryName, new EventArg(itemNameKey));
+            EventManager.TriggerEvent(EventName.ShowInventoryItemName, new EventArg(itemNameKey));
+            EventManager.TriggerEvent(EventName.ShowInventoryItemType, new EventArg(itemTypeKey));
+            EventManager.TriggerEvent(EventName.ShowInventoryItemDescription, new EventArg(itemDescriptionKey));
         }
 
     }

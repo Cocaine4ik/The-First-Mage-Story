@@ -6,12 +6,12 @@ public class InventoryItemName : MonoBehaviour
 {
     private void Start() {
 
-        EventManager.StartListening(EventName.ShowInventoryName, OnChangedNameKey);
+        EventManager.StartListening(EventName.ShowInventoryItemName, OnChangedNameKey);
     }
 
     private void OnDestroy() {
 
-        EventManager.StopListening(EventName.ShowInventoryName, OnChangedNameKey);
+        EventManager.StopListening(EventName.ShowInventoryItemName, OnChangedNameKey);
 
     }
     public void OnChangedNameKey(EventArg arg) {

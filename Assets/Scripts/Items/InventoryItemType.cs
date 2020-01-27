@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class InventoryItemType : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void Start() {
+
+        EventManager.StartListening(EventName.ShowInventoryItemType, OnChangedTypeKey);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnDestroy() {
+
+        EventManager.StopListening(EventName.ShowInventoryItemType, OnChangedTypeKey);
+
+    }
+    public void OnChangedTypeKey(EventArg arg) {
+
+        GetComponent<LocalizedTMPro>().ChangeLocalizationKey(arg.FirstStringArg);
+        GetComponent<LocalizedTMPro>().ChangeLocalization();
     }
 }

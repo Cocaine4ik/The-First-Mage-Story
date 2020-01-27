@@ -28,7 +28,7 @@ public class Player : MagicCharacterController {
         base.Update();
 
         // atack if atack button down
-        if (Input.GetButtonDown("Fire1") && !isAtack) {
+        if (Input.GetButtonDown("Fire1") && !isAtack && StatusUtils.InventoryClosed) {
 
             Atack();
            

@@ -14,5 +14,7 @@ public enum EventName {
     Save,
     Load,
     SpawnRavens,
-    ShowInventoryName,
+    ShowInventoryItemName,
+    ShowInventoryItemType,
+    ShowInventoryItemDescription
 }

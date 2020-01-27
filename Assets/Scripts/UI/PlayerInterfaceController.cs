@@ -29,9 +29,11 @@ public class PlayerInterfaceController : MonoBehaviour
 
         if (inventoryChilds != null) {
 
+
             foreach (GameObject gameObject in inventoryChilds) {
                 gameObject.SetActive(!gameObject.activeSelf);
             }
+            StatusUtils.InventoryClosed = !StatusUtils.InventoryClosed;
         }
     }
 }

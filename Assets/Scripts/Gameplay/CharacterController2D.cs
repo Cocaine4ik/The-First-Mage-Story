@@ -211,10 +211,6 @@ public class CharacterController2D : Character {
         Move(moveX);
     }
 
-    protected void LookAtEnemy(Transform enemy) {
-
-        if(transform.position.x > enemy.transform)
-    }
     #endregion
 
 

@@ -12,7 +12,7 @@ public class NPC : CharacterController2D
     [SerializeField] private float guardTime;
     [SerializeField] private Transform rangePoint;
 
-    private bool oldIsRight;
+    private GameObject guardTurn;
 
     protected List<string> enemyTags;
     protected Timer guardTimer;
@@ -44,9 +44,8 @@ public class NPC : CharacterController2D
         // if patrol is active - start patrol and write old flip
         if (isPatrol) {
             Patrol();
-            oldIsRight = isRight;
         }
-
+        
         // if is guard and timer is finished it's time to change direction and off guard mode
         if (isGuard && guardTimer.Finished) {
 
@@ -55,13 +54,10 @@ public class NPC : CharacterController2D
 
         }
 
-        // if we change direction (old isRight is not equal new) so we continue patrol
-        if(oldIsRight != isRight && !isCharge) {
-            isPatrol = true;
-        }
-
+        /*
         // we always try to detect enemies
-        DetectEnemy();
+        DetectEnemy();*/
+
     }
 
     /// <summary>
@@ -69,10 +65,12 @@ public class NPC : CharacterController2D
     /// </summary>
     /// <param name="collision"></param>
     protected override void OnTriggerEnter2D(Collider2D collision) {
+
         base.OnTriggerEnter2D(collision);
 
-        if (collision.CompareTag("Turn") && !isGuard && isPatrol) {
+        if (collision.CompareTag("Turn") && !isGuard && isPatrol && !isCharge && collision.gameObject != guardTurn) {
 
+            guardTurn = collision.gameObject;
             isPatrol = false;
             isGuard = true;
             StopMovement();
@@ -86,6 +84,7 @@ public class NPC : CharacterController2D
     /// </summary>
     /// <param name="collision"></param>
     protected override void OnCollisionStay2D(Collision2D collision) {
+
         base.OnCollisionStay2D(collision);
 
         foreach (string enemy in enemyTags) {
@@ -120,6 +119,7 @@ public class NPC : CharacterController2D
                 if (hit.transform.gameObject.CompareTag("Turn")) {
 
                     isPatrol = true;
+                    isGuard = false;
                     RestoreMovement();
 
                 }
@@ -131,54 +131,9 @@ public class NPC : CharacterController2D
     /// </summary>
     protected virtual void DetectEnemy() {
 
-        if(IsAlive) {
+        if(IsAlive) {   
+        
 
-       
-        int enemiesInRange = 0;
-        bool turnInRange = false;
-
-        foreach (RaycastHit2D hit in Raycast()) {
-
-            // For each hit in raycast checking if it is enemy, if is true we add enemy to variable enemiesInRange. 
-            foreach (string enemytag in enemyTags) {
-
-                    if (hit.transform.gameObject.CompareTag(enemytag)) {
-
-                    enemiesInRange++;    
-                    
-                    }
-            }
-            // If we have a turn in hit we set turn is true to variable turnInRange.
-            if (hit.transform.gameObject.CompareTag("Turn")) {
-
-                turnInRange = true;
-            }
-
-        }
-
-        // Debug.Log(enemiesInRange);
-        // if we have turn in range and more then 0 enemeis we charging.
-        if (enemiesInRange > 0 && turnInRange) {
-            Charge();
-        }
-
-        // if we havn't turn in range we stop movement and changing direction.
-        else if (!turnInRange) {
-            StopMovement();
-            ChangeDirection();
-        }
-        else {
-            // If we havn't enemies in range and we have a hurt we change direction.
-            if (isHurt) {
-
-                ChangeDirection();
-            }
-            // if enemie is lost we stop charge and continue patrol
-                if (isCharge && !isGuard && !isPatrol && !isAtack) {
-                    isPatrol = true;
-                    isCharge = false;
-                }
-            }
         }
     }
 
@@ -225,18 +180,16 @@ public class NPC : CharacterController2D
         if (isRight) {
             // Debug.Log("Flip left");
             moveX = Vector2.left.x;
+            isPatrol = true;
 
         }
         if (!isRight) {
             // Debug.Log("Flip Right");
             moveX = Vector2.right.x;
+            isPatrol = true;
         }
     }
 
-    protected override void StopMovement() {
-        base.StopMovement();
- 
-    }
     #endregion
 
     #region Events

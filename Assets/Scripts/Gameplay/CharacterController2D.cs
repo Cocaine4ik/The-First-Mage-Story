@@ -52,6 +52,8 @@ public class CharacterController2D : Character {
     }
 
     protected virtual void Update() {
+
+        // Die if it's time to...
         Die();
 
         // ground controll
@@ -68,8 +70,10 @@ public class CharacterController2D : Character {
             animator.SetBool("IsJump", isJump);
         }
     }
+
     protected virtual void FixedUpdate() {
 
+        // flip if X movement direction is changed
         Flip(moveX);
   
     }
@@ -120,6 +124,9 @@ public class CharacterController2D : Character {
         animator.SetBool("IsHurt", isHurt);
     }
 
+    /// <summary>
+    /// Die if is not alive
+    /// </summary>
     protected override void Die() {
         
         if(hp <= 0) {
@@ -185,14 +192,14 @@ public class CharacterController2D : Character {
 
     }
 
-    protected virtual void StopMovement() {
+    protected void StopMovement() {
 
         moveX = Vector2.zero.x;
-
+        Debug.Log("stopMove " + gameObject.name);
         Move(moveX);
     }
 
-    protected virtual void RestoreMovement() {
+    protected  void RestoreMovement() {
 
         if (isRight) {
             moveX = Vector2.right.x;
@@ -202,6 +209,11 @@ public class CharacterController2D : Character {
         }
 
         Move(moveX);
+    }
+
+    protected void LookAtEnemy(Transform enemy) {
+
+        if(transform.position.x > enemy.transform)
     }
     #endregion
 

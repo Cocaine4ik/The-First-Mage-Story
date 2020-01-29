@@ -17,6 +17,9 @@ public class NPC : CharacterController2D
     protected List<string> enemyTags;
     protected Timer guardTimer;
 
+    private bool turnInRange = false;
+    private Transform target = null;
+
     #endregion
 
     protected override void Start() {
@@ -54,21 +57,28 @@ public class NPC : CharacterController2D
 
         }
 
-        /*
-        // we always try to detect enemies
-        DetectEnemy();*/
+        
+        // we always try to detect targets
+        DetectTarget();
+        
+        if(target != null && turnInRange) {
 
+            RestoreMovement();
+            LookAtTarget(target);
+        }
     }
 
     /// <summary>
     /// if we colide our turn trigger we stop patrol, stop movement and on guard mode
     /// </summary>
     /// <param name="collision"></param>
+    /// 
+
     protected override void OnTriggerEnter2D(Collider2D collision) {
 
         base.OnTriggerEnter2D(collision);
 
-        if (collision.CompareTag("Turn") && !isGuard && isPatrol && !isCharge && collision.gameObject != guardTurn) {
+        if (collision.CompareTag("Turn") && !isGuard && collision.gameObject != guardTurn) {
 
             guardTurn = collision.gameObject;
             isPatrol = false;
@@ -78,7 +88,16 @@ public class NPC : CharacterController2D
 
         }
     }
+    /// <summary>
+    /// If for a reason well-known only to God, the wolf collided in turn, but did not remain on guard, he is put on guard
+    /// </summary>
+    /// <param name="collision"></param>
+    protected void OnTriggerStay2D(Collider2D collision) {
 
+        if (collision.CompareTag("Turn") && !isGuard) {
+            isGuard = true;
+        }
+    }
     /// <summary>
     /// if we colides with enemy we start atack him
     /// </summary>
@@ -129,10 +148,32 @@ public class NPC : CharacterController2D
     /// <summary>
     /// Detect enemy end set our behaviour during this detection
     /// </summary>
-    protected virtual void DetectEnemy() {
+    protected virtual void DetectTarget() {
 
-        if(IsAlive) {   
-        
+        if(IsAlive && target == null) {
+
+ 
+
+            foreach (RaycastHit2D hit in Raycast()) {
+
+                // For each hit in raycast checking if it is enemy, if is true we add enemy to variable enemiesInRange. 
+                foreach (string enemytag in enemyTags) {
+
+                    if (hit.transform.gameObject.CompareTag(enemytag)) {
+
+                        if (target == null) {
+
+                            target = hit.transform;
+                        }
+
+                    }
+                }
+                // If we have a turn in hit we set turn is true to variable turnInRange.
+                if (hit.transform.gameObject.CompareTag("Turn")) {
+
+                    turnInRange = true;
+                }
+            }
 
         }
     }
@@ -159,7 +200,6 @@ public class NPC : CharacterController2D
 
             }
             RestoreMovement();
-
         }
     }
 
@@ -172,6 +212,15 @@ public class NPC : CharacterController2D
 
     }
 
+    protected void LookAtTarget(Transform target) {
+
+        if (isRight && moveX > 0 && transform.position.x > target.transform.position.x ||
+            !isRight && moveX < 0  && transform.position.x < target.transform.position.x) {
+
+            ChangeDirection();
+
+        }
+    }
     /// <summary>
     /// Change direction 
     /// </summary>

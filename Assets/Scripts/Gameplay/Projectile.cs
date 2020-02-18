@@ -8,6 +8,7 @@ public class Projectile : AtackTrigger {
 
     private Timer projectileDeathTimer;
     private Rigidbody2D rb;
+    private LayerMask enemyLayer;
 
     [SerializeField] private float projectileAliveTime = 2f;
     [SerializeField] private float speed = 5f;
@@ -40,7 +41,12 @@ public class Projectile : AtackTrigger {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
-     SelfDestroy();
+        if(collision.GetComponent<CharacterHealth>() != null) {
+
+            collision.GetComponent<CharacterHealth>().TakeDamage(damage);
+        }
+        SelfDestroy();
+
     }
  
 
@@ -51,6 +57,16 @@ public class Projectile : AtackTrigger {
         Destroy(gameObject);
 
     }
+    /*
+    private void SetEnemy() {
+
+        if (gameObject.layer == LayerMask.GetMask("Player")) {
+            enemyLayer = LayerMask.GetMask("Enemy");
+        }
+        else {
+            enemyLayer = LayerMask.GetMask("Player");
+        }
+    }*/
     #endregion
 
 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Player : MagicCharacterController {
+public class Player : MagicCharacter {
 
     #region Fields
 
     Attributes stats;
 
-    private bool canCollect = false;
+    private bool canPickup = false;
     private bool isPickup = false;
     private GameObject tempPickupItem;
 
@@ -47,7 +47,7 @@ public class Player : MagicCharacterController {
 
         }
 
-        if (canCollect && Input.GetButtonDown("Grab") && isGrounded) {
+        if (canPickup && Input.GetButtonDown("Grab") && isGrounded) {
 
             Pickup();
 
@@ -72,9 +72,9 @@ public class Player : MagicCharacterController {
     private void Pickup() {
         Item pickupItem = tempPickupItem.GetComponent<GameItem>().ItemData;
 
-        animator.SetBool("CanCollect", canCollect);
+        animator.SetTrigger("Pickup");
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
-        isPickup = true;
+        // isPickup = true;
         Destroy(tempPickupItem);
         
     }
@@ -95,29 +95,26 @@ public class Player : MagicCharacterController {
         }
 
     }
-
+    /*
     private void LateUpdate()
     {
         stats.SetMana(mana);
         stats.SetHp(hp);
-    }
+    }*/
     protected override void OnTriggerEnter2D(Collider2D collision) {
 
         base.OnTriggerEnter2D(collision);
 
         if(collision.gameObject.GetComponent<GameItem>() != null) {
-            canCollect = true;
 
-            collision.gameObject.GetComponent<GameItem>().IsPickup = true;
+            canPickup = true;
             tempPickupItem = collision.gameObject;
         }
 
     }
-    protected override void TakeDamage(int damage) {
-        base.TakeDamage(damage);
+    public override void Hurt() {
 
-        float healthPercent = (float)damage / stats.MaxHp;
-        EventManager.TriggerEvent(EventName.HpChange, new EventArg(healthPercent));
+        ShieldUp();
     }
 
     #endregion
@@ -125,9 +122,8 @@ public class Player : MagicCharacterController {
     #region Animation Events
 
     private void OnCollectEnd() {
-        canCollect = false;
+        canPickup = false;
         isPickup = false;
-        animator.SetBool("CanCollect", canCollect);
 
     }
 

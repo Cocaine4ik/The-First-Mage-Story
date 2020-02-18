@@ -2,19 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController2D : Character {
+public class Character : CharacterBase {
 
     #region Fields
+
+    [SerializeField] protected Transform atackPoint;
+    [SerializeField] protected GameObject corpse;
+    [SerializeField] protected float speed = 5f;
+    // Enemy layers for mellee atack checking
+    [SerializeField] protected LayerMask enemies;
 
     protected Rigidbody2D rb;
     protected Animator animator;
     protected Timer jumpControlTimer;
+    protected AtackTrigger atackTrigger;
 
     [SerializeField] protected bool isRight = true;
 
     protected bool isAlive = true;
     protected bool isAtack = false;
-    protected bool isHurt = false;
     protected bool isJump = false;
 
     protected bool isGrounded;
@@ -31,11 +37,12 @@ public class CharacterController2D : Character {
 
     #region Properties
 
-    public int Hp { get; set; }
-
-    public bool IsAlive {  get { return isAlive; } }
+    public bool IsAlive => isAlive;
+    public LayerMask Enemies => enemies;
+    public AtackTrigger AtackTrigger => atackTrigger;
 
     #endregion
+
     #region Methods
 
     protected virtual void Start() {
@@ -43,6 +50,8 @@ public class CharacterController2D : Character {
          // init rigidbody and animator
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        characterHealth = GetComponent<CharacterHealth>();
+        atackTrigger = atackPoint.gameObject.GetComponent<AtackTrigger>();
                    
         animator.SetBool("IsAlive", isAlive);
 
@@ -78,9 +87,10 @@ public class CharacterController2D : Character {
   
     }
 
-    protected override void Move(float moveX) {
+    public override void Move(float moveX) {
 
-        if (!isAtack && isAlive && !isHurt) { 
+        if (!isAtack && isAlive) {
+            this.moveX = moveX;
             rb.velocity = new Vector2(speed * moveX, rb.velocity.y);
         }
 
@@ -91,23 +101,22 @@ public class CharacterController2D : Character {
     // flip left and right
     protected override void Flip(float moveX) {
 
-        if(moveX > 0 && !isRight || moveX < 0 && isRight) {
+        if(IsAlive) {
 
-            isRight = !isRight;
-            transform.Rotate(0, 180, 0);
+            if (moveX > 0 && !isRight || moveX < 0 && isRight) {
 
+                isRight = !isRight;
+                transform.Rotate(0, 180, 0);
+
+            }
         }
 
-
-    } 
+    }
     // set atack is true and play atack animation
-    protected override void Atack() {
+    public override void Atack() {
 
-        StopMovement();
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
-        atackPoint.gameObject.SetActive(false);
-
 
     }
 
@@ -118,10 +127,10 @@ public class CharacterController2D : Character {
 
     }
 
-    protected override void Hurt() {
-        isHurt = true;
-        StopMovement();
-        animator.SetBool("IsHurt", isHurt);
+    public override void Hurt() {
+
+        animator.SetTrigger("Hurt");
+
     }
 
     /// <summary>
@@ -129,22 +138,15 @@ public class CharacterController2D : Character {
     /// </summary>
     protected override void Die() {
         
-        if(hp <= 0) {
+        if(characterHealth.CurrentHealth <= 0) {
             isAlive = false;
-            StopMovement();
             animator.SetBool("IsAlive", isAlive);
         }
     }
-
-
+  
     protected virtual void OnTriggerEnter2D(Collider2D collision) {
 
         CheckDamage(collision, "Projectile");
-    }
-
-    protected virtual void OnTriggerExit2D(Collider2D collision) {
-
-        CheckDamage(collision, "Atack Point");
     }
     
     protected virtual void OnCollisionStay2D(Collision2D collision) {
@@ -163,9 +165,8 @@ public class CharacterController2D : Character {
         if (collision.gameObject.tag == damagerTag) {
 
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
-            TakeDamage(receivedDamage);
+            characterHealth.TakeDamage(receivedDamage);
             Hurt();
-            Debug.Log(receivedDamage);
         }
     }
 
@@ -179,55 +180,30 @@ public class CharacterController2D : Character {
         if (collision.gameObject.tag == damagerTag) {
 
             int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
-            TakeDamage(receivedDamage);
+            characterHealth.TakeDamage(receivedDamage);
             Hurt();
-
-            Debug.Log(receivedDamage);
         }
     }
-
-    protected override void TakeDamage(int damage) {
-
-        hp -= damage;
-
-    }
-
-    protected void StopMovement() {
-
-        moveX = Vector2.zero.x;
-        Debug.Log("stopMove " + gameObject.name);
-        Move(moveX);
-    }
-
-    protected  void RestoreMovement() {
-
-        if (isRight) {
-            moveX = Vector2.right.x;
-        }
-        else {
-            moveX = Vector2.left.x;
-        }
-
-        Move(moveX);
-    }
-
     #endregion
 
 
     #region Animation Events
 
+    protected void OnAtack() {
+
+        Collider2D targetColider = Physics2D.OverlapCircle(transform.position, atackTrigger.atackRange, enemies);
+
+        if(targetColider != null) {
+            targetColider.GetComponent<CharacterHealth>().TakeDamage(atackTrigger.Damage);
+        }
+    }
     // if atack end stop animation
-    protected virtual void OnAtackEnd() {
+    protected void OnAtackEnd() {
+
         isAtack = false;
         animator.SetBool("IsAtack", isAtack);
-        atackPoint.gameObject.SetActive(true);
     }
 
-    protected void OnHurt() {
-        isHurt = false;
-        animator.SetBool("IsHurt", isHurt);
-
-    }
     // left the body after death
     protected void OnDeath() {
         Instantiate(corpse, gameObject.transform.position, gameObject.transform.rotation);

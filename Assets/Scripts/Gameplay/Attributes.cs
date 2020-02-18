@@ -65,10 +65,10 @@ public class Attributes : MonoBehaviour
         maxMana = ConfigurationUtils.ManaDefault;
         currentHp = maxHp;
         currentMana = maxMana;
-
+        /*
         player.Hp = currentHp;
         player.Mana = currentMana;
-
+        */
         SetExpToReachLevel(currentLevel);
         spirit = ConfigurationUtils.SpiritDefault;
         knowledge = ConfigurationUtils.KnowledgeDefault;

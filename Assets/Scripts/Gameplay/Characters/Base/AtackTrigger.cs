@@ -5,8 +5,9 @@ using UnityEngine;
 public class AtackTrigger : MonoBehaviour {
 
     [SerializeField] protected int damage;
+    [SerializeField] public float atackRange;
 
-    public int Damage {
-        get { return damage; }
-    }
+    public int Damage => damage;
+    public float AtackRange => atackRange;
+
 }

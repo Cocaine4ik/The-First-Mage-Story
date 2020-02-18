@@ -8,34 +8,12 @@ public class GameItem : MonoBehaviour {
 
     [SerializeField] Item itemData;
 
-    private bool isPickup;
-
     #endregion
 
     #region Properties
 
     public Item ItemData => itemData;
 
-    /// <summary>
-    /// Get, set if the item is pickup
-    /// </summary>
-    public bool IsPickup {
-        get { return isPickup; }
-        set { isPickup = value; }
-    }
-
     #endregion
 
-    /// <summary>
-    /// initialize isPickup field
-    /// </summary>
-    /// 
-    #region Methods
-
-    private void Start() {
-
-        isPickup = false;
-    }
-
-    #endregion
 }

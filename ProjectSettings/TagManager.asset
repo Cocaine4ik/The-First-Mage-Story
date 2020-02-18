@@ -28,14 +28,14 @@ TagManager:
   - NPC
   - Item
   - Trigger
-  - Player Projectile
-  - Enemy Projectile
-  - NPC Projectile
-  - Player Atack Point
-  - Enemy Atack Point
-  - NPC Atack Point
   - Corps
   - Disaster
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -67,6 +67,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1480044915
+    locked: 0
+  - name: Enemy
+    uniqueID: 1961172231
     locked: 0
   - name: Foreground
     uniqueID: 4092743771

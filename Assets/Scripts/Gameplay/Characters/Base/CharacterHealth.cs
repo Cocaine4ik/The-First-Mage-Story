@@ -17,7 +17,11 @@ public class CharacterHealth : MonoBehaviour
 
     public void TakeDamage(int damage) {
 
-        GetComponentInParent<Character>().Hurt();
+        // if current health > damage we dont play hurt animation and play only death animation
+        if(currentHealth > damage) {
+            GetComponentInParent<Character>().Hurt();
+        }
+
         currentHealth -= damage;
         
         if(GetComponent<Player>() != null) {

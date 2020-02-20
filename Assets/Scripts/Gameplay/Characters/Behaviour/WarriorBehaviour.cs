@@ -33,20 +33,21 @@ public class WarriorBehaviour : BehaviourBase {
 
     protected override void DetectTarget() {
         
-        if(character.IsAlive) {
+        if(character.IsAlive && target == null) {
             foreach (RaycastHit2D hit in Raycast()) {
 
                 if (character.Enemies.Contains(hit.transform.gameObject.layer)) {
 
                     target = hit.transform;
                     Debug.Log(target);
-                    break;
                 }
-                else target = null;
             }
         }
     }
 
+    protected void LostTarget() {
+
+    }
     protected override void Guard() {
 
         StopMove();

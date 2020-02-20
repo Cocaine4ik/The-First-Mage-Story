@@ -47,7 +47,16 @@ public class WarriorBehaviour : BehaviourBase {
 
     protected void LostTarget() {
 
+        float[] patrolPointsPositionX = new float[patrolPoints.Length];
+
+        for(int i = 0 ; i < patrolPoints.Length; i++ ) {
+
+            patrolPointsPositionX[i] = patrolPoints[i].position.x;
+        }
+
+        patrolPointsPositionX.BubleSort();
     }
+
     protected override void Guard() {
 
         StopMove();

@@ -20,6 +20,7 @@ public class Character : CharacterBase {
     [SerializeField] protected bool isRight = true;
 
     protected bool isAlive = true;
+    protected bool isHurt = false;
     protected bool isAtack = false;
     protected bool isJump = false;
 
@@ -38,8 +39,10 @@ public class Character : CharacterBase {
     #region Properties
 
     public bool IsAlive => isAlive;
+    public bool IsHurt => isHurt;
     public LayerMask Enemies => enemies;
     public AtackTrigger AtackTrigger => atackTrigger;
+    public bool IsRight => isRight;
 
     #endregion
 
@@ -130,7 +133,7 @@ public class Character : CharacterBase {
     public override void Hurt() {
 
         animator.SetTrigger("Hurt");
-
+        isHurt = true;
     }
 
     /// <summary>
@@ -208,6 +211,10 @@ public class Character : CharacterBase {
     protected void OnDeath() {
         Instantiate(corpse, gameObject.transform.position, gameObject.transform.rotation);
         Destroy(gameObject);
+    }
+
+    protected void OnHurtEnd() {
+        isHurt = false;
     }
     #endregion
 }

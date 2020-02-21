@@ -7,6 +7,7 @@ public class CharacterHealth : MonoBehaviour
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
 
+
     public int MaxHealth => maxHealth;
     public int CurrentHealth => currentHealth;
 

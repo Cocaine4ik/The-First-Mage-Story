@@ -45,6 +45,7 @@ public class Projectile : AtackTrigger {
 
             collision.GetComponent<CharacterHealth>().TakeDamage(damage);
         }
+
         SelfDestroy();
 
     }
@@ -57,16 +58,7 @@ public class Projectile : AtackTrigger {
         Destroy(gameObject);
 
     }
-    /*
-    private void SetEnemy() {
 
-        if (gameObject.layer == LayerMask.GetMask("Player")) {
-            enemyLayer = LayerMask.GetMask("Enemy");
-        }
-        else {
-            enemyLayer = LayerMask.GetMask("Player");
-        }
-    }*/
     #endregion
 
 

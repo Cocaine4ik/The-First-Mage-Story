@@ -102,6 +102,10 @@ public class WarriorBehaviour : BehaviourBase {
 
     }
 
+    public void SetTarget(Transform target) {
+        this.target = target;
+    }
+
     protected void MoveToTarget(float targetPositionX) {
 
         float characterPositionX = gameObject.transform.position.x;
@@ -141,7 +145,7 @@ public class WarriorBehaviour : BehaviourBase {
     }
     private void FixedUpdate() {
 
-        if(!isGuard && target == null || TargetFarAway() ) {
+        if(!isGuard && target == null || !isGuard && TargetFarAway() ) {
             Patrol();
         }
 
@@ -154,11 +158,11 @@ public class WarriorBehaviour : BehaviourBase {
 
             Raycast();
             DetectTarget();
-
+        /*
             if (character.IsHurt && target == null) {
                 ChangeDirection();
                 Debug.Log("CD " + character.IsHurt);
-            }
+            }*/
         }
 
 }

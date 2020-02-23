@@ -9,10 +9,12 @@ public class Projectile : AtackTrigger {
     private Timer projectileDeathTimer;
     private Rigidbody2D rb;
     private LayerMask enemyLayer;
+    private GameObject projectileOwner;
 
     [SerializeField] private float projectileAliveTime = 2f;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject impactEffect;
+    
     #endregion
 
     #region Methods
@@ -45,12 +47,19 @@ public class Projectile : AtackTrigger {
 
             collision.GetComponent<CharacterHealth>().TakeDamage(damage);
         }
+        if(collision.GetComponentInParent<WarriorBehaviour>() != null) {
 
+            collision.GetComponent<WarriorBehaviour>().SetTarget(projectileOwner.transform);
+
+        }
         SelfDestroy();
-
     }
  
+    public void SetOwner(GameObject owner) {
 
+        projectileOwner = owner;
+
+    }
     // play impact effect animation and destroy yourself
     private void SelfDestroy() {
 

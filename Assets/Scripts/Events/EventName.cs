@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Event names
+/// </summary>
 public enum EventName {
 
     TimerFinished,

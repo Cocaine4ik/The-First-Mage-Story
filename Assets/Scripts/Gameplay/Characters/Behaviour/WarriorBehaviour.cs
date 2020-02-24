@@ -2,27 +2,82 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Warrior behaviour class as a parent for another behaviours
+/// </summary>
 public class WarriorBehaviour : BehaviourBase {
 
     #region Fields
 
     // Character view range end point transform
     [SerializeField] protected Transform rangePoint;
+    // patrol points positions
     [SerializeField] protected Transform[] patrolPoints;
     [SerializeField] protected float turnCheckDistance = 1f;
     [SerializeField] protected float guardTime = 2f;
 
     protected Character character;
     protected Transform target = null;
+
+    // variable for patrol poin choosing
     protected int nextPatrolPointNum = 0;
+    // array which include points for checking if the player in patrol zone
     protected float[] patrolPointsPositionsX;
 
     protected bool isGuard = false;
 
     #endregion
 
+    #region MonoBehaviour Methods
+
+    /// <summary>
+    /// Initialize character components and patrol points
+    /// </summary>
+    protected virtual void Start() {
+
+        character = GetComponent<Character>();
+        InitPatrolPointsPositionsX();
+
+    }
+    /// <summary>
+    /// Patrol behaviour: If character iы not on guard and have no target or target far away he patroling
+    /// Guard behaviour: 
+    /// If character have target and target is not far away - charge to the target
+    /// </summary>
+    private void FixedUpdate() {
+
+        // patrol behaviour
+        if(baseBehaviour == BaseBehaviour.Patroller) {
+
+            if (!isGuard && target == null || !isGuard && TargetFarAway()) {
+                Patrol();
+            }
+        }
+
+        if (target != null && !TargetFarAway()) {
+            Charge();
+        }
+
+    }
+    /// <summary>
+    /// Update raycast and target detecting
+    /// </summary>
+    protected void Update() {
+
+        Raycast();
+        DetectTarget();
+    }
+
+    #endregion
+
+    #region Methods
+
+    /// <summary>
+    /// Move to target if distance the distance is atack distance - atack
+    /// </summary>
     protected override void Charge() {
 
+        // calculating distance between target and character
         float distance = Vector2.Distance(target.transform.position, gameObject.transform.position);
  
         if (distance <= character.AtackTrigger.atackRange) {
@@ -33,7 +88,9 @@ public class WarriorBehaviour : BehaviourBase {
         }
 
     }
-
+    /// <summary>
+    /// Raycast, if raycast hit layer is enemy layer set hit as a target
+    /// </summary>
     protected override void DetectTarget() {
         
         if(character.IsAlive && target == null) {
@@ -46,7 +103,10 @@ public class WarriorBehaviour : BehaviourBase {
             }
         }
     }
-
+    /// <summary>
+    /// If target position is further then turn position - lost target and return false
+    /// </summary>
+    /// <returns></returns>
     protected bool TargetFarAway() {
 
         if(target != null) {
@@ -59,7 +119,9 @@ public class WarriorBehaviour : BehaviourBase {
         }
         return false;
     }
-
+    /// <summary>
+    /// Stop movement and start guard courotine
+    /// </summary>
     protected override void Guard() {
 
         StopMove();
@@ -67,6 +129,9 @@ public class WarriorBehaviour : BehaviourBase {
         StartCoroutine(StayOnGuard(guardTime));
     }
 
+    /// <summary>
+    /// Initialize patrol points horizontal positions from patrol points List 
+    /// </summary>
     protected void InitPatrolPointsPositionsX() {
 
         patrolPointsPositionsX = new float[patrolPoints.Length];
@@ -79,6 +144,10 @@ public class WarriorBehaviour : BehaviourBase {
         patrolPointsPositionsX.BubleSort();
 
     }
+
+    /// <summary>
+    /// Move from one patrol point to another and staiying on guard in it
+    /// </summary>
     protected override void Patrol() {
 
         Transform nextPatrolPoint = patrolPoints[nextPatrolPointNum];
@@ -94,6 +163,10 @@ public class WarriorBehaviour : BehaviourBase {
         }
     }
 
+    /// <summary>
+    /// Raycast and return hits array
+    /// </summary>
+    /// <returns></returns>
     protected RaycastHit2D[] Raycast() {
 
         Debug.DrawLine(transform.position, rangePoint.position, Color.red);
@@ -102,10 +175,18 @@ public class WarriorBehaviour : BehaviourBase {
 
     }
 
+    /// <summary>
+    /// Set target
+    /// </summary>
+    /// <param name="target"></param>
     public void SetTarget(Transform target) {
         this.target = target;
     }
 
+    /// <summary>
+    /// Move to target
+    /// </summary>
+    /// <param name="targetPositionX"></param>
     protected void MoveToTarget(float targetPositionX) {
 
         float characterPositionX = gameObject.transform.position.x;
@@ -118,11 +199,18 @@ public class WarriorBehaviour : BehaviourBase {
         }
     }
 
+    /// <summary>
+    /// Stop movement
+    /// </summary>
     protected void StopMove() {
 
         character.Move(Vector2.zero.x);
 
     }
+
+    /// <summary>
+    /// Flip when movement direction changed
+    /// </summary>
     protected void ChangeDirection() {
 
         if(character.IsRight) {
@@ -132,37 +220,20 @@ public class WarriorBehaviour : BehaviourBase {
             character.Move(Vector2.right.x);
         }
     }
+
+    #endregion
+
+    #region Courotine
+    /// <summary>
+    /// Wait on guard then set guard to false
+    /// </summary>
+    /// <param name="guardTime"></param>
+    /// <returns></returns>
     protected IEnumerator StayOnGuard(float guardTime) {
 
             yield return new WaitForSeconds(guardTime);
             isGuard = false;
     }
-    protected virtual void Start() {
 
-        character = GetComponent<Character>();
-        InitPatrolPointsPositionsX();
-
-    }
-    private void FixedUpdate() {
-
-        if(!isGuard && target == null || !isGuard && TargetFarAway() ) {
-            Patrol();
-        }
-
-        if (target != null && !TargetFarAway()) {
-            Charge();
-        }
-
-    }
-    protected void Update() {
-
-            Raycast();
-            DetectTarget();
-        /*
-            if (character.IsHurt && target == null) {
-                ChangeDirection();
-                Debug.Log("CD " + character.IsHurt);
-            }*/
-        }
-
+    #endregion
 }

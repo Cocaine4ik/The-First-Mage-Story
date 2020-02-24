@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Event argument with custm constructors
+/// </summary>
 public class EventArg {
 
     #region Fields

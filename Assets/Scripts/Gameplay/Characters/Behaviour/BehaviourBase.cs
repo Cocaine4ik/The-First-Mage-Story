@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Base behaviour class
+/// </summary>
 public abstract class BehaviourBase : MonoBehaviour
 {
     [SerializeField] protected BaseBehaviour baseBehaviour;

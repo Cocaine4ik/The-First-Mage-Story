@@ -6,6 +6,10 @@ using UnityEngine.Events;
 [System.Serializable]
 public class Event : UnityEvent<EventArg> { }
 
+/// <summary>
+/// Event Manager using Unity Event with EventArg like argument
+/// </summary>
+/// 
 public class EventManager : MonoBehaviour {
 
     #region Fields

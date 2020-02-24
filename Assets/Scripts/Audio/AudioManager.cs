@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Audio manager
+/// </summary>
 public static class AudioManager {
 
     #region Fields

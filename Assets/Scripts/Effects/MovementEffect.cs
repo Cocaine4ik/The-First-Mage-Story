@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Move object in left or right direction with custom speed and angle
+/// </summary>
 public class MovementEffect : MonoBehaviour
 {
     #region Enum

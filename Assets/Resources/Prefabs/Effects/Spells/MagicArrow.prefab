@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 50532047065358318}
   - component: {fileID: 61953928637078272}
   - component: {fileID: 114029235508568294}
-  - component: {fileID: 114753706010164278}
   m_Layer: 14
   m_Name: MagicArrow
   m_TagString: Projectile
@@ -144,20 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  atackRange: 0
+  atackRange: 5
   projectileAliveTime: 2
   speed: 8
   impactEffect: {fileID: 1687860514029964, guid: b679a1aea695caf47a61b32ca89ee02a,
     type: 3}
---- !u!114 &114753706010164278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1606735044020938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5972ca4d09b0aa9499f0c156986a8e5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

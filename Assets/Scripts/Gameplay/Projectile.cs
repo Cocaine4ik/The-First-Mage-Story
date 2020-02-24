@@ -6,10 +6,10 @@ public class Projectile : AtackTrigger {
 
     #region Fields
 
-    private Timer projectileDeathTimer;
     private Rigidbody2D rb;
     private LayerMask enemyLayer;
     private GameObject projectileOwner;
+    private Vector2 startPos;
 
     [SerializeField] private float projectileAliveTime = 2f;
     [SerializeField] private float speed = 5f;
@@ -22,11 +22,7 @@ public class Projectile : AtackTrigger {
     private void Start() {
 
         rb = GetComponent<Rigidbody2D>();
-
-        projectileDeathTimer = GetComponent<Timer>();
-        projectileDeathTimer.SetTimerName(TimerName.ProjectileDeathTimer);
-        projectileDeathTimer.Duration = projectileAliveTime;
-        projectileDeathTimer.Run();
+        startPos = gameObject.transform.position;
 
         rb.velocity = transform.right * speed;
         
@@ -35,8 +31,9 @@ public class Projectile : AtackTrigger {
 
     private void Update() {
 
-        if(projectileDeathTimer.Finished) {
+        float distance = Vector2.Distance(startPos, gameObject.transform.position);
 
+        if(distance >= atackRange){
             SelfDestroy();
         }
     }

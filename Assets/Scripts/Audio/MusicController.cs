@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Controll music clips playing in case of active level
+/// </summary>
 public class MusicController : MonoBehaviour { 
 
     private string currentSceneName;

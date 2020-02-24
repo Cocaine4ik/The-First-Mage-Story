@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Rotate object in any direction (use negative speed for change direction) with custom speed and duration
+/// </summary>
 public class RotationEffect : MonoBehaviour
 {
 

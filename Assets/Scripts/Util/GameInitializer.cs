@@ -13,4 +13,13 @@ public class GameInitializer : MonoBehaviour
         ConfigurationUtils.Initialize();
         
     }
+
+    /// <summary>
+    /// Disable all monobehaviour scripts before out or stop applcation to predict null reference error
+    /// </summary>
+    private void OnApplicationQuit() {
+        MonoBehaviour[] scripts = FindObjectsOfType<MonoBehaviour>();
+        foreach (MonoBehaviour script in scripts)
+            script.enabled = false;
+    }
 }

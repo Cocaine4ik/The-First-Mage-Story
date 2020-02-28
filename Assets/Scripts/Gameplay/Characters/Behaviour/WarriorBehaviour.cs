@@ -9,13 +9,13 @@ public class WarriorBehaviour : BehaviourBase {
 
     #region Fields
 
-    // Character view range end point transform
-    [SerializeField] protected Transform rangePoint;
     // patrol points positions
     [SerializeField] protected Transform[] patrolPoints;
     [SerializeField] protected float turnCheckDistance = 1f;
     [SerializeField] protected float guardTime = 2f;
 
+    // Character view range end point transform
+    protected Transform rangePoint;
     protected Character character;
     protected Transform target = null;
 
@@ -36,6 +36,7 @@ public class WarriorBehaviour : BehaviourBase {
     protected virtual void Start() {
 
         character = GetComponent<Character>();
+        rangePoint = transform.Find("Range Point");
         InitPatrolPointsPositionsX();
 
     }
@@ -93,12 +94,16 @@ public class WarriorBehaviour : BehaviourBase {
     /// </summary>
     protected override void DetectTarget() {
         
-        if(character.IsAlive && target == null) {
-            foreach (RaycastHit2D hit in Raycast()) {
+        if(Raycast() != null) {
 
-                if (character.Enemies.Contains(hit.transform.gameObject.layer)) {
+            if (character.IsAlive && target == null) {
 
-                    target = hit.transform;
+                foreach (RaycastHit2D hit in Raycast()) {
+
+                    if (character.Enemies.Contains(hit.transform.gameObject.layer)) {
+
+                        target = hit.transform;
+                    }
                 }
             }
         }
@@ -134,15 +139,23 @@ public class WarriorBehaviour : BehaviourBase {
     /// </summary>
     protected void InitPatrolPointsPositionsX() {
 
-        patrolPointsPositionsX = new float[patrolPoints.Length];
+        if (baseBehaviour == BaseBehaviour.Patroller) {
 
-        for (int i = 0; i < patrolPoints.Length; i++) {
+            if (patrolPoints.Length != 0) {
 
-            patrolPointsPositionsX[i] = patrolPoints[i].position.x;
+                patrolPointsPositionsX = new float[patrolPoints.Length];
+
+                for (int i = 0; i < patrolPoints.Length; i++) {
+
+                    patrolPointsPositionsX[i] = patrolPoints[i].position.x;
+                }
+
+                patrolPointsPositionsX.BubleSort();
+            }
+            else {
+                Debug.Log("Patrol points of the " + gameObject.name + "are not defined.");
+            }
         }
-
-        patrolPointsPositionsX.BubleSort();
-
     }
 
     /// <summary>
@@ -150,6 +163,8 @@ public class WarriorBehaviour : BehaviourBase {
     /// </summary>
     protected override void Patrol() {
 
+        if (patrolPoints.Length != 0) {
+    
         Transform nextPatrolPoint = patrolPoints[nextPatrolPointNum];
         MoveToTarget(nextPatrolPoint.position.x);
 
@@ -160,6 +175,8 @@ public class WarriorBehaviour : BehaviourBase {
                 nextPatrolPointNum++;
             }
             else nextPatrolPointNum = 0;
+            }
+
         }
     }
 
@@ -169,9 +186,17 @@ public class WarriorBehaviour : BehaviourBase {
     /// <returns></returns>
     protected RaycastHit2D[] Raycast() {
 
-        Debug.DrawLine(transform.position, rangePoint.position, Color.red);
-        RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, rangePoint.position);
-        return hits;
+        if(rangePoint != null) {
+
+            Debug.DrawLine(transform.position, rangePoint.position, Color.red);
+            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, rangePoint.position);
+            return hits;
+
+        }
+        else {
+            Debug.Log("Range point of the " + gameObject.name + "is not defined.");
+            return null;
+        }
 
     }
 

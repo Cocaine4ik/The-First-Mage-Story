@@ -4,8 +4,6 @@ using UnityEngine;
 
 public enum TimerName {
 
-    ProjectileDeathTimer,
-    GuardTimer,
     JumpControlTimer,
     fireLightSpawnTimer
 }

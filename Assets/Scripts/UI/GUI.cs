@@ -24,22 +24,27 @@ public class GUI : MonoBehaviour {
 
     #endregion
     // Use this for initialization
-    void Start () {
+
+    private void OnEnable() {
 
         EventManager.StartListening(EventName.LevelUp, OnLevelUp);
         EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StartListening(EventName.ManaChange, OnGUIManaChange);
         EventManager.StartListening(EventName.HpChange, OnGUIHealthChange);
 
+    }
+    void Start () {
+
         expBar.fillAmount = 0.0f;
 
     }
 
-    private void OnDestroy() {
+    private void OnDisable() {
 
         EventManager.StopListening(EventName.LevelUp, OnLevelUp);
         EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StopListening(EventName.ManaChange, OnGUIManaChange);
+        EventManager.StopListening(EventName.HpChange, OnGUIHealthChange);
 
     }
     // Update is called once per frame

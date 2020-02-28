@@ -34543,7 +34543,7 @@ PrefabInstance:
     - target: {fileID: 5157011235154397913, guid: 15e72fd3ff685e644886f2f12cc4d4e0,
         type: 3}
       propertyPath: m_Name
-      value: Turn
+      value: Turn (Test)
       objectReference: {fileID: 0}
     - target: {fileID: 5157011235154397913, guid: 15e72fd3ff685e644886f2f12cc4d4e0,
         type: 3}
@@ -54134,6 +54134,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1198292339 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110123151780150, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1198381848
 GameObject:
   m_ObjectHideFlags: 0
@@ -65980,7 +65986,7 @@ PrefabInstance:
     - target: {fileID: 5157011235154397913, guid: 15e72fd3ff685e644886f2f12cc4d4e0,
         type: 3}
       propertyPath: m_Name
-      value: Turn (1)
+      value: Turn 2 (Test)
       objectReference: {fileID: 0}
     - target: {fileID: 5157011235154397913, guid: 15e72fd3ff685e644886f2f12cc4d4e0,
         type: 3}
@@ -89118,7 +89124,7 @@ PrefabInstance:
     - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_Name
-      value: Wolf
+      value: Wolf (Test)
       objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
@@ -91449,6 +91455,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   atackRange: 0
+--- !u!4 &2138655295 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110123744037238, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2139327748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7990260303279862703, guid: deccec6225167a94cad27866ef5ecf01,
@@ -92033,7 +92045,7 @@ PrefabInstance:
     - target: {fileID: 3264797274877642222, guid: 182ca41721e80274d8ee9339a3c51e6e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 248588712302953875, guid: 182ca41721e80274d8ee9339a3c51e6e,
         type: 3}
@@ -92225,6 +92237,21 @@ PrefabInstance:
       propertyPath: isGuard
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 73228457433286058, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 73228457433286058, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 2138655295}
+    - target: {fileID: 73228457433286058, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1198292339}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182ca41721e80274d8ee9339a3c51e6e, type: 3}
 --- !u!1001 &2297839841308299784

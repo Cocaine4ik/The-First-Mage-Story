@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4694750918371472}
   - component: {fileID: 95747297341516802}
   - component: {fileID: 212802228839900036}
-  - component: {fileID: 114427712347806778}
+  - component: {fileID: 2664670880681999414}
   m_Layer: 0
   m_Name: MagicArrowImpactEffect
   m_TagString: Untagged
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -202223525
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 550
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -101,7 +101,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &114427712347806778
+--- !u!114 &2664670880681999414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -110,6 +110,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1687860514029964}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00e2457b7736c16409fe6119b259c977, type: 3}
+  m_Script: {fileID: 11500000, guid: a636fdb2c111dca469bdb100310d3625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

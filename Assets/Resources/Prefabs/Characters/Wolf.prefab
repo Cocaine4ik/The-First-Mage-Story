@@ -93,6 +93,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  atackRange: 0
 --- !u!1 &2101560476304868748
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +110,7 @@ GameObject:
   - component: {fileID: -3696738712007474151}
   - component: {fileID: 2510668164612928330}
   - component: {fileID: 1486642198233058359}
+  - component: {fileID: 6273486538561090008}
   m_Layer: 10
   m_Name: Wolf
   m_TagString: Enemy
@@ -287,11 +289,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64d72042c774c3843b904aa25825b94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseBehaviour: 0
-  Enemies:
+  baseBehaviour: 1
+  patrolPoints: []
+  turnCheckDistance: 1
+  guardTime: 2
+--- !u!114 &6273486538561090008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101560476304868748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8381e2aa4d6f43b459feaff294eb5ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atackPoint: {fileID: 0}
+  corpse: {fileID: 0}
+  speed: 5
+  enemies:
     serializedVersion: 2
-    m_Bits: 512
-  rangePoint: {fileID: 0}
+    m_Bits: 0
+  isRight: 1
+  feetPos: {fileID: 0}
+  checkRadius: 0
+  jumpForce: 0
+  jumpControlTime: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4645783864200237586
 GameObject:
   m_ObjectHideFlags: 0

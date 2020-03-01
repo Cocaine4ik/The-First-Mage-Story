@@ -101,9 +101,7 @@ public class Player : MagicCharacter {
         stats.SetMana(mana);
         stats.SetHp(hp);
     }*/
-    protected override void OnTriggerEnter2D(Collider2D collision) {
-
-        base.OnTriggerEnter2D(collision);
+    protected void OnTriggerEnter2D(Collider2D collision) {
 
         if(collision.gameObject.GetComponent<GameItem>() != null) {
 

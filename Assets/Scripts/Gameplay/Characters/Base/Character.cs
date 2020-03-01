@@ -6,7 +6,7 @@ public class Character : CharacterBase {
 
     #region Fields
 
-    [SerializeField] protected Transform atackPoint;
+
     [SerializeField] protected GameObject corpse;
     [SerializeField] protected float speed = 5f;
     // Enemy layers for mellee atack checking
@@ -15,7 +15,10 @@ public class Character : CharacterBase {
     protected Rigidbody2D rb;
     protected Animator animator;
     protected Timer jumpControlTimer;
-    protected AtackTrigger atackTrigger;
+    protected AtackWeapon atackWeaponData;
+    protected Transform atackWeapon;
+    protected Transform feetPos;
+    protected LayerMask whatIsGround;
 
     [SerializeField] protected bool isRight = true;
 
@@ -26,11 +29,10 @@ public class Character : CharacterBase {
 
     protected bool isGrounded;
 
-    [SerializeField] protected Transform feetPos;
+
     [SerializeField] protected float checkRadius;
     [SerializeField] protected float jumpForce;
     [SerializeField] protected float jumpControlTime;
-    [SerializeField] protected LayerMask whatIsGround;
 
     protected float moveX;
 
@@ -41,7 +43,7 @@ public class Character : CharacterBase {
     public bool IsAlive => isAlive;
     public bool IsHurt => isHurt;
     public LayerMask Enemies => enemies;
-    public AtackTrigger AtackTrigger => atackTrigger;
+    public AtackWeapon AtackWeaponData => atackWeaponData;
     public bool IsRight => isRight;
 
     #endregion
@@ -54,8 +56,13 @@ public class Character : CharacterBase {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterHealth = GetComponent<CharacterHealth>();
-        atackTrigger = atackPoint.gameObject.GetComponent<AtackTrigger>();
-                   
+        atackWeapon = transform.Find("Atack Weapon");
+        feetPos = transform.Find("Feet Pos");
+        atackWeaponData = atackWeapon.gameObject.GetComponent<AtackWeapon>();
+
+        whatIsGround = LayerMask.GetMask("Ground");
+
+
         animator.SetBool("IsAlive", isAlive);
 
         jumpControlTimer = gameObject.AddComponent<Timer>();
@@ -146,47 +153,6 @@ public class Character : CharacterBase {
             animator.SetBool("IsAlive", isAlive);
         }
     }
-  
-    protected virtual void OnTriggerEnter2D(Collider2D collision) {
-
-        CheckDamage(collision, "Projectile");
-    }
-    
-    protected virtual void OnCollisionStay2D(Collision2D collision) {
-
-        CheckDamage(collision, "Disaster");
-    }
-    /// <summary>
-    /// Check Damage
-    /// Checking if collision object is euqal damager tag, take damage, play hurt animation
-    /// </summary>
-    /// <param name="collision"></param>
-    /// <param name="damagerTag"></param>
-    /// 
-    private void CheckDamage(Collision2D collision, string damagerTag) {
-
-        if (collision.gameObject.tag == damagerTag) {
-
-            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
-            characterHealth.TakeDamage(receivedDamage);
-            Hurt();
-        }
-    }
-
-    /// <summary>
-    /// Check Damage for triggers
-    /// </summary>
-    /// <param name="collision"></param>
-    /// <param name="damagerTag"></param>
-    private void CheckDamage(Collider2D collision, string damagerTag) {
-
-        if (collision.gameObject.tag == damagerTag) {
-
-            int receivedDamage = collision.gameObject.GetComponent<AtackTrigger>().Damage;
-            characterHealth.TakeDamage(receivedDamage);
-            Hurt();
-        }
-    }
     #endregion
 
 
@@ -194,10 +160,10 @@ public class Character : CharacterBase {
 
     protected void OnAtack() {
 
-        Collider2D targetColider = Physics2D.OverlapCircle(transform.position, atackTrigger.atackRange, enemies);
+        Collider2D targetColider = Physics2D.OverlapCircle(transform.position, atackWeaponData.atackRange, enemies);
 
         if(targetColider != null) {
-            targetColider.GetComponent<CharacterHealth>().TakeDamage(atackTrigger.Damage);
+            targetColider.GetComponent<CharacterHealth>().TakeDamage(atackWeaponData.Damage);
         }
     }
     // if atack end stop animation

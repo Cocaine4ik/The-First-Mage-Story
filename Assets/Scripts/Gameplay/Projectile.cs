@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : AtackTrigger {
+public class Projectile : AtackWeapon {
 
     #region Fields
 

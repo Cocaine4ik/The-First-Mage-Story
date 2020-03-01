@@ -81,7 +81,7 @@ public class WarriorBehaviour : BehaviourBase {
         // calculating distance between target and character
         float distance = Vector2.Distance(target.transform.position, gameObject.transform.position);
  
-        if (distance <= character.AtackTrigger.atackRange) {
+        if (distance <= character.AtackWeaponData.atackRange) {
             character.Atack();
         }
         else {

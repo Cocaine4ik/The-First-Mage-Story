@@ -24638,12 +24638,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!4 &592121072 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7072487292313214118, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-    type: 3}
-  m_PrefabInstance: {fileID: 2090390199}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &595408741
 GameObject:
   m_ObjectHideFlags: 0
@@ -43865,12 +43859,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6741741379686668, guid: ad6cc0237f48d8d44803d98d76371790,
     type: 3}
   m_PrefabInstance: {fileID: 962945301}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &964131019 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8274596106115588573, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-    type: 3}
-  m_PrefabInstance: {fileID: 2090390199}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &965237378
 GameObject:
@@ -66774,20 +66762,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8381e2aa4d6f43b459feaff294eb5ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atackPoint: {fileID: 964131019}
   corpse: {fileID: 6860969194815997687, guid: af4b76f56506f7445844cd17c3a2bfdc, type: 3}
   speed: 2
   enemies:
     serializedVersion: 2
     m_Bits: 512
   isRight: 1
-  feetPos: {fileID: 592121072}
   checkRadius: 0.2
   jumpForce: 0
   jumpControlTime: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
 --- !u!1 &1504803817
 GameObject:
   m_ObjectHideFlags: 0
@@ -89129,7 +89112,7 @@ PrefabInstance:
     - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868754, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
@@ -89196,11 +89179,6 @@ PrefabInstance:
       propertyPath: atackRange
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2101560476304868752, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: m_BodyType
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868755, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_SortingLayerID
@@ -89215,6 +89193,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SortingOrder
       value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101560476304868752, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: m_BodyType
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
@@ -89245,6 +89228,11 @@ PrefabInstance:
         type: 3}
       propertyPath: agroDistance
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1506886599507132403, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: atackRange
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e2e54240ff12e43a26ebcf1edc4f68, type: 3}
@@ -92252,6 +92240,11 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1198292339}
+    - target: {fileID: 4803743296370246791, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: enemies.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182ca41721e80274d8ee9339a3c51e6e, type: 3}
 --- !u!1001 &2297839841308299784

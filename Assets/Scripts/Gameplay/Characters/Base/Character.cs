@@ -29,10 +29,10 @@ public class Character : CharacterBase {
 
     protected bool isGrounded;
 
-
-    [SerializeField] protected float checkRadius;
-    [SerializeField] protected float jumpForce;
-    [SerializeField] protected float jumpControlTime;
+    // Custom Editor
+    protected float checkRadius;
+    protected float jumpForce;
+    protected float jumpControlTime;
 
     protected float moveX;
 
@@ -46,6 +46,18 @@ public class Character : CharacterBase {
     public AtackWeapon AtackWeaponData => atackWeaponData;
     public bool IsRight => isRight;
 
+    public float CheckRadious {
+        get { return checkRadius;  }
+        set { checkRadius = value; }
+    }
+    public float JumpForce {
+        get { return jumpForce; }
+        set { jumpForce = value; }
+    }
+    public float JumpControlTime {
+        get { return jumpControlTime; }
+        set { jumpControlTime = value; }
+    }
     #endregion
 
     #region Methods

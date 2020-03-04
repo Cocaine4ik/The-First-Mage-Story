@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Simple Character class
+/// </summary>
 public class Character : CharacterBase {
 
     #region Fields
 
-
     [SerializeField] protected GameObject corpse;
+    // move speed
     [SerializeField] protected float speed = 5f;
     // Enemy layers for mellee atack checking
     [SerializeField] protected LayerMask enemies;

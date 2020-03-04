@@ -1,5 +1,25 @@
 ﻿using UnityEditor;
+/// <summary>
+/// Player script custom inspector
+/// </summary>
+[CustomEditor(typeof(Player))]
+public class PlayerEditor : CharacterEditor { }
 
+/// <summary>
+/// RangeCharacter script custom  inspector
+/// </summary>
+[CustomEditor(typeof(RangeCharacter))]
+public class RangeCharacterEditor : CharacterEditor {}
+
+/// <summary>
+/// MagicCharacter script custom  inspector
+/// </summary>
+[CustomEditor(typeof(MagicCharacter))]
+public class MagicCharacterEditor : CharacterEditor { }
+
+/// <summary>
+/// Character script custom  inspector
+/// </summary>
 [CustomEditor(typeof(Character))]
  public class CharacterEditor : Editor {
 
@@ -10,7 +30,9 @@
 
         character = target as Character;
     }
-
+    /// <summary>
+    /// Add Jump Setting foldout
+    /// </summary>
     public override void OnInspectorGUI() {
 
         base.OnInspectorGUI();
@@ -24,4 +46,6 @@
 
         }
     }
+
+
 }

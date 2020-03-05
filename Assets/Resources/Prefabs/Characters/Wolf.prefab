@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa1d2fc81a50694995690cc8dd5422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 60
   currentHealth: 0
 --- !u!114 &1486642198233058359
 MonoBehaviour:
@@ -256,13 +256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8381e2aa4d6f43b459feaff294eb5ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  corpse: {fileID: 0}
+  corpse: {fileID: 6860969194815997687, guid: af4b76f56506f7445844cd17c3a2bfdc, type: 3}
   speed: 2
   enemies:
     serializedVersion: 2
     m_Bits: 512
   isRight: 1
-  checkRadius: 0
+  checkRadius: 0.3
   jumpForce: 0
   jumpControlTime: 0
 --- !u!1 &4645783864200237586

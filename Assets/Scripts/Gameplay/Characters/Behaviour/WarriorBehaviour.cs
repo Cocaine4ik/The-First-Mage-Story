@@ -188,8 +188,8 @@ public class WarriorBehaviour : BehaviourBase {
 
         if(rangePoint != null) {
 
-            Debug.DrawLine(transform.position, rangePoint.position, Color.red);
-            RaycastHit2D[] hits = Physics2D.LinecastAll(transform.position, rangePoint.position);
+            Debug.DrawLine(character.AtackWeapon.position, rangePoint.position, Color.red);
+            RaycastHit2D[] hits = Physics2D.LinecastAll(character.AtackWeapon.position, rangePoint.position);
             return hits;
 
         }

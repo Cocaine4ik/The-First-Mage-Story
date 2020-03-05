@@ -5,6 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Simple Character class
 /// </summary>
+[System.Serializable]
 public class Character : CharacterBase {
 
     #region Fields
@@ -32,10 +33,11 @@ public class Character : CharacterBase {
 
     protected bool isGrounded;
 
-    // Custom Editor
-    protected float checkRadius;
-    protected float jumpForce;
-    protected float jumpControlTime;
+    // Jump properties for Custom editor, default is hiden
+
+    [SerializeField] [HideInInspector] protected float checkRadius;
+    [SerializeField] [HideInInspector] protected float jumpForce;
+    [SerializeField] [HideInInspector] protected float jumpControlTime;
 
     protected float moveX;
 
@@ -49,7 +51,7 @@ public class Character : CharacterBase {
     public AtackWeapon AtackWeaponData => atackWeaponData;
     public bool IsRight => isRight;
 
-    public float CheckRadious {
+    public float CheckRadius {
         get { return checkRadius;  }
         set { checkRadius = value; }
     }

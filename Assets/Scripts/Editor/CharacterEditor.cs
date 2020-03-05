@@ -24,11 +24,12 @@ public class MagicCharacterEditor : CharacterEditor { }
  public class CharacterEditor : Editor {
 
     protected static bool showJumpSetting = false; //declare outside of function
-    private Character character;
+    protected Character character;
 
     private void OnEnable() {
 
         character = target as Character;
+        
     }
     /// <summary>
     /// Add Jump Setting foldout
@@ -39,12 +40,12 @@ public class MagicCharacterEditor : CharacterEditor { }
         showJumpSetting = EditorGUILayout.Foldout(showJumpSetting, "Jump Setting");
         
         if (showJumpSetting) {
-
-            character.CheckRadious = EditorGUILayout.FloatField("Jump Checking Radius", character.CheckRadious);
-            character.JumpForce = EditorGUILayout.FloatField("Jump Force", character.JumpForce);
-            character.JumpControlTime = EditorGUILayout.FloatField("Jump Control Time", character.JumpControlTime);
+            serializedObject.FindProperty("checkRadius").floatValue = EditorGUILayout.FloatField("Jump Checking Radius", character.CheckRadius);
+            serializedObject.FindProperty("jumpForce").floatValue = EditorGUILayout.FloatField("Jump Force", character.JumpForce);
+            serializedObject.FindProperty("jumpControlTime").floatValue = EditorGUILayout.FloatField("Jump Control Time", character.JumpControlTime);
 
         }
+        serializedObject.ApplyModifiedProperties();
     }
 
 

@@ -35,7 +35,7 @@ public class Character : CharacterBase {
 
     // Jump properties for Custom editor, default is hiden
 
-    [SerializeField] [HideInInspector] protected float checkRadius;
+    [SerializeField] [HideInInspector] protected float checkRadius = 0.3f;
     [SerializeField] [HideInInspector] protected float jumpForce;
     [SerializeField] [HideInInspector] protected float jumpControlTime;
 
@@ -49,6 +49,7 @@ public class Character : CharacterBase {
     public bool IsHurt => isHurt;
     public LayerMask Enemies => enemies;
     public AtackWeapon AtackWeaponData => atackWeaponData;
+    public Transform AtackWeapon => atackWeapon; 
     public bool IsRight => isRight;
 
     public float CheckRadius {

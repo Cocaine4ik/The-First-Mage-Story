@@ -4708,6 +4708,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 107620806}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &108804364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110123424515254, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &110869467
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33842,6 +33848,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &818565422 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110123875043524, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &820038481
 GameObject:
   m_ObjectHideFlags: 0
@@ -72385,6 +72397,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1657982157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110123504698547, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1663026645
 GameObject:
   m_ObjectHideFlags: 0
@@ -77619,6 +77637,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1800184369 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8883110124726458462, guid: b0e61fc86bdf0a349b53f7d2e85fdab6,
+    type: 3}
+  m_PrefabInstance: {fileID: 523425017}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1803969347
 GameObject:
   m_ObjectHideFlags: 0
@@ -89207,6 +89231,11 @@ PrefabInstance:
       propertyPath: atackRange
       value: 0.6
       objectReference: {fileID: 0}
+    - target: {fileID: 6273486538561090008, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: checkRadius
+      value: 0.3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e2e54240ff12e43a26ebcf1edc4f68, type: 3}
 --- !u!1 &2093194402
@@ -92216,8 +92245,53 @@ PrefabInstance:
     - target: {fileID: 4803743296370246791, guid: 182ca41721e80274d8ee9339a3c51e6e,
         type: 3}
       propertyPath: enemies.m_Bits
-      value: 0
+      value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 73228457376106638, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 73228457376106638, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 818565422}
+    - target: {fileID: 73228457376106638, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1800184369}
+    - target: {fileID: 73228457885661544, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 73228457885661544, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1800184369}
+    - target: {fileID: 73228457885661544, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1657982157}
+    - target: {fileID: 73228457867557362, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 73228457867557362, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 108804364}
+    - target: {fileID: 73228457867557362, guid: 182ca41721e80274d8ee9339a3c51e6e,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 818565422}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 182ca41721e80274d8ee9339a3c51e6e, type: 3}
 --- !u!1001 &2297839841308299784
@@ -92236,11 +92310,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2297839840514003886, guid: bfc740602c51e9f4d8bc2c3add0a1dc3,
-        type: 3}
-      propertyPath: m_Name
-      value: Item Name
       objectReference: {fileID: 0}
     - target: {fileID: 2297839842049892177, guid: bfc740602c51e9f4d8bc2c3add0a1dc3,
         type: 3}
@@ -92361,6 +92430,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ItemInfo&Money Frame
+      objectReference: {fileID: 0}
+    - target: {fileID: 2297839840514003886, guid: bfc740602c51e9f4d8bc2c3add0a1dc3,
+        type: 3}
+      propertyPath: m_Name
+      value: Item Name
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bfc740602c51e9f4d8bc2c3add0a1dc3, type: 3}
@@ -92673,7 +92747,7 @@ PrefabInstance:
     - target: {fileID: 2734802088631105614, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}
       propertyPath: jumpControlTime
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2734802088631105614, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}

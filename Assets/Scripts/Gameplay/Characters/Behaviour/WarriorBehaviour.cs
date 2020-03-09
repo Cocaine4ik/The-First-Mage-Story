@@ -11,6 +11,8 @@ public class WarriorBehaviour : BehaviourBase {
 
     // patrol points positions
     [SerializeField] protected Transform[] patrolPoints;
+    [SerializeField] protected Transform leftChargeClamp;
+    [SerializeField] protected Transform rightChargeClamp;
     [SerializeField] protected float turnCheckDistance = 1f;
     [SerializeField] protected float guardTime = 2f;
 
@@ -21,10 +23,10 @@ public class WarriorBehaviour : BehaviourBase {
 
     // variable for patrol poin choosing
     protected int nextPatrolPointNum = 0;
-    // array which include points for checking if the player in patrol zone
-    protected float[] patrolPointsPositionsX;
 
     protected bool isGuard = false;
+    protected bool guardDirection;
+    protected Vector2 guardPosition;
 
     #endregion
 
@@ -37,7 +39,16 @@ public class WarriorBehaviour : BehaviourBase {
 
         character = GetComponent<Character>();
         rangePoint = transform.Find("Range Point");
-        InitPatrolPointsPositionsX();
+
+        if (baseBehaviour == BaseBehaviour.Patroller) {
+            InitDefaultChargeClampPoints();
+        }
+
+        if (baseBehaviour == BaseBehaviour.Guardian) {
+            guardDirection = character.IsRight;
+            guardPosition = transform.position;
+        }
+
 
     }
     /// <summary>
@@ -48,13 +59,29 @@ public class WarriorBehaviour : BehaviourBase {
     private void FixedUpdate() {
 
         // patrol behaviour
-        if(baseBehaviour == BaseBehaviour.Patroller) {
+        if (baseBehaviour == BaseBehaviour.Patroller) {
 
             if (!isGuard && target == null || !isGuard && TargetFarAway()) {
                 Patrol();
             }
         }
 
+        // guard behaviour
+        if (baseBehaviour == BaseBehaviour.Guardian) {
+
+            if(target == null && !isGuard) {
+                Debug.Log(Vector2.Distance(transform.position, guardPosition));
+
+                if(Vector2.Distance(transform.position, guardPosition) >= turnCheckDistance) {
+                    MoveToTarget(guardPosition.x);
+                }
+                else {
+                    Guard();
+                }
+            }          
+        }
+
+        // charge behaviuor
         if (target != null && !TargetFarAway()) {
             Charge();
         }
@@ -87,7 +114,7 @@ public class WarriorBehaviour : BehaviourBase {
         else {
             MoveToTarget(target.position.x);
         }
-
+        isGuard = false;
     }
     /// <summary>
     /// Raycast, if raycast hit layer is enemy layer set hit as a target
@@ -116,8 +143,8 @@ public class WarriorBehaviour : BehaviourBase {
 
         if(target != null) {
 
-            if(target.position.x < patrolPointsPositionsX[0] ||
-                target.position.x > patrolPointsPositionsX[patrolPointsPositionsX.Length-1]) {
+            if(target.position.x < leftChargeClamp.position.x ||
+                target.position.x > rightChargeClamp.position.x) {
                 target = null;
                 return true;
             }
@@ -129,33 +156,35 @@ public class WarriorBehaviour : BehaviourBase {
     /// </summary>
     protected override void Guard() {
 
-        StopMove();
         isGuard = true;
-        StartCoroutine(StayOnGuard(guardTime));
+
+        // if character is guardian when he stay on guard he must take the right direction
+        if(baseBehaviour == BaseBehaviour.Guardian) {
+
+            if(character.IsRight != guardDirection) {
+                ChangeDirection();
+            }
+        }
+
+        // if character is patroller he's stat on temporary guard on patrol points
+        if(baseBehaviour == BaseBehaviour.Patroller) {
+            StartCoroutine(StayOnGuard(guardTime));
+        }
+        StopMove();
     }
 
     /// <summary>
     /// Initialize patrol points horizontal positions from patrol points List 
     /// </summary>
-    protected void InitPatrolPointsPositionsX() {
+    protected void InitDefaultChargeClampPoints() {
 
-        if (baseBehaviour == BaseBehaviour.Patroller) {
-
-            if (patrolPoints.Length != 0) {
-
-                patrolPointsPositionsX = new float[patrolPoints.Length];
-
-                for (int i = 0; i < patrolPoints.Length; i++) {
-
-                    patrolPointsPositionsX[i] = patrolPoints[i].position.x;
-                }
-
-                patrolPointsPositionsX.BubleSort();
+            if(leftChargeClamp == null) {
+                leftChargeClamp = patrolPoints[0];
             }
-            else {
-                Debug.Log("Patrol points of the " + gameObject.name + "are not defined.");
-            }
-        }
+
+            if(rightChargeClamp == null) {
+                rightChargeClamp = patrolPoints[patrolPoints.Length - 1];
+            }       
     }
 
     /// <summary>
@@ -207,7 +236,6 @@ public class WarriorBehaviour : BehaviourBase {
     public void SetTarget(Transform target) {
         this.target = target;
     }
-
     /// <summary>
     /// Move to target
     /// </summary>

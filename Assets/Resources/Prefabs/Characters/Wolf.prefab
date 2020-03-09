@@ -242,7 +242,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseBehaviour: 1
   patrolPoints: []
-  turnCheckDistance: 1
+  leftChargeClamp: {fileID: 0}
+  rightChargeClamp: {fileID: 0}
+  turnCheckDistance: 0.6
   guardTime: 2
 --- !u!114 &6273486538561090008
 MonoBehaviour:

@@ -16796,6 +16796,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ec020f49f7e2ec489e64858d0d1b679, type: 3}
+--- !u!4 &410206413 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5157011235154397912, guid: 15e72fd3ff685e644886f2f12cc4d4e0,
+    type: 3}
+  m_PrefabInstance: {fileID: 1093714960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410243101
 GameObject:
   m_ObjectHideFlags: 0
@@ -43864,7 +43870,7 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 410206413}
     - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: patrolPoints.Array.data[2]
@@ -88235,7 +88241,7 @@ PrefabInstance:
     - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868754, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
@@ -88292,6 +88298,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: patrolPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: rangePoint
+      value: 
+      objectReference: {fileID: 1183803909}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 571246955}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: patrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1696981147}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: baseBehaviour
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: agroDistance
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: leftChargeClamp
+      value: 
+      objectReference: {fileID: 571246955}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: rightChargeClamp
+      value: 
+      objectReference: {fileID: 1696981147}
+    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: turnCheckDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1713088764733088640, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_Icon
@@ -88321,36 +88372,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_BodyType
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: patrolPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: rangePoint
-      value: 
-      objectReference: {fileID: 1183803909}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: patrolPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 571246955}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: patrolPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1696981147}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: baseBehaviour
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
-        type: 3}
-      propertyPath: agroDistance
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1506886599507132403, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}

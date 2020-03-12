@@ -8,8 +8,6 @@ using UnityEngine.UI;
 	public class LocalizationTool : MonoBehaviour
 	{
 
-    [SerializeField] private SystemLanguage defaultLanguage = SystemLanguage.Russian;
-
 		/// <summary>
 		/// Called on app start.
 		/// </summary>
@@ -32,9 +30,6 @@ using UnityEngine.UI;
                 case SystemLanguage.Ukrainian:
                     LocalizationManager.Language = "Ukrainian";
                     break;
-				default:
-					LocalizationManager.Language = defaultLanguage.ToString();
-					break;
 			}
 		}
 

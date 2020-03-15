@@ -23,6 +23,11 @@ public class PlayerInterfaceController : MonoBehaviour
 
             OpenCloseInventory();
         }
+        /*
+        if (Input.GetKeyDown(KeyCode.E) && GetComponent<DialogueTrigger>() != null) {
+
+            Debug.Log("SpawnInventory");
+        }*/
     }
 
     private void OpenCloseInventory() {

@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class DialogueNode : Node
 {
-    private string guID;
-    private string dialgueText;
-    private bool entryPoint = false;
+    public string GUID;
+    public string DialgueText;
+    public bool entryPoint = false;
+
 
 }

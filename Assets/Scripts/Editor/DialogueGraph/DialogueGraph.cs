@@ -4,18 +4,33 @@ using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using System;
 
+/// <summary>
+/// Dialogue graph class
+/// </summary>
 public class DialogueGraph : EditorWindow
 {
+    #region Fields
+
     private DialogueGraphView graphView;
     private string fileName = "Dialogue Graph";
 
+    #endregion
 
+    #region Public Methods
+
+    /// <summary>
+    /// Create menu tab for Dialogue graph
+    /// </summary>
     [MenuItem("Graph/Dialogue Graph")]
     public static void OpenDialogueGraphWindow() {
 
         var window = GetWindow<DialogueGraph>();
         window.titleContent = new GUIContent(text: "Dialogue Graph");
     }
+
+    #endregion
+
+    #region Private Metods
 
     private void OnEnable() {
 
@@ -74,4 +89,6 @@ public class DialogueGraph : EditorWindow
     private void OnDisable() {
         
     }
+
+    #endregion
 }

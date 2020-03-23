@@ -1,11 +1,23 @@
 ﻿using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 
+/// <summary>
+/// Dialogue node class
+/// </summary>
 public class DialogueNode : Node
 {
-    public string GUID;
-    public string DialgueText;
+    #region Fields
+
+    public string gUID;
+    public string dialgueText;
     public bool entryPoint = false;
 
+    #endregion
 
+    #region Properties
+
+    public string GUID { get; set; }
+    public string DialgueText { get; set; }
+    public bool EntryPoint { get; set; }
+
+    #endregion
 }

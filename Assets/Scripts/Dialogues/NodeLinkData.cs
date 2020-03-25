@@ -1,18 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-public class NodeLinkData : MonoBehaviour
+[Serializable]
+public class NodeLinkData
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    #region Fields
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string BaseNodeGUID;
+    public string PortName;
+    public string TargetNodeGUID;
+
+    #endregion
 }

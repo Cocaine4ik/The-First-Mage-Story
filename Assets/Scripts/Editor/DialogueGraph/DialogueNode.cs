@@ -7,9 +7,9 @@ public class DialogueNode : Node
 {
     #region Fields
 
-    public string gUID;
-    public string dialgueText;
-    public bool entryPoint = false;
+    private string gUID;
+    private string dialgueText;
+    private bool entryPoint = false;
 
     #endregion
 

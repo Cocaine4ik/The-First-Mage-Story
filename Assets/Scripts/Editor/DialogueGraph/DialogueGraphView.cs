@@ -126,7 +126,7 @@ public class DialogueGraphView : GraphView {
             title = "START",
             GUID = GUID.Generate().ToString(),
             DialgueText = "ENTRYPOINT",
-            entryPoint = true
+            EntryPoint = true
 
         };
         // generate port, name it and add to the node

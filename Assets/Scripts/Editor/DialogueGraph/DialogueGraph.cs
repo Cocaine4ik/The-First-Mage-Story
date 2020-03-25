@@ -60,30 +60,70 @@ public class DialogueGraph : EditorWindow
 
         var toolbar = new Toolbar();
 
+        toolbar.style.height = 40;
+
         // New Dialogue + rename
         var fileNameTextField = new TextField(label: "File Name: ");
+        fileNameTextField.labelElement.style.color = Color.black;
         fileNameTextField.SetValueWithoutNotify(fileName);
         fileNameTextField.MarkDirtyRepaint();
         fileNameTextField.RegisterValueChangedCallback(evt => fileName = evt.newValue);
-        toolbar.Add(fileNameTextField);
-
-        toolbar.Add(new Button(clickEvent: () => SaveData()) { text = "Save Data" });
-        toolbar.Add(new Button(clickEvent: () => LoadData()) { text = "Load Data" });
+        fileNameTextField.style.alignSelf = Align.Center;
+        fileNameTextField.labelElement.style.minWidth = 40;
+        fileNameTextField.labelElement.style.marginLeft = 20;
 
         // Create and add node cretion button to our toolbar
-        var nodeCreationButton = new Button(clickEvent: () => graphView.CreateNode("Dialogue Node"));
-        nodeCreationButton.text = "Create node";
-        toolbar.Add(nodeCreationButton);
+        var createNodeButton = CreateButton(clickEvent: () => graphView.CreateNode("Dialogue Node"), "Create \n Node");
+        createNodeButton.style.marginRight = 40;
+        toolbar.Add(createNodeButton);
+
+        // add save button with click event if requestDataOperation - save operation - save data
+        toolbar.Add(CreateButton(clickEvent: () => RequestDataOperation(save: true), "Save \n Data"));
+        // add save button with click event if requestDataOperation - not save operation - load data
+        toolbar.Add(CreateButton(clickEvent: () => RequestDataOperation(save: false),"Load \n Data" ));
+
+        toolbar.Add(fileNameTextField);
+
 
         rootVisualElement.Add(toolbar);
     }
 
-    private void LoadData() {
-        throw new NotImplementedException();
-    }
+    /// <summary>
+    /// Create button with custom style template
+    /// </summary>
+    /// <param name="clickEvent"></param>
+    /// <param name="text"></param>
+    /// <returns></returns>
+    private Button CreateButton(Action clickEvent, string text) {
 
-    private void SaveData() {
-        throw new NotImplementedException();
+        var button = new Button(clickEvent) {
+            text = text
+        };
+
+        button.style.marginLeft = 1;
+        button.style.marginRight = 1;
+        button.style.marginTop = 1;
+        button.style.marginBottom = 1;
+
+        button.style.width = 40;
+
+        return button;
+    }
+    private void RequestDataOperation(bool save) {
+
+        if (!string.IsNullOrEmpty(fileName)) {
+
+            var saveUtility = GraphSaveUtils.GetInstance(graphView);
+            if (save) {
+                saveUtility.SaveGraph(fileName);
+            }
+            else {
+                saveUtility.LoadGraph(fileName);
+            }
+        }
+        else {
+            EditorUtility.DisplayDialog("Invaliad file name!", "Please enter a valid file name.", "OK");
+        }                  
     }
 
     private void OnDisable() {

@@ -80,13 +80,44 @@ public class GraphSaveUtils
             return;
         }
 
-        //ClearGraph();
-       // CreateNodes();
-       // ConnectNodes();
+        ClearGraph();
+        CreateNodes();
+        ConnectNodes();
+    }
+
+    private void ConnectNodes() {
+        throw new NotImplementedException();
+    }
+
+    private void CreateNodes() {
+
+        foreach (var nodeData in containerCache.DialogueNodeData) {
+
+            var tempNode = dialogueGraphView.CreateDialogueNode(nodeData.DialogueText);
+            tempNode.GUID = nodeData.NodeGUID;
+            dialogueGraphView.AddElement(tempNode);
+
+            var nodePorts = containerCache.NodeLinks.Where(x => x.BaseNodeGUID == nodeData.NodeGUID).ToList();
+            nodePorts.ForEach(x => dialogueGraphView.AddChoicePort
+        }
     }
 
     private void ClearGraph() {
-       // Nodes.Find()
+
+        // Set entry points guid back form the save. Discards existing grid
+        Nodes.Find(match: x => x.EntryPoint).GUID = containerCache.NodeLinks[0].BaseNodeGUID;
+
+        foreach(var node in Nodes) {
+
+            if (node.EntryPoint) return;
+
+            // Remove edges that conected to this node
+            Edges.Where(x => x.input.node == node).ToList().ForEach(edge => 
+            dialogueGraphView.RemoveElement(edge));
+
+            // Then remove the node
+            dialogueGraphView.RemoveElement(node);
+        }
     }
 
     #endregion

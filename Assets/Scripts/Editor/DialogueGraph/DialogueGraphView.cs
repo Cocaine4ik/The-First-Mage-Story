@@ -147,7 +147,7 @@ public class DialogueGraphView : GraphView {
     /// Add new choice port
     /// </summary>
     /// <param name="dialogueNode"></param>
-    private void AddChoicePort(DialogueNode dialogueNode) {
+    public void AddChoicePort(DialogueNode dialogueNode, string overridenPortName = "" ) {
 
         var generatedPort = GeneratePort(dialogueNode, Direction.Output);
 

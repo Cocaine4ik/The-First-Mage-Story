@@ -9,16 +9,5 @@ public class DialogueContainer : ScriptableObject {
     public List<NodeLinkData> NodeLinks = new List<NodeLinkData>();
     public List<DialogueNodeData> DialogueNodeData = new List<DialogueNodeData>();
 
-    /*
-    private List<NodeLinkData> nodeLinks = new List<NodeLinkData>();
-    private List<DialogueNodeData> dialogueNodeData = new List<DialogueNodeData>();
-    */
-    #endregion
-
-    #region Properties
-    /*
-    public List<NodeLinkData> NodeLinks { get; set; }
-    public List<DialogueNodeData> DialogueNodeData { get; set; }
-    */
     #endregion
 }

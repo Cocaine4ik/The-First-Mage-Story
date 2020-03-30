@@ -61,7 +61,7 @@ public class GraphSaveUtils
             dialogueContainer.DialogueNodeData.Add(new DialogueNodeData {
 
                 NodeGUID = dialogueNode.GUID,
-                DialogueText = dialogueNode.DialgueText,
+                DialogueText = dialogueNode.DialogueText,
                 Position = dialogueNode.GetPosition().position
 
             });           
@@ -98,7 +98,7 @@ public class GraphSaveUtils
             dialogueGraphView.AddElement(tempNode);
 
             var nodePorts = containerCache.NodeLinks.Where(x => x.BaseNodeGUID == nodeData.NodeGUID).ToList();
-            nodePorts.ForEach(x => dialogueGraphView.AddChoicePort
+            nodePorts.ForEach(x => dialogueGraphView.AddChoicePort(tempNode, x.PortName));
         }
     }
 

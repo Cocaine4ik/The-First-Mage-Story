@@ -80,7 +80,7 @@ public class DialogueGraphView : GraphView {
 
             title = nodeName,
             GUID = Guid.NewGuid().ToString(),
-
+            DialogueText = nodeName
         };
 
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
@@ -125,7 +125,7 @@ public class DialogueGraphView : GraphView {
 
             title = "START",
             GUID = GUID.Generate().ToString(),
-            DialgueText = "ENTRYPOINT",
+            DialogueText = "ENTRYPOINT",
             EntryPoint = true
 
         };

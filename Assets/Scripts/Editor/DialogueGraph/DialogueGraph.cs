@@ -119,6 +119,7 @@ public class DialogueGraph : EditorWindow
             }
             else {
                 saveUtility.LoadGraph(fileName);
+                
             }
         }
         else {

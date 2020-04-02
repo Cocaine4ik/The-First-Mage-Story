@@ -15,7 +15,7 @@ public class GraphSaveUtils
     #region Fields
 
     private DialogueGraphView dialogueGraphView;
-    private DialogueContainer containerCache;
+    private DialogueContainer dialogueContainer;
 
     #endregion
 
@@ -38,12 +38,27 @@ public class GraphSaveUtils
 
     public void SaveGraph(string fileName) {
 
-        if (!Edges.Any()) return; // if there are no edges (no connctions) then return
+         // if there are no edges (no connctions) then return
 
         var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
+        if (!SaveNodes(fileName, dialogueContainer)) return;
+
+        var dialogueLanguge = fileName.Substring(fileName.Count() - 2);
+        AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/Dialogues/{dialogueLanguge}/{fileName}.asset");
+        AssetDatabase.SaveAssets();
+    }
+    /// <summary>
+    /// Save nodes
+    /// </summary>
+    /// <param name="fileName"></param>
+    /// <param name="dialogueContainer"></param>
+    /// <returns></returns>
+    private bool SaveNodes(string fileName, DialogueContainer dialogueContainer) {
+
+        if (!Edges.Any()) return false;
         var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
-        for (int i = 0; i < connectedPorts.Length; i++) {
+        for (int i = 0; i < connectedPorts.Count(); i++) {
 
             var outputNode = connectedPorts[i].output.node as DialogueNode;
             var inputNode = connectedPorts[i].input.node as DialogueNode;
@@ -53,7 +68,6 @@ public class GraphSaveUtils
                 BaseNodeGUID = outputNode.GUID,
                 PortName = connectedPorts[i].output.portName,
                 TargetNodeGUID = inputNode.GUID
-
             });
         }
 
@@ -65,17 +79,15 @@ public class GraphSaveUtils
                 DialogueText = dialogueNode.DialogueText,
                 Position = dialogueNode.GetPosition().position
 
-            });           
+            });
         }
-
-        AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/Dialogues/{fileName}.asset");
-        AssetDatabase.SaveAssets();
+        return true;
     }
-
     public void LoadGraph(string fileName ) {
 
-        containerCache = Resources.Load<DialogueContainer>($"Dialogues/{fileName}");
-        if (containerCache == null) {
+        var dialogueLanguge = fileName.Substring(fileName.Count() - 2);
+        dialogueContainer = Resources.Load<DialogueContainer>($"Dialogues/{dialogueLanguge}/{fileName}");
+        if (dialogueContainer == null) {
 
             EditorUtility.DisplayDialog("File Not Found", "Target dialogue graph file does not exists", "OK");
             return;
@@ -83,14 +95,14 @@ public class GraphSaveUtils
 
         ClearGraph();
         CreateNodes();
-        //ConnectNodes();
+        ConnectNodes();
     }
 
     private void ConnectNodes() {
         
         for (int i = 0; i < Nodes.Count; i++) {
 
-            var connections = containerCache.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[i].GUID).ToList();
+            var connections = dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[i].GUID).ToList();
 
             for (int k = 0; k < connections.Count; k++ ) {
 
@@ -99,7 +111,7 @@ public class GraphSaveUtils
 
                 LinkNodes(Nodes[i].outputContainer[k].Q<Port>(), (Port)targetNode.inputContainer[0]);
 
-                targetNode.SetPosition(new Rect(containerCache.DialogueNodeData.First(
+                targetNode.SetPosition(new Rect(dialogueContainer.DialogueNodeData.First(
                     x => x.NodeGUID == targetNodeGild).Position, dialogueGraphView.defaultNodeSize));
             }
         }
@@ -121,13 +133,13 @@ public class GraphSaveUtils
 
     private void CreateNodes() {
 
-        foreach (var nodeData in containerCache.DialogueNodeData) {
+        foreach (var nodeData in dialogueContainer.DialogueNodeData) {
 
             var tempNode = dialogueGraphView.CreateDialogueNode(nodeData.DialogueText);
             tempNode.GUID = nodeData.NodeGUID;
             dialogueGraphView.AddElement(tempNode);
 
-            var nodePorts = containerCache.NodeLinks.Where(x => x.BaseNodeGUID == nodeData.NodeGUID).ToList();
+            var nodePorts = dialogueContainer.NodeLinks.Where(x => x.BaseNodeGUID == nodeData.NodeGUID).ToList();
             nodePorts.ForEach(x => dialogueGraphView.AddChoicePort(tempNode, x.PortName));
         }
     }
@@ -135,7 +147,7 @@ public class GraphSaveUtils
     private void ClearGraph() {
 
         // Set entry points guid back form the save. Discards existing grid
-        Nodes.Find(match: x => x.EntryPoint).GUID = containerCache.NodeLinks[0].BaseNodeGUID;
+        Nodes.Find(match: x => x.EntryPoint).GUID = dialogueContainer.NodeLinks[0].BaseNodeGUID;
 
         foreach(var node in Nodes) {
 

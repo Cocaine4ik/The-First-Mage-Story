@@ -82,10 +82,12 @@ public class DialogueGraphView : GraphView {
             GUID = Guid.NewGuid().ToString(),
             DialogueText = nodeName
         };
-
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
+
+        // add CSS style to node
+        dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
 
         // add choice button to node
         var button = new Button(clickEvent: () => { AddChoicePort(dialogueNode); });
@@ -94,6 +96,16 @@ public class DialogueGraphView : GraphView {
 
         // Dialogue text field
         var textField = new TextField(string.Empty);
+        textField.multiline = true;
+        textField.RegisterValueChangedCallback(evt => {
+
+            dialogueNode.DialogueText = evt.newValue;
+            if(textField.value.Count() <= 20)
+            dialogueNode.title = evt.newValue;
+        });
+
+        textField.SetValueWithoutNotify(dialogueNode.title);
+        dialogueNode.mainContainer.Add(textField);
 
         // refresh port
         dialogueNode.RefreshExpandedState();

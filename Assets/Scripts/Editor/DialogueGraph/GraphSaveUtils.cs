@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
 using UnityEngine;
 
 /// <summary>
@@ -82,11 +83,40 @@ public class GraphSaveUtils
 
         ClearGraph();
         CreateNodes();
-        ConnectNodes();
+        //ConnectNodes();
     }
 
     private void ConnectNodes() {
-        throw new NotImplementedException();
+        
+        for (int i = 0; i < Nodes.Count; i++) {
+
+            var connections = containerCache.NodeLinks.Where(x => x.BaseNodeGUID == Nodes[i].GUID).ToList();
+
+            for (int k = 0; k < connections.Count; k++ ) {
+
+                var targetNodeGild = connections[k].TargetNodeGUID;
+                var targetNode = Nodes.First(x => x.GUID == targetNodeGild);
+
+                LinkNodes(Nodes[i].outputContainer[k].Q<Port>(), (Port)targetNode.inputContainer[0]);
+
+                targetNode.SetPosition(new Rect(containerCache.DialogueNodeData.First(
+                    x => x.NodeGUID == targetNodeGild).Position, dialogueGraphView.defaultNodeSize));
+            }
+        }
+
+    }
+
+    private void LinkNodes(Port outputPort, Port inputPort) {
+
+        var tempEdge = new Edge {
+            output = outputPort,
+            input = inputPort
+        };
+
+        tempEdge.input.Connect(tempEdge);
+        tempEdge.output.Connect(tempEdge);
+
+        dialogueGraphView.Add(tempEdge);
     }
 
     private void CreateNodes() {
@@ -109,7 +139,7 @@ public class GraphSaveUtils
 
         foreach(var node in Nodes) {
 
-            if (node.EntryPoint) return;
+            if (node.EntryPoint) continue;
 
             // Remove edges that conected to this node
             Edges.Where(x => x.input.node == node).ToList().ForEach(edge => 

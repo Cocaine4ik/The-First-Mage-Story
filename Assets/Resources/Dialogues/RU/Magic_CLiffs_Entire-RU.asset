@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56034b0e3d3a89f46b65b1e30ab1ff0a, type: 3}
+  m_Name: Magic_CLiffs_Entire-RU
+  m_EditorClassIdentifier: 
+  NodeLinks:
+  - BaseNodeGUID: cf2080b592dd5f848a681ca260ec3e12
+    PortName: Next
+    TargetNodeGUID: b4565b5d-c09f-4ede-997d-386a3c974a96
+  - BaseNodeGUID: b4565b5d-c09f-4ede-997d-386a3c974a96
+    PortName: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+    TargetNodeGUID: 5d501418-96b5-41c1-b3d2-3df1f95dd02b
+  DialogueNodeData:
+  - NodeGUID: 5d501418-96b5-41c1-b3d2-3df1f95dd02b
+    DialogueText: Dialogue Node
+    Position: {x: 926, y: -37}
+  - NodeGUID: b4565b5d-c09f-4ede-997d-386a3c974a96
+    DialogueText: "\u0410\u0444\u0444-\u0430\u0440\u0440! \u0411\u043B\u0435-\u0410\u0445!
+      \u0424\u0443\u0445. *\u0442\u044F\u0436\u0435\u043B\u043E \u0434\u044B\u0448\u0438\u0442*.
+      \u0423\u0447\u0438\u0442\u0435\u043B\u044C \u0433\u043E\u0432\u043E\u0440\u0438\u043B,
+      \u0447\u0442\u043E \u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0442\u0430\u0446\u0438\u044F
+      \u044D\u0442\u043E \u043D\u0430\u0438\u0445\u0443\u0434\u0448\u0438\u0439 \u0430\u0441\u043F\u0435\u043A\u0442
+      \u0432 \u0436\u0438\u0437\u043D\u0438 \u0432\u043E\u043B\u0448\u0435\u0431\u043D\u0438\u043A\u0430,
+      \u0447\u0442\u043E-\u0436 \u043E\u043D \u043E\u043F\u0440\u0435\u0434\u043B\u0435\u043D\u0435\u043D\u043D\u043E
+      \u0431\u044B\u043B \u043F\u0440\u0430\u0432. \u0422\u0430\u043A\u043E\u0435
+      \u0447\u0443\u0432\u0441\u0442\u0432\u043E \u0447\u0442\u043E \u043C\u0435\u043D\u044F
+      \u0432\u044B\u0432\u0435\u0440\u043D\u0443\u043B\u0438 \u043D\u0430\u0438\u0437\u043D\u0430\u043D\u043A\u0443
+      \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E  \u0440\u0430\u0437. "
+    Position: {x: 273, y: 125}

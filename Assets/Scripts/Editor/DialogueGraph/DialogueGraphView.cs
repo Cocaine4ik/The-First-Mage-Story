@@ -6,6 +6,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
+using PopupWindow = UnityEngine.UIElements.PopupWindow;
 
 /// <summary>
 /// Dialogue graph view class

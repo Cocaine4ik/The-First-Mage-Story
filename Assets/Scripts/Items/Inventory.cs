@@ -20,9 +20,9 @@ public class Inventory : MonoBehaviour
 
     private void OnEnable() {
 
-        AddInventoryCells();
+            AddInventoryCells();
+            EventManager.StartListening(EventName.PickupItem, AddItem);
 
-        EventManager.StartListening(EventName.PickupItem, AddItem);
 
     }
 

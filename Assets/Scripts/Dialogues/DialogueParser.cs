@@ -12,12 +12,13 @@ public class DialogueParser : MonoBehaviour
     [SerializeField] private Button choicePrefab;
     [SerializeField] private Transform buttonContainer;
 
-    private void Start() {
-
-        var dialogueData = dialogue.NodeLinks.First();
-        ProceedToDialogue(dialogueData.TargetNodeGUID);
-
+    private void OnEnable() {
+        EventManager.StartListening(EventName.StartConversation, StartConversationEvent);
     }
+    private void OnDisable() {
+        EventManager.StopListening(EventName.StartConversation, StartConversationEvent);
+    }
+
     private void ProceedToDialogue(string dialogueDataGUID) {
 
         var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == dialogueDataGUID).DialogueText;
@@ -32,17 +33,36 @@ public class DialogueParser : MonoBehaviour
         foreach (var choice in choices) {
             var button = Instantiate(choicePrefab, buttonContainer);
             button.GetComponentInChildren<TextMeshProUGUI>().text = choice.PortName;
-            if(choice.PortName != "Continue") {
-            button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID));
-            }
-            else {
+
+            if (choice.PortName == "Continue" || choice.PortName == "Продолжить") {
                 button.onClick.AddListener(() => ExitDialogue());
+            }
+
+            else { 
+                button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID));
             }
         }
     }
 
     private void ExitDialogue() {
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
 
     }
+
+    private void StartConversationEvent(EventArg arg) {
+
+        if (dialogue != null) {
+            var dialogueData = dialogue.NodeLinks.First();
+            ProceedToDialogue(dialogueData.TargetNodeGUID);
+        }
+    }
+    /// <summary>
+    /// Set dialogue data
+    /// </summary>
+    /// <param name="dialogue"></param>
+    public void SetDialogue(DialogueContainer dialogue) {
+
+        this.dialogue = dialogue;
+    }
+
 }

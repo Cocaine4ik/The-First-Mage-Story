@@ -19,5 +19,6 @@ public enum EventName {
     SpawnRavens,
     ShowInventoryItemName,
     ShowInventoryItemType,
-    ShowInventoryItemDescription
+    ShowInventoryItemDescription,
+    StartConversation
 }

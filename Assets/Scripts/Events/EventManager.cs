@@ -48,7 +48,6 @@ public class EventManager : MonoBehaviour {
             thisEvent.AddListener(listener);
             Instance.eventDictionary.Add(eventName, thisEvent);
         }
-
     }
     // delete listener from the dictionary
     public static void StopListening(EventName eventName, UnityAction<EventArg> listener) {
@@ -69,6 +68,16 @@ public class EventManager : MonoBehaviour {
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
 
             thisEvent.Invoke(arg);
+        }
+    }
+
+    public static void TriggerEvent(EventName eventName) {
+
+        Event thisEvent = null;
+
+        if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
+
+            thisEvent.Invoke(new EventArg());
         }
     }
 

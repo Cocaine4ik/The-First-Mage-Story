@@ -72,6 +72,8 @@ public class DialogueGraph : EditorWindow
         fileNameTextField.labelElement.style.minWidth = 40;
         fileNameTextField.labelElement.style.marginLeft = 20;
 
+        fileNameTextField.styleSheets.Add(Resources.Load<StyleSheet>("FileNameTextField"));
+
         // Create and add node cretion button to our toolbar
         var createNodeButton = CreateButton(clickEvent: () => graphView.CreateNode("Dialogue Node"), "Create \n Node");
         createNodeButton.style.marginRight = 40;

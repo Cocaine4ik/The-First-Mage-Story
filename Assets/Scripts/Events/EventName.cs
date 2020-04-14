@@ -20,5 +20,7 @@ public enum EventName {
     ShowInventoryItemName,
     ShowInventoryItemType,
     ShowInventoryItemDescription,
-    StartConversation
+    StartConversation,
+    ExitConversation,
+    ReadyToInteract
 }

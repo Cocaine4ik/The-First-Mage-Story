@@ -89,6 +89,7 @@ public class DialogueGraphView : GraphView {
 
         // add CSS style to node
         dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
+        
 
         // add choice button to node
         var button = new Button(clickEvent: () => { AddChoicePort(dialogueNode); });
@@ -97,6 +98,8 @@ public class DialogueGraphView : GraphView {
 
         // Dialogue text field
         var textField = new TextField(string.Empty);
+        textField.styleSheets.Add(Resources.Load<StyleSheet>("DialogueTextField"));
+
         textField.multiline = true;
         textField.RegisterValueChangedCallback(evt => {
 
@@ -139,12 +142,14 @@ public class DialogueGraphView : GraphView {
         // Create start node instance
         var node = new DialogueNode() {
 
+            name = "entire",
             title = "START",
             GUID = GUID.Generate().ToString(),
             DialogueText = "ENTRYPOINT",
             EntryPoint = true
 
         };
+        node.styleSheets.Add(Resources.Load<StyleSheet>("EntireNode"));
         // generate port, name it and add to the node
         var generatedPort = GeneratePort(node, Direction.Output);
         generatedPort.portName = "Next";
@@ -166,6 +171,7 @@ public class DialogueGraphView : GraphView {
     public void AddChoicePort(DialogueNode dialogueNode, string overridenPortName = "") {
 
         var generatedPort = GeneratePort(dialogueNode, Direction.Output);
+        generatedPort.name = "port";
 
         var oldLabel = generatedPort.contentContainer.Q<Label>(name: "type");
         generatedPort.contentContainer.Remove(oldLabel);
@@ -178,9 +184,12 @@ public class DialogueGraphView : GraphView {
 
         var textField = new TextField() {
 
-            name = string.Empty,
+            name = "choice",
             value = choicePortName
         };
+        
+        textField.styleSheets.Add(Resources.Load<StyleSheet>("ChoiceField"));
+
         textField.RegisterValueChangedCallback(evt => generatedPort.portName = evt.newValue);
         generatedPort.contentContainer.Add(new Label(" "));
         generatedPort.contentContainer.Add(textField);

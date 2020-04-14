@@ -1,0 +1,13 @@
+TextField #unity-text-input{
+    height: 70px;
+    width: 50px;
+    -unity-text-align: upper-left;  
+    -unity-word-wrap: true;
+    -unity-clipping: clip;
+    overflow: visible;
+    white-space: normal;
+    margin-right: .75;
+	color: rgba(255, 255, 255, 1);
+	font-size: 12px;
+	-unity-font-style: bold;
+}	

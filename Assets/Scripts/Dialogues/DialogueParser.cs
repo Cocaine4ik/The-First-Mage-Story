@@ -45,7 +45,8 @@ public class DialogueParser : MonoBehaviour
     }
 
     private void ExitDialogue() {
-        this.gameObject.SetActive(false);
+
+        EventManager.TriggerEvent(EventName.ExitConversation);
 
     }
 

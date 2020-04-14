@@ -19,20 +19,15 @@ public class Inventory : MonoBehaviour
     #region Methods
 
     private void OnEnable() {
-
-            AddInventoryCells();
-            EventManager.StartListening(EventName.PickupItem, AddItem);
-
-
+           AddInventoryCells();
     }
 
-    private void OnDisable() {
-
-    }
     private void Start() {
         EventManager.StartListening(EventName.PickupItem, AddItem);
     }
-
+    private void OnDestroy() {
+        EventManager.StopListening(EventName.PickupItem, AddItem);
+    }
     private void AddInventoryCells() {
 
         for (int i = 0; i < inventorySize; i++) {
@@ -43,7 +38,6 @@ public class Inventory : MonoBehaviour
 
         }
     }
-
 
     public void AddItem(EventArg arg) {
 

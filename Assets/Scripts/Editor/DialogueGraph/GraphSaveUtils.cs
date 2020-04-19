@@ -13,7 +13,7 @@ using UnityEngine;
 public class GraphSaveUtils
 {
     #region Fields
-
+    private string dialogueLanguge;
     private DialogueGraphView dialogueGraphView;
     private DialogueContainer dialogueContainer;
 
@@ -38,15 +38,36 @@ public class GraphSaveUtils
 
     public void SaveGraph(string fileName) {
 
+        dialogueLanguge = GetDialogueLanguage(fileName);
          // if there are no edges (no connctions) then return
 
         var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
         if (!SaveNodes(fileName, dialogueContainer)) return;
-
-        var dialogueLanguge = fileName.Substring(fileName.Count() - 2);
+        SaveExposedProperties(dialogueContainer);
         AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/Dialogues/{dialogueLanguge}/{fileName}.asset");
         AssetDatabase.SaveAssets();
     }
+
+    private void SaveExposedProperties(DialogueContainer dialogueContainer) {
+        dialogueContainer.ExposedProperties.AddRange(dialogueGraphView.ExposedProperties);
+    }
+
+    private string GetDialogueLanguage(string fileName) {
+        var dialogueLanguge = fileName.Substring(fileName.Count() - 2);
+        return dialogueLanguge;
+    }
+
+    private void CreateExposedProperties() {
+
+        // clear existing properties
+        dialogueGraphView.ClearBlackBoard();
+        // add properties from data
+        foreach(var exposedProperty in dialogueContainer.ExposedProperties) {
+
+            dialogueGraphView.AddPropertyToBlackBoard(exposedProperty);
+        }
+    }
+
     /// <summary>
     /// Save nodes
     /// </summary>
@@ -96,6 +117,7 @@ public class GraphSaveUtils
         ClearGraph();
         CreateNodes();
         ConnectNodes();
+        CreateExposedProperties();
     }
 
     private void ConnectNodes() {

@@ -22,5 +22,7 @@ public enum EventName {
     ShowInventoryItemDescription,
     StartConversation,
     ExitConversation,
-    ReadyToInteract
+    ReadyToInteract,
+    CloseQuestJournal,
+    AddQuest
 }

@@ -9,9 +9,11 @@ public class GUIController : MonoBehaviour {
 
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject dialogueWindow;
+    [SerializeField] private GameObject QuestJournal;
 
     private List<GameObject> inventoryChilds;
     private List<GameObject> dialogueWindowChilds;
+    private List<GameObject> questJournalChilds;
 
     private bool readyToInteract = false;
 
@@ -20,6 +22,7 @@ public class GUIController : MonoBehaviour {
         EventManager.StartListening(EventName.StartConversation, StartOrExitConversationEvent);
         EventManager.StartListening(EventName.ExitConversation, StartOrExitConversationEvent);
         EventManager.StartListening(EventName.ReadyToInteract, ReadyToInteractEvent);
+        EventManager.StartListening(EventName.CloseQuestJournal, CloseQuestJournalEvent);
 
     }
     private void OnDisable() {
@@ -27,40 +30,32 @@ public class GUIController : MonoBehaviour {
         EventManager.StopListening(EventName.StartConversation, StartOrExitConversationEvent);
         EventManager.StopListening(EventName.ExitConversation, StartOrExitConversationEvent);
         EventManager.StopListening(EventName.ReadyToInteract, ReadyToInteractEvent);
+        EventManager.StopListening(EventName.CloseQuestJournal, CloseQuestJournalEvent);
 
     }
     private void Start() {
 
-        inventoryChilds = CreateChildsList(inventory.transform);
-        dialogueWindowChilds = CreateChildsList(dialogueWindow.transform);
+        inventoryChilds = UnityExtensions.CreateChildsList(inventory.transform);
+        dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform);
+        questJournalChilds = UnityExtensions.CreateChildsList(QuestJournal.transform);
 
         OpenCloseGUIElement(inventoryChilds);
         OpenCloseGUIElement(dialogueWindowChilds);
+        OpenCloseGUIElement(questJournalChilds);
     }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.I)) {
 
             OpenCloseGUIElement(inventoryChilds);
         }
+        if(Input.GetKeyDown(KeyCode.J)) {
+            OpenCloseGUIElement(questJournalChilds);
+        }
         // if we player is ready to interact (watch DialogueTrigger class)and get E key
         // invoke StartConversation event
         if (Input.GetKeyDown(KeyCode.E) && readyToInteract == true) {
             EventManager.TriggerEvent(EventName.StartConversation);
         }
-    }
-    /// <summary>
-    /// Return transform object childs List
-    /// </summary>
-    /// <param name="parent"></param>
-    /// <returns></returns>
-    private List<GameObject> CreateChildsList(Transform parent) {
-
-        List<GameObject> childsList = new List<GameObject>();
-
-        foreach (Transform child in parent) {
-            childsList.Add(child.gameObject);
-        }
-        return childsList;
     }
 
     /// <summary>
@@ -69,11 +64,7 @@ public class GUIController : MonoBehaviour {
     /// <param name="childs"></param>
     private void OpenCloseGUIElement(List<GameObject> childs) {
 
-        if (childs != null) {
-            foreach (GameObject gameObject in childs) {
-                gameObject.SetActive(!gameObject.activeSelf);             
-            }
-        }
+        UnityExtensions.SetActiveGameObjectChilds(childs);
         StatusUtils.GUIisActive = !false;
     }
     /// <summary>
@@ -89,8 +80,12 @@ public class GUIController : MonoBehaviour {
     /// </summary>
     /// <param name="arg"></param>
     private void ReadyToInteractEvent(EventArg arg) {
-
         readyToInteract = arg.FirstBoolArg;
-
+    }
+    /// <summary>
+    /// Close quest journal event for close button
+    /// </summary>
+    private void CloseQuestJournalEvent(EventArg arg) {
+        OpenCloseGUIElement(questJournalChilds);
     }
 }

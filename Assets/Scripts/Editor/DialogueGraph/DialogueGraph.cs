@@ -3,6 +3,8 @@ using UnityEngine;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 using System;
+using UnityEditor.Experimental.GraphView;
+using System.Linq;
 
 /// <summary>
 /// Dialogue graph class
@@ -36,6 +38,7 @@ public class DialogueGraph : EditorWindow
 
         ConstructGraphView();
         GenerateToolbar();
+        GenerateBlackBoard();
     }
 
     /// <summary>
@@ -88,6 +91,35 @@ public class DialogueGraph : EditorWindow
 
 
         rootVisualElement.Add(toolbar);
+    }
+
+    private void GenerateBlackBoard() {
+
+        var blackboard = new Blackboard();
+        blackboard.styleSheets.Add(Resources.Load<StyleSheet>("Blackboard"));
+        blackboard.Add(new BlackboardSection { title = "Exposed Properties" });
+        blackboard.addItemRequested = _blackboard =>
+        {
+           graphView.AddPropertyToBlackBoard(new ExposedProperty(), false);
+        };
+        blackboard.editTextRequested = (_blackboard, element, newValue) =>
+        {
+            var oldPropertyName = ((BlackboardField)element).text;
+            if (graphView.ExposedProperties.Any(x => x.PropertyName == newValue)) {
+                EditorUtility.DisplayDialog("Error", "This property name already exists, please chose another one.",
+                    "OK");
+                return;
+            }
+
+            var targetIndex = graphView.ExposedProperties.FindIndex(x => x.PropertyName == oldPropertyName);
+            graphView.ExposedProperties[targetIndex].PropertyName = newValue;
+            ((BlackboardField)element).text = newValue;
+        };
+
+        blackboard.SetPosition(new Rect(10, 50, 200, 300));
+        graphView.Add(blackboard);
+        graphView.Blackboard = blackboard;
+        graphView.GenerateDefaultProperties();
     }
 
     /// <summary>

@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public static class UnityExtensions
 {
@@ -30,5 +32,32 @@ public static class UnityExtensions
             }
         }
         return array;
+    }
+    /// <summary>
+    /// Set active true/false game object childs
+    /// </summary>
+    /// <param name="childs"></param>
+    public static void SetActiveGameObjectChilds(List<GameObject> childs) {
+
+        if (childs != null) {
+            foreach (GameObject gameObject in childs) {
+                gameObject.SetActive(!gameObject.activeSelf);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Return transform object childs List
+    /// </summary>
+    /// <param name="parent"></param>
+    /// <returns></returns>
+    public static List<GameObject> CreateChildsList(Transform parent) {
+
+        List<GameObject> childsList = new List<GameObject>();
+
+        foreach (Transform child in parent) {
+            childsList.Add(child.gameObject);
+        }
+        return childsList;
     }
 }

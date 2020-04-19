@@ -17,6 +17,9 @@ public class DialogueGraphView : GraphView {
 
     public readonly Vector2 defaultNodeSize = new Vector2(x: 150, y: 200);
 
+    public List<ExposedProperty> ExposedProperties = new List<ExposedProperty>();
+    public Blackboard Blackboard;
+
     #endregion
 
     #region Public Methods
@@ -77,16 +80,20 @@ public class DialogueGraphView : GraphView {
     /// <returns></returns>
     public DialogueNode CreateDialogueNode(string nodeName) {
 
+        string titleTemp = nodeName;
+        // fixed title length
+        if(titleTemp.Length >= 20) {
+            titleTemp = titleTemp.Substring(0, 20);
+        }
         var dialogueNode = new DialogueNode {
 
-            title = nodeName,
+            title = titleTemp,
             GUID = Guid.NewGuid().ToString(),
             DialogueText = nodeName
         };
         var inputPort = GeneratePort(dialogueNode, Direction.Input, Port.Capacity.Multi);
         inputPort.portName = "Input";
         dialogueNode.inputContainer.Add(inputPort);
-
         // add CSS style to node
         dialogueNode.styleSheets.Add(Resources.Load<StyleSheet>("Node"));
         
@@ -98,6 +105,8 @@ public class DialogueGraphView : GraphView {
 
         // Dialogue text field
         var textField = new TextField(string.Empty);
+        textField.value = dialogueNode.DialogueText;
+
         textField.styleSheets.Add(Resources.Load<StyleSheet>("DialogueTextField"));
 
         textField.multiline = true;
@@ -108,15 +117,17 @@ public class DialogueGraphView : GraphView {
             dialogueNode.title = evt.newValue;
         });
 
-        textField.SetValueWithoutNotify(dialogueNode.title);
+        //textField.SetValueWithoutNotify(dialogueNode.title);
         dialogueNode.mainContainer.Add(textField);
 
         // refresh port
         dialogueNode.RefreshExpandedState();
         dialogueNode.RefreshPorts();
-        dialogueNode.SetPosition(new Rect(position: Vector2.zero, defaultNodeSize));
+        dialogueNode.SetPosition(new Rect(position: new Vector2(300, 300), defaultNodeSize));
         return dialogueNode;
     }
+
+
 
     #endregion
 
@@ -155,12 +166,15 @@ public class DialogueGraphView : GraphView {
         generatedPort.portName = "Next";
         node.outputContainer.Add(generatedPort);
 
+        node.capabilities &= ~Capabilities.Movable;
+        node.capabilities &= ~Capabilities.Deletable;
+
         // refresh port
         node.RefreshExpandedState();
         node.RefreshPorts();
 
         // draw node
-        node.SetPosition(new Rect(x: 100, y: 200, width: 100, height: 150));
+        node.SetPosition(new Rect(x: 250, y: 200, width: 100, height: 150));
         return node;
     }
 
@@ -222,6 +236,51 @@ public class DialogueGraphView : GraphView {
         dialogueNode.outputContainer.Remove(generatedPort);
         dialogueNode.RefreshPorts();
         dialogueNode.RefreshExpandedState();
+    }
+
+    public void AddPropertyToBlackBoard(ExposedProperty property, bool loadMode = false) {
+
+        var localPropertyName = property.PropertyName;
+        var localPropertyValue = property.PropertyValue;
+        if (!loadMode) {
+            while (ExposedProperties.Any(x => x.PropertyName == localPropertyName))
+                localPropertyName = $"{localPropertyName}(1)";
+        }
+
+        var item = new ExposedProperty();
+        item.PropertyName = localPropertyName;
+        item.PropertyValue = localPropertyValue;
+        ExposedProperties.Add(item);
+
+        var container = new VisualElement();
+        var field = new BlackboardField { text = localPropertyName, typeText = "string" };
+        container.Add(field);
+
+        var propertyValueTextField = new TextField() {
+            value = localPropertyValue
+        };
+        propertyValueTextField.RegisterValueChangedCallback(evt =>
+        {
+            var index = ExposedProperties.FindIndex(x => x.PropertyName == item.PropertyName);
+            ExposedProperties[index].PropertyValue = evt.newValue;
+        });
+
+        container.Add(propertyValueTextField);
+        var row = new BlackboardRow(field, propertyValueTextField);
+        container.Add(row);
+
+        Blackboard.Add(container);
+
+    }
+
+    public void ClearBlackBoard() {
+
+        ExposedProperties.Clear();
+        Blackboard.Clear();
+    }
+
+    public void GenerateDefaultProperties() {
+        AddPropertyToBlackBoard(new ExposedProperty("Exit", "(End dialogue)"), true);
     }
     #endregion
 }

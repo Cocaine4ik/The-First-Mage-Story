@@ -8,6 +8,8 @@ public class LocalizedTMPro : MonoBehaviour {
     [SerializeField] protected string localizationKey;
     protected TextMeshProUGUI text;
 
+    public string LocalizationKey => localizationKey;
+
     public void Start() {
 
         text = GetComponent<TextMeshProUGUI>();
@@ -33,10 +35,12 @@ public class LocalizedTMPro : MonoBehaviour {
 
     }
     /// <summary>
-    /// Change localization key for inventory item changes
+    /// Change localization with new key
     /// </summary>
     /// <param name="key"></param>
-    public void ChangeLocalizationKey(string key) {
+    public void ChangeLocalization(string key) {
         localizationKey = key;
+        Localize();
+        LocalizationManager.LocalizationChanged += Localize;
     }
 }

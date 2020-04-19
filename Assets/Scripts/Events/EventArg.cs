@@ -15,19 +15,21 @@ public class EventArg {
     private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
+    private Quest quest;
     private Item item;
 
     #endregion
 
     #region Properties
 
-    public int FirstIntArg { get { return firstIntArg; } }
-    public int SecondIntArg {  get { return secondIntArg; } }
-    public string FirstStringArg { get { return firstStringArg; } }
-    public float FirstFloatArg { get { return firstFloatArg; } }
-    public bool FirstBoolArg { get { return firstBoolArg; } }
-    public TimerName TimerName { get { return timerName; } }
-    public Item Item { get { return item; } }
+    public int FirstIntArg => firstIntArg;
+    public int SecondIntArg => secondIntArg;
+    public string FirstStringArg => firstStringArg;
+    public float FirstFloatArg => firstFloatArg;
+    public bool FirstBoolArg => firstBoolArg;
+    public TimerName TimerName => timerName;
+    public Quest Quest => quest;
+    public Item Item => item;
 
     #endregion
 
@@ -51,6 +53,14 @@ public class EventArg {
 
     public EventArg(string arg) {
         this.firstStringArg = arg;
+    }
+    /// <summary>
+    /// construtor with quest arg
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="description"></param>
+    public EventArg(Quest quest) {
+        this.quest = quest;
     }
     /// <summary>
     /// constructor with one float arg

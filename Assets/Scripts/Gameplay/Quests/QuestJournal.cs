@@ -71,6 +71,7 @@ public class QuestJournal : MonoBehaviour
         UnityExtensions.SetActiveGameObjectChilds(mainPageChilds);
         UnityExtensions.SetActiveGameObjectChilds(questPageChilds);
 
+        mainPage.gameObject.SetActive(!gameObject.activeSelf);
         backButton.SetActive(gameObject.activeSelf);
     }
 
@@ -79,6 +80,7 @@ public class QuestJournal : MonoBehaviour
         UnityExtensions.SetActiveGameObjectChilds(questPageChilds);
         UnityExtensions.SetActiveGameObjectChilds(mainPageChilds);
 
+        mainPage.gameObject.SetActive(gameObject.activeSelf);
         backButton.SetActive(!gameObject.activeSelf);
     }
     /// <summary>

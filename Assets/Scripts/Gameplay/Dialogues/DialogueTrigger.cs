@@ -8,6 +8,9 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueContainer dialogue;
+    [SerializeField] private bool isInteractable = false;
+    [SerializeField] private bool isScriptable = false;
+    [SerializeField] private float scriptableTime;
 
     private Transform dialogueWindow;
     private bool dialogueSet = false;
@@ -18,7 +21,7 @@ public class DialogueTrigger : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision) {
 
-        if(GetComponent<InteractableObject>() == null && collision.GetComponent<Player>() != null) {
+        if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
             StartConversation();
         }
     }
@@ -28,7 +31,7 @@ public class DialogueTrigger : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerStay2D(Collider2D collision) {
 
-        if (GetComponent<InteractableObject>() != null && collision.GetComponent<Player>() != null) {
+        if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
 
             if(dialogueWindow != null && !dialogueSet) {
                 dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
@@ -44,7 +47,7 @@ public class DialogueTrigger : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerExit2D(Collider2D collision) {
 
-        if (GetComponent<InteractableObject>() != null && collision.GetComponent<Player>() != null) {
+        if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
             EventManager.TriggerEvent(EventName.ReadyToInteract, new EventArg(false));
         }
     }
@@ -53,9 +56,14 @@ public class DialogueTrigger : MonoBehaviour
     /// </summary>
     private void Awake() {
 
-        // dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").transform;
+        dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").transform;
     }
 
+    private void Start() {
+        if(isScriptable == true) {
+            StartCoroutine(StartScriptableConversation(scriptableTime));
+        }
+    }
     /// <summary>
     /// Set diallogue to dialogue window
     /// Invoke StartConversation event
@@ -67,5 +75,12 @@ public class DialogueTrigger : MonoBehaviour
         Debug.Log("Dialogue set: " + dialogue.name);
         EventManager.TriggerEvent(EventName.StartConversation);
         Debug.Log("Starting conversation.");
+
+    }
+
+    private IEnumerator StartScriptableConversation(float scriptableTime) {
+
+        yield return new WaitForSeconds(scriptableTime);
+        StartConversation();
     }
 }

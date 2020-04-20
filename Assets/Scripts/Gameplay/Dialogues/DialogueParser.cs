@@ -71,9 +71,13 @@ public class DialogueParser : MonoBehaviour
 
     private void OnDestroy() {
 
-        foreach (var exposedProperty in dialogue.ExposedProperties) {
-            LocalizationManager.LocalizationChanged -= exposedProperty.Localize;
+        if(dialogue != null) {
+
+            foreach (var exposedProperty in dialogue.ExposedProperties) {
+                LocalizationManager.LocalizationChanged -= exposedProperty.Localize;
+            }
         }
+
     }
     private void StartConversationEvent(EventArg arg) {
 

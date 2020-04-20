@@ -7,6 +7,7 @@ using UnityEngine;
 /// </summary>
 public enum EventName {
 
+    AppearPlayer,
     TimerFinished,
     PickupItem,
     LevelUp,

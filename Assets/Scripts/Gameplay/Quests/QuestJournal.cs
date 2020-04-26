@@ -5,7 +5,7 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 
-public class QuestJournal : MonoBehaviour
+public class QuestJournal : UIElementBase
 {
     [SerializeField] private Transform mainPage;
     [SerializeField] private Transform questPage;
@@ -27,7 +27,9 @@ public class QuestJournal : MonoBehaviour
     private void OnDisable() {
         EventManager.StopListening(EventName.AddQuest, AddQuestEvent);
     }
-    private void Start() {
+    protected override void Start() {
+
+        base.Start();
 
         mainPageChilds = UnityExtensions.CreateChildsList(mainPage);
         questPageChilds = UnityExtensions.CreateChildsList(questPage);

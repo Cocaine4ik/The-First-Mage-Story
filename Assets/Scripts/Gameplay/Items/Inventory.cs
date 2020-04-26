@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class Inventory : MonoBehaviour
-{
+public class Inventory : UIElementBase {
 
     #region Fields
     [SerializeField] private int inventorySize;
@@ -22,7 +21,8 @@ public class Inventory : MonoBehaviour
            AddInventoryCells();
     }
 
-    private void Start() {
+    protected override void Start() {
+        base.Start();
         EventManager.StartListening(EventName.PickupItem, AddItem);
     }
     private void OnDestroy() {
@@ -52,5 +52,6 @@ public class Inventory : MonoBehaviour
 
         }
     }
+
     #endregion
 }

@@ -15,6 +15,7 @@ public class DialogueTrigger : MonoBehaviour
     private Transform dialogueWindow;
     private bool dialogueSet = false;
 
+    public DialogueContainer Dialogue => dialogue;
     /// <summary>
     /// Start conversation with trigger with out interact from player
     /// </summary>
@@ -60,9 +61,12 @@ public class DialogueTrigger : MonoBehaviour
     }
 
     private void Start() {
-        if(isScriptable == true) {
+        if (isScriptable == true) {
             StartCoroutine(StartScriptableConversation(scriptableTime));
         }
+    }
+    private void OnDestroy() {
+        EventManager.StopListening(EventName.ExitConversation, OnExitConversation);
     }
     /// <summary>
     /// Set diallogue to dialogue window
@@ -75,6 +79,7 @@ public class DialogueTrigger : MonoBehaviour
         Debug.Log("Dialogue set: " + dialogue.name);
         EventManager.TriggerEvent(EventName.StartConversation);
         Debug.Log("Starting conversation.");
+        EventManager.StartListening(EventName.ExitConversation, OnExitConversation);
 
     }
 
@@ -82,5 +87,11 @@ public class DialogueTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(scriptableTime);
         StartConversation();
+    }
+
+    private void OnExitConversation(EventArg arg) {
+        if(isInteractable == false) {
+            Destroy(gameObject);
+        }
     }
 }

@@ -33,8 +33,12 @@ public class SceneDirector : MonoBehaviour
 
     private void AppearPlayer(float alphaPerFrame) {
 
+        if(playerSprite != null) {
+
         var tempColor = playerSprite.color;
         tempColor.a += alphaPerFrame;
         playerSprite.color = tempColor;
+
+        }
     }
 }

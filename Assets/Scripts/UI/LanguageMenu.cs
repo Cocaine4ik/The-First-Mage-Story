@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
@@ -7,36 +9,32 @@ using TMPro;
 /// </summary>
 public class LanguageMenu : MonoBehaviour
 {
-
+   [SerializeField] private List<Button> buttonList;
+   [SerializeField] private Button okButton;
    [SerializeField] private TextMeshProUGUI languageName;
 
-    private string[] languageList = { "English", "Русский", "Espanol", "Deutsch" };
-    private string currentLanguage;
-    private int languageIndex;
 
     private void Start() {
 
-        currentLanguage = languageName.text;
-
-        for(int i = 0; i < languageList.Length; i++) {
-
-            if (languageList[i] == currentLanguage) {
-                languageIndex = i;
-                Debug.Log(i);
-            }
+        foreach(Button button in buttonList) {
+            button.onClick.AddListener(() => OnChangeLanguage(button.gameObject.name, button.GetComponentInChildren<TextMeshProUGUI>().color));
         }
+        okButton.onClick.AddListener(() => OnSetLanguage(languageName.text));
+    
     }
     /// <summary>
     /// Set Application.Language button event
     /// </summary>
-    public void SetLanguage() {
-
-        switch(currentLanguage) {
+    private void OnSetLanguage(string languageName) {
+        Debug.Log(languageName);
+        switch(languageName) {
 
             case "English": LocalizationManager.Language = SystemLanguage.English.ToString(); break;
             case "Русский": LocalizationManager.Language = SystemLanguage.Russian.ToString(); break;
             case "Espanol": LocalizationManager.Language = SystemLanguage.Spanish.ToString(); break;
             case "Deutsch": LocalizationManager.Language = SystemLanguage.German.ToString(); break;
+            case "Français": LocalizationManager.Language = SystemLanguage.French.ToString(); break; 
+                
             default: LocalizationManager.Language = SystemLanguage.Russian.ToString(); break; ;
         }
         Debug.Log(LocalizationManager.Language);
@@ -44,40 +42,13 @@ public class LanguageMenu : MonoBehaviour
     }
 
     /// <summary>
-    /// Next language button event
+    /// Set language text and color
     /// </summary>
-    public void NextLanguage() {
+    /// <param name="language"></param>
+    /// <param name="buttonTextColor"></param>
+   private void OnChangeLanguage(string language, Color buttonTextColor) {
 
-        if(languageIndex < languageList.Length - 1) {
-
-            currentLanguage = languageList[languageIndex+1];
-            languageIndex++;
-        }
-        else if (languageIndex == languageList.Length - 1) {
-            currentLanguage = languageList[0];
-            languageIndex = 0;
-        }
-
-        languageName.text = currentLanguage;
-        Debug.Log(languageIndex);
-    }
-
-    /// <summary>
-    /// Previous language button event
-    /// </summary>
-    public void PreviousLanguage() {
-
-        if (languageIndex > 0) {
-
-            currentLanguage = languageList[languageIndex - 1];
-            languageIndex--;
-        }
-        else if (languageIndex == 0) {
-            currentLanguage = languageList[languageList.Length - 1];
-            languageIndex = languageList.Length - 1;
-        }
-
-        languageName.text = currentLanguage;
-        Debug.Log(languageIndex);
+        languageName.text = language;
+        languageName.color = buttonTextColor;
     }
 }

@@ -12,8 +12,8 @@ public class RotationEffect : MonoBehaviour
 
     [SerializeField] private float speed = 45;
     [SerializeField] private float duration = 3;
-    RectTransform rectTransform;
-    Timer rotationTimer;
+    private RectTransform rectTransform;
+    private Timer rotationTimer;
     #endregion
 
 

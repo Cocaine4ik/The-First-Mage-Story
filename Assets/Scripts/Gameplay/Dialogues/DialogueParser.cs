@@ -5,7 +5,10 @@ using UnityEngine.UI;
 using TMPro;
 using System.Linq;
 
-public class DialogueParser : MonoBehaviour
+/// <summary>
+/// 
+/// </summary>
+public class DialogueParser : UIElementBase
 {
     [SerializeField] private DialogueContainer dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
@@ -43,6 +46,7 @@ public class DialogueParser : MonoBehaviour
         foreach (var exposedProperty in dialogue.ExposedProperties) {
 
             exposedProperty.Localize();
+            LocalizationManager.LocalizationChanged += exposedProperty.Localize;
 
             text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
 
@@ -63,7 +67,7 @@ public class DialogueParser : MonoBehaviour
 
     private void ExitDialogue() {
 
-            EventManager.TriggerEvent(EventName.ExitConversation);
+            EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogue.name));
     }
     private void AddNewQuest() {
 

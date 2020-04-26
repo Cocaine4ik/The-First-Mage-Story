@@ -9,8 +9,9 @@ public class GUIController : MonoBehaviour {
 
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject dialogueWindow;
-    [SerializeField] private GameObject QuestJournal;
+    [SerializeField] private GameObject questJournal;
 
+    private List<List<GameObject>> allChildsList = new List<List<GameObject>>();
     private List<GameObject> inventoryChilds;
     private List<GameObject> dialogueWindowChilds;
     private List<GameObject> questJournalChilds;
@@ -33,23 +34,24 @@ public class GUIController : MonoBehaviour {
         EventManager.StopListening(EventName.CloseQuestJournal, CloseQuestJournalEvent);
 
     }
+
     private void Start() {
 
-        inventoryChilds = UnityExtensions.CreateChildsList(inventory.transform);
-        dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform);
-        questJournalChilds = UnityExtensions.CreateChildsList(QuestJournal.transform);
+        allChildsList.Add(inventoryChilds = UnityExtensions.CreateChildsList(inventory.transform));
+        allChildsList.Add(dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform));
+        allChildsList.Add(questJournalChilds = UnityExtensions.CreateChildsList(questJournal.transform));
 
-        OpenCloseGUIElement(inventoryChilds);
-        OpenCloseGUIElement(dialogueWindowChilds);
-        OpenCloseGUIElement(questJournalChilds);
+        
     }
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.I)) {
+        if (Input.GetKeyDown(KeyCode.I) && StatusUtils.DialogueIsActive == false) {
 
             OpenCloseGUIElement(inventoryChilds);
+            inventory.GetComponent<Inventory>().PanelRectTransform.SetAsLastSibling();
         }
-        if(Input.GetKeyDown(KeyCode.J)) {
+        if(Input.GetKeyDown(KeyCode.J) && StatusUtils.DialogueIsActive == false) {
             OpenCloseGUIElement(questJournalChilds);
+            questJournal.GetComponent<QuestJournal>().PanelRectTransform.SetAsLastSibling();
         }
         // if we player is ready to interact (watch DialogueTrigger class)and get E key
         // invoke StartConversation event
@@ -65,7 +67,20 @@ public class GUIController : MonoBehaviour {
     private void OpenCloseGUIElement(List<GameObject> childs) {
 
         UnityExtensions.SetActiveGameObjectChilds(childs);
-        StatusUtils.GUIisActive = !false;
+        StatusUtils.GUIisActive = !StatusUtils.GUIisActive;
+        Debug.Log("GUI is active: " + StatusUtils.GUIisActive);
+
+        // check if other GUI menu elements is active - close them
+        foreach (List<GameObject> childList in allChildsList) {
+
+            if (childList != childs) {
+                if (UnityExtensions.IsActiveChilds(childList) == true) {
+                    UnityExtensions.SetActiveGameObjectChilds(childList);
+                    StatusUtils.GUIisActive = !StatusUtils.GUIisActive;
+                    Debug.Log("GUI is active: " + StatusUtils.GUIisActive);
+                }
+            }
+        }
     }
     /// <summary>
     /// Open/close dialogue window if StartConversation event invoked
@@ -73,6 +88,8 @@ public class GUIController : MonoBehaviour {
     /// <param name="arg"></param>
     private void StartOrExitConversationEvent(EventArg arg) {
         OpenCloseGUIElement(dialogueWindowChilds);
+        dialogueWindow.GetComponent<DialogueParser>().PanelRectTransform.SetAsLastSibling();
+        StatusUtils.DialogueIsActive = !StatusUtils.DialogueIsActive;
     }
 
     /// <summary>

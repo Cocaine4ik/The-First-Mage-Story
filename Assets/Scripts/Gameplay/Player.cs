@@ -27,6 +27,8 @@ public class Player : MagicCharacter {
 
         base.Update();
 
+        if (StatusUtils.GUIisActive == false) {
+
         // atack if atack button down
         if (Input.GetButtonDown("Fire1") && !isAtack) {
 
@@ -53,6 +55,7 @@ public class Player : MagicCharacter {
 
         }
 
+        }
         if (Input.GetKeyDown(KeyCode.F5)) {
             stats.SavePlayer();
         }
@@ -61,6 +64,9 @@ public class Player : MagicCharacter {
             stats.LoadPlayer();
         }
 
+        if(StatusUtils.GUIisActive == true) {
+            Move(0);
+        }
     }
 
     protected override void Start() {
@@ -81,7 +87,7 @@ public class Player : MagicCharacter {
 
     protected override void FixedUpdate() {
 
-        if (Input.GetAxis("Horizontal") != 0 && !isPickup) {
+        if (Input.GetAxis("Horizontal") != 0 && !isPickup && StatusUtils.GUIisActive == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
                 moveX = 0;

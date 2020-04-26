@@ -45,7 +45,24 @@ public static class UnityExtensions
             }
         }
     }
+    /// <summary>
+    /// Return true if 
+    /// </summary>
+    /// <param name="childs"></param>
+    /// <returns></returns>
+    public static bool IsActiveChilds(List<GameObject> childs) {
 
+        if (childs != null) {
+            foreach (GameObject gameObject in childs) {
+                if (gameObject.activeSelf == false) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        Debug.Log("Error. No childs.");
+        return false;
+    }
     /// <summary>
     /// Return transform object childs List
     /// </summary>

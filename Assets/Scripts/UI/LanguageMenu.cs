@@ -13,7 +13,7 @@ public class LanguageMenu : MonoBehaviour
    [SerializeField] private Button okButton;
    [SerializeField] private TextMeshProUGUI languageName;
 
-
+    
     private void Start() {
 
         foreach(Button button in buttonList) {

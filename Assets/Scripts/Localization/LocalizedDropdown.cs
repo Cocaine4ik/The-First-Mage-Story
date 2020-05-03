@@ -28,12 +28,12 @@ namespace Assets.SimpleLocalization
 
 			for (var i = 0; i < LocalizationKeys.Length; i++)
 	        {
-		        dropdown.options[i].text = LocalizationManager.Localize(LocalizationKeys[i]);
+		        dropdown.options[i].text = LocalizationManager.Localize(LocalizationKeys[i], gameObject.name);
 	        }
 
 	        if (dropdown.value < LocalizationKeys.Length)
 	        {
-		        dropdown.captionText.text = LocalizationManager.Localize(LocalizationKeys[dropdown.value]);
+		        dropdown.captionText.text = LocalizationManager.Localize(LocalizationKeys[dropdown.value], gameObject.name);
 	        }
         }
     }

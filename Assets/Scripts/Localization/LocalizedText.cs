@@ -22,6 +22,6 @@ using UnityEngine.UI;
 
         private void Localize()
         {
-            GetComponent<Text>().text = LocalizationManager.Localize(LocalizationKey);
+            GetComponent<Text>().text = LocalizationManager.Localize(LocalizationKey, gameObject.name);
         }
     }

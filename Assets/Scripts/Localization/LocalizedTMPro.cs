@@ -22,7 +22,7 @@ public class LocalizedTMPro : MonoBehaviour {
 
     protected virtual void Localize() {
 
-        GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey);
+        GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey, gameObject.name);
     }
 
     /// <summary>

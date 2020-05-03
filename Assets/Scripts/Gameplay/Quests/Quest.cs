@@ -1,11 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
+public class Quest : IJournalItem {
 
-public class Quest {
-
-    private string nameKey;
-    private string descriptionKey;
     public QuestName Name;
     public QuestStatus Status = QuestStatus.Active;
 

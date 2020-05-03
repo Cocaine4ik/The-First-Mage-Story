@@ -11,6 +11,14 @@ public class UIElementBase: MonoBehaviour, IPointerDownHandler {
     protected virtual void Start() {
         panelRectTransform = GetComponent<RectTransform>();
     }
+    /// <summary>
+    /// Initialize RectTransform
+    /// </summary>
+    public void Initialize() {
+        if(panelRectTransform == null) {
+            panelRectTransform = GetComponent<RectTransform>();
+        }
+    }
     public void OnPointerDown(PointerEventData eventData) {
         panelRectTransform.SetAsLastSibling();
     }

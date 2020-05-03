@@ -13,14 +13,12 @@ public class FlyingEffect : MonoBehaviour
     void Start()
     {
         defaultY = transform.position.y;
-        Debug.Log(defaultY + clamp);
     }
 
     // Update is called once per frame
     void Update()
     {
         if(transform.position.y > defaultY + clamp) {
-            Debug.Log(transform.position.y);
             moveTop = false;
 
         }

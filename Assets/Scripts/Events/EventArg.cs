@@ -12,10 +12,13 @@ public class EventArg {
     private int firstIntArg;
     private int secondIntArg;
     private string firstStringArg;
+    private string secondStringArg;
+    private string thirdStringArg;
     private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
     private Quest quest;
+    private Story story;
     private Item item;
 
     #endregion
@@ -25,10 +28,13 @@ public class EventArg {
     public int FirstIntArg => firstIntArg;
     public int SecondIntArg => secondIntArg;
     public string FirstStringArg => firstStringArg;
+    public string SecondStringArg => secondStringArg;
+    public string ThirdStringArg => thirdStringArg;
     public float FirstFloatArg => firstFloatArg;
     public bool FirstBoolArg => firstBoolArg;
     public TimerName TimerName => timerName;
     public Quest Quest => quest;
+    public Story Story => story;
     public Item Item => item;
 
     #endregion
@@ -50,9 +56,23 @@ public class EventArg {
         this.firstIntArg = arg;
         this.secondIntArg = arg2;
     }
-
+    /// <summary>
+    /// constructor with string arg
+    /// </summary>
+    /// <param name="arg"></param>
     public EventArg(string arg) {
         this.firstStringArg = arg;
+    }
+    /// <summary>
+    /// constructor with three string arg
+    /// </summary>
+    /// <param name="arg"></param>
+    /// <param name="arg2"></param>
+    /// <param name="arg3"></param>
+    public EventArg(string arg, string arg2, string arg3) {
+        this.firstStringArg = arg;
+        this.secondStringArg = arg2;
+        this.thirdStringArg = arg3;
     }
     /// <summary>
     /// construtor with quest arg
@@ -61,6 +81,13 @@ public class EventArg {
     /// <param name="description"></param>
     public EventArg(Quest quest) {
         this.quest = quest;
+    }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="story"></param>
+    public EventArg(Story story) {
+        this.story = story;
     }
     /// <summary>
     /// constructor with one float arg

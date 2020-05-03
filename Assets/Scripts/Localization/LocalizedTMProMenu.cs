@@ -17,7 +17,7 @@ public class LocalizedTMProMenu : LocalizedTMPro
             }
         }
 
-        GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey);
+        GetComponent<TextMeshProUGUI>().text = LocalizationManager.Localize(localizationKey, gameObject.name);
     }
 
 }

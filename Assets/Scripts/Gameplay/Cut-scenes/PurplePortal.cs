@@ -10,6 +10,7 @@ public class PurplePortal : MonoBehaviour
     private void Start() {
 
         StartCoroutine(AppearPlayer(appearPlayerTime));
+
     }
 
     /// <summary>
@@ -18,7 +19,7 @@ public class PurplePortal : MonoBehaviour
     /// <param name="appearPlayerTime"></param>
     /// <returns></returns>
     IEnumerator AppearPlayer(float appearPlayerTime) {
-
+        StatusUtils.CutScenePlaying = true;
         yield return new WaitForSeconds(appearPlayerTime);
         EventManager.TriggerEvent(EventName.AppearPlayer);
         StartCoroutine(DestroyPortal(portalLiveTime));

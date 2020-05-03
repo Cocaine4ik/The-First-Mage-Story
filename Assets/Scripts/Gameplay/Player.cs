@@ -27,7 +27,7 @@ public class Player : MagicCharacter {
 
         base.Update();
 
-        if (StatusUtils.GUIisActive == false) {
+        if (StatusUtils.GUIisActive == false && StatusUtils.CutScenePlaying == false) {
 
         // atack if atack button down
         if (Input.GetButtonDown("Fire1") && !isAtack) {
@@ -87,7 +87,8 @@ public class Player : MagicCharacter {
 
     protected override void FixedUpdate() {
 
-        if (Input.GetAxis("Horizontal") != 0 && !isPickup && StatusUtils.GUIisActive == false) {
+        if (Input.GetAxis("Horizontal") != 0 && !isPickup && StatusUtils.GUIisActive == false 
+            && StatusUtils.CutScenePlaying == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
                 moveX = 0;

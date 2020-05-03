@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Items/Lore Item")]
-public class LoreItem : Item
+public enum StoryName
 {
-
+    MagicCliffs,
 }

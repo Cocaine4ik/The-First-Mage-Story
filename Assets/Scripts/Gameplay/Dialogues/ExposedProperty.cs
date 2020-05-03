@@ -15,7 +15,7 @@ public class ExposedProperty {
 
     public void Localize() {
         var localizationKey = "Properties." + PropertyName;
-        PropertyValue = LocalizationManager.Localize(localizationKey);
+        PropertyValue = LocalizationManager.Localize(localizationKey, GetType().ToString());
     }
 
 }

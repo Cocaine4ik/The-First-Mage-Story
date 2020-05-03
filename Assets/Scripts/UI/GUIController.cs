@@ -41,7 +41,11 @@ public class GUIController : MonoBehaviour {
         allChildsList.Add(dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform));
         allChildsList.Add(questJournalChilds = UnityExtensions.CreateChildsList(questJournal.transform));
 
-        
+        // Open/close inventory to initialize inventory cells
+
+        for (int i = 0; i < 2; i++ ) {
+            OpenCloseGUIElement(inventoryChilds);
+        }
     }
     private void Update() {
         if (Input.GetKeyDown(KeyCode.I) && StatusUtils.DialogueIsActive == false) {

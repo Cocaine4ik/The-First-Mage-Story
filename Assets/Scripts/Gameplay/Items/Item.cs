@@ -9,8 +9,8 @@ public class Item : ScriptableObject, IITem {
     [SerializeField] protected Sprite itemIcon;
 
     [Header("Localiztion keys")]
-    [SerializeField] protected string itemNameKey;
-    [SerializeField] protected string itemDescriptionKey;
+    [SerializeField] protected string itemNameKey = "Item.Name.";
+    [SerializeField] protected string itemDescriptionKey = "Item.Description.";
 
     protected string itemTypeKey;
     protected string itemTypeKeyDefault = "Items.Type.";

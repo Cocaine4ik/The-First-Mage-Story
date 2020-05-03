@@ -8,6 +8,7 @@ public class StatusUtils
 
     private static bool gUIisActive = false;
     private static bool dialogueIsActive = false;
+    private static bool cutScenePlaying = false;
     #endregion
 
     #region Properties
@@ -18,6 +19,11 @@ public class StatusUtils
     public static bool GUIisActive {
         get { return gUIisActive; }
         set { gUIisActive = value; }
+    }
+
+    public static bool CutScenePlaying {
+        get { return cutScenePlaying; }
+        set { cutScenePlaying = value; }
     }
 
     public static bool DialogueIsActive {

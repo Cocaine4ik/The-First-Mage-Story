@@ -21,7 +21,7 @@ public class DialogueSpeaker : MonoBehaviour
 
     private void Start() {
 
-        dialogueSpeakerName = LocalizationManager.Localize(speakerLocalizationKey);
+        // dialogueSpeakerName = LocalizationManager.Localize(speakerLocalizationKey);
 
     }
 }

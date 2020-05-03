@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 [System.Serializable]
 public class Inventory : UIElementBase {
@@ -13,6 +14,11 @@ public class Inventory : UIElementBase {
     [SerializeField] private InventoryCell inventoryCellTemplate;
     [SerializeField] private Transform storage;
 
+    [SerializeField] private LocalizedTMPro itemName;
+    [SerializeField] private LocalizedTMPro itemDescription;
+    [SerializeField] private LocalizedTMPro itemType;
+
+
     #endregion
 
     #region Methods
@@ -24,9 +30,11 @@ public class Inventory : UIElementBase {
     protected override void Start() {
         base.Start();
         EventManager.StartListening(EventName.PickupItem, AddItem);
+        EventManager.StartListening(EventName.ShowInventoryItemData, SetSelectedItemData);
     }
     private void OnDestroy() {
         EventManager.StopListening(EventName.PickupItem, AddItem);
+        EventManager.StopListening(EventName.ShowInventoryItemData, SetSelectedItemData);
     }
     private void AddInventoryCells() {
 
@@ -41,17 +49,28 @@ public class Inventory : UIElementBase {
 
     public void AddItem(EventArg arg) {
 
-        items.Add(arg.Item);
+        var item = arg.Item;
+        items.Add(item);
 
         foreach (InventoryCell cell in inventoryCells) {
 
+           if(item.ItemNameKey == cell.ItemNameKey) {
+                
+            }
            if(cell.IsEmpty) {
-                cell.AddItemToCell(arg.Item);
+                cell.AddItemToCell(item);
+                Debug.Log("AddItem: " + item.name);
                 break;
             }       
 
         }
     }
 
+    private void SetSelectedItemData(EventArg arg) {
+
+        itemName.ChangeLocalization(arg.FirstStringArg);
+        itemDescription.ChangeLocalization(arg.SecondStringArg);
+        itemType.ChangeLocalization(arg.ThirdStringArg);
+    }
     #endregion
 }

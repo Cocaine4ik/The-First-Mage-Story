@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryCell : MonoBehaviour
 {
@@ -9,18 +10,23 @@ public class InventoryCell : MonoBehaviour
     private string itemNameKey;
     private string itemTypeKey;
     private string itemDescriptionKey;
+    private int itemNumber;
 
+    [SerializeField] private TextMeshProUGUI itemNumberText;
     [SerializeField] private int id;
     [SerializeField] private bool isEmpty;
-    [SerializeField] private bool isFull;
+    [SerializeField] private bool isStack;
 
     public bool IsEmpty => isEmpty;
+    public bool IsStack => isStack;
+    public string ItemNameKey => itemNameKey;
 
     private void Awake() {
 
-        iconField = GetComponent<Image>();
         isEmpty = true;
-        isFull = false;
+        itemNumber = 0;
+        isStack = false;
+        iconField = GetComponent<Image>();
     }
 
     public void SetId(int id) {
@@ -34,17 +40,21 @@ public class InventoryCell : MonoBehaviour
         itemNameKey = item.ItemNameKey;
         itemTypeKey = item.ItemTypeKey;
         itemDescriptionKey = item.ItemDescriptionKey;
-        isFull = true;
+        isEmpty = false;
     }
 
     public void OnInventoryCellSelected() {
 
-        if (isFull == true) {
-            EventManager.TriggerEvent(EventName.ShowInventoryItemName, new EventArg(itemNameKey));
-            EventManager.TriggerEvent(EventName.ShowInventoryItemType, new EventArg(itemTypeKey));
-            EventManager.TriggerEvent(EventName.ShowInventoryItemDescription, new EventArg(itemDescriptionKey));
+        if (isEmpty == false) {
+            EventManager.TriggerEvent(EventName.ShowInventoryItemData, new EventArg(itemNameKey, itemDescriptionKey, itemTypeKey));
         }
 
     }
+    public void AddItemToStack() {
+        if(isStack == false) {
 
+        }
+        itemNumber += 1;
+        
+    }
 }

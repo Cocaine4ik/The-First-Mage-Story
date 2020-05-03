@@ -82,7 +82,7 @@ using UnityEngine;
 		/// <summary>
 		/// Get localized value by localization key.
 		/// </summary>
-        public static string Localize(string localizationKey)
+        public static string Localize(string localizationKey, string gameObjectName)
         {
             if (Dictionary.Count == 0)
             {
@@ -90,7 +90,8 @@ using UnityEngine;
             }
 
             if (!Dictionary.ContainsKey(Language)) throw new KeyNotFoundException("Language not found: " + Language);
-            if (!Dictionary[Language].ContainsKey(localizationKey)) throw new KeyNotFoundException("Translation not found: " + localizationKey);
+            if (!Dictionary[Language].ContainsKey(localizationKey))
+            throw new KeyNotFoundException("Translation in " + gameObjectName + " not found: " + localizationKey);
 
             return Dictionary[Language][localizationKey];
         }
@@ -98,9 +99,9 @@ using UnityEngine;
 	    /// <summary>
 	    /// Get localized value by localization key.
 	    /// </summary>
-		public static string Localize(string localizationKey, params object[] args)
+		public static string Localize(string localizationKey, string gameObjectName, params object[] args)
         {
-            var pattern = Localize(localizationKey);
+            var pattern = Localize(localizationKey, gameObjectName);
 
             return string.Format(pattern, args);
         }

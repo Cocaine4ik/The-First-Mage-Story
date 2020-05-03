@@ -13,12 +13,15 @@ public class MovingPlatform : MonoBehaviour {
 
     [Header("Use only for horizontal movement:")]
     [SerializeField] private bool isMoveHorizontal;
-    [SerializeField] private float clampHorizontal;
+    [SerializeField] private float clampHorizontalRight;
+    [SerializeField] private float clampHorizontalLeft;
+
     [Header("Not for editing: ")]
     [SerializeField] private bool isRight;
 
     [Header("Use only for vertical movement:")]
-    [SerializeField] private float clampVertical;
+    [SerializeField] private float clampVerticalTop;
+    [SerializeField] private float clampVerticalButton;
     [Header("Not for editing: ")]
     [SerializeField] private bool isTop;
 
@@ -33,10 +36,10 @@ public class MovingPlatform : MonoBehaviour {
 
             if (!isMoveHorizontal) {
 
-                if (transform.position.y > clampVertical) {
+                if (transform.position.y > clampVerticalTop) {
                     isTop = true;
                 }
-                else if (transform.position.y < -clampVertical) {
+                else if (transform.position.y < clampVerticalButton) {
                     isTop = false;
                 }
 
@@ -48,23 +51,33 @@ public class MovingPlatform : MonoBehaviour {
                 }
             }
             else if (isMoveHorizontal) {
+                if (transform.position.x > clampHorizontalRight) {
+                    isRight = true;
+                }
+                else if (transform.position.x < clampHorizontalLeft) {
+                    isRight = false;
+                }
 
+                if (isRight == true) {
+                    transform.position = new Vector2(transform.position.x - speed * Time.deltaTime, transform.position.y);
+                }
+                else {
+                    transform.position = new Vector2(transform.position.x + speed * Time.deltaTime, transform.position.y );
+                }
             }
         }
     }
     private void FixedUpdate() {
         
         if(isMoveToVerticalClamp == true) {
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, clampVertical),
+            transform.position = Vector2.MoveTowards(transform.position, new Vector2(transform.position.x, clampVerticalTop),
                     speed * Time.deltaTime);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision) {
+    public void MoveUp() {
         
         if(isMoveCycle == false) {
-            if (collision.gameObject.GetComponent<Player>() != null) {
                 isMoveToVerticalClamp = true;
-            }
         }
     }
     #endregion

@@ -17,6 +17,7 @@ public class EventArg {
     private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
+    private Color32 color;
     private Quest quest;
     private Story story;
     private Item item;
@@ -33,6 +34,7 @@ public class EventArg {
     public float FirstFloatArg => firstFloatArg;
     public bool FirstBoolArg => firstBoolArg;
     public TimerName TimerName => timerName;
+    public Color32 Color => color;
     public Quest Quest => quest;
     public Story Story => story;
     public Item Item => item;
@@ -62,6 +64,13 @@ public class EventArg {
     /// <param name="arg"></param>
     public EventArg(string arg) {
         this.firstStringArg = arg;
+    }
+    /// <summary>
+    /// constructor with color arg
+    /// </summary>
+    /// <param name="arg"></param>
+    public EventArg(Color32 arg) {
+        this.color = arg;
     }
     /// <summary>
     /// constructor with three string arg

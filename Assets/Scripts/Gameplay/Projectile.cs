@@ -40,6 +40,8 @@ public class Projectile : AtackWeapon {
 
     private void OnTriggerEnter2D(Collider2D collision) {
 
+        Debug.Log("Hit: " + collision.gameObject.name);
+
         if(collision.GetComponent<CharacterHealth>() != null) {
 
             collision.GetComponent<CharacterHealth>().TakeDamage(damage);

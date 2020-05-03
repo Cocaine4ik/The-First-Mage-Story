@@ -19,6 +19,7 @@ public enum EventName {
     Load,
     SpawnRavens,
     ShowInventoryItemData,
+    ChangeItemTypeColor,
     StartConversation,
     ExitConversation,
     ReadyToInteract,

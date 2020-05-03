@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 [System.Serializable]
 public class Inventory : UIElementBase {
@@ -30,12 +31,15 @@ public class Inventory : UIElementBase {
     protected override void Start() {
         base.Start();
         EventManager.StartListening(EventName.PickupItem, AddItem);
-        EventManager.StartListening(EventName.ShowInventoryItemData, SetSelectedItemData);
+        EventManager.StartListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
+        EventManager.StartListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
     private void OnDestroy() {
         EventManager.StopListening(EventName.PickupItem, AddItem);
-        EventManager.StopListening(EventName.ShowInventoryItemData, SetSelectedItemData);
+        EventManager.StopListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
+        EventManager.StopListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
+
     private void AddInventoryCells() {
 
         for (int i = 0; i < inventorySize; i++) {
@@ -66,11 +70,16 @@ public class Inventory : UIElementBase {
         }
     }
 
-    private void SetSelectedItemData(EventArg arg) {
+    private void OnSetSelectedItemData(EventArg arg) {
 
         itemName.ChangeLocalization(arg.FirstStringArg);
         itemDescription.ChangeLocalization(arg.SecondStringArg);
         itemType.ChangeLocalization(arg.ThirdStringArg);
+    }
+
+    private void OnChangeItemTypeColor(EventArg arg) {
+
+        itemType.gameObject.GetComponent<TextMeshProUGUI>().color = arg.Color;
     }
     #endregion
 }

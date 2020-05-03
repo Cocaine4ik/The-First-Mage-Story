@@ -7,6 +7,7 @@ using TMPro;
 public class InventoryCell : MonoBehaviour
 {
     private Image iconField;
+    private Color itemColor;
     private string itemNameKey;
     private string itemTypeKey;
     private string itemDescriptionKey;
@@ -37,6 +38,7 @@ public class InventoryCell : MonoBehaviour
     public void AddItemToCell(IITem item) {
 
         iconField.sprite = item.ItemIcon;
+        itemColor = item.ItemColor;
         itemNameKey = item.ItemNameKey;
         itemTypeKey = item.ItemTypeKey;
         itemDescriptionKey = item.ItemDescriptionKey;
@@ -47,6 +49,7 @@ public class InventoryCell : MonoBehaviour
 
         if (isEmpty == false) {
             EventManager.TriggerEvent(EventName.ShowInventoryItemData, new EventArg(itemNameKey, itemDescriptionKey, itemTypeKey));
+            EventManager.TriggerEvent(EventName.ChangeItemTypeColor, new EventArg(itemColor));
         }
 
     }

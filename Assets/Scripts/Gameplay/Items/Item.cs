@@ -7,6 +7,7 @@ public class Item : ScriptableObject, IITem {
 
     [Header("Item parameters")]
     [SerializeField] protected Sprite itemIcon;
+    [SerializeField] protected Color32 itemColor; 
 
     [Header("Localiztion keys")]
     [SerializeField] protected string itemNameKey = "Item.Name.";
@@ -20,6 +21,7 @@ public class Item : ScriptableObject, IITem {
     #region Properties
 
     public Sprite ItemIcon => itemIcon;
+    public Color32 ItemColor => itemColor;
 
     public string ItemNameKey => itemNameKey;
     public string ItemDescriptionKey => itemDescriptionKey;

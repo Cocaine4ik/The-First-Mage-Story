@@ -5,6 +5,7 @@ using UnityEngine;
 public interface IITem {
 
     Sprite ItemIcon { get; }
+    Color32 ItemColor { get; }
 
     /// <summary>
     /// keys for localiztion

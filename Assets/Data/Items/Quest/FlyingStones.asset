@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: FlyingStones
   m_EditorClassIdentifier: 
   itemIcon: {fileID: 21300000, guid: a1dcae5a0423b7f4ebf7138a7a8b9ee2, type: 3}
+  itemColor:
+    serializedVersion: 2
+    rgba: 4289555048
   itemNameKey: Items.Name.FlyingStones
   itemDescriptionKey: Items.Description.FlyingStones
   story: 0

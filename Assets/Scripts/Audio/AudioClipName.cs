@@ -9,12 +9,13 @@ public enum AudioClipName
 {
     #region Music
 
-    MainMenuTheme
+    MainMenuTheme,
+    Spirit,
 
     #endregion
 
     #region SFX
-
+    RainAndThunder
     #endregion
 
 }

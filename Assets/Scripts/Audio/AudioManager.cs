@@ -35,6 +35,10 @@ public static class AudioManager {
 
         audioClips.Add(AudioClipName.MainMenuTheme,
             Resources.Load<AudioClip>("Audio/Music/MainMenuTheme"));
+        audioClips.Add(AudioClipName.RainAndThunder,
+                    Resources.Load<AudioClip>("Audio/SFX/RainAndThunder"));
+        audioClips.Add(AudioClipName.Spirit,
+                    Resources.Load<AudioClip>("Audio/Music/Spirit"));
     }
 
     // Plays the audio clip with the given name

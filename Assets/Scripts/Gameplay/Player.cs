@@ -7,16 +7,9 @@ public class Player : MagicCharacter {
 
     #region Fields
 
-    Attributes stats;
-
     private bool canPickup = false;
     private bool isPickup = false;
     private GameObject tempPickupItem;
-
-    [SerializeField] private int expToReachLevel;
-    #endregion
-
-    #region Properties
 
     #endregion
 
@@ -53,25 +46,12 @@ public class Player : MagicCharacter {
 
             Pickup();
 
-        }
-
-        }
-        if (Input.GetKeyDown(KeyCode.F5)) {
-            stats.SavePlayer();
-        }
-
-        if(Input.GetKeyDown(KeyCode.F6)) {
-            stats.LoadPlayer();
+            }
         }
 
         if(StatusUtils.GUIisActive == true) {
             Move(0);
         }
-    }
-
-    protected override void Start() {
-        base.Start();
-        stats = GetComponent<Attributes>();
     }
 
     // pickup smth or collect item
@@ -133,7 +113,7 @@ public class Player : MagicCharacter {
     }
 
     protected override void OnTeleport(int maxManaValue) {
-        base.OnTeleport(stats.MaxMana);
+        base.OnTeleport(characterMana.MaxMana);
     }
     #endregion
 

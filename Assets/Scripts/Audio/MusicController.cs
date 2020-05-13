@@ -13,7 +13,7 @@ public class MusicController : MonoBehaviour {
     private void Start() {
 
         currentSceneName = SceneManager.GetActiveScene().name;
-
+        SwitchMainTheme();
     }
     private void Update() {
         
@@ -21,12 +21,20 @@ public class MusicController : MonoBehaviour {
 
             currentSceneName = SceneManager.GetActiveScene().name;
             AudioManager.Stop();
-            
-            switch(currentSceneName) {
-            case "MainMenu": AudioManager.Play(AudioClipName.MainMenuTheme); break;
-            case "MagicCliffs": break;
-            }
-        }
 
+            SwitchMainTheme();
+        }
     }
+
+    private void SwitchMainTheme() {
+        switch (currentSceneName) {
+            case "MainMenu":
+                AudioManager.Play(AudioClipName.MainMenuTheme); break;
+            case "ValleyOfTheWinds":
+                AudioManager.Play(AudioClipName.RainAndThunder);
+                AudioManager.Play(AudioClipName.Spirit); break;
+            case "MagicCliffs": break;
+        }
+    }
+
 }

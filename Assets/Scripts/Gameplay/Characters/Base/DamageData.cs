@@ -5,15 +5,18 @@ using UnityEngine;
 public class DamageData : MonoBehaviour {
 
     [SerializeField] protected int damage;
-    [SerializeField] public float atackRange;
+    [SerializeField] protected float atackRange;
+
+    public float AtackRange => atackRange;
 
     public int Damage {
         get {
-            if (gameObject.GetComponentInChildren<Player>() != null)
+            /*if (gameObject.GetComponentInChildren<Player>() != null)
                 return damage + Attributes.Instance.Knowledge;
-            else return damage;
+            else */
+            return damage;
         }
     }
-    public float AtackRange => atackRange;
+
 
 }

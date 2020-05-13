@@ -8,9 +8,9 @@ public class RangeCharacter : Character {
 
         protected void OnRangeAtack() {
 
-        GameObject projectile = Instantiate(projectilePrefab, new Vector3(atackWeapon.gameObject.transform.position.x,
-            atackWeapon.gameObject.transform.position.y,
-            atackWeapon.gameObject.transform.position.z), atackWeapon.gameObject.transform.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, new Vector3(atackTrigger.gameObject.transform.position.x,
+            atackTrigger.gameObject.transform.position.y,
+            atackTrigger.gameObject.transform.position.z), atackTrigger.gameObject.transform.rotation);
 
         projectile.GetComponent<Projectile>().SetOwner(gameObject);
     }

@@ -108,7 +108,7 @@ public class WarriorBehaviour : BehaviourBase {
         // calculating distance between target and character
         float distance = Vector2.Distance(target.transform.position, gameObject.transform.position);
  
-        if (distance <= character.AtackWeaponData.atackRange) {
+        if (distance <= character.DamageData.AtackRange) {
             character.Atack();
         }
         else {
@@ -195,8 +195,10 @@ public class WarriorBehaviour : BehaviourBase {
         if (patrolPoints.Length != 0) {
     
         Transform nextPatrolPoint = patrolPoints[nextPatrolPointNum];
-        MoveToTarget(nextPatrolPoint.position.x);
 
+        if(nextPatrolPoint != null) {
+             MoveToTarget(nextPatrolPoint.position.x);
+ 
         if (Vector2.Distance(nextPatrolPoint.position, gameObject.transform.position) <= turnCheckDistance) {
             Guard();
 
@@ -205,7 +207,7 @@ public class WarriorBehaviour : BehaviourBase {
             }
             else nextPatrolPointNum = 0;
             }
-
+            }
         }
     }
 
@@ -217,8 +219,8 @@ public class WarriorBehaviour : BehaviourBase {
 
         if(rangePoint != null) {
 
-            Debug.DrawLine(character.AtackWeapon.position, rangePoint.position, Color.red);
-            RaycastHit2D[] hits = Physics2D.LinecastAll(character.AtackWeapon.position, rangePoint.position);
+            Debug.DrawLine(character.AtackTrigger.position, rangePoint.position, Color.red);
+            RaycastHit2D[] hits = Physics2D.LinecastAll(character.AtackTrigger.position, rangePoint.position);
             return hits;
 
         }

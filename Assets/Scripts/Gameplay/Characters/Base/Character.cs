@@ -19,8 +19,8 @@ public class Character : CharacterBase {
     protected Rigidbody2D rb;
     protected Animator animator;
     protected Timer jumpControlTimer;
-    protected AtackWeapon atackWeaponData;
-    protected Transform atackWeapon;
+    protected DamageData damageData;
+    protected Transform atackTrigger;
     protected Transform feetPos;
     protected LayerMask whatIsGround;
 
@@ -48,8 +48,8 @@ public class Character : CharacterBase {
     public bool IsAlive => isAlive;
     public bool IsHurt => isHurt;
     public LayerMask Enemies => enemies;
-    public AtackWeapon AtackWeaponData => atackWeaponData;
-    public Transform AtackWeapon => atackWeapon; 
+    public DamageData DamageData => damageData;
+    public Transform AtackTrigger => atackTrigger; 
     public bool IsRight => isRight;
 
     public float CheckRadius {
@@ -74,9 +74,9 @@ public class Character : CharacterBase {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterHealth = GetComponent<CharacterHealth>();
-        atackWeapon = transform.Find("Atack Weapon");
+        atackTrigger = transform.Find("Atack Trigger");
         feetPos = transform.Find("Feet Pos");
-        atackWeaponData = atackWeapon.gameObject.GetComponent<AtackWeapon>();
+        damageData = atackTrigger.gameObject.GetComponent<DamageData>();
 
         whatIsGround = LayerMask.GetMask("Ground");
 
@@ -178,10 +178,10 @@ public class Character : CharacterBase {
 
     protected void OnAtack() {
 
-        Collider2D targetColider = Physics2D.OverlapCircle(transform.position, atackWeaponData.atackRange, enemies);
+        Collider2D targetColider = Physics2D.OverlapCircle(transform.position, damageData.AtackRange, enemies);
 
         if(targetColider != null) {
-            targetColider.GetComponent<CharacterHealth>().TakeDamage(atackWeaponData.Damage);
+            targetColider.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage);
         }
     }
     // if atack end stop animation

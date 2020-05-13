@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : AtackWeapon {
+public class Projectile : DamageData {
 
     #region Fields
 

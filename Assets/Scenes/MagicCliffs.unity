@@ -92949,7 +92949,7 @@ PrefabInstance:
     - target: {fileID: 2575503598460490338, guid: 02abfa5362d177042a9be8c3fed838e0,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2575503598460490338, guid: 02abfa5362d177042a9be8c3fed838e0,
         type: 3}
@@ -93459,6 +93459,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2734802088631105611, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}
       propertyPath: m_Name
@@ -93559,10 +93563,6 @@ PrefabInstance:
         type: 3}
       propertyPath: maxMana
       value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: inventory
-      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2734802088375357083, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}

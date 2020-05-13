@@ -11,10 +11,9 @@ public class DamageData : MonoBehaviour {
 
     public int Damage {
         get {
-            /*if (gameObject.GetComponentInChildren<Player>() != null)
+            if (gameObject.GetComponentInChildren<Player>() != null)
                 return damage + Attributes.Instance.Knowledge;
-            else */
-            return damage;
+            else return damage;
         }
     }
 

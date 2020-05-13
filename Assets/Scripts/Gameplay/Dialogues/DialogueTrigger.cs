@@ -5,12 +5,10 @@ using UnityEngine;
 /// <summary>
 /// Dialogue Trigger
 /// </summary>
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : TalkTrigger
 {
+    [Header("Dialogue Options:")]
     [SerializeField] private DialogueContainer dialogue;
-    [SerializeField] private bool isInteractable = false;
-    [SerializeField] private bool isScriptable = false;
-    [SerializeField] private float scriptableTime;
 
     private Transform dialogueWindow;
     private bool dialogueSet = false;
@@ -72,7 +70,7 @@ public class DialogueTrigger : MonoBehaviour
     /// Set diallogue to dialogue window
     /// Invoke StartConversation event
     /// </summary>
-    private void StartConversation() {
+    protected override void StartConversation() {
 
         dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
         dialogueSet = true;
@@ -83,7 +81,7 @@ public class DialogueTrigger : MonoBehaviour
 
     }
 
-    private IEnumerator StartScriptableConversation(float scriptableTime) {
+    protected override IEnumerator StartScriptableConversation(float scriptableTime) {
 
         yield return new WaitForSeconds(scriptableTime);
         StartConversation();

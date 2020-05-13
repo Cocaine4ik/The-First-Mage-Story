@@ -6,103 +6,55 @@ public class Attributes : MonoBehaviour
 {
     #region Fields
 
-    [SerializeField] private int currentExp;
+    [Header("Experience and Levels: ")]
+    [SerializeField] private int currentExp = 0;
     [SerializeField] private int expToReachLevel;
-    [SerializeField] private int currentLevel;
-    [SerializeField] private int nextLevel;
+    [SerializeField] private int currentLevel = 1;
+     private int nextLevel;
 
-    [SerializeField] private int maxHp;
-    [SerializeField] private int currentHp;
+    [Header("Skills: ")]
+    [SerializeField] private int knowledge = 10; // Atack and spell damage + Wizard spells access
+    [SerializeField] private int wisdom = 10; // Max mana + Druid spells access
+    [SerializeField] private int spirit = 10; // Max health + Monk spells acess
+    [SerializeField] private int faith = 10; // Change to create a miracle and miracle power + Priest spells acess
 
-    [SerializeField] private int maxMana;
-    [SerializeField] private int currentMana;
+    [SerializeField] private int skillPoints = 0;
 
-    Player player;
-    /// <summary>
-    /// Hp and magic resistance
-    /// </summary>
-    [SerializeField] private int spirit;
-
-    /// <summary>
-    /// Damage of magic arrows and destruction spells
-    /// </summary>
-    [SerializeField] private int knowledge;
-
-    /// <summary>
-    /// Mana and count of spells in spellbook
-    /// </summary>
-    [SerializeField] private int wisdom;
-
-    /// <summary>
-    /// Dialogues and artefacts slots
-    /// </summary>
-    [SerializeField] private int personality;
+    public static Attributes Instance;
 
     #endregion
 
     #region Properties
 
-    public int MaxHp { get { return maxHp; } }
-    public int MaxMana { get { return maxMana; } }
-    public int CurrentHp{ get { return currentHp; } }
-    public int CurrentMana { get { return currentExp; } }
-    public int CurrentExp { get { return currentExp; } }
-    public int ExpToReachLevel { get { return expToReachLevel; } }
-    public int СurrentLevel { get { return currentLevel; } }
+    public int CurrentExp => currentExp;
+    public int ExpToReachLevel => expToReachLevel;
+    public int CurrentLevel => currentLevel;
+    public int NextLevel => nextLevel;
+
+    public int Knowledge => knowledge;
+    public int Wisdom => wisdom;
+    public int Spirit => spirit;
+    public int Faith => faith;
 
     #endregion
 
     #region Methods
 
+    public void IncreaseSkill(int skill) {
+        skill++;
+    }
+    /*
     private void Start() {
 
         EventManager.StartListening(EventName.AddExp, OnAddExp);
-
-        player = GetComponent<Player>();
-
-        // initialize start hp and mana
-        maxHp = ConfigurationUtils.HpDefault;
-        maxMana = ConfigurationUtils.ManaDefault;
-        currentHp = maxHp;
-        currentMana = maxMana;
-        /*
-        player.Hp = currentHp;
-        player.Mana = currentMana;
-        */
-        SetExpToReachLevel(currentLevel);
-        spirit = ConfigurationUtils.SpiritDefault;
-        knowledge = ConfigurationUtils.KnowledgeDefault;
-        wisdom = ConfigurationUtils.WisdomDefault;
-        personality = ConfigurationUtils.PersonalityDefault;
 
     }
 
     private void OnDestroy() {
         EventManager.StopListening(EventName.AddExp, OnAddExp);
     }
-
-
-
-    public void SetMana(int mana) {
-        currentMana = mana;
-    }
-    public void SetHp(int hp) {
-        currentHp = hp;
-    }
-    public void SavePlayer() {
-
-        SaveSystem.SavePlayer(this.gameObject);
-    }
-
-    public void LoadPlayer() {
-
-        PlayerData data = SaveSystem.LoadPlayer();
-
-        currentMana = data.CurrentMana;
-        gameObject.transform.position = new Vector3(data.Position[0], data.Position[1], data.Position[2]);
-
-    }
-
+    */
+    /*
     private void OnAddExp(EventArg arg)
     {
         currentExp += arg.FirstIntArg;
@@ -113,7 +65,7 @@ public class Attributes : MonoBehaviour
             LevelUp();
         }
 
-    }
+    }*/
     private void LevelUp()
     {
 

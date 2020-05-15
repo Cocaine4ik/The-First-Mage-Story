@@ -39,46 +39,15 @@ public static class ConfigurationUtils {
 
     #region Attributes default
 
-    /// <summary>
-    /// Gets the health default value
-    /// </summary>
-    public static int HpDefault {
-        get { return configurationData.HpDeafult; }
-    }
+    public static int KnowledgeDefault => configurationData.KnowledgeDefault;
+    public static int WisdomDefault => configurationData.WisdomDefault;
+    public static int SpiritDefault => configurationData.SpiritDefault;
+    public static int FaithDefault => configurationData.FaithDefault;
+    public static int DemonsDefault => configurationData.DemonsDefault;
+    public static int AlchemyDefault => configurationData.AlchemyDefault;
+    public static int HealthBySpiritPoint => configurationData.HealthBySpiritPoint;
+    public static int ManaByWisdomPoint => configurationData.ManaByWisdomPoint;
 
-    /// <summary>
-    /// Gets the mana default value
-    /// </summary>
-    public static int ManaDefault {
-        get { return configurationData.ManaDfault; }
-    }
-    /// <summary>
-    /// Gets the spirit attribute default value
-    /// </summary>
-    public static int SpiritDefault {
-        get { return configurationData.SpiritDeafult; }
-    }
-
-    /// <summary>
-    /// Gets the knowledge attribute default value
-    /// </summary>
-    public static int KnowledgeDefault {
-        get { return configurationData.KnowledgeDeafult; }
-    }
-
-    /// <summary>
-    /// Gets the wisdom attribute default value
-    /// </summary>
-    public static int WisdomDefault {
-        get { return configurationData.WisdomDefault; }
-    }
-
-    /// <summary>
-    /// Gets the personality attribute default value
-    /// </summary>
-    public static int PersonalityDefault {
-        get { return configurationData.PersonalityDefault; }
-    }
     #endregion
 
     #endregion

@@ -247,6 +247,9 @@ MonoBehaviour:
   inventoryCellTemplate: {fileID: 1046819014759405914, guid: c29b5a12b3ae99a4f9572a483a4cb9a7,
     type: 3}
   storage: {fileID: 4713451566761669180}
+  itemName: {fileID: 0}
+  itemDescription: {fileID: 0}
+  itemType: {fileID: 0}
 --- !u!1 &4713451566508122521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,7 +1288,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 640c379f9458dfe409d1f89cd4a2d613, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f86db0f6d52b7146ad034ee3b5c6f02, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1

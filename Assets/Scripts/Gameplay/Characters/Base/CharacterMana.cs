@@ -19,4 +19,8 @@ public class CharacterMana : MonoBehaviour
 
         currentMana -= burnedMana;
     }
+
+    public void SetMaxMana(int value) {
+        maxMana = value;
+    }
 }

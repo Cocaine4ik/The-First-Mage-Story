@@ -10,11 +10,13 @@ public class GUIController : MonoBehaviour {
     [SerializeField] private GameObject inventory;
     [SerializeField] private GameObject dialogueWindow;
     [SerializeField] private GameObject questJournal;
+    [SerializeField] private GameObject characterMenu;
 
     private List<List<GameObject>> allChildsList = new List<List<GameObject>>();
     private List<GameObject> inventoryChilds;
     private List<GameObject> dialogueWindowChilds;
     private List<GameObject> questJournalChilds;
+    private List<GameObject> characterMenuChilds;
 
     private bool readyToInteract = false;
 
@@ -40,6 +42,7 @@ public class GUIController : MonoBehaviour {
         allChildsList.Add(inventoryChilds = UnityExtensions.CreateChildsList(inventory.transform));
         allChildsList.Add(dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform));
         allChildsList.Add(questJournalChilds = UnityExtensions.CreateChildsList(questJournal.transform));
+        allChildsList.Add(characterMenuChilds = UnityExtensions.CreateChildsList(characterMenu.transform));
 
         // Open/close inventory to initialize inventory cells
 
@@ -57,6 +60,13 @@ public class GUIController : MonoBehaviour {
             OpenCloseGUIElement(questJournalChilds);
             questJournal.GetComponent<QuestJournal>().PanelRectTransform.SetAsLastSibling();
         }
+
+        if (Input.GetKeyDown(KeyCode.C) && StatusUtils.DialogueIsActive == false) {
+            EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
+            OpenCloseGUIElement(characterMenuChilds);
+            characterMenu.GetComponent<CharacterMenu>().PanelRectTransform.SetAsLastSibling();
+        }
+
         // if we player is ready to interact (watch DialogueTrigger class)and get E key
         // invoke StartConversation event
         if (Input.GetKeyDown(KeyCode.E) && readyToInteract == true) {

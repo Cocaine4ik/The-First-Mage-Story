@@ -7,12 +7,9 @@ using System;
 // Provides acess to configurtion data
 public class ConfigurationData{
 
-    #region Fields
-
     const string ConfigurationDataFileName = "ConfigurationData.csv";
     Dictionary<ConfigurationDataValueName, float> values = new Dictionary<ConfigurationDataValueName, float>();
 
-    #endregion
 
     #region Propeties
 
@@ -51,47 +48,15 @@ public class ConfigurationData{
 
     #region Attributes default
 
-    /// <summary>
-    /// Gets the health default value
-    /// </summary>
-    public int HpDeafult {
-        get { return (int)values[ConfigurationDataValueName.HpDefault]; }
-    }
+    public int KnowledgeDefault => (int)values[ConfigurationDataValueName.KnowledgeDefault];
+    public int WisdomDefault => (int)values[ConfigurationDataValueName.WisdomDefault];
+    public int SpiritDefault => (int)values[ConfigurationDataValueName.SpiritDefault];
+    public int FaithDefault => (int)values[ConfigurationDataValueName.FaithDefault];
+    public int DemonsDefault => (int)values[ConfigurationDataValueName.DemonsDefault];
+    public int AlchemyDefault => (int)values[ConfigurationDataValueName.AlchemyDefault];
+    public int HealthBySpiritPoint => (int)values[ConfigurationDataValueName.HealthBySpiritPoint];
+    public int ManaByWisdomPoint => (int)values[ConfigurationDataValueName.ManaByWisdomPoint];
 
-    /// <summary>
-    /// Gets the mana default value
-    /// </summary>
-    public int ManaDfault {
-        get { return (int)values[ConfigurationDataValueName.ManaDefault]; }
-    }
-
-    /// <summary>
-    /// Gets the spirit attribute default value
-    /// </summary>
-    public int SpiritDeafult {
-        get { return (int)values[ConfigurationDataValueName.SpiritDeafault]; }
-    }
-
-    /// <summary>
-    /// Gets the knowledge attribute default value
-    /// </summary>
-    public int KnowledgeDeafult {
-        get { return (int)values[ConfigurationDataValueName.KnowledgeDefault]; }
-    }
-
-    /// <summary>
-    /// Get the wisdom attribute default value
-    /// </summary>
-    public int WisdomDefault {
-        get { return (int)values[ConfigurationDataValueName.WisdomDefault]; }
-    }
-
-    /// <summary>
-    /// Get the personality default value
-    /// </summary>
-    public int PersonalityDefault {
-        get { return (int)values[ConfigurationDataValueName.PersonalityDefault]; }
-    }
     #endregion
 
     #endregion
@@ -169,13 +134,14 @@ public class ConfigurationData{
         values.Add(ConfigurationDataValueName.ExpToReachLevelNineteen, 93000);
         values.Add(ConfigurationDataValueName.ExpToReachLevelTwelve, 100000);
         */
-        values.Add(ConfigurationDataValueName.HpDefault, 100);
-        values.Add(ConfigurationDataValueName.ManaDefault, 100);
-
-        values.Add(ConfigurationDataValueName.SpiritDeafault, 10);
         values.Add(ConfigurationDataValueName.KnowledgeDefault, 10);
         values.Add(ConfigurationDataValueName.WisdomDefault, 10);
-        values.Add(ConfigurationDataValueName.PersonalityDefault, 10);
+        values.Add(ConfigurationDataValueName.SpiritDefault, 10);
+        values.Add(ConfigurationDataValueName.FaithDefault, 10);
+        values.Add(ConfigurationDataValueName.DemonsDefault, 0);
+        values.Add(ConfigurationDataValueName.AlchemyDefault, 0);
+        values.Add(ConfigurationDataValueName.HealthBySpiritPoint, 10);
+        values.Add(ConfigurationDataValueName.ManaByWisdomPoint, 10);
     }
 
     #endregion

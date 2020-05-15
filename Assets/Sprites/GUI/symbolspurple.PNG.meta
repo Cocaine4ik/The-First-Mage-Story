@@ -1,0 +1,559 @@
+fileFormatVersion: 2
+guid: 505baccca5c67de429ce06801549a5eb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8808571653379373296
+    second: symbolspurple_0
+  - first:
+      213: -3500865249148572208
+    second: symbolspurple_1
+  - first:
+      213: 1789467968877215429
+    second: symbolspurple_2
+  - first:
+      213: 8310939887162689028
+    second: symbolspurple_3
+  - first:
+      213: -844190389471652418
+    second: symbolspurple_4
+  - first:
+      213: 1486119533180633769
+    second: symbolspurple_5
+  - first:
+      213: -560494122736727140
+    second: symbolspurple_6
+  - first:
+      213: -5079470677192461331
+    second: symbolspurple_7
+  - first:
+      213: -7194173038978961531
+    second: symbolspurple_8
+  - first:
+      213: 8044875450687393978
+    second: symbolspurple_9
+  - first:
+      213: -4421157112723361358
+    second: symbolspurple_10
+  - first:
+      213: 3530832449953371267
+    second: symbolspurple_11
+  - first:
+      213: 6691059860707174280
+    second: symbolspurple_12
+  - first:
+      213: 1617217218765727145
+    second: symbolspurple_13
+  - first:
+      213: -2013916175913233186
+    second: symbolspurple_14
+  - first:
+      213: -2711642435565889447
+    second: symbolspurple_15
+  - first:
+      213: -4049146336698158414
+    second: symbolspurple_16
+  - first:
+      213: 1885142895158542543
+    second: symbolspurple_17
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: symbolspurple_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 607547c23dcf3af429d407d6a7efb64f
+      internalID: -8808571653379373296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_1
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc9b3df9186a434598705326400fe11
+      internalID: -3500865249148572208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357cd83f2cee8df4eadbde584cf8a064
+      internalID: 1789467968877215429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_3
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 668274b8144c65640a829e26d2b6f662
+      internalID: 8310939887162689028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_4
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2918661dcde91d04296ce0dbe5228e1f
+      internalID: -844190389471652418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 20
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db303f5373efd74ab96501aea35aafb
+      internalID: 1486119533180633769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c36f5e79d0d0184fb85ca68e455b443
+      internalID: -560494122736727140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_7
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f5c88167437d7f4ab9459dbe141aa8f
+      internalID: -5079470677192461331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48fdcf195a7815b49abab1c4c85e02c3
+      internalID: -7194173038978961531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_9
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a98f9991cdfc0e149a2f113ddb41bcc3
+      internalID: 8044875450687393978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_10
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de528579465bcee4ca8767972b3cd326
+      internalID: -4421157112723361358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_11
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 10
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5975d9f6a710c541a228099756fb45f
+      internalID: 3530832449953371267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8607b62fb5aba284b99e7f60c4d75359
+      internalID: 6691059860707174280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_13
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9191377ec0cc4124384eab50d861baa0
+      internalID: 1617217218765727145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_14
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2285558bd35a08747a5ea227d3da9f11
+      internalID: -2013916175913233186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_15
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 703ff603cf817f44c8b429002b445a7d
+      internalID: -2711642435565889447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_16
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39c1ad38e08cc7041b2d5c69f3aab7c1
+      internalID: -4049146336698158414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: symbolspurple_17
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 9.5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a015fb0f2b50d854eac35aa0e7bd751b
+      internalID: 1885142895158542543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,20 +7,27 @@ public class Attributes : MonoBehaviour
     #region Fields
 
     [Header("Experience and Levels: ")]
-    [SerializeField] private int currentExp = 0;
+    [SerializeField] private int currentExp;
     [SerializeField] private int expToReachLevel;
-    [SerializeField] private int currentLevel = 1;
+    [SerializeField] private int currentLevel;
      private int nextLevel;
 
     [Header("Skills: ")]
-    [SerializeField] private int knowledge = 10; // Atack and spell damage + Wizard spells access
-    [SerializeField] private int wisdom = 10; // Max mana + Druid spells access
-    [SerializeField] private int spirit = 10; // Max health + Monk spells acess
-    [SerializeField] private int faith = 10; // Change to create a miracle and miracle power + Priest spells acess
+    [SerializeField] private int knowledge; // Atack and spell damage + Wizard spells access
+    [SerializeField] private int wisdom; // Max mana + Druid spells access
+    [SerializeField] private int spirit; // Max health + Monk spells acess
+    [SerializeField] private int faith; // Change to create a miracle and miracle power + Priest spells acess
+    [SerializeField] private int demons;
+    [SerializeField] private int alchemy;
 
     [SerializeField] private int skillPoints = 0;
 
     public static Attributes Instance;
+
+    private CharacterHealth characterHealth;
+    private CharacterMana characterMana;
+
+    private float miracleChance;
 
     #endregion
 
@@ -40,8 +47,41 @@ public class Attributes : MonoBehaviour
 
     #region Methods
 
-    public void IncreaseSkill(int skill) {
-        skill++;
+    private void Start() {
+
+        // initialize default attributes values
+        knowledge = ConfigurationUtils.KnowledgeDefault;
+        wisdom = ConfigurationUtils.WisdomDefault;
+        spirit = ConfigurationUtils.SpiritDefault;
+        faith = ConfigurationUtils.FaithDefault;
+        demons = ConfigurationUtils.DemonsDefault;
+        alchemy = ConfigurationUtils.AlchemyDefault;
+
+    }
+    public void IncreaseSpirit() {
+        spirit++;
+        characterHealth.SetMaxHealth(spirit * ConfigurationUtils.HealthBySpiritPoint);
+        EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
+    }
+    public void IncreaseWisdom() {
+        wisdom++;
+        characterMana.SetMaxMana(wisdom * ConfigurationUtils.ManaByWisdomPoint);
+        EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
+    }
+    public void IncreaseKnowledge() {
+        knowledge++;
+        EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
+    }
+    public void IncreaseFaith() {
+        faith++;
+        miracleChance = faith / 100;
+
+    }
+    public void IncreaseDemons() {
+
+    }
+    public void IncreaseScience() {
+
     }
     /*
     private void Start() {

@@ -33,5 +33,7 @@ public class CharacterHealth : MonoBehaviour
 
     }
 
-
+    public void SetMaxHealth(int value) {
+        maxHealth = value;
+    }
 }

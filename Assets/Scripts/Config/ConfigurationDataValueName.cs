@@ -29,13 +29,13 @@ public enum ConfigurationDataValueName{
     #endregion
 
     #region Attributes default values
-
-    HpDefault,
-    ManaDefault,
-    SpiritDeafault,
     KnowledgeDefault,
     WisdomDefault,
-    PersonalityDefault
-
+    SpiritDefault,
+    FaithDefault,
+    DemonsDefault,
+    AlchemyDefault,
+    HealthBySpiritPoint,
+    ManaByWisdomPoint,
     #endregion
 }

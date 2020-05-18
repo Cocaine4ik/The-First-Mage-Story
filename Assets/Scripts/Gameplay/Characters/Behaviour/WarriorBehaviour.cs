@@ -70,7 +70,6 @@ public class WarriorBehaviour : BehaviourBase {
         if (baseBehaviour == BaseBehaviour.Guardian) {
 
             if(target == null && !isGuard) {
-                Debug.Log(Vector2.Distance(transform.position, guardPosition));
 
                 if(Vector2.Distance(transform.position, guardPosition) >= turnCheckDistance) {
                     MoveToTarget(guardPosition.x);

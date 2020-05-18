@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 3999835947172558270}
   - component: {fileID: 3999835947172558269}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SpiritImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1018,6 +1018,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthValue: {fileID: 3999835948031787921}
   manaValue: {fileID: 3999835946861764364}
+  knowledgeValue: {fileID: 3999835947774054312}
+  wisdomValue: {fileID: 3999835948151762782}
+  spiritValue: {fileID: 3999835948730929605}
+  faithValue: {fileID: 3999835948260932388}
+  demonsValue: {fileID: 3999835947749051705}
+  alchemyValue: {fileID: 3999835947271912903}
 --- !u!1 &3999835947271912901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1030,7 +1036,7 @@ GameObject:
   - component: {fileID: 3999835947271912920}
   - component: {fileID: 3999835947271912903}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: AlchemyValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1880,7 +1886,7 @@ GameObject:
   - component: {fileID: 3999835947422077554}
   - component: {fileID: 3999835947422077553}
   m_Layer: 5
-  m_Name: Image
+  m_Name: WisdomImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1953,7 +1959,7 @@ GameObject:
   - component: {fileID: 3999835947486656663}
   - component: {fileID: 3999835947486656662}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: AlchemyLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2333,7 +2339,7 @@ GameObject:
   - component: {fileID: 3999835947629583863}
   - component: {fileID: 3999835947629583862}
   m_Layer: 5
-  m_Name: Panel (2)
+  m_Name: SpiritPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,7 +2417,7 @@ GameObject:
   - component: {fileID: 3999835947669708416}
   - component: {fileID: 3999835947669708431}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FaithImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2838,7 +2844,7 @@ GameObject:
   - component: {fileID: 3999835947749051706}
   - component: {fileID: 3999835947749051705}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: DemonsValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2994,7 +3000,7 @@ GameObject:
   - component: {fileID: 3999835947761103911}
   - component: {fileID: 3999835947761103910}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WisdomLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3379,7 +3385,7 @@ GameObject:
   - component: {fileID: 3999835947797541215}
   - component: {fileID: 3999835947797541214}
   m_Layer: 5
-  m_Name: Panel (5)
+  m_Name: AlchemyPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3845,7 +3851,7 @@ GameObject:
   - component: {fileID: 3999835947883069929}
   - component: {fileID: 3999835947883069928}
   m_Layer: 5
-  m_Name: Panel (4)
+  m_Name: DemonsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4076,7 +4082,7 @@ GameObject:
   - component: {fileID: 3999835947957210041}
   - component: {fileID: 3999835947957210040}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DemonsImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4496,7 +4502,7 @@ GameObject:
   - component: {fileID: 3999835948038948286}
   - component: {fileID: 3999835948038948285}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: DemonsLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4652,7 +4658,7 @@ GameObject:
   - component: {fileID: 3999835948057426562}
   - component: {fileID: 3999835948057426561}
   m_Layer: 5
-  m_Name: Image
+  m_Name: AlchemyImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4999,7 +5005,7 @@ GameObject:
   - component: {fileID: 3999835948151762783}
   - component: {fileID: 3999835948151762782}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: WisdomValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5739,7 +5745,7 @@ GameObject:
   - component: {fileID: 3999835948260932389}
   - component: {fileID: 3999835948260932388}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: FaithValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6635,7 +6641,7 @@ GameObject:
   - component: {fileID: 3999835948582040328}
   - component: {fileID: 3999835948582040375}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: FaithLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6791,7 +6797,7 @@ GameObject:
   - component: {fileID: 3999835948627998524}
   - component: {fileID: 3999835948627998523}
   m_Layer: 5
-  m_Name: Panel (1)
+  m_Name: WisdomPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7142,7 +7148,7 @@ GameObject:
   - component: {fileID: 3999835948730929606}
   - component: {fileID: 3999835948730929605}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: SpiritValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7756,7 +7762,7 @@ GameObject:
   - component: {fileID: 3999835948843256272}
   - component: {fileID: 3999835948843256287}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: SpiritLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7912,7 +7918,7 @@ GameObject:
   - component: {fileID: 3999835948846396272}
   - component: {fileID: 3999835948846396287}
   m_Layer: 5
-  m_Name: Panel (3)
+  m_Name: FaithPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

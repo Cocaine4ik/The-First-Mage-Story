@@ -37,11 +37,6 @@ public class PlayerData {
 
         if (player != null) {
             Attributes stats = player.GetComponent<Attributes>();
-            LevelUpCalculator playerExp = player.GetComponent<LevelUpCalculator>();
-
-            level = playerExp.CurrentExp;
-            exp = playerExp.CurrentExp;
-            expToReachLevel = playerExp.ExpToReachLevel;
 
             position = new float[3];
             position[0] = player.transform.position.x;

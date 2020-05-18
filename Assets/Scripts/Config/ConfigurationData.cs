@@ -1,49 +1,40 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using System;
 
 // Provides acess to configurtion data
 public class ConfigurationData{
 
-    const string ConfigurationDataFileName = "ConfigurationData.csv";
-    Dictionary<ConfigurationDataValueName, float> values = new Dictionary<ConfigurationDataValueName, float>();
+    private Dictionary<ConfigurationDataValueName, float> values = new Dictionary<ConfigurationDataValueName, float>();
 
 
     #region Propeties
 
-    #region Experience to reach level
+    #region Experience to Level Up
 
-    /// <summary>
-    /// Gets the number of experience to reach level two
-    /// </summary>
-    public int ExpToReachLevelTwo {
+    public int ExpToLevelTwo => (int)values[ConfigurationDataValueName.ExpToToLeveLTwo];
+    public int ExpToLevelThree => (int)values[ConfigurationDataValueName.ExpToToLevelThree];
+    public int ExpToLevelFour => (int)values[ConfigurationDataValueName.ExpToToLevelFour];
+    public int ExpToLevelFive => (int)values[ConfigurationDataValueName.ExpToToLevelFive];
+    public int ExpToLevelSix => (int)values[ConfigurationDataValueName.ExpToToLevelSix];
+    public int ExpToLevelSeven => (int)values[ConfigurationDataValueName.ExpToToLevelSeven];
+    public int ExpToLevelEight => (int)values[ConfigurationDataValueName.ExpToToLevelEight];
+    public int ExpToLevelNine => (int)values[ConfigurationDataValueName.ExpToToLevelNine];
+    public int ExpToLevelTen => (int)values[ConfigurationDataValueName.ExpToToLevelTen];
+    public int ExpToLevelEleven => (int)values[ConfigurationDataValueName.ExpToToLevelEleven];
+    public int ExpToLevelTwelve => (int)values[ConfigurationDataValueName.ExpToToLevelTwelve];
+    public int ExpToLevelThirteen => (int)values[ConfigurationDataValueName.ExpToToLevelThirteen];
+    public int ExpToLevelFourteen => (int)values[ConfigurationDataValueName.ExpToToLevelFourteen];
+    public int ExpToLevelFifteen => (int)values[ConfigurationDataValueName.ExpToToLevelFifteen];
+    public int ExpToLevelSixteen => (int)values[ConfigurationDataValueName.ExpToToLevelSixteen];
+    public int ExpToLevelSeventeen => (int)values[ConfigurationDataValueName.ExpToToLevelSeventeen];
+    public int ExpToLevelEighteen => (int)values[ConfigurationDataValueName.ExpToToLevelEighteen];
+    public int ExpToLevelNineteen => (int)values[ConfigurationDataValueName.ExpToToLevelNineteen];
+    public int ExpToLevelTwenty => (int)values[ConfigurationDataValueName.ExpToToLevelTwenty];
 
-        get { return (int)values[ConfigurationDataValueName.ExpToReachLeveTwo]; }
-
-    }
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    public int ExpToReachLevelThree {
-
-        get { return (int)values[ConfigurationDataValueName.ExpToReachLevelThree]; }
-
-    }
-
-
-    /*
-    /// <summary>
-    /// Gets the number of experience to reach level four
-    /// </summary>
-    public int ExpToReachLevelFour {
-
-        get { return (int)values[ConfigurationDataValueName.ExpToReachLevelFour]; }
-
-    }
-    */
     #endregion
 
     #region Attributes default
@@ -64,84 +55,42 @@ public class ConfigurationData{
     #region Constructor
 
     public ConfigurationData() {
-
-        // read and save configuration data from file
-        StreamReader input = null;
-        try {
-
-            // create stream reader object
-            input = File.OpenText(Path.Combine(Application.streamingAssetsPath, ConfigurationDataFileName));
-
-            // populate values
-            string currentLine = input.ReadLine();
-
-            while(currentLine != null) {
-
-                string[] tokens = currentLine.Split(',');
-                // parse string to enum
-                ConfigurationDataValueName valueName = (ConfigurationDataValueName)Enum.Parse(typeof(ConfigurationDataValueName), tokens[0]);
-                values.Add(valueName, float.Parse(tokens[1]));
-                currentLine = input.ReadLine();
-            }
-        }
-        catch(Exception e) {
-
-            // set default values if something went wrong
-            SetDefaultValues();
-            Debug.Log("Setting default values...");
-        }
-        finally {
-
-            // always close input file
-            if (input != null) {
-
-                input.Close();
-
-            }
-        }
+        Read();
     }
     #endregion
 
     #region Methods
 
     /// <summary>
-    /// clear dictionary and set dafult values
+    /// Read ConfigurationData spreadsheets.
     /// </summary>
-    void SetDefaultValues() {
+    private void Read(string path = "Data/Config") {
+        // if dictinory includes value return dictionary
+        if (values.Count > 0) return;
+        var textAssets = Resources.LoadAll<TextAsset>(path);
 
-        values.Clear();
-        /// <summary>
-        /// Values for experience need to reach levels
-        /// </summary>
-        values.Add(ConfigurationDataValueName.ExpToReachLeveTwo, 500);  
-        values.Add(ConfigurationDataValueName.ExpToReachLevelThree, 1000);
-        /*
-        values.Add(ConfigurationDataValueName.ExpToReachLevelFour, 3000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelFive, 5000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelSix, 8000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelSeven, 12000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelEight, 17000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelNine, 23000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelTen, 30000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelEleven, 38000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelTwelve, 47000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelThirteen, 55000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelFourteen, 62000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelFifteen, 70000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelSixteen, 76000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelSeventeen, 82000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelEighteen, 88000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelNineteen, 93000);
-        values.Add(ConfigurationDataValueName.ExpToReachLevelTwelve, 100000);
-        */
-        values.Add(ConfigurationDataValueName.KnowledgeDefault, 10);
-        values.Add(ConfigurationDataValueName.WisdomDefault, 10);
-        values.Add(ConfigurationDataValueName.SpiritDefault, 10);
-        values.Add(ConfigurationDataValueName.FaithDefault, 10);
-        values.Add(ConfigurationDataValueName.DemonsDefault, 0);
-        values.Add(ConfigurationDataValueName.AlchemyDefault, 0);
-        values.Add(ConfigurationDataValueName.HealthBySpiritPoint, 10);
-        values.Add(ConfigurationDataValueName.ManaByWisdomPoint, 10);
+        foreach (var textAsset in textAssets) {
+            var text = ReplaceMarkers(textAsset.text);
+            var matches = Regex.Matches(text, "\"[\\s\\S]+?\"");
+            
+            foreach (Match match in matches) {
+                text = text.Replace(match.Value, match.Value.Replace("\"", null).Replace(",", "[comma]").Replace("\n", "[newline]"));
+            }
+
+            var lines = text.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            
+            for (var i = 1; i < lines.Length; i++) {
+
+                var columns = lines[i].Split(',').Select(j => j.Trim()).Select(j => j.Replace("[comma]", ",").Replace("[newline]", "\n")).ToList();
+                var valueName = (ConfigurationDataValueName)Enum.Parse(typeof(ConfigurationDataValueName), columns[0]);
+                var value = float.Parse(columns[1]);
+                values.Add(valueName, value);
+            }
+        }
+    }
+
+    private string ReplaceMarkers(string text) {
+        return text.Replace("[Newline]", "\n");
     }
 
     #endregion

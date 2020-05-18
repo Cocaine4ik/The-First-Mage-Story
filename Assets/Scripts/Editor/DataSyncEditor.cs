@@ -2,16 +2,16 @@ using UnityEditor;
 using UnityEngine;
 
 	/// <summary>
-	/// Adds "Sync" button to LocalizationSync script.
+	/// Adds "Sync" button to DataSync script.
 	/// </summary>
-	[CustomEditor(typeof(LocalizationSync))]
-    public class LocalizationSyncEditor : UnityEditor.Editor
+	[CustomEditor(typeof(DataSync))]
+    public class DataSyncEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
             DrawDefaultInspector();
 
-            var component = (LocalizationSync) target;
+            var component = (DataSync) target;
 
             if (GUILayout.Button("Sync"))
             {

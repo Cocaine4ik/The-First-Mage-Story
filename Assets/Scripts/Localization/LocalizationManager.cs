@@ -37,7 +37,7 @@ using UnityEngine;
 		/// <summary>
 		/// Read localization spreadsheets.
 		/// </summary>
-		public static void Read(string path = "Localization")
+		public static void Read(string path = "Data/Localization")
         {
             if (Dictionary.Count > 0) return;
 

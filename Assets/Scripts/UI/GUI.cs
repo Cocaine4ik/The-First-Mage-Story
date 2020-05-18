@@ -69,7 +69,7 @@ public class GUI : MonoBehaviour {
     }
     private void OnLevelUp(EventArg arg)
     {
-        lvlLabel.text = "lvl: " + arg.FirstIntArg;
+        lvlLabel.text = arg.FirstIntArg.ToString();
         expBar.fillAmount = 0.0f;
     }
 

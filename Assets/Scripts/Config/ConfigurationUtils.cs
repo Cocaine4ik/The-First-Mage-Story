@@ -14,27 +14,26 @@ public static class ConfigurationUtils {
 
     #region Experience to reach level
 
-    /// <summary>
-    /// Gets the number of experience to reach level two
-    /// </summary>
-    public static int ExpToReachLevelTwo {
-        get { return configurationData.ExpToReachLevelTwo; }
-    }
-    
-    /// <summary>
-    /// Gets the number of experience to reach level three
-    /// </summary>
-    public static int ExpToReachLevelThree {
-        get { return configurationData.ExpToReachLevelThree; }
-    }
-    /*
-    /// <summary>
-    /// Gets the number of experience to reach level four
-    /// </summary>
-    public static int ExpToReachLevelFour {
-        get { return configurationData.ExpToReachLevelFour; }
-    }
-    */
+    public static int ExpToLevelTwo => configurationData.ExpToLevelTwo;
+    public static int ExpToLevelThree => configurationData.ExpToLevelThree;
+    public static int ExpToLevelFour => configurationData.ExpToLevelFour;
+    public static int ExpToLevelFive => configurationData.ExpToLevelFive;
+    public static int ExpToLevelSix => configurationData.ExpToLevelSix;
+    public static int ExpToLevelSeven => configurationData.ExpToLevelSeven;
+    public static int ExpToLevelEight => configurationData.ExpToLevelEight;
+    public static int ExpToLevelNine => configurationData.ExpToLevelNine;
+    public static int ExpToLevelTen => configurationData.ExpToLevelTen;
+    public static int ExpToLevelEleven => configurationData.ExpToLevelEleven;
+    public static int ExpToLevelTwelve => configurationData.ExpToLevelTwelve;
+    public static int ExpToLevelThirteen => configurationData.ExpToLevelThirteen;
+    public static int ExpToLevelFourteen => configurationData.ExpToLevelFourteen;
+    public static int ExpToLevelFifteen => configurationData.ExpToLevelFifteen;
+    public static int ExpToLevelSixteen => configurationData.ExpToLevelSixteen;
+    public static int ExpToLevelSeventeen => configurationData.ExpToLevelSeventeen;
+    public static int ExpToLevelEighteen => configurationData.ExpToLevelEighteen;
+    public static int ExpToLevelNineteen => configurationData.ExpToLevelNineteen;
+    public static int ExpToLevelTwenty => configurationData.ExpToLevelTwenty;
+
     #endregion
 
     #region Attributes default

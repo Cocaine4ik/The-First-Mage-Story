@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3452020476541697387}
   - component: {fileID: 3452020476541697385}
   - component: {fileID: 3452020476541697384}
-  - component: {fileID: 3452020476541697390}
   - component: {fileID: 4609389854800854210}
   m_Layer: 0
   m_Name: GlobalObject
@@ -97,37 +96,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6ffd743ef5e5c14a8f06dfd431d9ab5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TableId: 1wa6nFfB1HXHTC_Ca9ibcCtjYozlsiQEiNqNsI1zis9s
-  Sheets:
-  - Name: Menu
+  LocalizationTableId: 1wa6nFfB1HXHTC_Ca9ibcCtjYozlsiQEiNqNsI1zis9s
+  LocalizationSheets:
+  - Name: UI
     Id: 0
-  - Name: GUI
-    Id: 841644165
-  - Name: Perks
-    Id: 1834340660
-  - Name: Spells
-    Id: 1390332110
   - Name: Items
     Id: 1477244174
-  - Name: Cutscenes
-    Id: 388441365
-  - Name: Magic_Cliffs
+  - Name: Quests
+    Id: 1522357961
+  - Name: Stories
+    Id: 1453319013
+  - Name: Properties
     Id: 1288807144
-  - Name: Camp
-    Id: 2042077601
-  SaveFolder: {fileID: 102900000, guid: b098b0cead4474d49a30d989dc2f5398, type: 3}
---- !u!114 &3452020476541697390
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3452020476541697383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0ef6c90fb582204098be03fd2f708d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  - Name: Speeches
+    Id: 1601552121
+  LocalizationSaveFolder: {fileID: 102900000, guid: b098b0cead4474d49a30d989dc2f5398,
+    type: 3}
+  ConfigurationTableId: 1pQ3m6_a55Cxexydl6ZZ_b6ggCcPFO1zmxf-rWd4lPYo
+  ConfigurationSheets:
+  - Name: Attributes
+    Id: 1853021317
+  - Name: Experience
+    Id: 65158911
+  ConfigurationSaveFolder: {fileID: 102900000, guid: db4ad14f6d2919e419a07118f994ba7d,
+    type: 3}
 --- !u!114 &4609389854800854210
 MonoBehaviour:
   m_ObjectHideFlags: 0

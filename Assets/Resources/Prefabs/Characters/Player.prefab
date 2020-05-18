@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 2734802088631105612}
   - component: {fileID: 2734802088631105615}
   - component: {fileID: 2734802088631105614}
-  - component: {fileID: 2734802088631105609}
   - component: {fileID: 2734802088631105608}
   - component: {fileID: -4285341985622049743}
   - component: {fileID: 3109910619746571581}
@@ -211,22 +210,6 @@ MonoBehaviour:
     type: 3}
   magicShield: {fileID: 0}
   manaPerTeleport: 5
-  expToReachLevel: 0
---- !u!114 &2734802088631105609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2734802088631105611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 002836259d12c104fb71860c69e3596e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentExp: 0
-  expToReachLevel: 500
-  currentLevel: 1
 --- !u!114 &2734802088631105608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,15 +225,13 @@ MonoBehaviour:
   currentExp: 0
   expToReachLevel: 0
   currentLevel: 1
-  nextLevel: 0
-  maxHp: 0
-  currentHp: 0
-  maxMana: 0
-  currentMana: 0
-  spirit: 0
   knowledge: 0
   wisdom: 0
-  personality: 0
+  spirit: 0
+  faith: 0
+  demons: 0
+  alchemy: 0
+  skillPoints: 0
 --- !u!114 &-4285341985622049743
 MonoBehaviour:
   m_ObjectHideFlags: 0

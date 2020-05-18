@@ -8,9 +8,10 @@ public class Attributes : MonoBehaviour
 
     [Header("Experience and Levels: ")]
     [SerializeField] private int currentExp;
-    [SerializeField] private int expToReachLevel;
+    [SerializeField] private int expToLevelUp;
     [SerializeField] private int currentLevel;
-     private int nextLevel;
+    private const int MaxLvl = 20;
+    private int previousLevelExp;
 
     [Header("Skills: ")]
     [SerializeField] private int knowledge; // Atack and spell damage + Wizard spells access
@@ -34,20 +35,32 @@ public class Attributes : MonoBehaviour
     #region Properties
 
     public int CurrentExp => currentExp;
-    public int ExpToReachLevel => expToReachLevel;
+    public int ExpToLevelUp => expToLevelUp;
     public int CurrentLevel => currentLevel;
-    public int NextLevel => nextLevel;
 
     public int Knowledge => knowledge;
     public int Wisdom => wisdom;
     public int Spirit => spirit;
     public int Faith => faith;
+    public int Demons => demons;
+    public int Alchemy => alchemy;
 
     #endregion
 
     #region Methods
 
+    private void Awake() {
+        if (Instance == null) {
+            Instance = this;
+        }
+        else if (Instance != this) {
+
+            Destroy(gameObject);
+        }
+    }
     private void Start() {
+
+        SetExpToLevelUp(currentLevel);
 
         // initialize default attributes values
         knowledge = ConfigurationUtils.KnowledgeDefault;
@@ -58,6 +71,14 @@ public class Attributes : MonoBehaviour
         alchemy = ConfigurationUtils.AlchemyDefault;
 
     }
+
+    private void OnEnable() {
+        EventManager.StartListening(EventName.AddExp, OnAddExp);
+    }
+    private void OnDisable() {
+        EventManager.StopListening(EventName.AddExp, OnAddExp);
+    }
+
     public void IncreaseSpirit() {
         spirit++;
         characterHealth.SetMaxHealth(spirit * ConfigurationUtils.HealthBySpiritPoint);
@@ -83,78 +104,62 @@ public class Attributes : MonoBehaviour
     public void IncreaseScience() {
 
     }
-    /*
-    private void Start() {
 
-        EventManager.StartListening(EventName.AddExp, OnAddExp);
-
-    }
-
-    private void OnDestroy() {
-        EventManager.StopListening(EventName.AddExp, OnAddExp);
-    }
-    */
-    /*
-    private void OnAddExp(EventArg arg)
-    {
-        currentExp += arg.FirstIntArg;
-        ChangeExpValue(arg.FirstIntArg);
-
-        if (currentExp >= expToReachLevel)
-        {
-            LevelUp();
-        }
-
-    }*/
     private void LevelUp()
     {
-
-        currentLevel += 1;
-
-        int previousLevelMaxExp = expToReachLevel;
-
-        SetExpToReachLevel(currentLevel);
-        EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
-        ChangeExpValue(currentExp - previousLevelMaxExp);
+        if(currentLevel != 20) {
+            previousLevelExp = expToLevelUp;
+            currentLevel += 1;
+            SetExpToLevelUp(currentLevel);
+            EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
+        }
     }
 
     /// <summary>
     /// Set exp to reach next level
     /// </summary>
     /// <param name="lvl"></param>
-    private void SetExpToReachLevel(int lvl)
+    private void SetExpToLevelUp(int lvl)
     {
         switch (lvl)
         {
-            case 1: expToReachLevel = ConfigurationUtils.ExpToReachLevelTwo; break;
-            case 2: expToReachLevel = ConfigurationUtils.ExpToReachLevelThree; break;
-                /*
-                case 3: expToReachLevel = ConfigurationUtils.ExpToReachLevelFour; break;
-                case 4: break;
-                case 5: break;
-                case 6: break;
-                case 7: break;
-                case 8: break;
-                case 9: break;
-                case 10: break;
-                case 11: break;
-                case 12: break;
-                case 13: break;
-                case 14: break;
-                case 15: break;
-                case 16: break;
-                case 17: break;
-                case 18: break;
-                case 19: break;
-                case 20: break;
-                */
+            case 1: expToLevelUp = ConfigurationUtils.ExpToLevelTwo; break;
+            case 2: expToLevelUp = ConfigurationUtils.ExpToLevelThree; break;
+            case 3: expToLevelUp = ConfigurationUtils.ExpToLevelFour; break;
+            case 4: expToLevelUp = ConfigurationUtils.ExpToLevelFive; break;
+            case 5: expToLevelUp = ConfigurationUtils.ExpToLevelSix; break;
+            case 6: expToLevelUp = ConfigurationUtils.ExpToLevelSeven; break;
+            case 7: expToLevelUp = ConfigurationUtils.ExpToLevelEight; break;
+            case 8: expToLevelUp = ConfigurationUtils.ExpToLevelNine; break;
+            case 9: expToLevelUp = ConfigurationUtils.ExpToLevelTen; break;
+            case 10: expToLevelUp = ConfigurationUtils.ExpToLevelEleven; break;
+            case 11: expToLevelUp = ConfigurationUtils.ExpToLevelTwelve; break;
+            case 12: expToLevelUp = ConfigurationUtils.ExpToLevelThirteen; break;
+            case 13: expToLevelUp = ConfigurationUtils.ExpToLevelFourteen;break;
+            case 14: expToLevelUp = ConfigurationUtils.ExpToLevelFifteen; break;
+            case 15: expToLevelUp = ConfigurationUtils.ExpToLevelSixteen; break;
+            case 16: expToLevelUp = ConfigurationUtils.ExpToLevelSeventeen; break;
+            case 17: expToLevelUp = ConfigurationUtils.ExpToLevelEighteen; break;
+            case 18: expToLevelUp = ConfigurationUtils.ExpToLevelNineteen; break;
+            case 19: expToLevelUp = ConfigurationUtils.ExpToLevelTwenty; break;
         }
     }
+    private void OnAddExp(EventArg arg) {
 
-    private void ChangeExpValue(int exp)
+        currentExp += arg.FirstIntArg;
+        var expDifference = currentExp - previousLevelExp;
+
+        if (currentExp >= expToLevelUp) {
+            LevelUp();
+        }
+
+        ChangeGUIExpValue(expDifference);
+    }
+
+    private void ChangeGUIExpValue(int exp)
     {
-
-        float expPercent = (float)exp / expToReachLevel;
+        var expToLevelDifference = expToLevelUp - previousLevelExp;
+        var expPercent = (float)exp / expToLevelDifference;
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
     #endregion

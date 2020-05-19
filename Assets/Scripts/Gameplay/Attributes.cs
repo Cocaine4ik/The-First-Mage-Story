@@ -45,6 +45,8 @@ public class Attributes : MonoBehaviour
     public int Demons => demons;
     public int Alchemy => alchemy;
 
+    public int SkillPoints => skillPoints;
+
     #endregion
 
     #region Methods
@@ -111,6 +113,7 @@ public class Attributes : MonoBehaviour
             previousLevelExp = expToLevelUp;
             currentLevel += 1;
             SetExpToLevelUp(currentLevel);
+            skillPoints += ConfigurationUtils.SkillPointsPerLevel;
             EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
         }
     }
@@ -147,11 +150,12 @@ public class Attributes : MonoBehaviour
     private void OnAddExp(EventArg arg) {
 
         currentExp += arg.FirstIntArg;
-        var expDifference = currentExp - previousLevelExp;
 
         if (currentExp >= expToLevelUp) {
             LevelUp();
         }
+
+        var expDifference = currentExp - previousLevelExp;
 
         ChangeGUIExpValue(expDifference);
     }
@@ -160,6 +164,7 @@ public class Attributes : MonoBehaviour
     {
         var expToLevelDifference = expToLevelUp - previousLevelExp;
         var expPercent = (float)exp / expToLevelDifference;
+        Debug.Log("Exp: " + exp + " ExpPercent: " + expPercent + " ExpDif: " + expToLevelDifference);
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
     #endregion

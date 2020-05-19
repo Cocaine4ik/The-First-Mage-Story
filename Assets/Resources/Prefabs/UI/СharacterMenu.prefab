@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 3999835947207451275}
   - component: {fileID: 3999835947207451274}
   m_Layer: 5
-  m_Name: Image
+  m_Name: SkillPointsImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1024,6 +1024,10 @@ MonoBehaviour:
   faithValue: {fileID: 3999835948260932388}
   demonsValue: {fileID: 3999835947749051705}
   alchemyValue: {fileID: 3999835947271912903}
+  levelValue: {fileID: 3999835947876616785}
+  expValue: {fileID: 3999835948753944449}
+  rank: {fileID: 2039455808448425681}
+  skillPointsValue: {fileID: 3999835948166616203}
 --- !u!1 &3999835947271912901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1191,8 +1195,9 @@ GameObject:
   - component: {fileID: 3999835947278542913}
   - component: {fileID: 3999835947278542915}
   - component: {fileID: 3999835947278542914}
+  - component: {fileID: 2039455808448425681}
   m_Layer: 5
-  m_Name: LevelLabel (1)
+  m_Name: Rank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,6 +1341,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2039455808448425681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835947278542912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.Default
 --- !u!1 &3999835947307520520
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1976,7 @@ GameObject:
   - component: {fileID: 3999835947486656661}
   - component: {fileID: 3999835947486656663}
   - component: {fileID: 3999835947486656662}
+  - component: {fileID: 2249802849409418576}
   m_Layer: 5
   m_Name: AlchemyLabel
   m_TagString: Untagged
@@ -2103,6 +2122,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2249802849409418576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835947486656660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Alchemy
 --- !u!1 &3999835947491925978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2115,7 +2147,7 @@ GameObject:
   - component: {fileID: 3999835947491925981}
   - component: {fileID: 3999835947491925980}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SkillPoinsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2607,8 +2639,9 @@ GameObject:
   - component: {fileID: 3999835947683555679}
   - component: {fileID: 3999835947683555665}
   - component: {fileID: 3999835947683555664}
+  - component: {fileID: 6356791652496931288}
   m_Layer: 5
-  m_Name: Text (TMP) (5)
+  m_Name: SkillPointsLabel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2630,8 +2663,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 5.91, y: 1.2}
-  m_SizeDelta: {x: 47.77, y: 28}
+  m_AnchoredPosition: {x: 10.13, y: 1.2}
+  m_SizeDelta: {x: 56.22, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3999835947683555665
 CanvasRenderer:
@@ -2688,8 +2721,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 11
+  m_fontSizeBase: 11
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2752,6 +2785,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6356791652496931288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835947683555678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.SkillPoints
 --- !u!1 &3999835947745378832
 GameObject:
   m_ObjectHideFlags: 0
@@ -2999,6 +3045,7 @@ GameObject:
   - component: {fileID: 3999835947761103909}
   - component: {fileID: 3999835947761103911}
   - component: {fileID: 3999835947761103910}
+  - component: {fileID: 9085783153727918862}
   m_Layer: 5
   m_Name: WisdomLabel
   m_TagString: Untagged
@@ -3144,6 +3191,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9085783153727918862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835947761103908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Wisdom
 --- !u!1 &3999835947774054358
 GameObject:
   m_ObjectHideFlags: 0
@@ -3460,6 +3520,7 @@ GameObject:
   - component: {fileID: 3999835947827903606}
   - component: {fileID: 3999835947827903560}
   - component: {fileID: 3999835947827903607}
+  - component: {fileID: 8970772294170568129}
   m_Layer: 5
   m_Name: ExpLabel
   m_TagString: Untagged
@@ -3605,6 +3666,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8970772294170568129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835947827903605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Exp
 --- !u!1 &3999835947851307696
 GameObject:
   m_ObjectHideFlags: 0
@@ -3717,7 +3791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.7, y: -4.5}
+  m_AnchoredPosition: {x: 25.399998, y: -4.4999967}
   m_SizeDelta: {x: 22.12, y: 15.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3999835947876616786
@@ -4501,6 +4575,7 @@ GameObject:
   - component: {fileID: 3999835948038948284}
   - component: {fileID: 3999835948038948286}
   - component: {fileID: 3999835948038948285}
+  - component: {fileID: 6394160904927251873}
   m_Layer: 5
   m_Name: DemonsLabel
   m_TagString: Untagged
@@ -4646,6 +4721,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6394160904927251873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948038948283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Demons
 --- !u!1 &3999835948057426575
 GameObject:
   m_ObjectHideFlags: 0
@@ -5161,7 +5249,7 @@ GameObject:
   - component: {fileID: 3999835948166616204}
   - component: {fileID: 3999835948166616203}
   m_Layer: 5
-  m_Name: Text (TMP) (6)
+  m_Name: SkillPointsValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5183,7 +5271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.1, y: 1.9}
+  m_AnchoredPosition: {x: 46.2, y: 1.2}
   m_SizeDelta: {x: 8.28, y: 14}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3999835948166616204
@@ -6055,6 +6143,7 @@ GameObject:
   - component: {fileID: 3999835948391938280}
   - component: {fileID: 3999835948391938282}
   - component: {fileID: 3999835948391938281}
+  - component: {fileID: 3218453155424635499}
   m_Layer: 5
   m_Name: KnowledgeLabel
   m_TagString: Untagged
@@ -6200,6 +6289,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3218453155424635499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948391938327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Knowledge
 --- !u!1 &3999835948522833590
 GameObject:
   m_ObjectHideFlags: 0
@@ -6484,6 +6586,7 @@ GameObject:
   - component: {fileID: 3999835948534879529}
   - component: {fileID: 3999835948534879531}
   - component: {fileID: 3999835948534879530}
+  - component: {fileID: 4921441342086421714}
   m_Layer: 5
   m_Name: LevelLabel
   m_TagString: Untagged
@@ -6507,8 +6610,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -22.820026, y: -4.500003}
-  m_SizeDelta: {x: 44.49, y: 15.92}
+  m_AnchoredPosition: {x: -15.36, y: -4.500003}
+  m_SizeDelta: {x: 59.4, y: 15.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3999835948534879531
 CanvasRenderer:
@@ -6629,6 +6732,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4921441342086421714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948534879528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Level
 --- !u!1 &3999835948582040373
 GameObject:
   m_ObjectHideFlags: 0
@@ -6640,6 +6756,7 @@ GameObject:
   - component: {fileID: 3999835948582040374}
   - component: {fileID: 3999835948582040328}
   - component: {fileID: 3999835948582040375}
+  - component: {fileID: 946276026372957886}
   m_Layer: 5
   m_Name: FaithLabel
   m_TagString: Untagged
@@ -6785,6 +6902,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &946276026372957886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948582040373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Faith
 --- !u!1 &3999835948627998521
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,6 +7891,8 @@ GameObject:
   - component: {fileID: 3999835948843256286}
   - component: {fileID: 3999835948843256272}
   - component: {fileID: 3999835948843256287}
+  - component: {fileID: 2305083914541639555}
+  - component: {fileID: 7534754803381106943}
   m_Layer: 5
   m_Name: SpiritLabel
   m_TagString: Untagged
@@ -7906,6 +8038,71 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2305083914541639555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948843256285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 3999835948843256287}
+  m_Template: {fileID: 0}
+  m_CaptionText: {fileID: 0}
+  m_CaptionImage: {fileID: 0}
+  m_ItemText: {fileID: 0}
+  m_ItemImage: {fileID: 0}
+  m_Value: 0
+  m_Options:
+    m_Options: []
+  m_OnValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_AlphaFadeSpeed: 0.15
+--- !u!114 &7534754803381106943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999835948843256285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: UI.CharacterMenu.Skills.Spirit
 --- !u!1 &3999835948846396285
 GameObject:
   m_ObjectHideFlags: 0

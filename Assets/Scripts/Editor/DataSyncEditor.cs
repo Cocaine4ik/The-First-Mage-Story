@@ -13,9 +13,12 @@ using UnityEngine;
 
             var component = (DataSync) target;
 
-            if (GUILayout.Button("Sync"))
+            if (GUILayout.Button("SyncLocalization"))
             {
-	            component.Sync();
+	            component.SyncLocalization();
             }
-		}
+            if (GUILayout.Button("SyncConfigurationData")) {
+            component.SyncConfigurationData();
+            }
+    }
     }

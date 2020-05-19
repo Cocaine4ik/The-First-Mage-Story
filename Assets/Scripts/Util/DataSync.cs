@@ -43,11 +43,12 @@ using UnityEngine.Networking;
 		/// <summary>
 		/// Sync spreadsheets.
 		/// </summary>
-		public void Sync()
-		{
-
+		public void SyncLocalization() {
 			StopAllCoroutines();
 			StartCoroutine(SyncCoroutine(LocalizationSaveFolder, LocalizationSheets, LocalizationTableId));
+        }
+        public void SyncConfigurationData() {
+            StopAllCoroutines();
             StartCoroutine(SyncCoroutine(ConfigurationSaveFolder, ConfigurationSheets, ConfigurationTableId));
         }
 

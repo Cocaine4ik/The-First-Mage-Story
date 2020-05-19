@@ -37,6 +37,8 @@ public class ConfigurationData{
 
     #endregion
 
+    public int SkillPointsPerLevel => (int)values[ConfigurationDataValueName.SkillPointsPerLevel];
+
     #region Attributes default
 
     public int KnowledgeDefault => (int)values[ConfigurationDataValueName.KnowledgeDefault];

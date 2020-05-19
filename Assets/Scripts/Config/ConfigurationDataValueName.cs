@@ -28,6 +28,7 @@ public enum ConfigurationDataValueName{
 
     #endregion
 
+    SkillPointsPerLevel,
     #region Attributes default values
     KnowledgeDefault,
     WisdomDefault,

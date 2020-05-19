@@ -35,7 +35,7 @@ public static class ConfigurationUtils {
     public static int ExpToLevelTwenty => configurationData.ExpToLevelTwenty;
 
     #endregion
-
+    public static int SkillPointsPerLevel => configurationData.SkillPointsPerLevel;
     #region Attributes default
 
     public static int KnowledgeDefault => configurationData.KnowledgeDefault;

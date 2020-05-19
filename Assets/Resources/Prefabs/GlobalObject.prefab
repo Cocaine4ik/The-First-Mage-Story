@@ -115,9 +115,11 @@ MonoBehaviour:
   ConfigurationTableId: 1pQ3m6_a55Cxexydl6ZZ_b6ggCcPFO1zmxf-rWd4lPYo
   ConfigurationSheets:
   - Name: Attributes
-    Id: 1853021317
+    Id: 0
   - Name: Experience
     Id: 65158911
+  - Name: Balance
+    Id: 380215568
   ConfigurationSaveFolder: {fileID: 102900000, guid: db4ad14f6d2919e419a07118f994ba7d,
     type: 3}
 --- !u!114 &4609389854800854210

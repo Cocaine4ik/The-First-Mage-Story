@@ -15,10 +15,14 @@ public class CharacterMenu : UIElementBase
     [SerializeField] private TextMeshProUGUI alchemyValue;
     [SerializeField] private TextMeshProUGUI levelValue;
     [SerializeField] private TextMeshProUGUI expValue;
+    [SerializeField] private LocalizedTMPro rank;
+    [SerializeField] private TextMeshProUGUI skillPointsValue;
 
     private GameObject player;
     private CharacterHealth characterHealth;
     private CharacterMana characterMana;
+
+    private const string rankDefaultKey = "UI.CharacterMenu.Rank.";
 
     protected override void Start() {
 
@@ -45,8 +49,11 @@ public class CharacterMenu : UIElementBase
         spiritValue.text = Attributes.Instance.Spirit.ToString();
         faithValue.text = Attributes.Instance.Faith.ToString();
         demonsValue.text = Attributes.Instance.Demons.ToString();
-       // alchemyValue.text = Attributes.Instance.Alchemy.ToString();
-       // levelValue.text = Attributes.Instance.CurrentLevel.ToString();
+        alchemyValue.text = Attributes.Instance.Alchemy.ToString();
+        levelValue.text = Attributes.Instance.CurrentLevel.ToString();
+        expValue.text = Attributes.Instance.CurrentExp + "/" + Attributes.Instance.ExpToLevelUp;
+        rank.ChangeLocalization(rankDefaultKey + levelValue.text);
+        skillPointsValue.text = Attributes.Instance.SkillPoints.ToString();
 
     }
     private void OnRefreshCharacterMenuValues(EventArg arg) {

@@ -63,6 +63,7 @@ public class GUIController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.C) && StatusUtils.DialogueIsActive == false) {
             EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
+            EventManager.TriggerEvent(EventName.SaveCharacterMenuCash);
             OpenCloseGUIElement(characterMenuChilds);
             characterMenu.GetComponent<CharacterMenu>().PanelRectTransform.SetAsLastSibling();
         }

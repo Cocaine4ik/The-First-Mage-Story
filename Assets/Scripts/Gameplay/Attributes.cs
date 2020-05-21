@@ -62,6 +62,9 @@ public class Attributes : MonoBehaviour
     }
     private void Start() {
 
+        characterHealth = GetComponent<CharacterHealth>();
+        characterMana = GetComponent<CharacterMana>();
+
         SetExpToLevelUp(currentLevel);
 
         // initialize default attributes values
@@ -72,6 +75,7 @@ public class Attributes : MonoBehaviour
         demons = ConfigurationUtils.DemonsDefault;
         alchemy = ConfigurationUtils.AlchemyDefault;
 
+
     }
 
     private void OnEnable() {
@@ -81,23 +85,24 @@ public class Attributes : MonoBehaviour
         EventManager.StopListening(EventName.AddExp, OnAddExp);
     }
 
-    public void IncreaseSpirit() {
-        spirit++;
+    public void ChangeSpirit(bool isIncrease) {
+        spirit = IncreaseSkill(spirit, isIncrease);
         characterHealth.SetMaxHealth(spirit * ConfigurationUtils.HealthBySpiritPoint);
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
     }
-    public void IncreaseWisdom() {
-        wisdom++;
+    public void ChangeWisdom(bool isIncrease) {
+        wisdom = IncreaseSkill(wisdom, isIncrease);
         characterMana.SetMaxMana(wisdom * ConfigurationUtils.ManaByWisdomPoint);
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
     }
-    public void IncreaseKnowledge() {
-        knowledge++;
+    public void ChangeKnowledge(bool isIncrease) {
+        knowledge = IncreaseSkill(knowledge, isIncrease);
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
     }
-    public void IncreaseFaith() {
-        faith++;
+    public void ChangeFaith(bool isIncrease) {
+        faith = IncreaseSkill(faith, isIncrease);
         miracleChance = faith / 100;
+        EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
 
     }
     public void IncreaseDemons() {
@@ -107,6 +112,20 @@ public class Attributes : MonoBehaviour
 
     }
 
+    private int IncreaseSkill(int skillValue, bool isIncrease) {
+
+        if(isIncrease == true) {
+            if(skillPoints > 0) {
+                skillValue++;
+            }
+        skillPoints--;
+        }
+        else if(isIncrease == false) {
+            skillValue--;
+            skillPoints++;
+        }
+        return skillValue;
+    }
     private void LevelUp()
     {
         if(currentLevel != 20) {

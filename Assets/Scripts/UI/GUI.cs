@@ -31,6 +31,8 @@ public class GUI : MonoBehaviour {
         EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StartListening(EventName.ManaChange, OnGUIManaChange);
         EventManager.StartListening(EventName.HpChange, OnGUIHealthChange);
+        EventManager.StartListening(EventName.SetMaxHp, OnSetMaxHealth);
+        EventManager.StartListening(EventName.SetMaxMana, OnSetMaxMana);
 
     }
     void Start () {
@@ -45,6 +47,7 @@ public class GUI : MonoBehaviour {
         EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StopListening(EventName.ManaChange, OnGUIManaChange);
         EventManager.StopListening(EventName.HpChange, OnGUIHealthChange);
+        EventManager.StopListening(EventName.SetMaxMana, OnSetMaxMana);
 
     }
     // Update is called once per frame
@@ -66,6 +69,12 @@ public class GUI : MonoBehaviour {
 
         hpBar.fillAmount -= arg.FirstFloatArg;
 
+    }
+    public void OnSetMaxHealth(EventArg arg) {
+        hpBar.fillAmount = arg.FirstFloatArg;
+    }
+    public void OnSetMaxMana(EventArg arg) {
+        manaBar.fillAmount = arg.FirstFloatArg;
     }
     private void OnLevelUp(EventArg arg)
     {

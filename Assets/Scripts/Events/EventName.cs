@@ -15,6 +15,8 @@ public enum EventName {
     GUIExpChange,
     HpChange,
     ManaChange,
+    SetMaxHp,
+    SetMaxMana,
     Save,
     Load,
     SpawnRavens,
@@ -25,5 +27,6 @@ public enum EventName {
     ReadyToInteract,
     CloseQuestJournal,
     AddQuest,
-    RefreshCharacterMenuValues
+    RefreshCharacterMenuValues,
+    SaveCharacterMenuCash
 }

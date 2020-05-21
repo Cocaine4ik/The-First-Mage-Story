@@ -22,5 +22,7 @@ public class CharacterMana : MonoBehaviour
 
     public void SetMaxMana(int value) {
         maxMana = value;
+        var manaPercent = (float)currentMana / maxMana;
+        EventManager.TriggerEvent(EventName.SetMaxMana, new EventArg(manaPercent));
     }
 }

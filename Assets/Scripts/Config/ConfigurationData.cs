@@ -38,6 +38,8 @@ public class ConfigurationData{
     #endregion
 
     public int SkillPointsPerLevel => (int)values[ConfigurationDataValueName.SkillPointsPerLevel];
+    public int HealthBySpiritPoint => (int)values[ConfigurationDataValueName.HealthBySpiritPoint];
+    public int ManaByWisdomPoint => (int)values[ConfigurationDataValueName.ManaByWisdomPoint];
 
     #region Attributes default
 
@@ -47,8 +49,6 @@ public class ConfigurationData{
     public int FaithDefault => (int)values[ConfigurationDataValueName.FaithDefault];
     public int DemonsDefault => (int)values[ConfigurationDataValueName.DemonsDefault];
     public int AlchemyDefault => (int)values[ConfigurationDataValueName.AlchemyDefault];
-    public int HealthBySpiritPoint => (int)values[ConfigurationDataValueName.HealthBySpiritPoint];
-    public int ManaByWisdomPoint => (int)values[ConfigurationDataValueName.ManaByWisdomPoint];
 
     #endregion
 
@@ -67,11 +67,13 @@ public class ConfigurationData{
     /// Read ConfigurationData spreadsheets.
     /// </summary>
     private void Read(string path = "Data/Config") {
+
         // if dictinory includes value return dictionary
         if (values.Count > 0) return;
         var textAssets = Resources.LoadAll<TextAsset>(path);
 
         foreach (var textAsset in textAssets) {
+
             var text = ReplaceMarkers(textAsset.text);
             var matches = Regex.Matches(text, "\"[\\s\\S]+?\"");
             
@@ -86,7 +88,9 @@ public class ConfigurationData{
                 var columns = lines[i].Split(',').Select(j => j.Trim()).Select(j => j.Replace("[comma]", ",").Replace("[newline]", "\n")).ToList();
                 var valueName = (ConfigurationDataValueName)Enum.Parse(typeof(ConfigurationDataValueName), columns[0]);
                 var value = float.Parse(columns[1]);
+
                 values.Add(valueName, value);
+
             }
         }
     }

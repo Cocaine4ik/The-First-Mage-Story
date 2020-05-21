@@ -36,6 +36,8 @@ public static class ConfigurationUtils {
 
     #endregion
     public static int SkillPointsPerLevel => configurationData.SkillPointsPerLevel;
+    public static int HealthBySpiritPoint => configurationData.HealthBySpiritPoint;
+    public static int ManaByWisdomPoint => configurationData.ManaByWisdomPoint;
     #region Attributes default
 
     public static int KnowledgeDefault => configurationData.KnowledgeDefault;
@@ -44,9 +46,6 @@ public static class ConfigurationUtils {
     public static int FaithDefault => configurationData.FaithDefault;
     public static int DemonsDefault => configurationData.DemonsDefault;
     public static int AlchemyDefault => configurationData.AlchemyDefault;
-    public static int HealthBySpiritPoint => configurationData.HealthBySpiritPoint;
-    public static int ManaByWisdomPoint => configurationData.ManaByWisdomPoint;
-
     #endregion
 
     #endregion

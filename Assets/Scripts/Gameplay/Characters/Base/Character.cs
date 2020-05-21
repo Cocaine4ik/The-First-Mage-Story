@@ -76,7 +76,8 @@ public class Character : CharacterBase {
         characterHealth = GetComponent<CharacterHealth>();
         atackTrigger = transform.Find("Atack Trigger");
         feetPos = transform.Find("Feet Pos");
-        damageData = atackTrigger.gameObject.GetComponent<DamageData>();
+
+        if (atackTrigger != null) damageData = atackTrigger.gameObject.GetComponent<DamageData>();
 
         whatIsGround = LayerMask.GetMask("Ground");
 

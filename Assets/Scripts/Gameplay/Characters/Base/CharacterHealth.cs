@@ -27,7 +27,7 @@ public class CharacterHealth : MonoBehaviour
         
         if(GetComponent<Player>() != null) {
 
-            float healthPercent = (float)damage / maxHealth;
+            var healthPercent = (float)damage / maxHealth;
             EventManager.TriggerEvent(EventName.HpChange, new EventArg(healthPercent));
         }
 
@@ -35,5 +35,7 @@ public class CharacterHealth : MonoBehaviour
 
     public void SetMaxHealth(int value) {
         maxHealth = value;
+        var healthPercent = (float)currentHealth / maxHealth;
+        EventManager.TriggerEvent(EventName.SetMaxHp, new EventArg(healthPercent));
     }
 }

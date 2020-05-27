@@ -6,6 +6,8 @@ public class RangeCharacter : Character {
 
     [SerializeField] protected GameObject projectilePrefab;
 
+    public GameObject ProjectilePrefab => projectilePrefab;
+
         protected void OnRangeAtack() {
 
         GameObject projectile = Instantiate(projectilePrefab, new Vector3(atackTrigger.gameObject.transform.position.x,

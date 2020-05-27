@@ -11,6 +11,7 @@ public static class AudioManager {
 
     static bool initialized = false;
     static AudioSource audioSource;
+    static AudioSource loopedAudioSource;
     static Dictionary<AudioClipName, AudioClip> audioClips =
         new Dictionary<AudioClipName, AudioClip>();
 
@@ -28,10 +29,12 @@ public static class AudioManager {
     #region Methods
 
     // Initializes the audio manager
-    public static void Initialize(AudioSource source) {
+    public static void Initialize(AudioSource source, AudioSource loopedSource) {
 
         initialized = true;
         audioSource = source;
+        loopedAudioSource = loopedSource;
+        loopedAudioSource.loop = true;
 
         audioClips.Add(AudioClipName.MainMenuTheme,
             Resources.Load<AudioClip>("Audio/Music/MainMenuTheme"));
@@ -39,6 +42,13 @@ public static class AudioManager {
                     Resources.Load<AudioClip>("Audio/SFX/RainAndThunder"));
         audioClips.Add(AudioClipName.Spirit,
                     Resources.Load<AudioClip>("Audio/Music/Spirit"));
+        audioClips.Add(AudioClipName.WindBackground,
+                   Resources.Load<AudioClip>("Audio/SFX/WindBackground"));
+    }
+    //Plays and repat the audio clip with the given name
+    public static void PlayInLoop(AudioClipName name) {
+        loopedAudioSource.clip = audioClips[name];
+        loopedAudioSource.Play();
     }
 
     // Plays the audio clip with the given name
@@ -49,7 +59,6 @@ public static class AudioManager {
     }
 
     public static void Play(AudioClipName name, float volume) {
-
         audioSource.PlayOneShot(audioClips[name], volume);
 
     }

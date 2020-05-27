@@ -46,7 +46,7 @@ public class Attributes : MonoBehaviour
     public int Alchemy => alchemy;
 
     public int SkillPoints => skillPoints;
-
+    public float MiracleChance => miracleChance;
     #endregion
 
     #region Methods
@@ -75,7 +75,7 @@ public class Attributes : MonoBehaviour
         demons = ConfigurationUtils.DemonsDefault;
         alchemy = ConfigurationUtils.AlchemyDefault;
 
-
+        miracleChance = (float)faith / ConfigurationUtils.FaithChanceModifier;
     }
 
     private void OnEnable() {
@@ -101,7 +101,7 @@ public class Attributes : MonoBehaviour
     }
     public void ChangeFaith(bool isIncrease) {
         faith = IncreaseSkill(faith, isIncrease);
-        miracleChance = faith / 100;
+        miracleChance = faith / ConfigurationUtils.FaithChanceModifier;
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
 
     }

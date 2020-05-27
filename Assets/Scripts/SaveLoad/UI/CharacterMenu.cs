@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class CharacterMenu : UIElementBase
 {
@@ -20,7 +21,7 @@ public class CharacterMenu : UIElementBase
     [SerializeField] private LocalizedTMPro rank;
     [SerializeField] private TextMeshProUGUI skillPointsValue;
 
-    [Header("SkillsButtons:")]
+    [Header("Skills Buttons:")]
     [SerializeField] private Button increaseKnowledgeButton;
     [SerializeField] private Button increaseWisdomButton;
     [SerializeField] private Button increaseSpiritButton;
@@ -29,6 +30,11 @@ public class CharacterMenu : UIElementBase
     [SerializeField] private Button decreaseWisdomButton;
     [SerializeField] private Button decreaseSpiritButton;
     [SerializeField] private Button decreaseFaithButton;
+
+    [Header("Descirption Panel:")]
+    [SerializeField] private LocalizedTMPro skillDescriptionMain;
+    [SerializeField] private LocalizedTMPro skillDescriptionExtraFirst;
+    [SerializeField] private LocalizedTMPro skillDescriptionExtraSecond;
 
     private GameObject player;
     private CharacterHealth characterHealth;
@@ -44,6 +50,7 @@ public class CharacterMenu : UIElementBase
     private void OnEnable() {
         EventManager.StartListening(EventName.RefreshCharacterMenuValues, OnRefreshCharacterMenuValues);
         EventManager.StartListening(EventName.SaveCharacterMenuCash, OnSaveCharacterMenuCash);
+        EventManager.StartListening(EventName.SetSkillDescription, OnSetSkillDesciprion);
     }
 
     private void OnDisable() {
@@ -69,7 +76,6 @@ public class CharacterMenu : UIElementBase
         decreaseFaithButton.onClick.AddListener(() => Attributes.Instance.ChangeFaith(isIncrease: false));
 
     }
-
     private void RefreshStatValue(int maxValue, int currentValue, TextMeshProUGUI textValue) {
 
         textValue.text = maxValue + "/" + currentValue;
@@ -106,6 +112,14 @@ public class CharacterMenu : UIElementBase
         SetActiveButtons();
     }
 
+    private void OnSetSkillDesciprion(EventArg arg) {
+
+        skillDescriptionMain.ChangeLocalization(arg.StringListArg[0]);
+        skillDescriptionExtraFirst.ChangeLocalization(arg.StringListArg[1]);
+        skillDescriptionExtraFirst.GetComponent<TextMeshProUGUI>().text += $"<color=#7E1C81> {arg.StringListArg[3]}</color>";
+        skillDescriptionExtraSecond.ChangeLocalization(arg.StringListArg[2]);
+
+    }
     private void SetActiveButtons() {
 
         SetActiveDecreaseButton(Attributes.Instance.Knowledge, cashKnowledgeValue, decreaseKnowledgeButton);
@@ -127,4 +141,5 @@ public class CharacterMenu : UIElementBase
         if (Attributes.Instance.SkillPoints > 0) button.gameObject.SetActive(true);
         else button.gameObject.SetActive(false);
     }
+
 }

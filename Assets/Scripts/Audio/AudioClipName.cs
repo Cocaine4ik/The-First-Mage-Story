@@ -15,7 +15,8 @@ public enum AudioClipName
     #endregion
 
     #region SFX
-    RainAndThunder
+    RainAndThunder,
+    WindBackground
     #endregion
 
 }

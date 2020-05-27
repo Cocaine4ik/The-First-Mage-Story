@@ -33,7 +33,7 @@ public class MusicController : MonoBehaviour {
             case "ValleyOfTheWinds":
                 AudioManager.Play(AudioClipName.RainAndThunder);
                 AudioManager.Play(AudioClipName.Spirit); break;
-            case "MagicCliffs": break;
+            case "MagicCliffs": AudioManager.PlayInLoop(AudioClipName.WindBackground); break;
         }
     }
 

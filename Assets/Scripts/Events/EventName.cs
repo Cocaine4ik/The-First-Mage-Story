@@ -28,5 +28,6 @@ public enum EventName {
     CloseQuestJournal,
     AddQuest,
     RefreshCharacterMenuValues,
-    SaveCharacterMenuCash
+    SaveCharacterMenuCash,
+    SetSkillDescription
 }

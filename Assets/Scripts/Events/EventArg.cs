@@ -14,6 +14,7 @@ public class EventArg {
     private string firstStringArg;
     private string secondStringArg;
     private string thirdStringArg;
+    private List<string> stringListArg = new List<string>();
     private float firstFloatArg;
     private bool firstBoolArg;
     private TimerName timerName;
@@ -31,6 +32,7 @@ public class EventArg {
     public string FirstStringArg => firstStringArg;
     public string SecondStringArg => secondStringArg;
     public string ThirdStringArg => thirdStringArg;
+    public List<string> StringListArg => stringListArg;
     public float FirstFloatArg => firstFloatArg;
     public bool FirstBoolArg => firstBoolArg;
     public TimerName TimerName => timerName;
@@ -82,6 +84,13 @@ public class EventArg {
         this.firstStringArg = arg;
         this.secondStringArg = arg2;
         this.thirdStringArg = arg3;
+    }
+    /// <summary>
+    ///  constructor with list of strings
+    /// </summary>
+    /// <param name="arg"></param>
+    public EventArg(List<string> arg) {
+        this.stringListArg.AddRange(arg);
     }
     /// <summary>
     /// construtor with quest arg

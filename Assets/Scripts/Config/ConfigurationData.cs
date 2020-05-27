@@ -40,6 +40,7 @@ public class ConfigurationData{
     public int SkillPointsPerLevel => (int)values[ConfigurationDataValueName.SkillPointsPerLevel];
     public int HealthBySpiritPoint => (int)values[ConfigurationDataValueName.HealthBySpiritPoint];
     public int ManaByWisdomPoint => (int)values[ConfigurationDataValueName.ManaByWisdomPoint];
+    public int FaithChanceModifier => (int)values[ConfigurationDataValueName.FaithChanceModifier];
 
     #region Attributes default
 

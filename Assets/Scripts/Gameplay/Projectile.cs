@@ -11,7 +11,6 @@ public class Projectile : DamageData {
     private GameObject projectileOwner;
     private Vector2 startPos;
 
-    [SerializeField] private float projectileAliveTime = 2f;
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject impactEffect;
     

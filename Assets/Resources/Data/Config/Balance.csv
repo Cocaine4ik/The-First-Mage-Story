@@ -2,3 +2,4 @@ ConfigurationDataValueName,Value
 SkillPointsPerLevel,5
 HealthBySpiritPoint,10
 ManaByWisdomPoint,10
+FaithChanceModifier,10

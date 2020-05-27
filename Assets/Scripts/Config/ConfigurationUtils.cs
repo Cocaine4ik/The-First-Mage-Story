@@ -35,9 +35,12 @@ public static class ConfigurationUtils {
     public static int ExpToLevelTwenty => configurationData.ExpToLevelTwenty;
 
     #endregion
+
     public static int SkillPointsPerLevel => configurationData.SkillPointsPerLevel;
     public static int HealthBySpiritPoint => configurationData.HealthBySpiritPoint;
     public static int ManaByWisdomPoint => configurationData.ManaByWisdomPoint;
+    public static int FaithChanceModifier => configurationData.FaithChanceModifier;
+
     #region Attributes default
 
     public static int KnowledgeDefault => configurationData.KnowledgeDefault;

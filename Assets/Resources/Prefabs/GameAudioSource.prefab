@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2704246029494786518}
-  - component: {fileID: 2704246029494786513}
+  - component: {fileID: 5511429068907731064}
   - component: {fileID: 1557675485994953423}
   m_Layer: 0
   m_Name: GameAudioSource
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2704246029494786513
+--- !u!114 &5511429068907731064
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,9 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2704246029494786512}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1a6d55d0ac783a49ab17018032f84d7, type: 3}
+  m_Script: {fileID: 11500000, guid: c3239cc78f05f174697cacc3553d257b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 0.05
+  backgroundVolume: 0.7
+  sFXVolume: 0.3
 --- !u!114 &1557675485994953423
 MonoBehaviour:
   m_ObjectHideFlags: 0

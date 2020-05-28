@@ -13,10 +13,8 @@ public class MainMenu : MonoBehaviour
 
     private void Update() {
         
-        if(!AudioManager.IsPlaying()) {
-
+        if(!AudioManager.MusicAudioSource.IsPlaying()) {
             StatusUtils.MusicOn = false;
-
             PlayMusic();
         }
 
@@ -25,8 +23,7 @@ public class MainMenu : MonoBehaviour
     private void PlayMusic() {
 
         if(!StatusUtils.MusicOn) {
-
-            AudioManager.Play(AudioClipName.MainMenuTheme);
+            AudioManager.MusicAudioSource.Play(MusicClipName.MainMenuTheme);
             StatusUtils.MusicOn = true;
         }
     }

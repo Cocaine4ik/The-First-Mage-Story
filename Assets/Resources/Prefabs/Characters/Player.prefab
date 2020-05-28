@@ -206,10 +206,13 @@ MonoBehaviour:
   checkRadius: 0.3
   jumpForce: 5
   jumpControlTime: 1.5
+  atackSound: 1
+  jumpSound: 3
   projectilePrefab: {fileID: 1606735044020938, guid: 8d31877715ba0b2438574d567c33ea6e,
     type: 3}
   magicShield: {fileID: 0}
   manaPerTeleport: 5
+  teleportSound: 2
 --- !u!114 &2734802088631105608
 MonoBehaviour:
   m_ObjectHideFlags: 0

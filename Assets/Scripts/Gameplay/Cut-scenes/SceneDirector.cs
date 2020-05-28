@@ -36,6 +36,7 @@ public class SceneDirector : MonoBehaviour
     private void OnPlatformUp(EventArg arg) {
         if(arg.Item.name == "FlyingStones") {
             movingPlatform.GetComponent<MovingPlatform>().MoveUp();
+            AudioManager.SFXAudioSource.Play(SFXClipName.PlatformMove);
             EventManager.StopListening(EventName.PickupItem, OnPlatformUp);
         }
     }

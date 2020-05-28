@@ -13,6 +13,7 @@ public class OnMouseOverUI : MonoBehaviour, IPointerEnterHandler {
     private const string skillDescriptionExtraOneKey = "UI.CharacterMenu.Description.Extra.1.";
     private const string skillDescriptionExtraSecondKey = "UI.CharacterMenu.Description.Extra.2.";
 
+    private Projectile projectile;
     private void Start() {
 
         descriptionKeys = new List<string> {
@@ -21,6 +22,7 @@ public class OnMouseOverUI : MonoBehaviour, IPointerEnterHandler {
             skillDescriptionExtraSecondKey + gameObject.name
         };
 
+        projectile = Attributes.Instance.gameObject.GetComponent<Player>().ProjectilePrefab.GetComponent<Projectile>();
     }
     public void OnPointerEnter(PointerEventData eventData) {
         pointedGameObjectName = gameObject.name;
@@ -41,7 +43,7 @@ public class OnMouseOverUI : MonoBehaviour, IPointerEnterHandler {
 
         switch(name) {
             case "Knowledge":
-                modifier = $"{Attributes.Instance.gameObject.GetComponent<Player>().ProjectilePrefab.GetComponent<Projectile>().Damage}" +
+                modifier = $"{projectile.Damage}" +
                     $" + {Attributes.Instance.Knowledge}"; break;
             case "Wisdom":
                 modifier = $"{Attributes.Instance.Wisdom * ConfigurationUtils.ManaByWisdomPoint}"; break;

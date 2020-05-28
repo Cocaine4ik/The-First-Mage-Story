@@ -40,7 +40,8 @@ public class Character : CharacterBase {
     [SerializeField] [HideInInspector] protected float jumpControlTime;
 
     protected float moveX;
-
+    [SerializeField] protected SFXClipName atackSound;
+    [SerializeField] protected SFXClipName jumpSound;
     #endregion
 
     #region Properties
@@ -146,6 +147,7 @@ public class Character : CharacterBase {
 
         isAtack = true;
         animator.SetBool("IsAtack", isAtack);
+        AudioManager.SFXAudioSource.Play(atackSound);
 
     }
 
@@ -153,6 +155,7 @@ public class Character : CharacterBase {
 
         rb.velocity = Vector2.up * jumpForce;
         jumpControlTimer.Run();
+        AudioManager.SFXAudioSource.Play(jumpSound);
 
     }
 

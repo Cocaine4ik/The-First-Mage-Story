@@ -5,74 +5,48 @@ using UnityEngine;
 /// <summary>
 /// Audio manager
 /// </summary>
-public static class AudioManager {
+public class AudioManager : MonoBehaviour {
 
     #region Fields
 
-    static bool initialized = false;
-    static AudioSource audioSource;
-    static AudioSource loopedAudioSource;
-    static Dictionary<AudioClipName, AudioClip> audioClips =
-        new Dictionary<AudioClipName, AudioClip>();
+    private AudioSource musicSource;
+    private AudioSource backgroundThemeSource;
+    private AudioSource sFXSource;
 
-    #endregion
+    public static MusicAudioSource MusicAudioSource = new MusicAudioSource();
+    public static BackgroundAudioSource BackgroundAudioSource = new BackgroundAudioSource();
+    public static SFXAudioSource SFXAudioSource = new SFXAudioSource();
 
-    #region Properties
-
-    // Gets whether or not the audio manager has been initialized
-    public static bool Initialized {
-        get { return initialized; }
-    }
+    [Slider(0.0f, 1.0f)]
+    [SerializeField] private float musicVolume = 0.0f;
+    [Slider(0.0f, 1.0f)]
+    [SerializeField] private float backgroundVolume = 0.0f;
+    [Slider(0.0f, 1.0f)]
+    [SerializeField] private float sFXVolume = 0.0f;
 
     #endregion
 
     #region Methods
+    private void Awake() {
 
-    // Initializes the audio manager
-    public static void Initialize(AudioSource source, AudioSource loopedSource) {
+        if (MusicAudioSource.Initialized && BackgroundAudioSource.Initialized && SFXAudioSource.Initialized) {
+            Destroy(gameObject);
+        }
 
-        initialized = true;
-        audioSource = source;
-        loopedAudioSource = loopedSource;
-        loopedAudioSource.loop = true;
+        if (!MusicAudioSource.Initialized) {
+            musicSource = gameObject.AddComponent<AudioSource>();
+            MusicAudioSource.Initialize(musicSource, "Audio/Music/", musicVolume);
+        }
+        if (!BackgroundAudioSource.Initialized) {
+            backgroundThemeSource = gameObject.AddComponent<AudioSource>();
+            BackgroundAudioSource.Initialize(backgroundThemeSource, "Audio/Background/", backgroundVolume);
+        }
+        if (!SFXAudioSource.Initialized) {
+            sFXSource = gameObject.AddComponent<AudioSource>();
+            SFXAudioSource.Initialize(sFXSource, "Audio/SFX/", sFXVolume);
+        }
 
-        audioClips.Add(AudioClipName.MainMenuTheme,
-            Resources.Load<AudioClip>("Audio/Music/MainMenuTheme"));
-        audioClips.Add(AudioClipName.RainAndThunder,
-                    Resources.Load<AudioClip>("Audio/SFX/RainAndThunder"));
-        audioClips.Add(AudioClipName.Spirit,
-                    Resources.Load<AudioClip>("Audio/Music/Spirit"));
-        audioClips.Add(AudioClipName.WindBackground,
-                   Resources.Load<AudioClip>("Audio/SFX/WindBackground"));
-    }
-    //Plays and repat the audio clip with the given name
-    public static void PlayInLoop(AudioClipName name) {
-        loopedAudioSource.clip = audioClips[name];
-        loopedAudioSource.Play();
-    }
-
-    // Plays the audio clip with the given name
-    public static void Play(AudioClipName name) {
-
-        audioSource.PlayOneShot(audioClips[name]);
-
-    }
-
-    public static void Play(AudioClipName name, float volume) {
-        audioSource.PlayOneShot(audioClips[name], volume);
-
-    }
-    // Stop playing current clip
-    public static void Stop() {
-
-        audioSource.Stop();
-        StatusUtils.MusicOn = false;
-    }
-
-    // return true if audio clip is plaing
-    public static bool IsPlaying() {
-
-        return audioSource.isPlaying;
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
 

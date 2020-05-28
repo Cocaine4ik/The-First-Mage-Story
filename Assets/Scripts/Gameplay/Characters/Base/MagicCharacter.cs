@@ -16,6 +16,7 @@ public class MagicCharacter : RangeCharacter{
     protected bool isTeleportedIn = false;
     protected bool isTeleportedOut = false;
 
+    [SerializeField] protected SFXClipName teleportSound;
     #endregion
 
     #region Methods
@@ -39,6 +40,7 @@ public class MagicCharacter : RangeCharacter{
         teleportPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         isTeleportedIn = true;
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
+        AudioManager.SFXAudioSource.Play(teleportSound);
 
     }
 

@@ -24,17 +24,17 @@ public class Projectile : DamageData {
         startPos = gameObject.transform.position;
 
         rb.velocity = transform.right * speed;
-        
+
     }
     // Let the rigidbody take control and detect collisions.
 
     private void Update() {
 
         float distance = Vector2.Distance(startPos, gameObject.transform.position);
-
-        if(distance >= atackRange){
-            SelfDestroy();
-        }
+        
+            if (Mathf.Abs(distance) >= atackRange) {
+                SelfDestroy();
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

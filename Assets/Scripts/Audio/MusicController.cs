@@ -20,7 +20,8 @@ public class MusicController : MonoBehaviour {
         if(currentSceneName != SceneManager.GetActiveScene().name) {
 
             currentSceneName = SceneManager.GetActiveScene().name;
-            AudioManager.Stop();
+            AudioManager.MusicAudioSource.Stop();
+            AudioManager.BackgroundAudioSource.Stop();
 
             SwitchMainTheme();
         }
@@ -29,11 +30,16 @@ public class MusicController : MonoBehaviour {
     private void SwitchMainTheme() {
         switch (currentSceneName) {
             case "MainMenu":
-                AudioManager.Play(AudioClipName.MainMenuTheme); break;
+                AudioManager.MusicAudioSource.Play(MusicClipName.MainMenuTheme);
+                break;
             case "ValleyOfTheWinds":
-                AudioManager.Play(AudioClipName.RainAndThunder);
-                AudioManager.Play(AudioClipName.Spirit); break;
-            case "MagicCliffs": AudioManager.PlayInLoop(AudioClipName.WindBackground); break;
+                AudioManager.MusicAudioSource.Play(MusicClipName.Spirit); 
+                AudioManager.BackgroundAudioSource.Play(BackgroundClipName.RainAndThunder);
+                break;
+            case "MagicCliffs":
+                AudioManager.MusicAudioSource.Play(MusicClipName.MagicCliffsTheme);
+                AudioManager.BackgroundAudioSource.Play(BackgroundClipName.WindBackground);
+                break;
         }
     }
 

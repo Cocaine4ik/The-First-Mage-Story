@@ -33,8 +33,8 @@ public class MusicController : MonoBehaviour {
                 AudioManager.MusicAudioSource.Play(MusicClipName.MainMenuTheme);
                 break;
             case "ValleyOfTheWinds":
-                AudioManager.MusicAudioSource.Play(MusicClipName.Spirit); 
-                AudioManager.BackgroundAudioSource.Play(BackgroundClipName.RainAndThunder);
+                AudioManager.MusicAudioSource.Play(MusicClipName.Spirit, 0.5f); 
+                AudioManager.BackgroundAudioSource.Play(BackgroundClipName.RainAndThunder, 0.5f);
                 break;
             case "MagicCliffs":
                 AudioManager.MusicAudioSource.Play(MusicClipName.MagicCliffsTheme);

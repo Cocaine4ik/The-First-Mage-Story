@@ -37,6 +37,7 @@ public static class ConfigurationUtils {
     #endregion
 
     public static int SkillPointsPerLevel => configurationData.SkillPointsPerLevel;
+    public static int SpellPointsPerLevel => configurationData.SpellPointsPerLevel;
     public static int HealthBySpiritPoint => configurationData.HealthBySpiritPoint;
     public static int ManaByWisdomPoint => configurationData.ManaByWisdomPoint;
     public static int FaithChanceModifier => configurationData.FaithChanceModifier;

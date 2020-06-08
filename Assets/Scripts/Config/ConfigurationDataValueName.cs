@@ -29,6 +29,7 @@ public enum ConfigurationDataValueName{
     #endregion
 
     SkillPointsPerLevel,
+    SpellPointsPerLevel,
     FaithChanceModifier,
     #region Attributes default values
     KnowledgeDefault,

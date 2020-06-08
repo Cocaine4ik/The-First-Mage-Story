@@ -30,7 +30,7 @@ public class GUI : MonoBehaviour {
         EventManager.StartListening(EventName.LevelUp, OnLevelUp);
         EventManager.StartListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StartListening(EventName.ManaChange, OnGUIManaChange);
-        EventManager.StartListening(EventName.HpChange, OnGUIHealthChange);
+        //EventManager.StartListening(EventName.HpChange, OnGUIHealthChange);
         EventManager.StartListening(EventName.SetMaxHp, OnSetMaxHealth);
         EventManager.StartListening(EventName.SetMaxMana, OnSetMaxMana);
 
@@ -46,7 +46,7 @@ public class GUI : MonoBehaviour {
         EventManager.StopListening(EventName.LevelUp, OnLevelUp);
         EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StopListening(EventName.ManaChange, OnGUIManaChange);
-        EventManager.StopListening(EventName.HpChange, OnGUIHealthChange);
+       // EventManager.StopListening(EventName.HpChange, OnGUIHealthChange);
         EventManager.StopListening(EventName.SetMaxMana, OnSetMaxMana);
 
     }
@@ -65,7 +65,8 @@ public class GUI : MonoBehaviour {
         manaBar.fillAmount -= arg.FirstFloatArg;
     }
 
-    public void OnGUIHealthChange (EventArg arg) {
+    public void 
+        HealthChange (EventArg arg) {
 
         hpBar.fillAmount -= arg.FirstFloatArg;
 

@@ -38,6 +38,7 @@ public class ConfigurationData{
     #endregion
 
     public int SkillPointsPerLevel => (int)values[ConfigurationDataValueName.SkillPointsPerLevel];
+    public int SpellPointsPerLevel => (int)values[ConfigurationDataValueName.SpellPointsPerLevel];
     public int HealthBySpiritPoint => (int)values[ConfigurationDataValueName.HealthBySpiritPoint];
     public int ManaByWisdomPoint => (int)values[ConfigurationDataValueName.ManaByWisdomPoint];
     public int FaithChanceModifier => (int)values[ConfigurationDataValueName.FaithChanceModifier];

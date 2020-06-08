@@ -44,6 +44,9 @@ public class MagicCharacter : RangeCharacter{
 
     }
 
+    protected void Cast(SpellInvoker spellInvoker) {
+        spellInvoker.InvokeSpell();
+    }
     protected virtual void TeleportToPoint(Vector2 point) {
 
         gameObject.transform.position = point;

@@ -22,6 +22,7 @@ public class Attributes : MonoBehaviour
     [SerializeField] private int alchemy;
 
     [SerializeField] private int skillPoints = 0;
+    [SerializeField] private int spellPoints = 0;
 
     public static Attributes Instance;
 
@@ -46,6 +47,7 @@ public class Attributes : MonoBehaviour
     public int Alchemy => alchemy;
 
     public int SkillPoints => skillPoints;
+    public int SpellPoints => spellPoints;
     public float MiracleChance => miracleChance;
     #endregion
 
@@ -126,6 +128,7 @@ public class Attributes : MonoBehaviour
         }
         return skillValue;
     }
+
     private void LevelUp()
     {
         if(currentLevel != 20) {
@@ -133,6 +136,7 @@ public class Attributes : MonoBehaviour
             currentLevel += 1;
             SetExpToLevelUp(currentLevel);
             skillPoints += ConfigurationUtils.SkillPointsPerLevel;
+            spellPoints += ConfigurationUtils.SpellPointsPerLevel;
             EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
         }
     }
@@ -185,6 +189,10 @@ public class Attributes : MonoBehaviour
         var expPercent = (float)exp / expToLevelDifference;
         Debug.Log("Exp: " + exp + " ExpPercent: " + expPercent + " ExpDif: " + expToLevelDifference);
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
+    }
+
+    public void DecreaseSpellPoints() {
+        spellPoints--;
     }
     #endregion
 }

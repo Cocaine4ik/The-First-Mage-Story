@@ -19,6 +19,8 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private SpellPanelCell oldSpellPanelCellData;
     private SpellPanelCell newSpellPanelCellData;
 
+    public bool OnPanel => onPanel;
+
     private void Start() {
         spellData = GetComponent<SpellInvoker>().SpellData;
         button = GetComponent<Button>();
@@ -39,13 +41,13 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
-        draggingCell = Instantiate(gameObject, gameObject.transform.parent);
+        draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
         draggingCell.transform.position = Input.mousePosition;
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        if (onPanel) {
-            spellPanelCell = draggingCell;
+        if (draggingCell.GetComponent<SpellCell>().OnPanel) {
+            Debug.Log("Test");
             newSpellPanelCellData = spellPanelCell.AddComponent<SpellPanelCell>();
             newSpellPanelCellData = oldSpellPanelCellData;
         }
@@ -53,10 +55,12 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<SpellPanelCell>()) {
-            Debug.Log("onPanel");
             onPanel = true;
+            Debug.Log("onPanel: " +  onPanel);
             spellPanelCell = collision.gameObject;
+            var spellPanelCellIamge = spellPanelCell.GetComponent<Image>();
             oldSpellPanelCellData = spellPanelCell.GetComponent<SpellPanelCell>();
+            Debug.Log(spellPanelCell.name);
         }
     }
 }

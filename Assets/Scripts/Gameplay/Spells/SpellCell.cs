@@ -15,11 +15,15 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private Image cellIcon;
 
     private GameObject draggingCell;
+    private SpellCell draggingCellData;
+
     private GameObject spellPanelCell;
-    private SpellPanelCell oldSpellPanelCellData;
-    private SpellPanelCell newSpellPanelCellData;
 
     public bool OnPanel => onPanel;
+    public GameObject SpellPanelCell {
+        get { return spellPanelCell; }
+        set { spellPanelCell = value; }
+    }
 
     private void Start() {
         spellData = GetComponent<SpellInvoker>().SpellData;
@@ -43,24 +47,26 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData) {
         draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
         draggingCell.transform.position = Input.mousePosition;
+        draggingCellData = draggingCell.GetComponent<SpellCell>();
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        if (draggingCell.GetComponent<SpellCell>().OnPanel) {
-            Debug.Log("Test");
-            newSpellPanelCellData = spellPanelCell.AddComponent<SpellPanelCell>();
-            newSpellPanelCellData = oldSpellPanelCellData;
-        }
+        draggingCellData.SetSpellPanelCell();
         Destroy(draggingCell);
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<SpellPanelCell>()) {
             onPanel = true;
-            Debug.Log("onPanel: " +  onPanel);
             spellPanelCell = collision.gameObject;
-            var spellPanelCellIamge = spellPanelCell.GetComponent<Image>();
-            oldSpellPanelCellData = spellPanelCell.GetComponent<SpellPanelCell>();
-            Debug.Log(spellPanelCell.name);
+            Debug.Log("onPanel: " +  onPanel);      
+            collision.
+
         }
+    }
+
+    public void SetSpellPanelCell() {
+        var panellCellImage = spellPanelCell.GetComponent<Image>();
+        panellCellImage.sprite = cellIcon.sprite;
+
     }
 }

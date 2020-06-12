@@ -58,9 +58,7 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (collision.gameObject.GetComponent<SpellPanelCell>()) {
             onPanel = true;
             spellPanelCell = collision.gameObject;
-            Debug.Log("onPanel: " +  onPanel);      
-            collision.
-
+            Debug.Log("onPanel: " + onPanel);
         }
     }
 

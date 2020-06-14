@@ -29,5 +29,6 @@ public enum EventName {
     AddQuest,
     RefreshCharacterMenuValues,
     SaveCharacterMenuCash,
-    SetSkillDescription
+    SetSkillDescription,
+    RefreshSpellBook
 }

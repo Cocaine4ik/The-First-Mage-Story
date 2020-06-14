@@ -11,12 +11,14 @@ public class GUIController : MonoBehaviour {
     [SerializeField] private GameObject dialogueWindow;
     [SerializeField] private GameObject questJournal;
     [SerializeField] private GameObject characterMenu;
+    [SerializeField] private GameObject spellbook;
 
     private List<List<GameObject>> allChildsList = new List<List<GameObject>>();
     private List<GameObject> inventoryChilds;
     private List<GameObject> dialogueWindowChilds;
     private List<GameObject> questJournalChilds;
     private List<GameObject> characterMenuChilds;
+    private List<GameObject> spellbookChilds;
 
     private bool readyToInteract = false;
 
@@ -43,7 +45,7 @@ public class GUIController : MonoBehaviour {
         allChildsList.Add(dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform));
         allChildsList.Add(questJournalChilds = UnityExtensions.CreateChildsList(questJournal.transform));
         allChildsList.Add(characterMenuChilds = UnityExtensions.CreateChildsList(characterMenu.transform));
-
+        allChildsList.Add(spellbookChilds = UnityExtensions.CreateChildsList(spellbook.transform));
         // Open/close inventory to initialize inventory cells
 
         for (int i = 0; i < 2; i++ ) {
@@ -66,6 +68,12 @@ public class GUIController : MonoBehaviour {
             EventManager.TriggerEvent(EventName.SaveCharacterMenuCash);
             OpenCloseGUIElement(characterMenuChilds);
             characterMenu.GetComponent<CharacterMenu>().PanelRectTransform.SetAsLastSibling();
+        }
+
+        if(Input.GetKeyDown(KeyCode.B) && StatusUtils.DialogueIsActive == false) {
+            EventManager.TriggerEvent(EventName.RefreshSpellBook);
+            OpenCloseGUIElement(spellbookChilds);
+            spellbook.GetComponent<SpellBook>().PanelRectTransform.SetAsLastSibling();
         }
 
         // if we player is ready to interact (watch DialogueTrigger class)and get E key

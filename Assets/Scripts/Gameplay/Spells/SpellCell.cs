@@ -37,22 +37,31 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
             Attributes.Instance.DecreaseSpellPoints();
             isLearned = true;
             cellIcon.sprite = learnedSpellIcon;
+            EventManager.TriggerEvent(EventName.RefreshSpellBook);
         }
     }
 
     public void OnDrag(PointerEventData eventData) {
-        draggingCell.transform.position = Input.mousePosition;
+        if (isLearned) {
+            draggingCell.transform.position = Input.mousePosition;
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
+        if (isLearned) {
+
         draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
         draggingCell.transform.position = Input.mousePosition;
         draggingCellData = draggingCell.GetComponent<SpellCell>();
+
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        draggingCellData.SetSpellPanelCell();
-        Destroy(draggingCell);
+        if (isLearned) {
+            draggingCellData.SetSpellPanelCell();
+            Destroy(draggingCell);
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.GetComponent<SpellPanelCell>()) {

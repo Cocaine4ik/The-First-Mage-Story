@@ -3024,6 +3024,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 1cf5abc70540ad848b35f51c8632185b, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b8491ba868bce9a4f9c8c8b1e5bc0ca4, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 10
 --- !u!114 &57613671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3135,6 +3137,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &58377521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9480,6 +9484,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 79c30746aedf9f744a622fb144843671, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: c642572600370f0428643998fea176a6, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 30
 --- !u!114 &192618468
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11741,6 +11747,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: d9d8cf4787399534186fa18753b63131, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 5d4c7d730da0c7c43aa0e760ab9db9bc, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 10
 --- !u!114 &252089788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13462,6 +13470,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: da1720baadbcace43a3cad361f15beba, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 99830e0b499f1474a991f6185d7f56b5, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 20
 --- !u!114 &282278536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13679,6 +13689,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &283637360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15089,6 +15101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 729ac8da266dec34ba5a45b39630cd39, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: d685a13feef2f7c4a97758c63fea9c79, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 30
 --- !u!114 &300056120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16098,6 +16112,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: f5282cb89f99c6f42a3549320393141c, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: c975e6428a36c9d468aa691276f7b04a, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 10
 --- !u!114 &317796956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16315,6 +16331,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &319668326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18164,6 +18182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: a8cc8ad483ec4434fbf9f92b36106325, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: ceb9e4a62eb8c6348ae045c64ba5b36e, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 20
 --- !u!114 &345150069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19822,6 +19842,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: a62572d82d54105419dad06e33e23f82, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 8982a8c6190efde49af66c41328be340, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 40
 --- !u!114 &373482271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20977,6 +20999,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 0394b3aab9ecc6d4697f307ae6a188bb, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 3925e5888e273de42a604aa4b73bc8af, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &387335897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22986,6 +23010,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 8411c4019e3b5aa49a6d8d60dcdab954, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 74d8d1f3d79bc2449866284ab0d7116d, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 20
 --- !u!114 &432085783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23470,7 +23496,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &436847316
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24218,6 +24244,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: da4ffc9f7b5a0a64d936dc717e9a9600, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 796d808ef77d1464cbf11faa3d6b1c8c, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 20
 --- !u!114 &452650943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24965,6 +24993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 113ec4a400d0d6f4ea228e12b01a183a, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: a11485405a161cd43a23e8e04ce3d519, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 30
 --- !u!114 &476982763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25450,6 +25480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b7444a35ea9caa24da64d1a1bcdf536e, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b14a99e7f2b7d9841a53d41ae1528050, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 10
 --- !u!114 &486900312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27311,7 +27343,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &521977064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27358,6 +27390,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 688b58dbf1ec2234da4779c3e68c1a69, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 4984bf1fd3054a7498f70228b91bb178, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &521977067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36627,6 +36661,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 2104372f58fd3794cab35613abc97017, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 74b759f1ee09aaa4289f41637d5cf27c, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 30
 --- !u!114 &682704812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38860,9 +38896,9 @@ MonoBehaviour:
   spellTrees:
   - {fileID: 436847315}
   - {fileID: 534160351}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1995086679}
+  - {fileID: 393259594}
+  - {fileID: 1608686362}
   specialSpells:
   - {fileID: 1798128151}
   - {fileID: 1169816482}
@@ -42032,6 +42068,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: ef4d83e253b20d24dbfa70b70644021a, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: e704140a3f06af64b90a597c6c921002, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 10
 --- !u!114 &788632343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43541,6 +43579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 4aa3950fb6bba3848a0a0809ce2dad5a, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 3add451a0bdbfe24db3e3b6898cc63ee, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 20
 --- !u!114 &814839374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43664,6 +43704,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 0}
   learnedSpellIcon: {fileID: 0}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &814839379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45226,6 +45268,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: e7ad556fcd203a64498b0e19a5591316, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: abcf04f524c77d0498c9fe3153b1c6c5, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 40
 --- !u!114 &852406166
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58502,6 +58546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 8411c4019e3b5aa49a6d8d60dcdab954, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 74d8d1f3d79bc2449866284ab0d7116d, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 20
 --- !u!114 &1023782710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58952,6 +58998,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 0b5c69b3018a7cc45a1966b00f459766, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b49760e315c5f1c428dbc4a5a469c83a, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 30
 --- !u!114 &1029305008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60874,6 +60922,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: f3f71386ea1dba84b818aae6333138af, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 6e232d8a05c66a84ea20e07de91fd49a, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: -10
 --- !u!114 &1078004290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61966,6 +62016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 7c4487bc8890a864cae7624958d8e511, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 2e7ac28e946d9b84dbcca368e5b33bc2, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 10
 --- !u!114 &1104191397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63673,6 +63725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: da1720baadbcace43a3cad361f15beba, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 99830e0b499f1474a991f6185d7f56b5, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 20
 --- !u!114 &1120496928
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66198,7 +66252,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1169816483
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66245,6 +66299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: a2b00f6e4a560c64d90a38f0d7da3873, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: aa89041c8a9fd8642bcb5e3f2c4e10f6, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &1169816486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70987,6 +71043,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: e576098481f73aa478c34e4f84bd8be0, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 230486a3780346c40a21d26a03c60bcb, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 10
 --- !u!114 &1269239987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71698,6 +71756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 1cf5abc70540ad848b35f51c8632185b, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b8491ba868bce9a4f9c8c8b1e5bc0ca4, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 10
 --- !u!114 &1284321113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72961,6 +73021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 6746959d77daee64ebba400a14431cac, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 5bd8402eaa0552c40a8eae900490f9c7, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 20
 --- !u!114 &1305580582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76186,6 +76248,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 85de43cb557924f4db7242f7f3aedd28, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 8f715f10abdceb14aa9fe1b84cb38e89, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 40
 --- !u!114 &1380547496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76848,6 +76912,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 79c30746aedf9f744a622fb144843671, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: c642572600370f0428643998fea176a6, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 30
 --- !u!114 &1394618395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76987,7 +77053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1395550545
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77034,6 +77100,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 987dc2f205a24384caaaa9ffa58975e5, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 6526137b023e27f4ca6bc2fb2c1d0788, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &1395550548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77478,6 +77546,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b9d6ba887f187d7458514b5c03c06e8c, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 72f6d7fad1ff45841ac8de36e046124c, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 30
 --- !u!114 &1401087505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78891,6 +78961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: f9cfd598b604c8d48b2ef8a4b748c25e, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b510f53e75e48764d8d57853b4e0d893, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 20
 --- !u!114 &1420191560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79198,6 +79270,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: f0c37c5dd6abcd6419bd947d617bd186, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: da03d2667488a3a45821e0c613c4561d, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: -20
 --- !u!114 &1420288700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79288,6 +79362,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 0e3912a2caa464a40b7db16da391f50e, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 652a374ba765b714daaf15fc8100eea9, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 20
 --- !u!114 &1421441308
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83489,6 +83565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &1497710431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84399,6 +84477,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 159528df72809a0489b9508e531e42ee, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 0d4b627ea0c20a542bef2fd4c29b3864, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 40
 --- !u!114 &1521054075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85660,6 +85740,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 6746959d77daee64ebba400a14431cac, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 5bd8402eaa0552c40a8eae900490f9c7, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 20
 --- !u!114 &1547245104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88157,6 +88239,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: e830d5726d56b0e40a9872f6176cd2cf, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 959578909eae7344185f709d50adb503, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: -10
 --- !u!114 &1607917652
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88208,7 +88292,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1608686363
 RectTransform:
   m_ObjectHideFlags: 0
@@ -88409,6 +88493,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 85de43cb557924f4db7242f7f3aedd28, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 8f715f10abdceb14aa9fe1b84cb38e89, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 40
 --- !u!114 &1614358609
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89088,6 +89174,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 1189dc1980ae3bd4b90bfbe00d3f42da, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 2d4471106fd84dd40a6c050889d83735, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 20
 --- !u!114 &1619471424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89757,6 +89845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: fbfd0ba3ac7a695449a7265f64b2a126, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 2daaa40990def3548a2a3757db858216, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: -10
 --- !u!114 &1627694980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -92297,6 +92387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: a0e5a28e5d074224fb49a4964f9029d4, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 2191bbb73fa3cd949a5ab39dbf89aeea, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 10
 --- !u!114 &1686423324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93308,6 +93400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 9470e4474430c5f4bad47450d9916c7d, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 8b11c089f044dcb4b89ca39b41c1ab75, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 40
 --- !u!114 &1702113903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97602,7 +97696,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1798128152
 RectTransform:
   m_ObjectHideFlags: 0
@@ -97652,6 +97746,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 688b58dbf1ec2234da4779c3e68c1a69, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 4984bf1fd3054a7498f70228b91bb178, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 0
 --- !u!114 &1798128155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98418,6 +98514,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 32b90d19943dd64458c958b3784cd09e, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: e7d591d555f3e0b4482490fc61fe6c69, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 30
 --- !u!114 &1811775769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99321,6 +99419,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 78f30626e3484a143ada96702a2b0be1, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 9f3d8d080249d1f41bed39989d000656, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 10
 --- !u!114 &1831051894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99841,6 +99941,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 4ac79ca893689034a8ea5f86ca0aad21, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: c9676d032d6a47b499def76db0a252bf, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 40
 --- !u!114 &1844646304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101413,6 +101515,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 0
 --- !u!114 &1865738983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103137,6 +103241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 1c0ee399687f1e44b9a896ca979743e6, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: faf894b2c923c27439c060d31cb40f18, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 30
 --- !u!114 &1906027250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104294,6 +104400,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 11241d870a97df643b9a1291bb49e484, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b1c63ce88cccb6d4fb5f6273794591d3, type: 3}
+  requiredSkill: 0
+  requiredSkillValue: 10
 --- !u!114 &1927420108
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105088,6 +105196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: c40693da21573d84caf05e9b89700d77, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 67d2e29cbce1b4143ad4a2dda81009ba, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: -20
 --- !u!114 &1934727230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105782,6 +105892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 07800ab72bba5ef42939d83077abceee, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 97f98e1c7466e87479462ea4da9987a3, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 20
 --- !u!114 &1948286408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105978,6 +106090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 4ac79ca893689034a8ea5f86ca0aad21, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: c9676d032d6a47b499def76db0a252bf, type: 3}
+  requiredSkill: 3
+  requiredSkillValue: 40
 --- !u!114 &1948498831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106658,6 +106772,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 1189dc1980ae3bd4b90bfbe00d3f42da, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 2d4471106fd84dd40a6c050889d83735, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 20
 --- !u!114 &1963197438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112329,6 +112445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: d9c1dc73b0eac0946892c9a63d7a8dc4, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 6b4979c3f06837740a50533ba8829c3a, type: 3}
+  requiredSkill: 1
+  requiredSkillValue: 30
 --- !u!114 &2067183064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113341,6 +113459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: 32b90d19943dd64458c958b3784cd09e, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: e7d591d555f3e0b4482490fc61fe6c69, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 30
 --- !u!114 &2087981580
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113849,6 +113969,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: b9d6ba887f187d7458514b5c03c06e8c, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 72f6d7fad1ff45841ac8de36e046124c, type: 3}
+  requiredSkill: 2
+  requiredSkillValue: 30
 --- !u!114 &2094857001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116464,6 +116586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellIcon: {fileID: 21300000, guid: a6994d114aa194c448fbf859249fd1d7, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b4d2facf7d994a84f94ce475c7720110, type: 3}
+  requiredSkill: 4
+  requiredSkillValue: 0
 --- !u!114 &2143300906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118064,7 +118188,7 @@ PrefabInstance:
     - target: {fileID: 2393931620552022198, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2393931620650225224, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
@@ -118079,7 +118203,12 @@ PrefabInstance:
     - target: {fileID: 2393931621007081366, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931621329352014, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: requiredSkill
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2393931621365614278, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
@@ -118210,6 +118339,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931622147663114, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: requiredSkill
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931622365337560, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: requiredSkill
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931622365337560, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: requiredSkillValue
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3a6825a0119c2dd49a0ebe511488a054, type: 3}

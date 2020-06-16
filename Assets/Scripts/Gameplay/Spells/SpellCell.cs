@@ -47,6 +47,9 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     }
 
     private void LearnSpell() {
+        if(!requirementDone) {
+            CheckRequirement(requiredSkill);
+        }
         if (!isLearned && Attributes.Instance.SpellPoints > 0 && requirementDone) {
             Attributes.Instance.DecreaseSpellPoints();
             isLearned = true;
@@ -110,8 +113,17 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
                 else requirementDone = false;
                 break;
             case RequiredSkill.Demons:
-                if (Attributes.Instance.Demons >= requiredSkillValue) requirementDone = true;
-                else requirementDone = false;
+                if(requiredSkillValue > 0) {
+                    if (Attributes.Instance.Demons >= requiredSkillValue) requirementDone = true;
+                    else requirementDone = false;
+                }
+                else if (requiredSkillValue == 0) {
+                    requirementDone = true;
+                }
+                else if (requiredSkillValue < 0) {
+                    if (Attributes.Instance.Demons <= requiredSkillValue) requirementDone = true;
+                    else requirementDone = false;
+                }
                 break;
         }
     }

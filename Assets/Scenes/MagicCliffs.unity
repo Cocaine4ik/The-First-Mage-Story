@@ -2898,7 +2898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.9999971, y: 154}
+  m_AnchoredPosition: {x: 1, y: 154}
   m_SizeDelta: {x: 47, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &57613666
@@ -43521,8 +43521,6 @@ GameObject:
   - component: {fileID: 814839380}
   - component: {fileID: 814839372}
   - component: {fileID: 814839373}
-  - component: {fileID: 814839379}
-  - component: {fileID: 814839378}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -43690,35 +43688,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 47.35768, y: 45.529438}
   m_EdgeRadius: 0
---- !u!114 &814839378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814839370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellIcon: {fileID: 0}
-  learnedSpellIcon: {fileID: 0}
-  requiredSkill: 0
-  requiredSkillValue: 0
---- !u!114 &814839379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 814839370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05e3844398d0389429668d180b9342e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellData: {fileID: 0}
 --- !u!50 &814839380
 Rigidbody2D:
   serializedVersion: 4
@@ -57839,8 +57808,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -61.999966, y: -15}
-  m_SizeDelta: {x: 38.054474, y: 22.338165}
+  m_AnchoredPosition: {x: -66.5, y: -15}
+  m_SizeDelta: {x: 53.449295, y: 22.338165}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1013049080
 CanvasRenderer:
@@ -71754,8 +71723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spellIcon: {fileID: 21300000, guid: 1cf5abc70540ad848b35f51c8632185b, type: 3}
-  learnedSpellIcon: {fileID: 21300000, guid: b8491ba868bce9a4f9c8c8b1e5bc0ca4, type: 3}
+  spellIcon: {fileID: 21300000, guid: 308d223a10672d646953acff0789a33f, type: 3}
+  learnedSpellIcon: {fileID: 21300000, guid: 308d223a10672d646953acff0789a33f, type: 3}
   requiredSkill: 4
   requiredSkillValue: 10
 --- !u!114 &1284321113
@@ -118205,6 +118174,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2393931621322791960, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931621322791960, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 154
+      objectReference: {fileID: 0}
     - target: {fileID: 2393931621329352014, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
       propertyPath: requiredSkill
@@ -118334,6 +118313,21 @@ PrefabInstance:
         type: 3}
       propertyPath: specialSpells.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931621545250859, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -66.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931621545250859, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 53.449295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393931621545250859, guid: 3a6825a0119c2dd49a0ebe511488a054,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 2393931622111526229, guid: 3a6825a0119c2dd49a0ebe511488a054,
         type: 3}
@@ -118896,6 +118890,11 @@ PrefabInstance:
         type: 3}
       propertyPath: spellPoints
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734802088631105608, guid: 5476f6a653dd5e448bfefde42ee580c6,
+        type: 3}
+      propertyPath: demons
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2734802088631105611, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}

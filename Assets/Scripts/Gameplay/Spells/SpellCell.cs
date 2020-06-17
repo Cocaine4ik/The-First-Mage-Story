@@ -89,11 +89,8 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     }
 
     public void SetSpellPanelCell() {
-        var panellCellImage = spellPanelCell.GetComponent<Image>();
-        var panelCellSpellInvoker = SpellPanelCell.GetComponent<SpellInvoker>();
-
-        panellCellImage.sprite = cellIcon.sprite;
-        panelCellSpellInvoker.Spell = spell;
+        var panelCell = spellPanelCell.GetComponent<SpellPanelCell>();      
+        EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCell.Id, cellIcon.sprite, spell));
     }
 
     private void CheckRequirement(RequiredSkill skill) {

@@ -32,6 +32,7 @@ public enum EventName {
     SetSkillDescription,
     RefreshSpellBook,
 
+    AddSpelltoPanelCell,
     CastFireball,
     CastFrostbolt,
 

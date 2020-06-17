@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class SpellInvoker : MonoBehaviour
 {
-    [SerializeField] private Spell spellData;
+    [SerializeField] private Spell spell;
 
-    public Spell SpellData => spellData;
+    public Spell Spell {
+        get { return spell; }
+        set { spell = value; }
+    }
 
     public void InvokeSpell() {
-
+        EventManager.TriggerEvent(spell.InvokeEvent, new EventArg(spell));
     }
 }

@@ -30,5 +30,10 @@ public enum EventName {
     RefreshCharacterMenuValues,
     SaveCharacterMenuCash,
     SetSkillDescription,
-    RefreshSpellBook
+    RefreshSpellBook,
+
+    CastFireball,
+    CastFrostbolt,
+
+
 }

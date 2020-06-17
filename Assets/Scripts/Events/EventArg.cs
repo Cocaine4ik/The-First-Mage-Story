@@ -22,6 +22,7 @@ public class EventArg {
     private Quest quest;
     private Story story;
     private Item item;
+    private Spell spell;
 
     #endregion
 
@@ -40,6 +41,7 @@ public class EventArg {
     public Quest Quest => quest;
     public Story Story => story;
     public Item Item => item;
+    public Spell Spell => spell;
 
     #endregion
 
@@ -129,6 +131,9 @@ public class EventArg {
     // constructor with Item
     public EventArg(Item item) {
         this.item = item;
+    }
+    public EventArg(Spell spell) {
+        this.spell = spell;
     }
     #endregion
 }

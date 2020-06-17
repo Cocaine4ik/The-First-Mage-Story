@@ -23,6 +23,7 @@ public class EventArg {
     private Story story;
     private Item item;
     private Spell spell;
+    private Sprite sprite;
 
     #endregion
 
@@ -42,6 +43,7 @@ public class EventArg {
     public Story Story => story;
     public Item Item => item;
     public Spell Spell => spell;
+    public Sprite Sprite => sprite;
 
     #endregion
 
@@ -132,8 +134,17 @@ public class EventArg {
     public EventArg(Item item) {
         this.item = item;
     }
+    // constructor with Spell
     public EventArg(Spell spell) {
         this.spell = spell;
+    }
+
+    // constructor for spellCell
+    public EventArg(int id, Sprite icon, Spell spell) {
+        this.firstIntArg = id;
+        this.sprite = icon;
+        this.spell = spell;
+
     }
     #endregion
 }

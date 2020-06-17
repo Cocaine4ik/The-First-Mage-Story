@@ -13,6 +13,7 @@ public enum RequiredSkill {
 
 public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
 
+    [SerializeField] private Spell spell;
     [SerializeField] private Sprite spellIcon;
     [SerializeField] private Sprite learnedSpellIcon;
 
@@ -22,7 +23,7 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     private bool requirementDone = false;
     private bool isLearned = false;
     private bool onPanel = false;
-    private Spell spellData;
+
     private Button button;
     private Image cellIcon;
 
@@ -38,7 +39,6 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
     }
 
     private void Start() {
-        spellData = GetComponent<SpellInvoker>().SpellData;
         button = GetComponent<Button>();
         button.onClick.AddListener(() => LearnSpell());
         cellIcon = GetComponent<Image>();
@@ -90,8 +90,10 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
     public void SetSpellPanelCell() {
         var panellCellImage = spellPanelCell.GetComponent<Image>();
-        panellCellImage.sprite = cellIcon.sprite;
+        var panelCellSpellInvoker = SpellPanelCell.GetComponent<SpellInvoker>();
 
+        panellCellImage.sprite = cellIcon.sprite;
+        panelCellSpellInvoker.Spell = spell;
     }
 
     private void CheckRequirement(RequiredSkill skill) {

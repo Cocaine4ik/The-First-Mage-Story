@@ -22,5 +22,7 @@ public class SpellEvents : MonoBehaviour
     private void OnCastFrostbolt(EventArg arg) {
         Debug.Log("Cast: " + arg.Spell.name.ToString());
     }
+
+    
     #endregion
 }

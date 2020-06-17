@@ -5,11 +5,20 @@ using UnityEngine;
 public class SpellPanel : MonoBehaviour
 {
     [SerializeField] private List<SpellInvoker> spellInvokers;
+    private List<SpellPanelCell> panelCells = new List<SpellPanelCell>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    private void OnEnable() {
+        EventManager.StartListening(EventName.AddSpelltoPanelCell, OnAddSpell);
+    }
+    private void OnDisable() {
+        EventManager.StopListening(EventName.AddSpelltoPanelCell, OnAddSpell);
+    }
+
+    private void Start() {
+        foreach(SpellInvoker spellInvoker in spellInvokers) {
+            var panelCell = spellInvoker.gameObject.GetComponent<SpellPanelCell>();
+            panelCells.Add(panelCell);
+        }
     }
 
     // Update is called once per frame
@@ -46,5 +55,20 @@ public class SpellPanel : MonoBehaviour
             spellInvokers[0].InvokeSpell();
         }
 
+    }
+
+    private void OnAddSpell(EventArg arg) {
+
+        var id = arg.FirstIntArg;
+        var icon = arg.Sprite;
+        var spell = arg.Spell;
+
+        foreach(SpellPanelCell cell in panelCells) {
+
+            if(cell.Id == id) {
+                cell.Image.sprite = icon;
+                cell.SpellInvoker.Spell = spell;
+            }
+        }
     }
 }

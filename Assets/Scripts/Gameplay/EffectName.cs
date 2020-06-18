@@ -4,8 +4,8 @@ public enum EffectName
     Invisible,
     Blind,
     Stun,
-    Burned,
+    Burn,
     Freeze,
-    Poisoned,
+    Poison,
     None,
 }

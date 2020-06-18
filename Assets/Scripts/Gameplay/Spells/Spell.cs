@@ -5,14 +5,16 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Spell")]
 public class Spell : ScriptableObject, ISpell
 {
+    [Header("Spell Data")]
     [SerializeField] private SpellName spellName;
     [SerializeField] private GameObject spellCastPrefab;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private EventName invokeEvent;
+    [SerializeField] private SpellType spellType;
     [SerializeField] private DamageType damageType;
     [SerializeField] private EffectName spellEffect = EffectName.None;
 
-    public SpellName SpellName => throw new System.NotImplementedException();
+    public SpellName SpellName => spellName;
 
     public GameObject SpellCastPrefab => throw new System.NotImplementedException();
 
@@ -23,7 +25,7 @@ public class Spell : ScriptableObject, ISpell
     public enum SpellType {
         Summon,
         Projectile,
-        Buff,
-
+        Target,
+        Self
     }
 }

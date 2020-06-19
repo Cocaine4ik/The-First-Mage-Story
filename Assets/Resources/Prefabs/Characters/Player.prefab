@@ -200,6 +200,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6c252ddb6c57824eb95ee32a5d2b13f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atackTrigger: {fileID: 2734802088375357080}
+  feetPos: {fileID: 2734802089154642140}
   corpse: {fileID: 6108709652582025494, guid: ccc774761532fe64785fc296bb81ead2, type: 3}
   speed: 3
   enemies:
@@ -213,7 +215,8 @@ MonoBehaviour:
   jumpSound: 3
   projectilePrefab: {fileID: 1606735044020938, guid: 8d31877715ba0b2438574d567c33ea6e,
     type: 3}
-  magicShield: {fileID: 0}
+  magicShield: {fileID: 8476130485871478962, guid: 6890911547b2aa44b9f79f21304c4171,
+    type: 3}
   manaPerTeleport: 5
   teleportSound: 2
 --- !u!114 &2734802088631105608

@@ -18,5 +18,8 @@ MonoBehaviour:
     type: 3}
   invokeEvent: 25
   spellType: 1
+  spellDamage: 50
   damageType: 2
   spellEffect: 3
+  manaCost: 15
+  cooldown: 0

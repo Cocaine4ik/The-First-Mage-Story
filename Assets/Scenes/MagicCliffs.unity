@@ -1105,6 +1105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &17610491
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3576,6 +3578,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &68634894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4644,6 +4648,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &92396474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,6 +6437,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &129324913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10373,6 +10381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &229683176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11133,7 +11143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
+  spell: {fileID: 11400000, guid: 1f407934269cb4e408ec5bffd2731611, type: 2}
   spellIcon: {fileID: 21300000, guid: d9d8cf4787399534186fa18753b63131, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: 5d4c7d730da0c7c43aa0e760ab9db9bc, type: 3}
   requiredSkill: 0
@@ -16273,6 +16283,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &329072884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19318,6 +19330,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &374234472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24385,6 +24399,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &482324641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27671,6 +27687,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &548054624
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32361,6 +32379,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &628484458
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32673,6 +32693,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &628635196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34940,6 +34962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &679916488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35086,6 +35110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &680901923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39479,6 +39505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &766092408
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39772,6 +39800,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &769739211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -41883,6 +41913,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &812649403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43613,6 +43645,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &844276113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45375,6 +45409,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &882089768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52217,6 +52253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &938611988
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52613,6 +52651,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &951954677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54748,6 +54788,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &991384374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54898,6 +54940,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &991843823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60495,6 +60539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1105294851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60975,6 +61021,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1112591884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62953,6 +63001,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1137212623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63103,6 +63153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1138618568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65470,6 +65522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1192247630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65701,6 +65755,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1193216216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66103,6 +66159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1198381854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68636,6 +68694,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1259823915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72149,6 +72209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1318351854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -75508,6 +75570,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1401049153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77879,6 +77943,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1426035285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78803,6 +78869,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1446304530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80937,6 +81005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1484960757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84027,6 +84097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1561802426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93098,6 +93170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1735208539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94320,6 +94394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1761854377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100751,6 +100827,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1895533768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105355,6 +105433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &1989249414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109224,6 +109304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &2059064064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109977,6 +110059,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &2069068189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110457,6 +110541,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &2081566119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112932,6 +113018,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &2122934902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113498,6 +113586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 5
   atackRange: 0
+  damageType: 0
+  effect: 6
 --- !u!114 &2134848790
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -116060,12 +116150,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2734802088631105614, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}
-      propertyPath: magicShield
-      value: 
-      objectReference: {fileID: 8476130485871478962, guid: 6890911547b2aa44b9f79f21304c4171,
-        type: 3}
-    - target: {fileID: 2734802088631105614, guid: 5476f6a653dd5e448bfefde42ee580c6,
-        type: 3}
       propertyPath: jumpMoveControlTime
       value: 3
       objectReference: {fileID: 0}
@@ -116079,12 +116163,6 @@ PrefabInstance:
       propertyPath: isRight
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2734802088631105614, guid: 5476f6a653dd5e448bfefde42ee580c6,
-        type: 3}
-      propertyPath: projectilePrefab
-      value: 
-      objectReference: {fileID: 5036661645459858037, guid: 0e2f82998337933448205dfec7194c83,
-        type: 3}
     - target: {fileID: 2734802088631105618, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}
       propertyPath: m_Color.a

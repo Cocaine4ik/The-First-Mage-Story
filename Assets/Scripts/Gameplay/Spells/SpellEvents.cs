@@ -18,20 +18,26 @@ public class SpellEvents : MonoBehaviour
     private void Start() {
 
         atackTrigger = GetComponent<Player>().AtackTrigger;
+        Debug.Log(atackTrigger.gameObject.name);
     }
     #region Events
 
-    private void CastProjectile(GameObject projectilePrefab) {
+    private void CastProjectile(GameObject projectilePrefab, int damage, DamageType damageType, EffectName effect) {
 
-        GameObject projectile = Instantiate(projectilePrefab, new Vector2(atackTrigger.gameObject.transform.position.x,
+        var projectileData = projectilePrefab.GetComponent<Projectile>();
+        projectileData.Damage = damage;
+        projectileData.DamageType = damageType;
+        projectileData.Effect = effect;
+
+        var projectile = Instantiate(projectilePrefab, new Vector2(atackTrigger.gameObject.transform.position.x,
         atackTrigger.gameObject.transform.position.y), atackTrigger.gameObject.transform.rotation);
 
         projectile.GetComponent<Projectile>().SetOwner(gameObject);
     }
     private void OnCastFireball(EventArg arg) {
-
-        CastProjectile(arg.Spell.ProjectilePrefab);        
-        Debug.Log("Cast: " + arg.Spell.name.ToString());
+        var spell = arg.Spell;
+        CastProjectile(spell.ProjectilePrefab, spell.SpellDamage, spell.DamageType, spell.SpellEffect);        
+        Debug.Log("Cast: " + spell.name);
     }
     private void OnCastFrostbolt(EventArg arg) {
         Debug.Log("Cast: " + arg.Spell.name.ToString());

@@ -4,7 +4,7 @@ public enum DamageType
     Physical,
     Veil,
     Fire,
-    Frost,
+    Ice,
     Nature,
     Divine
 }

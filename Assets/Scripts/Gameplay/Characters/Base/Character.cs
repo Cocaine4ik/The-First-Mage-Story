@@ -10,6 +10,8 @@ public class Character : CharacterBase {
 
     #region Fields
 
+    [SerializeField] protected Transform atackTrigger;
+    [SerializeField] protected Transform feetPos;
     [SerializeField] protected GameObject corpse;
     // move speed
     [SerializeField] protected float speed = 5f;
@@ -20,8 +22,6 @@ public class Character : CharacterBase {
     protected Animator animator;
     protected Timer jumpControlTimer;
     protected DamageData damageData;
-    protected Transform atackTrigger;
-    protected Transform feetPos;
     protected LayerMask whatIsGround;
 
     [SerializeField] protected bool isRight = true;
@@ -75,8 +75,6 @@ public class Character : CharacterBase {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         characterHealth = GetComponent<CharacterHealth>();
-        atackTrigger = transform.Find("Atack Trigger");
-        feetPos = transform.Find("Feet Pos");
 
         if (atackTrigger != null) damageData = atackTrigger.gameObject.GetComponent<DamageData>();
 

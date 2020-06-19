@@ -6,11 +6,10 @@ using TMPro;
 
 public class InventoryCell : MonoBehaviour
 {
+    private ItemName itemName;
+    private ItemType itemType;
     private Image iconField;
     private Color itemColor;
-    private string itemNameKey;
-    private string itemTypeKey;
-    private string itemDescriptionKey;
     private int itemNumber;
 
     [SerializeField] private TextMeshProUGUI itemNumberText;
@@ -18,9 +17,9 @@ public class InventoryCell : MonoBehaviour
     [SerializeField] private bool isEmpty;
     [SerializeField] private bool isStack;
 
+    public ItemName ItemName => itemName;
     public bool IsEmpty => isEmpty;
     public bool IsStack => isStack;
-    public string ItemNameKey => itemNameKey;
 
     private void Awake() {
 
@@ -37,18 +36,17 @@ public class InventoryCell : MonoBehaviour
 
     public void AddItemToCell(IITem item) {
 
+        itemName = item.ItemName;
+        itemType = item.ItemType;
         iconField.sprite = item.ItemIcon;
         itemColor = item.ItemColor;
-        itemNameKey = item.ItemNameKey;
-        itemTypeKey = item.ItemTypeKey;
-        itemDescriptionKey = item.ItemDescriptionKey;
         isEmpty = false;
     }
 
     public void OnInventoryCellSelected() {
 
         if (isEmpty == false) {
-            EventManager.TriggerEvent(EventName.ShowInventoryItemData, new EventArg(itemNameKey, itemDescriptionKey, itemTypeKey));
+            EventManager.TriggerEvent(EventName.ShowInventoryItemData, new EventArg(itemName, itemType));
             EventManager.TriggerEvent(EventName.ChangeItemTypeColor, new EventArg(itemColor));
         }
 

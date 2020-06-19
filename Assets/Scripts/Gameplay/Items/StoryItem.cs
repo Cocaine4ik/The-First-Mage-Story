@@ -8,9 +8,8 @@ public class StoryItem : Item
     [Header("Story:")]
     public StoryName story;
 
-    private void OnEnable() {
-
+    protected override void OnEnable() {
+        base.OnEnable();
         itemColor = new Color32(104, 106, 173, 255);
-
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.AI;
 
 /// <summary>
 /// Event argument with custm constructors
@@ -22,6 +23,8 @@ public class EventArg {
     private Quest quest;
     private Story story;
     private Item item;
+    private ItemName itemName;
+    private ItemType itemType;
     private Spell spell;
     private Sprite sprite;
 
@@ -42,6 +45,8 @@ public class EventArg {
     public Quest Quest => quest;
     public Story Story => story;
     public Item Item => item;
+    public ItemName ItemName => itemName;
+    public ItemType ItemType => itemType;
     public Spell Spell => spell;
     public Sprite Sprite => sprite;
 
@@ -133,6 +138,12 @@ public class EventArg {
     // constructor with Item
     public EventArg(Item item) {
         this.item = item;
+    }
+
+    // constructor with ItemName and ItemType
+    public EventArg(ItemName name, ItemType type) {
+        this.itemName = name;
+        this.itemType = type;
     }
     // constructor with Spell
     public EventArg(Spell spell) {

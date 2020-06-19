@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using System.Runtime.Remoting.Messaging;
 
 [System.Serializable]
 public class Inventory : UIElementBase {
 
     #region Fields
+    [Header("Inventory components")]
     [SerializeField] private int inventorySize;
 
     [SerializeField] private List<Item> items;
@@ -15,10 +17,14 @@ public class Inventory : UIElementBase {
     [SerializeField] private InventoryCell inventoryCellTemplate;
     [SerializeField] private Transform storage;
 
+    [Header("Localization components")]
     [SerializeField] private LocalizedTMPro itemName;
     [SerializeField] private LocalizedTMPro itemDescription;
     [SerializeField] private LocalizedTMPro itemType;
 
+    private const string ItemNameKey = "Items.Name.";
+    private const string ItemDescriptionKey = "Items.Description.";
+    private const string ItemTypeKey = "Items.Type.";
 
     #endregion
 
@@ -58,7 +64,7 @@ public class Inventory : UIElementBase {
 
         foreach (InventoryCell cell in inventoryCells) {
 
-           if(item.ItemNameKey == cell.ItemNameKey) {
+           if(item.ItemName == cell.ItemName) {
                 
             }
            if(cell.IsEmpty) {
@@ -72,9 +78,9 @@ public class Inventory : UIElementBase {
 
     private void OnSetSelectedItemData(EventArg arg) {
 
-        itemName.ChangeLocalization(arg.FirstStringArg);
-        itemDescription.ChangeLocalization(arg.SecondStringArg);
-        itemType.ChangeLocalization(arg.ThirdStringArg);
+        itemName.ChangeLocalization(ItemNameKey + arg.ItemName.ToString());
+        itemDescription.ChangeLocalization(ItemDescriptionKey + arg.ItemName.ToString());
+        itemType.ChangeLocalization(ItemTypeKey + arg.ItemType.ToString());
     }
 
     private void OnChangeItemTypeColor(EventArg arg) {

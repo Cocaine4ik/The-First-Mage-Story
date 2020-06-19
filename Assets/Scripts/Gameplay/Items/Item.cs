@@ -6,35 +6,24 @@ public class Item : ScriptableObject, IITem {
     #region Fields
 
     [Header("Item parameters")]
-    [SerializeField] protected Sprite itemIcon;
-    [SerializeField] protected Color32 itemColor;
     [SerializeField] protected ItemName itemName;
     [SerializeField] protected ItemType itemType;
-
-    [Header("Localiztion keys")]
-    [SerializeField] protected string itemNameKey = "Item.Name.";
-    [SerializeField] protected string itemDescriptionKey = "Item.Description.";
-
-    protected string itemTypeKey;
-    protected string itemTypeKeyDefault = "Items.Type.";
+    [SerializeField] protected Sprite itemIcon;
+    [SerializeField] protected Color32 itemColor;
 
     #endregion
 
     #region Properties
 
+    public ItemName ItemName => itemName;
+    public ItemType ItemType => itemType;
     public Sprite ItemIcon => itemIcon;
     public Color32 ItemColor => itemColor;
 
-    public string ItemNameKey => itemNameKey;
-    public string ItemDescriptionKey => itemDescriptionKey;
-    public string ItemTypeKey => itemTypeKeyDefault + GetType().ToString();
-
     #endregion
 
-    public enum ItemType {
-        Quest,
-        Story,
-        Relic,
+    protected virtual void OnEnable() {
 
+        itemType = (ItemType)Enum.Parse(typeof(ItemType), GetType().ToString());
     }
 }

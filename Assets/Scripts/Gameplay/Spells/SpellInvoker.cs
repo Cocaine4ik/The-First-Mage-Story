@@ -13,7 +13,7 @@ public class SpellInvoker : MonoBehaviour
 
     public void InvokeSpell() {
         if(spell != null) {
-            EventManager.TriggerEvent(spell.InvokeEvent, new EventArg(spell));
+            EventManager.TriggerEvent(EventName.InvokeSpell, new EventArg(spell));
         }
         else {
             // AudioManager.SFXAudioSource.Play(SFXClipName.MagicArrow);

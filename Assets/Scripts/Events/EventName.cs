@@ -31,10 +31,7 @@ public enum EventName {
     SaveCharacterMenuCash,
     SetSkillDescription,
     RefreshSpellBook,
-
     AddSpelltoPanelCell,
-    CastFireball,
-    CastFrostbolt,
-
+    InvokeSpell
 
 }

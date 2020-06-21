@@ -102217,7 +102217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
+  spell: {fileID: 11400000, guid: 023922ca125ad0d47ac0414e67277995, type: 2}
   spellIcon: {fileID: 21300000, guid: 11241d870a97df643b9a1291bb49e484, type: 3}
   learnedSpellIcon: {fileID: 21300000, guid: b1c63ce88cccb6d4fb5f6273794591d3, type: 3}
   requiredSkill: 0
@@ -116123,6 +116123,11 @@ PrefabInstance:
       propertyPath: maxMana
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 880481981422903372, guid: 5476f6a653dd5e448bfefde42ee580c6,
+        type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 7400000, guid: c1fc8e2304fee944bbd820e5558cd00c, type: 2}
     - target: {fileID: 2734802088375357083, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}
       propertyPath: m_TagString
@@ -116167,6 +116172,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734802088631105618, guid: 5476f6a653dd5e448bfefde42ee580c6,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734802088631105618, guid: 5476f6a653dd5e448bfefde42ee580c6,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.84
       objectReference: {fileID: 0}
     - target: {fileID: 2734802090472212076, guid: 5476f6a653dd5e448bfefde42ee580c6,
         type: 3}

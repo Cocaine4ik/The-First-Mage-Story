@@ -67,7 +67,7 @@ public class Player : MagicCharacter {
 
     protected override void FixedUpdate() {
 
-        if (Input.GetAxis("Horizontal") != 0 && !isPickup && StatusUtils.GUIisActive == false 
+        if (Input.GetAxis("Horizontal") != 0 && !isPickup && !isCast && StatusUtils.GUIisActive == false 
             && StatusUtils.CutScenePlaying == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {

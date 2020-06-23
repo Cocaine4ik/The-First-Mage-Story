@@ -148,5 +148,5 @@ MonoBehaviour:
   damageType: 3
   effect: 4
   speed: 7
-  impactEffect: {fileID: 1687860514029964, guid: 1de5e0becbfe9ea4c9c6972365216086,
+  impactEffect: {fileID: 1687860514029964, guid: e91e48e4d0b32754496eb6700d965f1a,
     type: 3}

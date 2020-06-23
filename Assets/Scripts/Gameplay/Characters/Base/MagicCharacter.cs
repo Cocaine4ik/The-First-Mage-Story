@@ -15,8 +15,16 @@ public class MagicCharacter : RangeCharacter{
 
     protected bool isTeleportedIn = false;
     protected bool isTeleportedOut = false;
+    protected bool isCast = false;
 
     [SerializeField] protected SFXClipName teleportSound;
+    #endregion
+
+    #region Properties
+    public bool IsCast {
+        get { return isCast; }
+        set { isCast = value; }
+    }
     #endregion
 
     #region Methods

@@ -8,8 +8,9 @@ public class Player : MagicCharacter {
     #region Fields
 
     private bool canPickup = false;
-    private bool isPickup = false;
+    private bool canRest = false;
     private GameObject tempPickupItem;
+    private SaveTrigger saveTrigger;
 
     #endregion
 
@@ -22,35 +23,39 @@ public class Player : MagicCharacter {
 
         if (StatusUtils.GUIisActive == false && StatusUtils.CutScenePlaying == false) {
 
-        // atack if atack button down
-        if (Input.GetButtonDown("Fire1") && !isAtack) {
+            // atack if atack button down
+            if (Input.GetButtonDown("Fire1") && !isAtack) {
 
-            Atack();
-           
-        }
-        // teleport if teleport button down
-        if (Input.GetButtonDown("Fire2")) {
-
-            Teleport();
-
-        }
-
-        // jump if jump button down
-        if (isGrounded && Input.GetButtonDown("Jump") && !isPickup) {
-
-            Jump(jumpForce);
-
-        }
-
-        if (canPickup && Input.GetButtonDown("Grab") && isGrounded) {
-
-            Pickup();
+                Atack();
 
             }
-        }
+            // teleport if teleport button down
+            if (Input.GetButtonDown("Fire2")) {
 
-        if(StatusUtils.GUIisActive == true) {
-            Move(0);
+                Teleport();
+
+            }
+
+            // jump if jump button down
+            if (isGrounded && Input.GetButtonDown("Jump")) {
+
+                Jump(jumpForce);
+
+            }
+
+            if (Input.GetButtonDown("Action") && isGrounded) {
+                if (canPickup) {
+                    Pickup();
+                }
+                if (canRest) {
+
+                }
+
+            }
+
+            if (StatusUtils.GUIisActive == true) {
+                Move(0);
+            }
         }
     }
 
@@ -60,14 +65,19 @@ public class Player : MagicCharacter {
 
         animator.SetTrigger("Pickup");
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
-        // isPickup = true;
         Destroy(tempPickupItem);
         
     }
 
+    private void Rest() {
+        animator.SetTrigger("Rest");
+        if(saveTrigger != null) {
+            saveTrigger.SaveData();
+        }
+    }
     protected override void FixedUpdate() {
 
-        if (Input.GetAxis("Horizontal") != 0 && !isPickup && !isCast && StatusUtils.GUIisActive == false 
+        if (Input.GetAxis("Horizontal") != 0 && !isCast && StatusUtils.GUIisActive == false 
             && StatusUtils.CutScenePlaying == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
@@ -82,12 +92,6 @@ public class Player : MagicCharacter {
         }
 
     }
-    /*
-    private void LateUpdate()
-    {
-        stats.SetMana(mana);
-        stats.SetHp(hp);
-    }*/
     protected void OnTriggerEnter2D(Collider2D collision) {
 
         if(collision.gameObject.GetComponent<GameItem>() != null) {
@@ -95,7 +99,16 @@ public class Player : MagicCharacter {
             canPickup = true;
             tempPickupItem = collision.gameObject;
         }
-
+        if(collision.gameObject.GetComponent<SaveTrigger>() != null) {
+            canRest = true;
+            saveTrigger = collision.gameObject.GetComponent<SaveTrigger>();
+        }
+    }
+    protected void OnTriggerExit2D(Collider2D collision) {
+        if (collision.gameObject.GetComponent<SaveTrigger>() != null) {
+            canRest = false;
+            saveTrigger = null;
+        }
     }
     public override void Hurt() {
 
@@ -106,12 +119,10 @@ public class Player : MagicCharacter {
 
     #region Animation Events
 
-    private void OnCollectEnd() {
+    private void OnPickupEnd() {
         canPickup = false;
-        isPickup = false;
-
+        tempPickupItem = null;
     }
-
     protected override void OnTeleport(int maxManaValue) {
         base.OnTeleport(characterMana.MaxMana);
     }

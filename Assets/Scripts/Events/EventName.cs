@@ -17,8 +17,6 @@ public enum EventName {
     ManaChange,
     SetMaxHp,
     SetMaxMana,
-    Save,
-    Load,
     SpawnRavens,
     ShowInventoryItemData,
     ChangeItemTypeColor,

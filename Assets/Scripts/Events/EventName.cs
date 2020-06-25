@@ -32,6 +32,9 @@ public enum EventName {
     SetSkillDescription,
     RefreshSpellBook,
     AddSpelltoPanelCell,
-    InvokeSpell
+    InvokeSpell,
+    SaveData,
+    LoadData
+
 
 }

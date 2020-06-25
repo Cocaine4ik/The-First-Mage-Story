@@ -114,7 +114,16 @@ public class Character : CharacterBase {
         Flip(moveX);
   
     }
-
+    private void OnCollisionEnter2D(Collision2D collision) {
+        if(collision.gameObject.GetComponent<MovingPlatform>() != null) {
+            transform.parent = collision.transform;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision) {
+        if (collision.gameObject.GetComponent<MovingPlatform>() != null) {
+            transform.parent = null;
+        }
+    }
     public override void Move(float moveX) {
 
         if (!isAtack && isAlive) {

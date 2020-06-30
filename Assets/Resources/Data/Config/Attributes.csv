@@ -5,3 +5,8 @@ SpiritDefault,10
 FaithDefault,10
 DemonsDefault,0
 AlchemyDefault,0
+SkillPointsPerLevel,5
+HealthBySpiritPoint,10
+ManaByWisdomPoint,10
+FaithChanceModifier,10
+SpellPointsPerLevel,1

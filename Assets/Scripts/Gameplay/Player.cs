@@ -48,7 +48,7 @@ public class Player : MagicCharacter {
                     Pickup();
                 }
                 if (canRest) {
-
+                    saveTrigger.SaveData();
                 }
 
             }
@@ -77,12 +77,17 @@ public class Player : MagicCharacter {
     }
     protected override void FixedUpdate() {
 
+        if(StatusUtils.GUIisActive) {
+            moveX = 0;
+            Move(moveX);
+        }
         if (Input.GetAxis("Horizontal") != 0 && !isCast && StatusUtils.GUIisActive == false 
             && StatusUtils.CutScenePlaying == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
                 moveX = 0;
             }
+
             else {
                 moveX = Input.GetAxis("Horizontal");
             }
@@ -90,6 +95,7 @@ public class Player : MagicCharacter {
             base.FixedUpdate();
             Move(moveX);
         }
+
 
     }
     protected void OnTriggerEnter2D(Collider2D collision) {

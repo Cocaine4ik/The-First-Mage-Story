@@ -13,7 +13,7 @@ public class Reward : MonoBehaviour
     /// </summary>
     private void OnDestroy()
     {
-        EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
+      EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
     }
 
 

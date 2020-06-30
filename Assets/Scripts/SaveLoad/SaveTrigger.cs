@@ -6,5 +6,6 @@ public class SaveTrigger : MonoBehaviour
 {
     public void SaveData() {
         EventManager.TriggerEvent(EventName.SaveData);
+        Debug.Log("SaveData");
     }
 }

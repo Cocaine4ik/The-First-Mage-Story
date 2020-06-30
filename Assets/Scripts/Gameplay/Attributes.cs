@@ -39,12 +39,30 @@ public class Attributes : MonoBehaviour
     public int ExpToLevelUp => expToLevelUp;
     public int CurrentLevel => currentLevel;
 
-    public int Knowledge => knowledge;
-    public int Wisdom => wisdom;
-    public int Spirit => spirit;
-    public int Faith => faith;
-    public int Demons => demons;
-    public int Alchemy => alchemy;
+    public int Knowledge {
+        get { return knowledge; }
+        set { knowledge = value; }
+    }
+    public int Wisdom {
+        get { return wisdom; }
+        set { wisdom = value; }
+    }
+    public int Spirit {
+        get { return spirit; }
+        set { spirit = value; }
+    }
+    public int Faith {
+        get { return faith; }
+        set { faith = value; }
+    }
+    public int Demons {
+        get { return demons; }
+        set { demons = value; }
+    }
+    public int Alchemy {
+        get { return alchemy; }
+        set { alchemy = value; }
+    }
 
     public int SkillPoints => skillPoints;
     public int SpellPoints => spellPoints;
@@ -108,10 +126,10 @@ public class Attributes : MonoBehaviour
 
     }
     public void IncreaseDemons() {
-
+        demons++;
     }
-    public void IncreaseScience() {
-
+    public void IncreaseAlchemy() {
+        alchemy++;
     }
 
     private int IncreaseSkill(int skillValue, bool isIncrease) {
@@ -141,11 +159,15 @@ public class Attributes : MonoBehaviour
         }
     }
 
+    public void SetLevel(int level) {
+        currentLevel = level;
+        EventManager.TriggerEvent(EventName.LevelUp, new EventArg(currentLevel));
+    }
     /// <summary>
     /// Set exp to reach next level
     /// </summary>
     /// <param name="lvl"></param>
-    private void SetExpToLevelUp(int lvl)
+    public void SetExpToLevelUp(int lvl)
     {
         switch (lvl)
         {
@@ -172,7 +194,13 @@ public class Attributes : MonoBehaviour
     }
     private void OnAddExp(EventArg arg) {
 
-        currentExp += arg.FirstIntArg;
+        var exp = arg.FirstIntArg;
+        AddExp(exp);
+    }
+
+    public void AddExp(int exp) {
+
+        currentExp += exp;
 
         if (currentExp >= expToLevelUp) {
             LevelUp();
@@ -182,7 +210,6 @@ public class Attributes : MonoBehaviour
 
         ChangeGUIExpValue(expDifference);
     }
-
     private void ChangeGUIExpValue(int exp)
     {
         var expToLevelDifference = expToLevelUp - previousLevelExp;
@@ -191,6 +218,12 @@ public class Attributes : MonoBehaviour
         EventManager.TriggerEvent(EventName.GUIExpChange, new EventArg(expPercent));
     }
 
+    public void AddSkillPoints(int points) {
+        skillPoints = points;
+    }
+    public void AddSpellPoints(int points) {
+        spellPoints = points;
+    }
     public void DecreaseSpellPoints() {
         spellPoints--;
     }

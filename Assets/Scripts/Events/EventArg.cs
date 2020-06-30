@@ -27,6 +27,7 @@ public class EventArg {
     private ItemType itemType;
     private Spell spell;
     private Sprite sprite;
+    private GameObject gameObject;
 
     #endregion
 
@@ -49,6 +50,7 @@ public class EventArg {
     public ItemType ItemType => itemType;
     public Spell Spell => spell;
     public Sprite Sprite => sprite;
+    public GameObject GameObject => gameObject;
 
     #endregion
 
@@ -156,6 +158,10 @@ public class EventArg {
         this.sprite = icon;
         this.spell = spell;
 
+    }
+    // constructor for saving destroyed objects
+    public EventArg(GameObject gameObject) {
+        this.gameObject = gameObject;
     }
     #endregion
 }

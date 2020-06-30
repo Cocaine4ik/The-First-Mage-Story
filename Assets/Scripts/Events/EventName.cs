@@ -32,7 +32,9 @@ public enum EventName {
     AddSpelltoPanelCell,
     InvokeSpell,
     SaveData,
-    LoadData
+    LoadData,
+    LoadScene,
+    SaveDestroyedObject
 
 
 }

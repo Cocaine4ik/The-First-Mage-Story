@@ -80,13 +80,20 @@ using UnityEngine.Networking;
 
 				if (downloader.error == null)
 				{
-                    var sheet = sheets.Single(i => downloader.url == string.Format(UrlPattern, tableId, i.Id));
-                    var path = System.IO.Path.Combine(folder, sheet.Name + ".csv");
 
-					System.IO.File.WriteAllBytes(path, downloader.downloadHandler.data);
-					UnityEditor.AssetDatabase.Refresh();
+                    foreach(Sheet sheet in sheets) {
 
-                    Debug.LogFormat("Sheet {0} downloaded to {1}", sheet.Id, path);
+                        if(downloader.url.Contains(sheet.Id.ToString())) {
+
+                        var path = System.IO.Path.Combine(folder, sheet.Name + ".csv");
+
+                        System.IO.File.WriteAllBytes(path, downloader.downloadHandler.data);
+                        UnityEditor.AssetDatabase.Refresh();
+
+                        Debug.LogFormat("Sheet {0} downloaded to {1}", sheet.Name, path);
+
+                        }
+                    }                   
             }
 				else
 				{

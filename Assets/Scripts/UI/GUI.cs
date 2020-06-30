@@ -47,6 +47,7 @@ public class GUI : MonoBehaviour {
         EventManager.StopListening(EventName.GUIExpChange, OnGUIExpChange);
         EventManager.StopListening(EventName.ManaChange, OnGUIManaChange);
         EventManager.StopListening(EventName.HpChange, OnGUIHealthChange);
+
         EventManager.StopListening(EventName.SetMaxMana, OnSetMaxMana);
 
     }

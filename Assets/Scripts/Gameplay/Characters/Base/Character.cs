@@ -205,6 +205,7 @@ public class Character : CharacterBase {
     // left the body after death
     protected void OnDeath() {
         Instantiate(corpse, gameObject.transform.position, gameObject.transform.rotation);
+        EventManager.TriggerEvent(EventName.SaveDestroyedObject, new EventArg(gameObject.name));
         Destroy(gameObject);
     }
 

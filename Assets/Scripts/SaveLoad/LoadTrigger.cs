@@ -6,6 +6,7 @@ public class LoadTrigger : MonoBehaviour
 {
     public void LoadData() {
         EventManager.TriggerEvent(EventName.LoadScene);
+        // PlayerPrefs.DeleteAll();
     }
 
 }

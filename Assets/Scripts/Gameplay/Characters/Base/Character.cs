@@ -180,6 +180,10 @@ public class Character : CharacterBase {
         if(characterHealth.CurrentHealth <= 0) {
             isAlive = false;
             animator.SetBool("IsAlive", isAlive);
+            if(GetComponent<Reward>() != null)
+            {
+                GetComponent<Reward>().AddExpRevard();
+            }
         }
     }
     #endregion
@@ -205,7 +209,6 @@ public class Character : CharacterBase {
     // left the body after death
     protected void OnDeath() {
         Instantiate(corpse, gameObject.transform.position, gameObject.transform.rotation);
-        EventManager.TriggerEvent(EventName.SaveDestroyedObject, new EventArg(gameObject.name));
         Destroy(gameObject);
     }
 

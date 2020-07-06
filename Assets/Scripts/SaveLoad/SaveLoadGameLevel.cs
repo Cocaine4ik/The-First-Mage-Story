@@ -73,6 +73,7 @@ public class SaveLoadGameLevel : SaveLoadData
         foreach (string name in destroyedObjectsNames)
         {
             PlayerPrefs.SetString(name, name);
+            Debug.Log("Saving: " + name);
         }
     }
 
@@ -80,8 +81,10 @@ public class SaveLoadGameLevel : SaveLoadData
     {
         foreach(GameObject objectToSave in objectsToSave)
         {
+            Debug.Log("Objectcs pull: " + objectToSave.name);
+
             var levelObject = PlayerPrefs.GetString(objectToSave.name);
-            Debug.Log(levelObject);
+            // Debug.Log(levelObject);
             if(!String.IsNullOrEmpty(levelObject))
             {
                 Destroy(objectToSave);

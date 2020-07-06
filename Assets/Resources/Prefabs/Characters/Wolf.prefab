@@ -45,6 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   atackRange: 0.6
+  damageType: 0
+  effect: 6
 --- !u!1 &2101560476304868748
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +64,7 @@ GameObject:
   - component: {fileID: 2510668164612928330}
   - component: {fileID: 1486642198233058359}
   - component: {fileID: 6273486538561090008}
+  - component: {fileID: 7408881354255936810}
   m_Layer: 10
   m_Name: Wolf
   m_TagString: Enemy
@@ -272,6 +275,18 @@ MonoBehaviour:
   jumpControlTime: 0
   atackSound: 0
   jumpSound: 0
+--- !u!114 &7408881354255936810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101560476304868748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bc3441308d8b6546b7be3a6b0064157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4645783864200237586
 GameObject:
   m_ObjectHideFlags: 0

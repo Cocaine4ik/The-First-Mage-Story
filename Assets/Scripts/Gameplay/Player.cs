@@ -72,7 +72,12 @@ public class Player : MagicCharacter {
 
         animator.SetTrigger("Pickup");
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
-        
+
+        if (tempPickupItem.GetComponent<SaveMe>() != null)
+        {
+            tempPickupItem.GetComponent<SaveMe>().SaveDestroyedObject();
+        }
+
         Destroy(tempPickupItem);
         
     }

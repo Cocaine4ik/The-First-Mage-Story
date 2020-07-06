@@ -5,7 +5,7 @@ using UnityEngine;
 public class SaveLoadPlayer : SaveLoadData
 {
     protected override void OnSaveData(EventArg arg) {
-
+       
         // Player position
         PlayerPrefs.SetFloat("PositionX", Attributes.Instance.transform.position.x);
         PlayerPrefs.SetFloat("PositionY", Attributes.Instance.transform.position.y);
@@ -33,6 +33,7 @@ public class SaveLoadPlayer : SaveLoadData
         var posX = PlayerPrefs.GetFloat("PositionX");
         var posY = PlayerPrefs.GetFloat("PositionY");
         Attributes.Instance.transform.position = new Vector2(posX, posY);
+        Debug.Log("Load Player positon.");
 
         var level = PlayerPrefs.GetInt("CurrentLevel");
         Attributes.Instance.SetLevel(level);
@@ -66,5 +67,15 @@ public class SaveLoadPlayer : SaveLoadData
         var spellPoints = PlayerPrefs.GetInt("SpellPoints");
         Attributes.Instance.AddSkillPoints(skillPoints);
         Attributes.Instance.AddSpellPoints(spellPoints);
+
+        // Restore current health to max health
+        var healthDif = Attributes.Instance.CharacterHealth.MaxHealth -
+            Attributes.Instance.CharacterHealth.CurrentHealth;
+        Attributes.Instance.CharacterHealth.TakeDamage(-healthDif);
+
+        // Restore current mana to max mana
+        var manaDif = Attributes.Instance.CharacterMana.MaxMana -
+            Attributes.Instance.CharacterMana.CurrentMana;
+        Attributes.Instance.CharacterMana.BurnMana(-manaDif);
     }
 }

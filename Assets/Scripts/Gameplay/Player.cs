@@ -16,6 +16,7 @@ public class Player : MagicCharacter {
 
     #region Methods
 
+    
     // Update is called once per frame
     protected override void Update () {
 
@@ -61,10 +62,17 @@ public class Player : MagicCharacter {
 
     // pickup smth or collect item
     private void Pickup() {
+
+        if (tempPickupItem.GetComponent<Reward>() != null)
+        {
+            tempPickupItem.GetComponent<Reward>().AddExpRevard();
+        }
+
         Item pickupItem = tempPickupItem.GetComponent<GameItem>().ItemData;
 
         animator.SetTrigger("Pickup");
         EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
+        
         Destroy(tempPickupItem);
         
     }
@@ -128,9 +136,6 @@ public class Player : MagicCharacter {
     private void OnPickupEnd() {
         canPickup = false;
         tempPickupItem = null;
-    }
-    protected override void OnTeleport(int maxManaValue) {
-        base.OnTeleport(characterMana.MaxMana);
     }
     #endregion
 

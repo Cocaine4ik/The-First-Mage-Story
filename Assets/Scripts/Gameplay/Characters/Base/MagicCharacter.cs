@@ -76,7 +76,7 @@ public class MagicCharacter : RangeCharacter{
 
     #region Animation Events
 
-    protected virtual void OnTeleport(int maxManaValue) {
+    protected virtual void OnTeleport() {
 
         isTeleportedIn = false;
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
@@ -90,13 +90,7 @@ public class MagicCharacter : RangeCharacter{
             TeleportToPoint(teleportPosition);
             isTeleportedOut = true;
             animator.SetBool("IsTeleportedOut", isTeleportedOut);
-
-            if(GetComponent<Player>() != null)
-            {
-                float manaPercent = (float)manaBurnedForTeleport / maxManaValue;
-                EventManager.TriggerEvent(EventName.ManaChange, new EventArg(manaPercent));
-            } 
-
+            characterMana.BurnMana(manaBurnedForTeleport);
         }
     }
 

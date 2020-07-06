@@ -34,6 +34,8 @@ public class Attributes : MonoBehaviour
     #endregion
 
     #region Properties
+    public CharacterHealth CharacterHealth => characterHealth;
+    public CharacterMana CharacterMana => characterMana;
 
     public int CurrentExp => currentExp;
     public int ExpToLevelUp => expToLevelUp;

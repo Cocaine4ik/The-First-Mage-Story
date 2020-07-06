@@ -2,11 +2,11 @@
 
 public abstract class SaveLoadData : MonoBehaviour
 {
-    protected void OnEnable() {
+    protected virtual void OnEnable() {
         EventManager.StartListening(EventName.SaveData, OnSaveData);
         EventManager.StartListening(EventName.LoadData, OnLoadData);
     }
-    protected void OnDisable() {
+    protected virtual void OnDisable() {
         EventManager.StopListening(EventName.SaveData, OnSaveData);
         EventManager.StopListening(EventName.LoadData, OnLoadData);
     }

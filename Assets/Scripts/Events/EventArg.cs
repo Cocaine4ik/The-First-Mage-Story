@@ -159,7 +159,7 @@ public class EventArg {
         this.spell = spell;
 
     }
-    // constructor for saving destroyed objects
+    // constructor for gamrojects
     public EventArg(GameObject gameObject) {
         this.gameObject = gameObject;
     }

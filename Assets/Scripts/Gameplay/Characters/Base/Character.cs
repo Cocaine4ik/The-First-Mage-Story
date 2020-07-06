@@ -177,12 +177,17 @@ public class Character : CharacterBase {
     /// </summary>
     protected override void Die() {
         
-        if(characterHealth.CurrentHealth <= 0) {
+        if(characterHealth.CurrentHealth <= 0 && isAlive) {
             isAlive = false;
             animator.SetBool("IsAlive", isAlive);
+
             if(GetComponent<Reward>() != null)
             {
                 GetComponent<Reward>().AddExpRevard();
+            }
+            if (GetComponent<SaveMe>() != null)
+            {
+                GetComponent<SaveMe>().SaveDestroyedObject();
             }
         }
     }

@@ -34,7 +34,6 @@ public enum EventName {
     SaveData,
     LoadData,
     LoadScene,
-    SaveDestroyedObject
-
-
+    SaveMe,
+    AddToGameLevelObjectsList,
 }

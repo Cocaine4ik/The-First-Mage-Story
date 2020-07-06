@@ -18,11 +18,20 @@ public class CharacterMana : MonoBehaviour
     public void BurnMana(int burnedMana) {
 
         currentMana -= burnedMana;
+
+        if (GetComponent<Player>() != null)
+        {
+            float manaPercent = (float)burnedMana / maxMana;
+            EventManager.TriggerEvent(EventName.ManaChange, new EventArg(manaPercent));
+        }
     }
 
     public void SetMaxMana(int value) {
         maxMana = value;
-        var manaPercent = (float)currentMana / maxMana;
-        EventManager.TriggerEvent(EventName.SetMaxMana, new EventArg(manaPercent));
+        if (GetComponent<Player>() != null)
+        {
+            var manaPercent = (float)currentMana / maxMana;
+            EventManager.TriggerEvent(EventName.SetMaxMana, new EventArg(manaPercent));
+        }
     }
 }

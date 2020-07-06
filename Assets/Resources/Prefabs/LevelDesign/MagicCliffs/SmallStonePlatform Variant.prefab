@@ -21,20 +21,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1209892121
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106707116066767314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48426335c23fb6240a48aeb1696ebd29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  isUp: 0
 --- !u!1001 &106068876908923240
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44,7 +30,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1069388434966714, guid: d89184bc3825dc7448df059834615f01, type: 3}
       propertyPath: m_Name
-      value: SmallStonePlatform
+      value: SmallStonePlatform Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4450948213209142, guid: d89184bc3825dc7448df059834615f01, type: 3}
       propertyPath: m_LocalPosition.x

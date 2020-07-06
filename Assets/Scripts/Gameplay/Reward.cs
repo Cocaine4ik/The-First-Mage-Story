@@ -11,7 +11,7 @@ public class Reward : MonoBehaviour
     /// <summary>
     /// Get revard for destroying object
     /// </summary>
-    private void OnDestroy()
+    public void AddExpRevard()
     {
       EventManager.TriggerEvent(EventName.AddExp, new EventArg(expRevard));
     }

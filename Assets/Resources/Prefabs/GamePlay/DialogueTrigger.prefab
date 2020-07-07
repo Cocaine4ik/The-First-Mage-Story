@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39740fbbb1fbff648a5b61c5183d7f6d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
   isInteractable: 0
   isScriptable: 0
   scriptableTime: 0
+  dialogue: {fileID: 0}

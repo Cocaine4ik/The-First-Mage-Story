@@ -56,8 +56,7 @@ public class GameAudioSource<T> {
 
             audioClips.Add((T)Enum.Parse(typeof(T), clipName),
                 Resources.Load<AudioClip>(folderPath + clipName.ToString()));
-            Debug.Log(clipName);
-            Debug.Log(folderPath + clipName.ToString());
+            Debug.Log("Add auidoclip : " + clipName + " with path: " + folderPath + clipName.ToString());
         }
     }
 }

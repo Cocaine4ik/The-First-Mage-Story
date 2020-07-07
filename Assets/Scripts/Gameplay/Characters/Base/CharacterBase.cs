@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// Base character class includes health component and abstract actions
 /// </summary>
-public abstract class CharacterBase : MonoBehaviour {
+public abstract class CharacterBase : MonoBehaviour{
 
     #region Fields
 

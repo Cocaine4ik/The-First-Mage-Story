@@ -7,6 +7,7 @@ public class SliderDrawer : PropertyDrawer {
 
     // Draw the property inside the given rect
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label) {
+
         // First get the attribute since it contains the range for the slider
         SliderAttribute slider = attribute as SliderAttribute;
 

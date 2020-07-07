@@ -82,6 +82,7 @@ public class MagicCharacter : RangeCharacter{
         animator.SetBool("IsTeleportedIn", isTeleportedIn);
 
         int manaBurnedForTeleport = ManaBurnedForTeleport(teleportPosition);
+        Debug.Log(manaBurnedForTeleport);
 
         if (characterMana.CurrentMana >= manaBurnedForTeleport) {
 
@@ -90,7 +91,6 @@ public class MagicCharacter : RangeCharacter{
             TeleportToPoint(teleportPosition);
             isTeleportedOut = true;
             animator.SetBool("IsTeleportedOut", isTeleportedOut);
-            characterMana.BurnMana(manaBurnedForTeleport);
         }
     }
 

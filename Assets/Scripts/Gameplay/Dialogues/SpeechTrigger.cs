@@ -54,6 +54,10 @@ public class SpeechTrigger : TalkTrigger
     }
     protected override void StartConversation() {
 
+        if(isRepeating == false)
+        {
+            
+        }
         speechBubble.SetActive(true);
         speechLocalization.ChangeLocalization(speechKeys[currentSpeechKeyIndex]);
 

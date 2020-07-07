@@ -11,7 +11,10 @@ public class DialogueTrigger : TalkTrigger
     [SerializeField] private DialogueContainer dialogue;
 
     private Transform dialogueWindow;
-    private bool dialogueSet = false;
+    private bool isDone;
+
+    public bool IsDone => isDone;
+
 
     public DialogueContainer Dialogue => dialogue;
     /// <summary>
@@ -78,6 +81,7 @@ public class DialogueTrigger : TalkTrigger
         EventManager.TriggerEvent(EventName.StartConversation);
         Debug.Log("Starting conversation.");
         EventManager.StartListening(EventName.ExitConversation, OnExitConversation);
+        isDone = true;
 
     }
 

@@ -16745,7 +16745,7 @@ PrefabInstance:
     - target: {fileID: 8958280246133908333, guid: 9d7013b5bc6b3ce409f392461493828a,
         type: 3}
       propertyPath: orthographic size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8958280246133908334, guid: 9d7013b5bc6b3ce409f392461493828a,
         type: 3}
@@ -16770,7 +16770,7 @@ PrefabInstance:
     - target: {fileID: 8958280246489988608, guid: 9d7013b5bc6b3ce409f392461493828a,
         type: 3}
       propertyPath: m_Lens.OrthographicSize
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8958280246489988609, guid: 9d7013b5bc6b3ce409f392461493828a,
         type: 3}
@@ -46753,7 +46753,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.022393227, y: -0.15866518}
+  m_Offset: {x: 0.022393227, y: -0.12724221}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -46764,7 +46764,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9405346, y: 2.3845892}
+  m_Size: {x: 1.9405346, y: 2.4474351}
   m_EdgeRadius: 0
 --- !u!68 &867594213
 EdgeCollider2D:
@@ -46783,8 +46783,13 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: 0.99570465, y: 1.0307602}
-  - {x: 1.3018456, y: 1.0332544}
+  - {x: 0.99239445, y: 1.0972071}
+  - {x: 1.1487894, y: 1.0925124}
+  - {x: 1.1760845, y: 1.0935614}
+  - {x: 1.2052422, y: 1.0933418}
+  - {x: 1.248251, y: 1.0880808}
+  - {x: 1.2579546, y: 1.0883389}
+  - {x: 1.2528391, y: 1.0858091}
 --- !u!1 &869956025
 GameObject:
   m_ObjectHideFlags: 0
@@ -112475,7 +112480,8 @@ EdgeCollider2D:
   m_EdgeRadius: 0
   m_Points:
   - {x: -1.6391788, y: 0.12983948}
-  - {x: 1.5891304, y: 0.11501175}
+  - {x: -0.6047764, y: 0.18448937}
+  - {x: 1.5846653, y: 0.18198836}
 --- !u!1 &2022595735
 GameObject:
   m_ObjectHideFlags: 0

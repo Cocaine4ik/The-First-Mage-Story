@@ -77,4 +77,24 @@ public static class UnityExtensions
         }
         return childsList;
     }
+
+    /// <summary>
+    /// Set bool value to int value
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static int SetBoolToInt(this bool value)
+    {
+        return value ? 1 : 0;
+    }
+
+    /// <summary>
+    /// Get bool value from int value
+    /// </summary>
+    /// <param name="value"></param>
+    /// <returns></returns>
+    public static bool GetBoolFromInt(this int value)
+    {
+        return value == 1 ? true : false;
+    }
 }

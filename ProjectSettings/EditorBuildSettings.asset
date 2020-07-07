@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/LanguageMenu.unity
+    guid: fdf1ea6296417054792dd29edc450b2c
+  - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 573f1af732d9ee04491ffb1ce339884d
+  - enabled: 1
+    path: Assets/Scenes/ValleyOfTheWinds.unity
+    guid: 2240d0f99a77170478d3d6869d8a138c
   - enabled: 1
     path: Assets/Scenes/MagicCliffs.unity
     guid: f453f2647156c264da868dbf477263f0

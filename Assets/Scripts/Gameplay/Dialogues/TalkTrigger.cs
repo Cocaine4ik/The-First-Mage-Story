@@ -17,4 +17,5 @@ public abstract class TalkTrigger : MonoBehaviour{
     protected abstract void StartConversation();
 
     protected abstract IEnumerator StartScriptableConversation(float scriptableTime);
+
 }

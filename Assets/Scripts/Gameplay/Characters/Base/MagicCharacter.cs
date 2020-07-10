@@ -41,7 +41,6 @@ public class MagicCharacter : RangeCharacter{
         if(activeShield == null) {
             activeShield = Instantiate(magicShield, gameObject.transform);
         }
-
     }
     protected void Teleport() {
 

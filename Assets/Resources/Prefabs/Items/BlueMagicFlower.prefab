@@ -49,6 +49,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 0.6, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,11 +134,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7767296499227246310}
     m_Modifications:
-    - target: {fileID: 3567213441323789551, guid: 87163c871f7abbc46844379869148796,
-        type: 3}
-      propertyPath: m_Name
-      value: Flower  song
-      objectReference: {fileID: 0}
     - target: {fileID: 3567213441323789544, guid: 87163c871f7abbc46844379869148796,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -192,6 +188,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3567213441323789551, guid: 87163c871f7abbc46844379869148796,
+        type: 3}
+      propertyPath: m_Name
+      value: Flower  song
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87163c871f7abbc46844379869148796, type: 3}

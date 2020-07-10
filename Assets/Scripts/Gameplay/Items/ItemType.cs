@@ -7,5 +7,7 @@ public enum ItemType
     QuestItem,
     StoryItem,
     RelicItem,
+    SupplyItem,
+    TreauseItem
 
 }

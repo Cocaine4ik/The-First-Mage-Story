@@ -6,7 +6,7 @@ using UnityEngine;
 public class StoryItem : Item
 {
     [Header("Story:")]
-    public StoryName story;
+     private StoryName story;
 
     protected override void OnEnable() {
         base.OnEnable();

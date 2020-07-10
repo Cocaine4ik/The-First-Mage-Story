@@ -53,18 +53,9 @@ public class Character : CharacterBase {
     public Transform AtackTrigger => atackTrigger; 
     public bool IsRight => isRight;
 
-    public float CheckRadius {
-        get { return checkRadius;  }
-        set { checkRadius = value; }
-    }
-    public float JumpForce {
-        get { return jumpForce; }
-        set { jumpForce = value; }
-    }
-    public float JumpControlTime {
-        get { return jumpControlTime; }
-        set { jumpControlTime = value; }
-    }
+    public float CheckRadius { get => checkRadius; set => checkRadius = value; }
+    public float JumpForce { get => jumpForce; set => jumpForce = value; }
+    public float JumpControlTime { get => jumpControlTime; set => jumpControlTime = value; }
     #endregion
 
     #region Methods

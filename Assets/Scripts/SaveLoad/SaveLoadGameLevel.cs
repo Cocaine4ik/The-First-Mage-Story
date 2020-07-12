@@ -59,7 +59,7 @@ public class SaveLoadGameLevel : SaveLoadData
     /// </summary>
     /// <returns></returns>
     private IEnumerator LoadData() {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(0.1f);
         EventManager.TriggerEvent(EventName.LoadData);
 
     }

@@ -97,4 +97,14 @@ public static class UnityExtensions
     {
         return value == 1 ? true : false;
     }
+
+    public static void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+
+    public static void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
 }

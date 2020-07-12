@@ -75,6 +75,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 100
   atackRange: 20
+  damageType: 0
+  effect: 6
 --- !u!1 &2734802088631105611
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +132,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -272,6 +275,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab00f9f07752bc4a9ead6d8105c737f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  atackTrigger: {fileID: 2734802088375357080}
+  feetPos: {fileID: 2734802089154642140}
   corpse: {fileID: 2491676384415832684, guid: 98f6884d14291834ea4a7797f7d1d6f3, type: 3}
   speed: 1
   enemies:
@@ -281,9 +286,12 @@ MonoBehaviour:
   checkRadius: 0.3
   jumpForce: 0
   jumpControlTime: 0
+  atackSound: 0
+  jumpSound: 0
   projectilePrefab: {fileID: 0}
   magicShield: {fileID: 0}
   manaPerTeleport: 5
+  teleportSound: 0
 --- !u!114 &7531658212212740854
 MonoBehaviour:
   m_ObjectHideFlags: 0

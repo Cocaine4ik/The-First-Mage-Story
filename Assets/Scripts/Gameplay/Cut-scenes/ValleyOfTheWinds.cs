@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ValleyOfTheWinds : MonoBehaviour
 {
@@ -26,11 +27,18 @@ public class ValleyOfTheWinds : MonoBehaviour
         
         if(spiritSpeechTrigger.SpeechIsEnd == true && spiritHealth != null) {
             spiritHealth.TakeDamage(10);
+            StartCoroutine(GoToNextScene("MagicCliffs"));
         }
     }
 
     private IEnumerator StartArachmageMovement(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         mageBehaviour.enabled = true;
+    }
+
+    private IEnumerator GoToNextScene(string sceneName)
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(sceneName);
     }
 }

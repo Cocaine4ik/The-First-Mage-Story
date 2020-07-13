@@ -9,7 +9,7 @@ public static class MenuManager {
         switch(name) {
 
             case MenuName.Main: SceneManager.LoadScene("MainMenu"); break;
-            case MenuName.NewGame: SceneManager.LoadScene("MagicCliffs"); break;
+            case MenuName.NewGame: SceneManager.LoadScene("ValleyOfTheWinds"); break;
             case MenuName.Credits: SceneManager.LoadScene("Credits"); break;
             case MenuName.Profiles: SceneManager.LoadScene("Profiles"); break;
             case MenuName.Pause: Object.Instantiate(Resources.Load("Prefabs/UI/PauseMenu")); break;

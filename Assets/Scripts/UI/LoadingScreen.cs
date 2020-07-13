@@ -24,9 +24,9 @@ public class LoadingScreen : MonoBehaviour
     void Start()
     {
         var sceneName = SceneManager.GetActiveScene().name;
-        //gameLevelPreview.sprite = Resources.Load<Sprite>("Sprites/LoadingScreen/" + sceneName);
-        //gameLevelName.ChangeLocalization(gameLevelNameKey + sceneName);
-        //gameLevelDescription.ChangeLocalization(gameLevelDescriptionKey + sceneName);
+        gameLevelPreview.sprite = Resources.Load<Sprite>("Sprites/UI/LoadingScreen/" + sceneName);
+        gameLevelName.ChangeLocalization(gameLevelNameKey + sceneName);
+        gameLevelDescription.ChangeLocalization(gameLevelDescriptionKey + sceneName);
         loadingLabel.ChangeLocalization(loadingLabelKey);
 
         UnityExtensions.PauseGame();

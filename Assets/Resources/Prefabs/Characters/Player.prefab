@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18dadf3a1cd3c8943a2bcba2c7bbc156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 0
+  maxMana: 100
   currentMana: 0
 --- !u!114 &3109910619746571581
 MonoBehaviour:
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa1d2fc81a50694995690cc8dd5422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   currentHealth: 0
 --- !u!82 &3040911627132052604
 AudioSource:

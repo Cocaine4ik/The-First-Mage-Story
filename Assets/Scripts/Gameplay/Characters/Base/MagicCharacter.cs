@@ -97,6 +97,9 @@ public class MagicCharacter : RangeCharacter{
         isTeleportedOut = false;
         animator.SetBool("IsTeleportedOut", isTeleportedOut);
     }
-
+    public override void Hurt()
+    {
+        ShieldUp();
+    }
     #endregion
 }

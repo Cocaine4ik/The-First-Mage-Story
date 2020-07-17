@@ -129,10 +129,6 @@ public class Player : MagicCharacter {
             saveTrigger = null;
         }
     }
-    public override void Hurt() {
-
-        ShieldUp();
-    }
 
     #endregion
 

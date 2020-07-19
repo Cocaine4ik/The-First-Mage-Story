@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.CodeDom.Compiler;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,10 @@ public class MagicCliffsDirector : MonoBehaviour
         playerSprite = player.GetComponent<SpriteRenderer>();
         EventManager.StartListening(EventName.AppearPlayer, OnAppearPlayer);
         EventManager.StartListening(EventName.PickupItem, OnPlatformUp);
+
+        var alpha = playerSprite.color;
+        alpha.a = 0;
+        playerSprite.color = alpha;
     }
     private void Update()
     {

@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: -6978567724672029800}
   m_Layer: 5
   m_Name: LoreTips
-  m_TagString: Untagged
+  m_TagString: Tip
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

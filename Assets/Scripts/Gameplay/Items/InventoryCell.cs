@@ -6,11 +6,12 @@ using TMPro;
 
 public class InventoryCell : MonoBehaviour
 {
+    [SerializeField] private Image iconField;
     private ItemName itemName;
     private ItemType itemType;
-    private Image iconField;
+    private Image borderField;
     private Color itemColor;
-    private int itemNumber;
+    private int itemNumber = 1;
 
     [SerializeField] private TextMeshProUGUI itemNumberText;
     [SerializeField] private int id;
@@ -24,9 +25,8 @@ public class InventoryCell : MonoBehaviour
     private void Awake() {
 
         isEmpty = true;
-        itemNumber = 0;
         isStack = false;
-        iconField = GetComponent<Image>();
+        borderField = GetComponent<Image>();
     }
 
     public void SetId(int id) {
@@ -38,6 +38,8 @@ public class InventoryCell : MonoBehaviour
 
         itemName = item.ItemName;
         itemType = item.ItemType;
+        iconField.sprite = item.ItemIcon;
+        borderField.sprite = item.ItemBorder;
         iconField.sprite = item.ItemIcon;
         itemColor = item.ItemColor;
         isEmpty = false;
@@ -53,9 +55,10 @@ public class InventoryCell : MonoBehaviour
     }
     public void AddItemToStack() {
         if(isStack == false) {
-
+            itemNumberText.gameObject.SetActive(true);
+            isStack = true;
         }
         itemNumber += 1;
-        
+        itemNumberText.text = itemNumber.ToString();
     }
 }

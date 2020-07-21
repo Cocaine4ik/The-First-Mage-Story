@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1eda598acf53f4c950acc94d149556, type: 3}
   m_Name: BlueMagicFlower
   m_EditorClassIdentifier: 
-  itemIcon: {fileID: 21300000, guid: eaf49d526b360a74badff3877f20f8de, type: 3}
-  itemNameKey: Items.Name.BlueMagicFlower
-  itemDescriptionKey: Items.Description.BlueMagicFlower
+  itemName: 0
+  itemType: 0
+  itemIcon: {fileID: 21300000, guid: 3a66fcaae98feec489501fddbc763806, type: 3}
+  itemBorder: {fileID: 21300000, guid: d20605620506d364e94f5595e7d379ac, type: 3}
+  itemColor:
+    serializedVersion: 2
+    rgba: 4278238923

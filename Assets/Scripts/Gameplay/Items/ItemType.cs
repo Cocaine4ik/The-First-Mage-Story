@@ -8,6 +8,6 @@ public enum ItemType
     StoryItem,
     RelicItem,
     SupplyItem,
-    TreauseItem
+    TreasureItem,
 
 }

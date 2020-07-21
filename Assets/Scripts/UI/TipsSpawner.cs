@@ -29,12 +29,22 @@ public class TipsSpawner : MonoBehaviour
 
     private void OnSpawnTip(EventArg arg) {
         if(arg.FirstStringArg == GetComponent<DialogueTrigger>().Dialogue.name) {
+            Debug.Log(gameObject.name);
             SpawnTip();
         }
     }
 
     private void SpawnTip() {
         Debug.Log("SpawnTip: " + tipsPrefab.name);
+        
+       GameObject[] oldTips = GameObject.FindGameObjectsWithTag("Tip");
+        if (oldTips.Length > 0)
+        {
+            foreach (GameObject tip in oldTips)
+            {
+                Destroy(tip);
+            }
+        }
         Instantiate(tipsPrefab, canvas);
         Destroy(gameObject);
     }

@@ -7,7 +7,9 @@ public interface IITem {
     ItemName ItemName { get; }
     ItemType ItemType { get; }
     Sprite ItemIcon { get; }
+    Sprite ItemBorder { get; }
     Color32 ItemColor { get; }
-
+    bool IsSellable { get; }
+    int ItemPrice { get; }
 
 }

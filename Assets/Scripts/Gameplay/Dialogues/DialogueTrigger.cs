@@ -89,7 +89,11 @@ public class DialogueTrigger : TalkTrigger
     private void OnExitConversation(EventArg arg) {
         if(isInteractable == false) {
             GetComponent<SaveMe>().SaveDestroyedObject();
-            Destroy(gameObject);
+            if(GetComponent<TipsSpawner>() == null)
+            {
+                Destroy(gameObject);
+            }
+
         }
     }
 }

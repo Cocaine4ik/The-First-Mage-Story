@@ -1,5 +1,7 @@
 ﻿
-public class Quest : IJournalItem {
+using UnityEngine;
+
+public class Quest : ScriptableObject, IJournalItem {
 
     public QuestName Name;
     public QuestStatus Status = QuestStatus.Active;

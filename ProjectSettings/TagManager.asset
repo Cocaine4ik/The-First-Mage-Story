@@ -15,6 +15,7 @@ TagManager:
   - FireLight
   - Canvas
   - DialogueWindow
+  - Tip
   layers:
   - Default
   - TransparentFX

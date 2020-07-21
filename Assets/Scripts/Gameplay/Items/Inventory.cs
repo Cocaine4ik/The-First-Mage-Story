@@ -64,14 +64,15 @@ public class Inventory : UIElementBase {
 
         foreach (InventoryCell cell in inventoryCells) {
 
-           if(item.ItemName == cell.ItemName) {
-                
+           if(!cell.IsEmpty && item.ItemName == cell.ItemName) {
+                cell.AddItemToStack();
+                break;
             }
-           if(cell.IsEmpty) {
+           else if(cell.IsEmpty) {
                 cell.AddItemToCell(item);
                 Debug.Log("AddItem: " + item.name);
                 break;
-            }       
+            }     
 
         }
     }

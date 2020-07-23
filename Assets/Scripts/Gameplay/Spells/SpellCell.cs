@@ -11,7 +11,7 @@ public enum RequiredSkill {
     Demons
 }
 
-public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler {
+public class SpellCell : Cell {
 
     [SerializeField] private Spell spell;
     [SerializeField] private Sprite spellIcon;
@@ -22,26 +22,14 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
 
     private bool requirementDone = false;
     private bool isLearned = false;
-    private bool onPanel = false;
 
     private Button button;
-    private Image cellIcon;
 
-    private GameObject draggingCell;
-    private SpellCell draggingCellData;
+    protected override void Start() {
 
-    private GameObject spellPanelCell;
-
-    public bool OnPanel => onPanel;
-    public GameObject SpellPanelCell {
-        get { return spellPanelCell; }
-        set { spellPanelCell = value; }
-    }
-
-    private void Start() {
+        base.Start();
         button = GetComponent<Button>();
         button.onClick.AddListener(() => LearnSpell());
-        cellIcon = GetComponent<Image>();
 
         CheckRequirement(requiredSkill);
     }
@@ -53,44 +41,16 @@ public class SpellCell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDra
         if (!isLearned && Attributes.Instance.SpellPoints > 0 && requirementDone) {
             Attributes.Instance.DecreaseSpellPoints();
             isLearned = true;
-            cellIcon.sprite = learnedSpellIcon;
+            canDrag = true;
+            icon.sprite = learnedSpellIcon;
             EventManager.TriggerEvent(EventName.RefreshSpellBook);
         }
     }
 
-    public void OnDrag(PointerEventData eventData) {
-        if (isLearned) {
-            draggingCell.transform.position = Input.mousePosition;
-        }
-    }
-
-    public void OnBeginDrag(PointerEventData eventData) {
-        if (isLearned) {
-
-        draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
-        draggingCell.transform.position = Input.mousePosition;
-        draggingCellData = draggingCell.GetComponent<SpellCell>();
-
-        }
-    }
-
-    public void OnEndDrag(PointerEventData eventData) {
-        if (isLearned) {
-            draggingCellData.SetSpellPanelCell();
-            Destroy(draggingCell);
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.GetComponent<SpellPanelCell>()) {
-            onPanel = true;
-            spellPanelCell = collision.gameObject;
-            Debug.Log("onPanel: " + onPanel);
-        }
-    }
-
-    public void SetSpellPanelCell() {
-        var panelCell = spellPanelCell.GetComponent<SpellPanelCell>();      
-        EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCell.Id, cellIcon.sprite, spell));
+    public override void SetPanelCell()
+    {
+        var panelCellData = panelCell.GetComponent<ActionPanelCell>();
+        EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, icon.sprite, spell));
     }
 
     private void CheckRequirement(RequiredSkill skill) {

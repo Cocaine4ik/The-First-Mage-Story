@@ -20765,7 +20765,7 @@ PrefabInstance:
     - target: {fileID: 949821658279267787, guid: a77b0b7bf0657774e883ec422606c4bd,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 52.69
+      value: 53.3
       objectReference: {fileID: 0}
     - target: {fileID: 949821658279267787, guid: a77b0b7bf0657774e883ec422606c4bd,
         type: 3}
@@ -20826,7 +20826,7 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 11400000, guid: 4fe50483783d2a74fa2433fc67c4b388,
+      objectReference: {fileID: 11400000, guid: 987dc8f73c71bfd45966f3718f814249,
         type: 2}
     - target: {fileID: 8486507390919556211, guid: a77b0b7bf0657774e883ec422606c4bd,
         type: 3}
@@ -92766,7 +92766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 908c5495db42eb24cac95320019e4b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipsPrefab: {fileID: 1060958020858665065, guid: 2a1b47d467d80c149ab8034eb2c4ee23,
+  tipsPrefab: {fileID: 1060958020858665065, guid: b5328462774c69c44a458cf4c33fc4e6,
     type: 3}
   isTrigger: 0
 --- !u!1 &1955693687
@@ -103508,10 +103508,30 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4441656817625521748, guid: 02abfa5362d177042a9be8c3fed838e0,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -9.299973
+      objectReference: {fileID: 0}
     - target: {fileID: 6600264031604014785, guid: 02abfa5362d177042a9be8c3fed838e0,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118729188348232842, guid: 02abfa5362d177042a9be8c3fed838e0,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118729188348232842, guid: 02abfa5362d177042a9be8c3fed838e0,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.7028747
+      objectReference: {fileID: 0}
+    - target: {fileID: 7118729188348232842, guid: 02abfa5362d177042a9be8c3fed838e0,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7028747
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 02abfa5362d177042a9be8c3fed838e0, type: 3}

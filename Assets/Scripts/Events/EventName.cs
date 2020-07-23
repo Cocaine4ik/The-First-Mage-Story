@@ -36,4 +36,5 @@ public enum EventName {
     LoadScene,
     SaveMe,
     AddToGameLevelObjectsList,
+    InvokeSupply
 }

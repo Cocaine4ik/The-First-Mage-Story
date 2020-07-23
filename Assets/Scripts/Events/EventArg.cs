@@ -26,6 +26,7 @@ public class EventArg {
     private ItemName itemName;
     private ItemType itemType;
     private Spell spell;
+    private SupplyItem supply;
     private Sprite sprite;
     private GameObject gameObject;
 
@@ -49,6 +50,7 @@ public class EventArg {
     public ItemName ItemName => itemName;
     public ItemType ItemType => itemType;
     public Spell Spell => spell;
+    public SupplyItem Supply => supply;
     public Sprite Sprite => sprite;
     public GameObject GameObject => gameObject;
 
@@ -150,6 +152,11 @@ public class EventArg {
     // constructor with Spell
     public EventArg(Spell spell) {
         this.spell = spell;
+    }
+    // constructor with supply item
+    public EventArg (SupplyItem supply)
+    {
+        this.supply = supply;
     }
 
     // constructor for spellCell

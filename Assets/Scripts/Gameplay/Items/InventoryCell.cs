@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryCell : MonoBehaviour
+public class InventoryCell : Cell
 {
     [SerializeField] private Image iconField;
     private ItemName itemName;
@@ -27,6 +27,10 @@ public class InventoryCell : MonoBehaviour
         isEmpty = true;
         isStack = false;
         borderField = GetComponent<Image>();
+        if (itemType == ItemType.SupplyItem || itemType == ItemType.RelicItem)
+        {
+            canDrag = true;
+        }
     }
 
     public void SetId(int id) {
@@ -60,5 +64,10 @@ public class InventoryCell : MonoBehaviour
         }
         itemNumber += 1;
         itemNumberText.text = itemNumber.ToString();
+    }
+
+    public override void SetPanelCell()
+    {
+        throw new System.NotImplementedException();
     }
 }

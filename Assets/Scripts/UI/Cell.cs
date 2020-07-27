@@ -5,14 +5,14 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 
-public abstract class Cell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     protected bool onPanel;
     protected bool canDrag = false;
     protected Image icon;
     protected GameObject draggingCell;
     protected GameObject panelCell;
-    protected Cell draggingCellData;
+    protected Cell<T> draggingCellData;
 
     public bool OnPanel => onPanel;
     public GameObject PanelCell { get => panelCell; set => panelCell = value; }
@@ -23,7 +23,7 @@ public abstract class Cell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
     }
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<ActionPanelCell>())
+        if (collision.gameObject.GetComponent<ActionPanelCell<T>>())
         {
             onPanel = true;
             panelCell = collision.gameObject;
@@ -37,7 +37,7 @@ public abstract class Cell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEn
         {
             draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
             draggingCell.transform.position = Input.mousePosition;
-            draggingCellData = draggingCell.GetComponent<Cell>();
+            draggingCellData = draggingCell.GetComponent<Cell<T>>();
         }
     }
 

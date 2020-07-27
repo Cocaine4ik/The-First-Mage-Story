@@ -11,7 +11,7 @@ public enum RequiredSkill {
     Demons
 }
 
-public class SpellCell : Cell {
+public class SpellCell : Cell<SpellPanelCell> {
 
     [SerializeField] private Spell spell;
     [SerializeField] private Sprite spellIcon;
@@ -49,12 +49,12 @@ public class SpellCell : Cell {
 
     public override void SetPanelCell()
     {
-        if(panelCell.GetComponent<SpellPanelCell> != null)
+        if(panelCell != null)
         {
-            var panelCellData = panelCell.GetComponent<ActionPanelCell>();
+            var panelCellData = panelCell.GetComponent<SpellPanelCell>();
             EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, icon.sprite, spell));
         }
-
+        
     }
 
     private void CheckRequirement(RequiredSkill skill) {

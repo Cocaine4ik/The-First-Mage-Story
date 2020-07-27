@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryCell : Cell
+public class InventoryCell : Cell<SupplyPanelCell>
 {
     [SerializeField] private Image iconField;
     private ItemName itemName;
@@ -27,10 +27,7 @@ public class InventoryCell : Cell
         isEmpty = true;
         isStack = false;
         borderField = GetComponent<Image>();
-        if (itemType == ItemType.SupplyItem || itemType == ItemType.RelicItem)
-        {
-            canDrag = true;
-        }
+       
     }
 
     public void SetId(int id) {
@@ -47,6 +44,11 @@ public class InventoryCell : Cell
         iconField.sprite = item.ItemIcon;
         itemColor = item.ItemColor;
         isEmpty = false;
+
+        if (itemType == ItemType.SupplyItem || itemType == ItemType.RelicItem)
+        {
+            canDrag = true;
+        }
     }
 
     public void OnInventoryCellSelected() {

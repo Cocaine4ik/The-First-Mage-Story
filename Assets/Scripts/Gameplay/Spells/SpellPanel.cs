@@ -20,7 +20,7 @@ public class SpellPanel : MonoBehaviour
             panelCells.Add(panelCell);
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {   
@@ -67,7 +67,7 @@ public class SpellPanel : MonoBehaviour
 
             if(cell.Id == id) {
                 cell.Image.sprite = icon;
-                cell.SpellInvoker.Spell = spell;
+               // cell.SpellInvoker.Spell = spell;
             }
         }
     }

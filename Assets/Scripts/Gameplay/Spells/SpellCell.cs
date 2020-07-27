@@ -49,8 +49,12 @@ public class SpellCell : Cell {
 
     public override void SetPanelCell()
     {
-        var panelCellData = panelCell.GetComponent<ActionPanelCell>();
-        EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, icon.sprite, spell));
+        if(panelCell.GetComponent<SpellPanelCell> != null)
+        {
+            var panelCellData = panelCell.GetComponent<ActionPanelCell>();
+            EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, icon.sprite, spell));
+        }
+
     }
 
     private void CheckRequirement(RequiredSkill skill) {

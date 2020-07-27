@@ -3,22 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ActionPanelCell : MonoBehaviour
+public class ActionPanelCell<T> : MonoBehaviour
 {
-    [SerializeField] private int id;
-    private Image image;
-    private SpellInvoker spellInvoker;
-    private SupplyInvoker supplyInvoker;
+    [SerializeField] protected int id;
+    protected Image image;
+    protected T invoker;
 
     public int Id => id;
     public Image Image => image;
-    public SpellInvoker SpellInvoker => spellInvoker;
-    public SupplyInvoker SupplyInvoker => supplyInvoker; 
+    public T Invoker => invoker;
 
-    private void Start() {
+    protected void Start() {
         image = GetComponent<Image>();
-        spellInvoker = GetComponent<SpellInvoker>();
-        supplyInvoker = GetComponent<SupplyInvoker>();
+        invoker = GetComponent<T>();
     }
 
 }

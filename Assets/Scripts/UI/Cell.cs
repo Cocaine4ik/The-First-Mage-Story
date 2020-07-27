@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+
 public abstract class Cell : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     protected bool onPanel;

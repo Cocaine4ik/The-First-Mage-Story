@@ -9,7 +9,7 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 {
     protected bool onPanel;
     protected bool canDrag = false;
-    protected Image icon;
+    [SerializeField] protected Image icon;
     protected GameObject draggingCell;
     protected GameObject panelCell;
     protected Cell<T> draggingCellData;
@@ -21,9 +21,9 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     {
         icon = GetComponent<Image>();
     }
-    protected void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<ActionPanelCell<T>>())
+        if (collision.gameObject.GetComponent<SpellPanelCell>() != null)
         {
             onPanel = true;
             panelCell = collision.gameObject;

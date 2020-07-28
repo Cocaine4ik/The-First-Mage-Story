@@ -67,7 +67,7 @@ public class SpellPanel : MonoBehaviour
 
             if(cell.Id == id) {
                 cell.Image.sprite = icon;
-               // cell.SpellInvoker.Spell = spell;
+                cell.Invoker.Spell = spell;
             }
         }
     }

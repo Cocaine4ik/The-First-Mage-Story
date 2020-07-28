@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SuppplyPanel : MonoBehaviour
+public class SupplyPanel : MonoBehaviour
 {
     [SerializeField] private List<SupplyInvoker> supplyInvokers;
     private List<SupplyPanelCell> panelCells = new List<SupplyPanelCell>();
 
     private void OnEnable()
     {
-        //EventManager.StartListening(EventName.AddSpelltoPanelCell, OnAddSpell);
+        EventManager.StartListening(EventName.AddSupplyToPanelCell, OnAddSupply);
     }
     private void OnDisable()
     {
-      //  EventManager.StopListening(EventName.AddSpelltoPanelCell, OnAddSpell);
+       EventManager.StopListening(EventName.AddSupplyToPanelCell, OnAddSupply);
     }
 
     private void Start()
@@ -46,22 +46,22 @@ public class SuppplyPanel : MonoBehaviour
         }
 
     }
-    /*
-    private void OnAddSpell(EventArg arg)
+    
+    private void OnAddSupply(EventArg arg)
     {
-
         var id = arg.FirstIntArg;
         var icon = arg.Sprite;
-        var spell = arg.Spell;
+        var supply = arg.Supply;
 
-        foreach (SpellPanelCell cell in panelCells)
+        foreach (SupplyPanelCell cell in panelCells)
         {
-
             if (cell.Id == id)
             {
+                Debug.Log(icon.name);
+                Debug.Log(id);
                 cell.Image.sprite = icon;
-                cell.SpellInvoker.Spell = spell;
+                cell.Invoker.Supply = supply;
             }
         }
-    }*/
+    }
 }

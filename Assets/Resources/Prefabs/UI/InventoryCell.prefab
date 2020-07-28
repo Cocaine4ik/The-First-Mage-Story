@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 1046819014759405913}
   - component: {fileID: 1046819014759405916}
   - component: {fileID: 1046819014759405915}
-  - component: {fileID: 1046819014759405914}
   - component: {fileID: 5877526277062886265}
+  - component: {fileID: 4461448628845311103}
+  - component: {fileID: 1046819014759405914}
   m_Layer: 5
   m_Name: InventoryCell
   m_TagString: Untagged
@@ -79,23 +80,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1046819014759405914
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046819014759405912}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfbf8705c0861174d8ac5a7e6e3e7343, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconField: {fileID: 4073376354977254459}
-  itemNumberText: {fileID: 8330558384609706592}
-  id: 0
-  isEmpty: 0
-  isStack: 0
 --- !u!114 &5877526277062886265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +134,49 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!61 &4461448628845311103
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046819014759405912}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06211281, y: 0.06083393}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 22.565525, y: 22.414446}
+  m_EdgeRadius: 0
+--- !u!114 &1046819014759405914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046819014759405912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfbf8705c0861174d8ac5a7e6e3e7343, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 4073376354977254459}
+  itemNumberText: {fileID: 8330558384609706592}
+  id: 0
+  isEmpty: 0
+  isStack: 0
 --- !u!1 &1754021588862126565
 GameObject:
   m_ObjectHideFlags: 0

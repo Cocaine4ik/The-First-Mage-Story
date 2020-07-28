@@ -13,9 +13,8 @@ public enum RequiredSkill {
 
 public class SpellCell : Cell<SpellPanelCell> {
 
-    [SerializeField] private Spell spell;
-    [SerializeField] private Sprite spellIcon;
     [SerializeField] private Sprite learnedSpellIcon;
+    [SerializeField] private Spell spell;
 
     [SerializeField] private RequiredSkill requiredSkill;
     [SerializeField] private int requiredSkillValue;

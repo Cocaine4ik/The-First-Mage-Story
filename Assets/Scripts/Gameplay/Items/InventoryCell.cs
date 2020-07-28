@@ -6,7 +6,6 @@ using TMPro;
 
 public class InventoryCell : Cell<SupplyPanelCell>
 {
-    [SerializeField] private Image iconField;
     private ItemName itemName;
     private ItemType itemType;
     private Image borderField;
@@ -39,9 +38,8 @@ public class InventoryCell : Cell<SupplyPanelCell>
 
         itemName = item.ItemName;
         itemType = item.ItemType;
-        iconField.sprite = item.ItemIcon;
+        icon.sprite = item.ItemIcon;
         borderField.sprite = item.ItemBorder;
-        iconField.sprite = item.ItemIcon;
         itemColor = item.ItemColor;
         isEmpty = false;
 
@@ -70,6 +68,22 @@ public class InventoryCell : Cell<SupplyPanelCell>
 
     public override void SetPanelCell()
     {
-        throw new System.NotImplementedException();
+        if (panelCell != null)
+        {
+            var panelCellData = panelCell.GetComponent<SupplyPanelCell>();
+            var supply = Resources.Load<SupplyItem>("Data/Items/Supply" + itemName.ToString());
+            EventManager.TriggerEvent(EventName.AddSupplyToPanelCell, new EventArg(panelCellData.Id, icon.sprite, supply));
+            Debug.Log("Add Supply" + icon.sprite);
+        }
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<SupplyPanelCell>() != null)
+        {
+            onPanel = true;
+            panelCell = collision.gameObject;
+            Debug.Log("onPanel: " + onPanel);
+        }
     }
 }

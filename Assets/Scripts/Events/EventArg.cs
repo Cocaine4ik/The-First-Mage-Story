@@ -166,6 +166,16 @@ public class EventArg {
         this.spell = spell;
 
     }
+
+    // constructor for supply cell
+    public EventArg(int id, Sprite icon, SupplyItem supply)
+    {
+        this.firstIntArg = id;
+        this.sprite = icon;
+        this.supply = supply;
+
+    }
+
     // constructor for gamrojects
     public EventArg(GameObject gameObject) {
         this.gameObject = gameObject;

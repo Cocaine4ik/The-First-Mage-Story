@@ -8,7 +8,7 @@ public class SupplyInvoker : MonoBehaviour
 
     public SupplyItem Supply { get => supply; set => supply = value; }
 
-    public void InvokeSpell()
+    public void InvokeSupply()
     {
         if (supply != null)
         {

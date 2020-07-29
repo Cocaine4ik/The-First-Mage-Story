@@ -30,19 +30,19 @@ public class SupplyPanel : MonoBehaviour
     {
         if (Input.GetButtonDown("[1] Supply Panel Cell"))
         {
-            supplyInvokers[0].InvokeSpell();
+            supplyInvokers[0].InvokeSupply();
         }
         if (Input.GetButtonDown("[2] Supply Panel Cell"))
         {
-            supplyInvokers[1].InvokeSpell();
+            supplyInvokers[1].InvokeSupply();
         }
         if (Input.GetButtonDown("[3] Supply Panel Cell"))
         {
-            supplyInvokers[2].InvokeSpell();
+            supplyInvokers[2].InvokeSupply();
         }
         if (Input.GetButtonDown("[4] Supply Panel Cell"))
         {
-            supplyInvokers[3].InvokeSpell();
+            supplyInvokers[3].InvokeSupply();
         }
 
     }

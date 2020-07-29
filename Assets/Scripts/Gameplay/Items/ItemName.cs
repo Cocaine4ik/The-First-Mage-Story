@@ -5,5 +5,7 @@ using UnityEngine;
 public enum ItemName 
 {
     RoyalBlueflower,
-    FlyingStones
+    FlyingStones,
+    SmallManaPotion,
+    SmallHealthPotion,
 }

@@ -54,11 +54,20 @@ public class SupplyPanel : MonoBehaviour
         var supply = arg.Supply;
 
         foreach (SupplyPanelCell cell in panelCells)
-        {
+        {   
+            if(cell.Invoker.Supply != null)
+            {
+                if (cell.Invoker.Supply.ItemName == supply.ItemName)
+                {
+                    cell.Invoker.Supply = null;
+                    cell.Image.sprite = null;
+                    cell.Image.gameObject.SetActive(false);
+                }
+            }
+
             if (cell.Id == id)
             {
-                Debug.Log(icon.name);
-                Debug.Log(id);
+                cell.Image.gameObject.SetActive(true);
                 cell.Image.sprite = icon;
                 cell.Invoker.Supply = supply;
             }

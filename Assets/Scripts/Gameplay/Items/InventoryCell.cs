@@ -6,7 +6,7 @@ using TMPro;
 
 public class InventoryCell : Cell<SupplyPanelCell>
 {
-    private ItemName itemName;
+    [SerializeField] private ItemName itemName;
     private ItemType itemType;
     private Image borderField;
     private Color itemColor;
@@ -42,7 +42,7 @@ public class InventoryCell : Cell<SupplyPanelCell>
         borderField.sprite = item.ItemBorder;
         itemColor = item.ItemColor;
         isEmpty = false;
-        Debug.Log("Add Supply" + icon.sprite);
+        Debug.Log(itemName);
         if (itemType == ItemType.SupplyItem || itemType == ItemType.RelicItem)
         {
             canDrag = true;
@@ -71,7 +71,9 @@ public class InventoryCell : Cell<SupplyPanelCell>
         if (panelCell != null)
         {
             var panelCellData = panelCell.GetComponent<SupplyPanelCell>();
-            var supply = Resources.Load<SupplyItem>("Data/Items/Supply" + itemName.ToString());
+            Debug.Log(itemName.ToString());
+            var supply = Resources.Load<SupplyItem>("Data/Items/Supply/" + itemName.ToString());
+            Debug.Log(supply.ItemName);
             EventManager.TriggerEvent(EventName.AddSupplyToPanelCell, new EventArg(panelCellData.Id, icon.sprite, supply));
             Debug.Log("Add Supply" + icon.sprite);
         }

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 472ebfd213619f54888ebc23fe3d6988, type: 3}
-  m_Name: SmallManaPortion
+  m_Name: SmallManaPotion
   m_EditorClassIdentifier: 
-  itemName: 0
+  itemName: 2
   itemType: 3
   itemIcon: {fileID: 21300000, guid: 5afa99901aca46c4a9ca9dd9e6fa7105, type: 3}
   itemBorder: {fileID: 21300000, guid: 775fe677c833f5745b8e0e8ad6b73544, type: 3}

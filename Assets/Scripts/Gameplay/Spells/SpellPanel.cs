@@ -64,7 +64,7 @@ public class SpellPanel : MonoBehaviour
         var spell = arg.Spell;
 
         foreach(SpellPanelCell cell in panelCells) {
-
+            
             if(cell.Id == id) {
                 cell.Image.sprite = icon;
                 cell.Invoker.Spell = spell;

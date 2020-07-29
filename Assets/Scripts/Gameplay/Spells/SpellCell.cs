@@ -24,9 +24,9 @@ public class SpellCell : Cell<SpellPanelCell> {
 
     private Button button;
 
-    protected override void Start() {
+    protected void Start() {
 
-        base.Start();
+        icon = GetComponent<Image>();
         button = GetComponent<Button>();
         button.onClick.AddListener(() => LearnSpell());
 

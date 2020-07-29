@@ -42,7 +42,7 @@ public class InventoryCell : Cell<SupplyPanelCell>
         borderField.sprite = item.ItemBorder;
         itemColor = item.ItemColor;
         isEmpty = false;
-
+        Debug.Log("Add Supply" + icon.sprite);
         if (itemType == ItemType.SupplyItem || itemType == ItemType.RelicItem)
         {
             canDrag = true;

@@ -17,10 +17,6 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     public bool OnPanel => onPanel;
     public GameObject PanelCell { get => panelCell; set => panelCell = value; }
 
-    protected virtual void Start()
-    {
-        icon = GetComponent<Image>();
-    }
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<SpellPanelCell>() != null)

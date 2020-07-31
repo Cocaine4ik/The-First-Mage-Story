@@ -2,36 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterMana : MonoBehaviour
+public class CharacterMana : CharacterResource
 {
-    [SerializeField] private int maxMana;
-    [SerializeField] private int currentMana;
 
-    public int MaxMana => maxMana;
-    public int CurrentMana => currentMana;
-
-    private void Awake() {
-
-        currentMana = maxMana;
+    public virtual void BurnMana(int burnedMana)
+    {
+        BurnResource(burnedMana);
     }
 
-    public void BurnMana(int burnedMana) {
-
-        currentMana -= burnedMana;
-
-        if (GetComponent<Player>() != null)
-        {
-            float manaPercent = (float)burnedMana / maxMana;
-            EventManager.TriggerEvent(EventName.ManaChange, new EventArg(manaPercent));
-        }
+    public virtual void RestoreMana(int restorationValue)
+    {
+        RestoreResource(restorationValue);
     }
-
-    public void SetMaxMana(int value) {
-        maxMana = value;
-        if (GetComponent<Player>() != null)
-        {
-            var manaPercent = (float)currentMana / maxMana;
-            EventManager.TriggerEvent(EventName.SetMaxMana, new EventArg(manaPercent));
-        }
+    public virtual void SetMaxMana(int value)
+    {
+        SetResourceMaxValue(value);
     }
 }

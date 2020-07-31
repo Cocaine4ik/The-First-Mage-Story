@@ -168,7 +168,7 @@ public class Character : CharacterBase {
     /// </summary>
     protected override void Die() {
         
-        if(characterHealth.CurrentHealth <= 0 && isAlive) {
+        if(characterHealth.CurrentValue <= 0 && isAlive) {
             isAlive = false;
             animator.SetBool("IsAlive", isAlive);
 

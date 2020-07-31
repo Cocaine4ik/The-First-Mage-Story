@@ -26,16 +26,16 @@ public class Attributes : MonoBehaviour
 
     public static Attributes Instance;
 
-    private CharacterHealth characterHealth;
-    private CharacterMana characterMana;
+    private PlayerHealth playerHealth;
+    private PlayerMana playerMana;
 
     private float miracleChance;
 
     #endregion
 
     #region Properties
-    public CharacterHealth CharacterHealth => characterHealth;
-    public CharacterMana CharacterMana => characterMana;
+    public PlayerHealth PlayerHealth => playerHealth;
+    public PlayerMana PlayerMana => playerMana;
 
     public int CurrentExp => currentExp;
     public int ExpToLevelUp => expToLevelUp;
@@ -84,8 +84,8 @@ public class Attributes : MonoBehaviour
     }
     private void Start() {
 
-        characterHealth = GetComponent<CharacterHealth>();
-        characterMana = GetComponent<CharacterMana>();
+        playerHealth = GetComponent<PlayerHealth>();
+        playerMana = GetComponent<PlayerMana>();
 
         SetExpToLevelUp(currentLevel);
 
@@ -109,12 +109,12 @@ public class Attributes : MonoBehaviour
 
     public void ChangeSpirit(bool isIncrease) {
         spirit = IncreaseSkill(spirit, isIncrease);
-        characterHealth.SetMaxHealth(spirit * ConfigurationUtils.HealthBySpiritPoint);
+        playerHealth.SetMaxHealth(spirit * ConfigurationUtils.HealthBySpiritPoint);
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
     }
     public void ChangeWisdom(bool isIncrease) {
         wisdom = IncreaseSkill(wisdom, isIncrease);
-        characterMana.SetMaxMana(wisdom * ConfigurationUtils.ManaByWisdomPoint);
+        playerMana.SetMaxMana(wisdom * ConfigurationUtils.ManaByWisdomPoint);
         EventManager.TriggerEvent(EventName.RefreshCharacterMenuValues);
     }
     public void ChangeKnowledge(bool isIncrease) {

@@ -97,8 +97,8 @@ public class CharacterMenu : UIElementBase
     }
     private void OnRefreshCharacterMenuValues(EventArg arg) {
 
-        RefreshStatValue(characterHealth.MaxHealth, characterHealth.CurrentHealth, healthValue);
-        RefreshStatValue(characterMana.MaxMana, characterMana.CurrentMana, manaValue);
+        RefreshStatValue(characterHealth.MaxValue, characterHealth.CurrentValue, healthValue);
+        RefreshStatValue(characterMana.MaxValue, characterMana.CurrentValue, manaValue);
         RefreshAttributesValues();
         SetActiveButtons();
     }

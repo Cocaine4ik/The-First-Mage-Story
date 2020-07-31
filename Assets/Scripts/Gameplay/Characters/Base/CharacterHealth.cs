@@ -2,40 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterHealth : MonoBehaviour
+public class CharacterHealth : CharacterResource
 {
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
-
-
-    public int MaxHealth => maxHealth;
-    public int CurrentHealth => currentHealth;
-
-    private void Awake() {
-
-        currentHealth = maxHealth;
-    }
-
-    public void TakeDamage(int damage) {
-
+    public virtual void TakeDamage(int damage)
+    {
         // if current health > damage we dont play hurt animation and play only death animation
-        if(currentHealth > damage) {
+        if(currentValue > damage) {
             GetComponentInParent<Character>().Hurt();
         }
-
-        currentHealth -= damage;
-        
-        if(GetComponent<Player>() != null) {
-
-            var healthPercent = (float)damage / maxHealth;
-            EventManager.TriggerEvent(EventName.HpChange, new EventArg(healthPercent));
-        }
-
+        BurnResource(damage);
     }
 
-    public void SetMaxHealth(int value) {
-        maxHealth = value;
-        var healthPercent = (float)currentHealth / maxHealth;
-        EventManager.TriggerEvent(EventName.SetMaxHp, new EventArg(healthPercent));
+    public virtual void RestoreHealth(int restorationValue)
+    {
+        RestoreResource(restorationValue);
+    }
+
+    public virtual void SetMaxHealth(int value)
+    {
+        SetResourceMaxValue(value);
     }
 }

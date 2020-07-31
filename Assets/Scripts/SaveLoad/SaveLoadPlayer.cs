@@ -69,13 +69,9 @@ public class SaveLoadPlayer : SaveLoadData
         Attributes.Instance.AddSpellPoints(spellPoints);
 
         // Restore current health to max health
-        var healthDif = Attributes.Instance.CharacterHealth.MaxHealth -
-            Attributes.Instance.CharacterHealth.CurrentHealth;
-        Attributes.Instance.CharacterHealth.TakeDamage(-healthDif);
+        Attributes.Instance.PlayerHealth.RestoreHealth(Attributes.Instance.PlayerHealth.MaxValue);
 
         // Restore current mana to max mana
-        var manaDif = Attributes.Instance.CharacterMana.MaxMana -
-            Attributes.Instance.CharacterMana.CurrentMana;
-        Attributes.Instance.CharacterMana.BurnMana(-manaDif);
+        Attributes.Instance.PlayerMana.RestoreMana(Attributes.Instance.PlayerMana.MaxValue);
     }
 }

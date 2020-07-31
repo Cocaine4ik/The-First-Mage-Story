@@ -13,6 +13,10 @@ public class SupplyInvoker : MonoBehaviour
         if (supply != null)
         {
             EventManager.TriggerEvent(EventName.InvokeSupply, new EventArg(supply));
+            if(!supply.IsDurable)
+            {
+
+            }
         }
         else
         {

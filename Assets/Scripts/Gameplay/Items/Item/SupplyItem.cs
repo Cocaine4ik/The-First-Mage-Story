@@ -15,8 +15,6 @@ public class SupplyItem : Item, IResistance
     [SerializeField] private int manaBonus;
     [SerializeField] private int damageBonus;
 
-    [SerializeField] private float bonusDuration;
-
     [Header("Resistance Bonuses")]
     [SerializeField] private int physicalResistanceBonus;
     [SerializeField] private int veilResistannceBonus;
@@ -24,6 +22,10 @@ public class SupplyItem : Item, IResistance
     [SerializeField] private int iceResistanceBonus;
     [SerializeField] private int natureResistanceBonus;
     [SerializeField] private int divineResitanceBonus;
+
+    [Header("Duration")]
+    [SerializeField] private bool isDurable;
+    [SerializeField] private float bonusDuration;
 
     #endregion
 
@@ -38,7 +40,8 @@ public class SupplyItem : Item, IResistance
     public int IceResistance => iceResistanceBonus;
     public int NatureResistance => natureResistanceBonus;
     public int DivineResitance => divineResitanceBonus;
-
+    public bool IsDurable => isDurable;
+    public float BonusDuratation => bonusDuration;
     #endregion
 
     protected override void OnEnable()

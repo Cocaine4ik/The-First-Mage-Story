@@ -83,7 +83,7 @@ public class MagicCharacter : RangeCharacter{
         int manaBurnedForTeleport = ManaBurnedForTeleport(teleportPosition);
         Debug.Log(manaBurnedForTeleport);
 
-        if (characterMana.CurrentMana >= manaBurnedForTeleport) {
+        if (characterMana.CurrentValue >= manaBurnedForTeleport) {
 
             characterMana.BurnMana(manaBurnedForTeleport);
 

@@ -45,8 +45,8 @@ GameObject:
   - component: {fileID: 2734802088631105615}
   - component: {fileID: 2734802088631105614}
   - component: {fileID: 2734802088631105608}
-  - component: {fileID: -4285341985622049743}
-  - component: {fileID: 3109910619746571581}
+  - component: {fileID: 9077649284415171788}
+  - component: {fileID: 7493742234699367036}
   - component: {fileID: 3040911627132052604}
   - component: {fileID: 880481981422903372}
   - component: {fileID: 2809832885447001904}
@@ -244,7 +244,7 @@ MonoBehaviour:
   alchemy: 0
   skillPoints: 0
   spellPoints: 0
---- !u!114 &-4285341985622049743
+--- !u!114 &9077649284415171788
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -253,12 +253,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734802088631105611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18dadf3a1cd3c8943a2bcba2c7bbc156, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5d915fa07558f45860c6f977915471, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 100
-  currentMana: 0
---- !u!114 &3109910619746571581
+  currentValue: 0
+  maxValue: 100
+--- !u!114 &7493742234699367036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,11 +267,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2734802088631105611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9fa1d2fc81a50694995690cc8dd5422b, type: 3}
+  m_Script: {fileID: 11500000, guid: 3c4c7ce611c615447b07e388e6acea01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
+  currentValue: 0
+  maxValue: 100
 --- !u!82 &3040911627132052604
 AudioSource:
   m_ObjectHideFlags: 0

@@ -28,6 +28,7 @@ public class Attributes : MonoBehaviour
 
     private PlayerHealth playerHealth;
     private PlayerMana playerMana;
+    private Resistances resistances;
 
     private float miracleChance;
 
@@ -36,6 +37,7 @@ public class Attributes : MonoBehaviour
     #region Properties
     public PlayerHealth PlayerHealth => playerHealth;
     public PlayerMana PlayerMana => playerMana;
+    public Resistances Resistances => resistances;
 
     public int CurrentExp => currentExp;
     public int ExpToLevelUp => expToLevelUp;
@@ -86,6 +88,7 @@ public class Attributes : MonoBehaviour
 
         playerHealth = GetComponent<PlayerHealth>();
         playerMana = GetComponent<PlayerMana>();
+        resistances = GetComponent<Resistances>();
 
         SetExpToLevelUp(currentLevel);
 

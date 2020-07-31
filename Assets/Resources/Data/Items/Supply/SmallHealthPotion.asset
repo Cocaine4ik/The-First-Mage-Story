@@ -21,15 +21,16 @@ MonoBehaviour:
     rgba: 4278190080
   isSellable: 1
   itemPrice: 50
-  healthRestoration: 0
+  healthRestoration: 50
   manaRestoration: 0
   healthBonus: 0
   manaBonus: 0
   damageBonus: 0
-  bonusDuration: 0
   physicalResistanceBonus: 0
   veilResistannceBonus: 0
   fireResistanceBonus: 0
   iceResistanceBonus: 0
   natureResistanceBonus: 0
   divineResitanceBonus: 0
+  isDurable: 0
+  bonusDuration: 0

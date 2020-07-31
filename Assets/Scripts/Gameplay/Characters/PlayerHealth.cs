@@ -19,8 +19,8 @@ public class PlayerHealth : CharacterHealth
 
     public override void RestoreHealth(int restorationValue)
     {
-        base.RestoreHealth(restorationValue);
         EventManager.TriggerEvent(changeResourceValue, new EventArg(-GetResourcePercent(GetClearRestorationValue(restorationValue))));
+        base.RestoreHealth(restorationValue);
     }
 
     public override void SetMaxHealth(int value)

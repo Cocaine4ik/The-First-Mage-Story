@@ -14,6 +14,7 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     protected GameObject panelCell;
     protected Cell<T> draggingCellData;
 
+    public Image Icon => icon;
     public bool OnPanel => onPanel;
     public GameObject PanelCell { get => panelCell; set => panelCell = value; }
 

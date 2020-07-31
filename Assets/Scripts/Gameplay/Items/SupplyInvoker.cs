@@ -12,15 +12,37 @@ public class SupplyInvoker : MonoBehaviour
     {
         if (supply != null)
         {
-            EventManager.TriggerEvent(EventName.InvokeSupply, new EventArg(supply));
+            // For instant supply effect
             if(!supply.IsDurable)
             {
+                // Health and Mana Restoration
+                Attributes.Instance.PlayerHealth.RestoreHealth(supply.HealthRestoration);
+                Attributes.Instance.PlayerMana.RestoreMana(supply.ManaRestoration);
+            }
+            // for durable supply effect
+            if(supply.IsDurable)
+            {
+                // Add bonus Health and Mana, Restore Health and Mana by bonus value
+                Attributes.Instance.PlayerHealth.SetMaxHealth(Attributes.Instance.PlayerHealth.MaxValue + supply.HealthBonus);
+                Attributes.Instance.PlayerHealth.RestoreHealth(supply.HealthBonus);
+                Attributes.Instance.PlayerMana.SetMaxMana(Attributes.Instance.PlayerMana.MaxValue + supply.ManaBonus);
+                Attributes.Instance.PlayerMana.RestoreMana(supply.ManaBonus);
 
+                // Add bonus Resistances
+                Attributes.Instance.Resistances.IncreaseResistances(supply.PhysicalResistance,
+                    supply.VeilResistannce, supply.FireResistance, supply.IceResistance, supply.NatureResistance, supply.DivineResitance);
+
+                StartCoroutine(StartDurableSupply(supply.BonusDuratation));
             }
         }
         else
         {
             // AudioManager.SFXAudioSource.Play(SFXClipName.MagicArrow);
         }
+    }
+
+    private IEnumerator StartDurableSupply(float duration)
+    {
+        yield return new WaitForSeconds(duration);
     }
 }

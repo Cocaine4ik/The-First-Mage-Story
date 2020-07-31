@@ -19,8 +19,9 @@ public class PlayerMana : CharacterMana
 
     public override void RestoreMana(int restorationValue)
     {
-        base.RestoreMana(restorationValue);
         EventManager.TriggerEvent(changeResourceValue, new EventArg(-GetResourcePercent(GetClearRestorationValue(restorationValue))));
+        base.RestoreMana(restorationValue);
+        
     }
 
     public override void SetMaxMana(int value)

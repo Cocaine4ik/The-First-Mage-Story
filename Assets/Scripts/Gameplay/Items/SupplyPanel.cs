@@ -30,18 +30,22 @@ public class SupplyPanel : MonoBehaviour
     {
         if (Input.GetButtonDown("[1] Supply Panel Cell"))
         {
+            Debug.Log("Invoke Supply");
             supplyInvokers[0].InvokeSupply();
         }
         if (Input.GetButtonDown("[2] Supply Panel Cell"))
         {
+            Debug.Log("Invoke Supply");
             supplyInvokers[1].InvokeSupply();
         }
         if (Input.GetButtonDown("[3] Supply Panel Cell"))
         {
+            Debug.Log("Invoke Supply");
             supplyInvokers[2].InvokeSupply();
         }
         if (Input.GetButtonDown("[4] Supply Panel Cell"))
         {
+            Debug.Log("Invoke Supply");
             supplyInvokers[3].InvokeSupply();
         }
 
@@ -50,7 +54,7 @@ public class SupplyPanel : MonoBehaviour
     private void OnAddSupply(EventArg arg)
     {
         var id = arg.FirstIntArg;
-        var icon = arg.Sprite;
+        var inventoryCell = arg.Cell;
         var supply = arg.Supply;
 
         foreach (SupplyPanelCell cell in panelCells)
@@ -68,7 +72,7 @@ public class SupplyPanel : MonoBehaviour
             if (cell.Id == id)
             {
                 cell.Image.gameObject.SetActive(true);
-                cell.Image.sprite = icon;
+                cell.Image.sprite = inventoryCell.Icon.sprite;
                 cell.Invoker.Supply = supply;
             }
         }

@@ -31,6 +31,8 @@ public class SupplyItem : Item, IResistance
 
     #region Properties
 
+    public int HealthRestoration => healthRestoration;
+    public int ManaRestoration => manaRestoration;
     public int HealthBonus => healthBonus;
     public int ManaBonus => manaBonus;
     public int DamageBonus => damageBonus;

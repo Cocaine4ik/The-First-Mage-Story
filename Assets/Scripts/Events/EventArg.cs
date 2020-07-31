@@ -29,6 +29,7 @@ public class EventArg {
     private SupplyItem supply;
     private Sprite sprite;
     private GameObject gameObject;
+    private InventoryCell cell;
 
     #endregion
 
@@ -53,6 +54,7 @@ public class EventArg {
     public SupplyItem Supply => supply;
     public Sprite Sprite => sprite;
     public GameObject GameObject => gameObject;
+    public InventoryCell Cell => cell;
 
     #endregion
 
@@ -168,10 +170,10 @@ public class EventArg {
     }
 
     // constructor for supply cell
-    public EventArg(int id, Sprite icon, SupplyItem supply)
+    public EventArg(int id, InventoryCell cell, SupplyItem supply)
     {
         this.firstIntArg = id;
-        this.sprite = icon;
+        this.cell = cell;
         this.supply = supply;
 
     }

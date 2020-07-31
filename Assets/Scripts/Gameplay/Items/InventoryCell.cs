@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class InventoryCell : Cell<SupplyPanelCell>
+public class InventoryCell : Cell<SupplyPanelCell>, IStack
 {
     [SerializeField] private ItemName itemName;
     private ItemType itemType;
@@ -19,7 +19,8 @@ public class InventoryCell : Cell<SupplyPanelCell>
 
     public ItemName ItemName => itemName;
     public bool IsEmpty => isEmpty;
-    public bool IsStack => isStack;
+    public bool IsStack { get => isStack; set => isStack = value; }
+    public int ItemNumber { get => itemNumber; set => itemNumber = value; }
 
     private void Awake() {
 
@@ -74,7 +75,7 @@ public class InventoryCell : Cell<SupplyPanelCell>
             Debug.Log(itemName.ToString());
             var supply = Resources.Load<SupplyItem>("Data/Items/Supply/" + itemName.ToString());
             Debug.Log(supply.ItemName);
-            EventManager.TriggerEvent(EventName.AddSupplyToPanelCell, new EventArg(panelCellData.Id, icon.sprite, supply));
+            EventManager.TriggerEvent(EventName.AddSupplyToPanelCell, new EventArg(panelCellData.Id, GetComponent<InventoryCell>(), supply));
             Debug.Log("Add Supply" + icon.sprite);
         }
     }

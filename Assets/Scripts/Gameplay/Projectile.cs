@@ -43,7 +43,7 @@ public class Projectile : DamageData {
 
         if(collision.GetComponent<CharacterHealth>() != null) {
 
-            collision.GetComponent<CharacterHealth>().TakeDamage(damage);
+            collision.GetComponent<CharacterHealth>().TakeDamage(damage, damageType);
         }
         if(collision.GetComponentInParent<WarriorBehaviour>() != null) {
 

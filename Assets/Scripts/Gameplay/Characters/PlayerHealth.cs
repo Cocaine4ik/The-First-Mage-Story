@@ -10,9 +10,9 @@ public class PlayerHealth : CharacterHealth
         changeResourceValue = EventName.HpChange;
         setResourceMaxValue = EventName.SetMaxHp;
     }
-    public override void TakeDamage(int damage)
+    public override void TakeDamage(int damage, DamageType damageType)
     {
-        base.TakeDamage(damage);
+        base.TakeDamage(damage, damageType);
 
         EventManager.TriggerEvent(changeResourceValue, new EventArg(GetResourcePercent(damage)));
     }

@@ -192,7 +192,7 @@ public class Character : CharacterBase {
         Collider2D targetColider = Physics2D.OverlapCircle(transform.position, damageData.AtackRange, enemies);
 
         if(targetColider != null) {
-            targetColider.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage);
+            targetColider.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage, DamageData.DamageType);
         }
     }
     // if atack end stop animation

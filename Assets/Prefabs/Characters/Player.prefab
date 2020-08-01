@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 2734802088631105608}
   - component: {fileID: 9077649284415171788}
   - component: {fileID: 7493742234699367036}
+  - component: {fileID: 3697396671439632336}
   - component: {fileID: 3040911627132052604}
   - component: {fileID: 880481981422903372}
   - component: {fileID: 2809832885447001904}
@@ -272,6 +273,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentValue: 0
   maxValue: 100
+--- !u!114 &3697396671439632336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2734802088631105611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12feec4c257546e40a8ff8b8f5c4b07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicalResistance: 0
+  veilResistannce: 0
+  fireResistance: 0
+  iceResistance: 0
+  natureResistance: 0
+  divineResitance: 0
 --- !u!82 &3040911627132052604
 AudioSource:
   m_ObjectHideFlags: 0

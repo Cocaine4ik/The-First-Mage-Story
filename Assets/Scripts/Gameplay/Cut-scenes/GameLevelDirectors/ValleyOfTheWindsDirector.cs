@@ -25,7 +25,7 @@ public class ValleyOfTheWindsDirector : SceneDirector
     private void Update() {
         
         if(spiritSpeechTrigger.SpeechIsEnd == true && spiritHealth != null) {
-            spiritHealth.TakeDamage(10);
+            spiritHealth.TakeDamage(10, DamageType.None);
             StartCoroutine(GoToNextScene(SceneName.MagicCliffs));
         }
     }

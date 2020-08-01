@@ -6,8 +6,8 @@ public class DamageData : MonoBehaviour{
 
     [SerializeField] protected int damage;
     [SerializeField] protected float atackRange;
-    [SerializeField] private DamageType damageType;
-    [SerializeField] private EffectName effect = EffectName.None;
+    [SerializeField] protected DamageType damageType;
+    [SerializeField] protected EffectName effect = EffectName.None;
 
     public float AtackRange => atackRange;
 

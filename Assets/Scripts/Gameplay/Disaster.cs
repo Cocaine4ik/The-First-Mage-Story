@@ -12,7 +12,7 @@ public class Disaster : MonoBehaviour
     private void OnCollisionStay2D(Collision2D collision) {
         
         if(collision.gameObject.GetComponent<CharacterHealth>() != null) {
-            collision.gameObject.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage);
+            collision.gameObject.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage, damageData.DamageType);
         }
     }
 }

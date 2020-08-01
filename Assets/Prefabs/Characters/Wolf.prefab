@@ -64,6 +64,7 @@ GameObject:
   - component: {fileID: 2510668164612928330}
   - component: {fileID: 1486642198233058359}
   - component: {fileID: 6273486538561090008}
+  - component: {fileID: 1274651235567594231}
   - component: {fileID: 7408881354255936810}
   m_Layer: 10
   m_Name: Wolf
@@ -275,6 +276,24 @@ MonoBehaviour:
   jumpControlTime: 0
   atackSound: 0
   jumpSound: 0
+--- !u!114 &1274651235567594231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101560476304868748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12feec4c257546e40a8ff8b8f5c4b07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  physicalResistance: 0
+  veilResistannce: 0
+  fireResistance: 0
+  iceResistance: 0
+  natureResistance: 0
+  divineResitance: 0
 --- !u!114 &7408881354255936810
 MonoBehaviour:
   m_ObjectHideFlags: 0

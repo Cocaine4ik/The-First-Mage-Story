@@ -48,6 +48,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -144,7 +145,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   atackRange: 5
-  projectileAliveTime: 2
+  damageType: 1
+  effect: 6
   speed: 8
   impactEffect: {fileID: 1687860514029964, guid: b679a1aea695caf47a61b32ca89ee02a,
     type: 3}

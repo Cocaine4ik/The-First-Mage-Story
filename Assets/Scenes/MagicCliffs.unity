@@ -28947,6 +28947,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1274651235567594231, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: veilResistannce
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1486642198233058359, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: patrolPoints.Array.size

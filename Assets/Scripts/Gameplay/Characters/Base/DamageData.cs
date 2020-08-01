@@ -11,21 +11,7 @@ public class DamageData : MonoBehaviour{
 
     public float AtackRange => atackRange;
 
-    public int Damage {
-        get {
-            if (gameObject.GetComponentInChildren<Player>() != null)
-                return damage + Attributes.Instance.Knowledge;
-            else return damage;
-        }
-        set { damage = value; }
-    }
-
-    public DamageType  DamageType {
-        get { return damageType; }
-        set { damageType = value; }
-    }
-    public EffectName Effect {
-        get { return effect; }
-        set { effect = value; }
-    }
+    public virtual int Damage { get => damage; set => damage = value; }
+    public DamageType  DamageType { get => damageType; set => damageType = value; }
+    public EffectName Effect { get => effect; set => effect = value; }
 }

@@ -13,7 +13,14 @@ public class Projectile : DamageData {
 
     [SerializeField] private float speed = 5f;
     [SerializeField] private GameObject impactEffect;
-    
+
+    public override int Damage { 
+        get {
+            if (projectileOwner.GetComponent<Player>() != null)
+                return damage + Attributes.Instance.Knowledge;
+            else return damage;
+            }
+        set => base.Damage = value; }
     #endregion
 
     #region Methods
@@ -43,7 +50,7 @@ public class Projectile : DamageData {
 
         if(collision.GetComponent<CharacterHealth>() != null) {
 
-            collision.GetComponent<CharacterHealth>().TakeDamage(damage, damageType);
+            collision.GetComponent<CharacterHealth>().TakeDamage(Damage, damageType);
         }
         if(collision.GetComponentInParent<WarriorBehaviour>() != null) {
 

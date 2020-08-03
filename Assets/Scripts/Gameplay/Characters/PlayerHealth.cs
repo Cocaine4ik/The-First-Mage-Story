@@ -12,7 +12,6 @@ public class PlayerHealth : CharacterHealth
     }
     public override void TakeDamage(int damage, DamageType damageType)
     {
-        Debug.Log(damage);
         base.TakeDamage(damage, damageType);
 
         EventManager.TriggerEvent(changeResourceValue, new EventArg(GetResourcePercent(damage)));

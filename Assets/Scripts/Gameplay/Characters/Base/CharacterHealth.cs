@@ -16,7 +16,6 @@ public class CharacterHealth : CharacterResource
         if(currentValue > damage) {
             GetComponentInParent<Character>().Hurt();
         }
-        Debug.Log(damage);
         BurnResource(CalculatePoorDamage(damage, damageType));
     }
 

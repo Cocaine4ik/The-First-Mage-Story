@@ -43,7 +43,7 @@ public class OnMouseOverUI : MonoBehaviour, IPointerEnterHandler {
 
         switch(name) {
             case "Knowledge":
-                modifier = $"{projectile.Damage}" +
+                modifier = $"{projectile.Damage - Attributes.Instance.Knowledge}" +
                     $" + {Attributes.Instance.Knowledge}"; break;
             case "Wisdom":
                 modifier = $"{Attributes.Instance.Wisdom * ConfigurationUtils.ManaByWisdomPoint}"; break;

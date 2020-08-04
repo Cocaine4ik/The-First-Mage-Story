@@ -55,6 +55,7 @@ public class SupplyPanel : MonoBehaviour
     {
         var id = arg.FirstIntArg;
         var inventoryCell = arg.Cell;
+        Debug.Log(inventoryCell.IsStack);
         var supply = arg.Supply;
 
         foreach (SupplyPanelCell cell in panelCells)
@@ -74,6 +75,13 @@ public class SupplyPanel : MonoBehaviour
                 cell.Image.gameObject.SetActive(true);
                 cell.Image.sprite = inventoryCell.Icon.sprite;
                 cell.Invoker.Supply = supply;
+                if(inventoryCell.IsStack)
+                {
+                    cell.IsStack = inventoryCell.IsStack;
+                    cell.ItemNumber = inventoryCell.ItemNumber;
+                    cell.SetStack();
+                }
+                
             }
         }
     }

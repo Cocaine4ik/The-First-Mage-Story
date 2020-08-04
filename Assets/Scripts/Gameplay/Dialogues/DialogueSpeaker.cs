@@ -11,13 +11,13 @@ using UnityEngine.UI;
 /// 
 public class DialogueSpeaker : MonoBehaviour
 {
-    [SerializeField] private string speakerLocalizationKey;
-    [SerializeField] private Image speakerPortrait;
+    [SerializeField] private SpeakerName speakerName;
+    [SerializeField] private Sprite speakerPortrait;
 
     private string dialogueSpeakerName;
 
     public string DialogueSpeakerName => dialogueSpeakerName;
-    public Image SpeakerPortait => speakerPortrait; 
+    public Sprite SpeakerPortait => speakerPortrait; 
 
     private void Start() {
 

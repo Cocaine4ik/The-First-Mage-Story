@@ -147,6 +147,8 @@ MonoBehaviour:
   atackRange: 5
   damageType: 1
   effect: 6
+  projectileOwner: {fileID: 2734802088631105611, guid: 5476f6a653dd5e448bfefde42ee580c6,
+    type: 3}
   speed: 8
   impactEffect: {fileID: 1687860514029964, guid: b679a1aea695caf47a61b32ca89ee02a,
     type: 3}

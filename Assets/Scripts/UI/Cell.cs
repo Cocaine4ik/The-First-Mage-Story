@@ -28,13 +28,13 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
         }
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         if (canDrag)
         {
             draggingCell = Instantiate(gameObject, gameObject.transform.parent.transform.parent);
             draggingCell.transform.position = Input.mousePosition;
-            draggingCellData = draggingCell.GetComponent<Cell<T>>();
+            SetDragginCellData();
         }
     }
 
@@ -56,5 +56,9 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     }
 
     public abstract void SetPanelCell();
+    protected virtual void SetDragginCellData()
+    {
+        draggingCellData = draggingCell.GetComponent<Cell<T>>();
+    }
 }
 

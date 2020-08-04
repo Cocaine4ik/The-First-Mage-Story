@@ -8,7 +8,7 @@ public class Projectile : DamageData {
 
     private Rigidbody2D rb;
     private LayerMask enemyLayer;
-    private GameObject projectileOwner;
+    [SerializeField] private GameObject projectileOwner;
     private Vector2 startPos;
 
     [SerializeField] private float speed = 5f;

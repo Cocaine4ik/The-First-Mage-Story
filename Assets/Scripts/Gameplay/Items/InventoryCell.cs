@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class InventoryCell : Cell<SupplyPanelCell>, IStack
 {
@@ -88,5 +89,12 @@ public class InventoryCell : Cell<SupplyPanelCell>, IStack
             panelCell = collision.gameObject;
             Debug.Log("onPanel: " + onPanel);
         }
+    }
+    protected override void SetDragginCellData()
+    {
+        base.SetDragginCellData();
+        var invenoryCellData = draggingCell.GetComponent<InventoryCell>();
+        invenoryCellData.IsStack = isStack;
+        invenoryCellData.ItemNumber = itemNumber;
     }
 }

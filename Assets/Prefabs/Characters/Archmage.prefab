@@ -247,8 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18dadf3a1cd3c8943a2bcba2c7bbc156, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxMana: 500
-  currentMana: 500
+  currentValue: 0
+  maxValue: 500
 --- !u!114 &3109910619746571581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,8 +261,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fa1d2fc81a50694995690cc8dd5422b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
-  currentHealth: 500
+  currentValue: 0
+  maxValue: 500
 --- !u!114 &-6183113954562102210
 MonoBehaviour:
   m_ObjectHideFlags: 0

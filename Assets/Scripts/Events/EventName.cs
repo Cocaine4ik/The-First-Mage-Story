@@ -38,4 +38,8 @@ public enum EventName {
     AddToGameLevelObjectsList,
     InvokeSupply,
     AddSupplyToPanelCell,
+    SetLeftSpeakerPortrait,
+    SetLeftSpeakerNameKey,
+    SetRightSpeakerPortrait,
+    SetRightSpeakerNameKey
 }

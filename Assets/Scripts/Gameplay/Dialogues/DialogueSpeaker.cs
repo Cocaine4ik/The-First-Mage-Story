@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 /// <summary>
 /// Dialogue speaker class
@@ -14,14 +13,8 @@ public class DialogueSpeaker : MonoBehaviour
     [SerializeField] private SpeakerName speakerName;
     [SerializeField] private Sprite speakerPortrait;
 
-    private string dialogueSpeakerName;
+    private const string speakersKey = "Speakers.";
 
-    public string DialogueSpeakerName => dialogueSpeakerName;
+    public string SpeakerNameKey => speakersKey + speakerName.ToString();
     public Sprite SpeakerPortait => speakerPortrait; 
-
-    private void Start() {
-
-        // dialogueSpeakerName = LocalizationManager.Localize(speakerLocalizationKey);
-
-    }
 }

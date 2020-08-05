@@ -182,5 +182,10 @@ public class EventArg {
     public EventArg(GameObject gameObject) {
         this.gameObject = gameObject;
     }
+    // // constructor with sprite
+    public EventArg(Sprite sprite)
+    {
+        this.sprite = sprite;
+    }
     #endregion
 }

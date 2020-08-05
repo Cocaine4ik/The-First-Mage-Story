@@ -11,6 +11,10 @@ public class DialogueTrigger : TalkTrigger
     [SerializeField] private DialogueContainer dialogue;
 
     private Transform dialogueWindow;
+    [SerializeField] private Sprite leftSpeakerPortrait;
+    [SerializeField] private Sprite rightSpeakerPortrait;
+    [SerializeField] private string leftSpeakerNameKey;
+    [SerializeField] private string rightSpeakerNameKey;
 
     public DialogueContainer Dialogue => dialogue;
     /// <summary>
@@ -20,6 +24,9 @@ public class DialogueTrigger : TalkTrigger
     private void OnTriggerEnter2D(Collider2D collision) {
 
         if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
+
+            leftSpeakerPortrait = GetSpeakerPortrait(collision.gameObject);
+            leftSpeakerNameKey = GetSpeakerNameKey(collision.gameObject);
             StartConversation();
         }
     }
@@ -31,7 +38,10 @@ public class DialogueTrigger : TalkTrigger
 
         if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            if(dialogueWindow != null && !dialogueSet) {
+            leftSpeakerPortrait = GetSpeakerPortrait(collision.gameObject);
+            leftSpeakerNameKey = GetSpeakerNameKey(collision.gameObject);
+
+            if (dialogueWindow != null && !dialogueSet) {
                 dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
                 dialogueSet = true;
                 Debug.Log("Dialogue set: " + dialogue.name);
@@ -61,6 +71,11 @@ public class DialogueTrigger : TalkTrigger
         if (isScriptable == true) {
             StartCoroutine(StartScriptableConversation(scriptableTime));
         }
+        if(GetComponent<DialogueSpeaker>() != null)
+        {
+            rightSpeakerPortrait = GetSpeakerPortrait(gameObject);
+            rightSpeakerNameKey = GetSpeakerNameKey(gameObject);
+        }
     }
     private void OnDestroy() {
         EventManager.StopListening(EventName.ExitConversation, OnExitConversation);
@@ -70,9 +85,9 @@ public class DialogueTrigger : TalkTrigger
     /// Invoke StartConversation event
     /// </summary>
     protected override void StartConversation() {
-
         dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
         dialogueSet = true;
+        SetDialogueSpeakersData();
         Debug.Log("Dialogue set: " + dialogue.name);
         EventManager.TriggerEvent(EventName.StartConversation);
         Debug.Log("Starting conversation.");
@@ -94,6 +109,33 @@ public class DialogueTrigger : TalkTrigger
                 Destroy(gameObject);
             }
 
+        }
+    }
+
+    private Sprite GetSpeakerPortrait(GameObject gameObject)
+    {
+        return gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait;
+    }
+    private string GetSpeakerNameKey(GameObject gameObject)
+    {
+        return gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey;
+    }
+
+    private void SetDialogueSpeakersData()
+    {
+        EventManager.TriggerEvent(EventName.SetLeftSpeakerPortrait, new EventArg(leftSpeakerPortrait));
+        
+        EventManager.TriggerEvent(EventName.SetLeftSpeakerNameKey, new EventArg(leftSpeakerNameKey));
+
+        if (GetComponent<DialogueSpeaker>() != null)
+        {
+            EventManager.TriggerEvent(EventName.SetRightSpeakerPortrait, new EventArg(rightSpeakerPortrait));
+            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(rightSpeakerPortrait));
+        }
+        else
+        {
+            EventManager.TriggerEvent(EventName.SetRightSpeakerPortrait, new EventArg(leftSpeakerPortrait));
+            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(leftSpeakerNameKey));
         }
     }
 }

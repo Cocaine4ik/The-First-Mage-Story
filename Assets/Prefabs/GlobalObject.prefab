@@ -113,6 +113,8 @@ MonoBehaviour:
     Id: 1601552121
   - Name: LoadingScreens
     Id: 1022439690
+  - Name: Speakers
+    Id: 1109653051
   LocalizationSaveFolder: {fileID: 102900000, guid: b098b0cead4474d49a30d989dc2f5398,
     type: 3}
   ConfigurationTableId: 1pQ3m6_a55Cxexydl6ZZ_b6ggCcPFO1zmxf-rWd4lPYo

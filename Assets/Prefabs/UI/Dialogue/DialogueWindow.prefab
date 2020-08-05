@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 899077158588024773}
   - component: {fileID: 899077158588024775}
   - component: {fileID: 899077158588024772}
+  - component: {fileID: 2248963471971303217}
   m_Layer: 5
   m_Name: Speaker Name
   m_TagString: Untagged
@@ -158,6 +159,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2248963471971303217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899077158588024778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Speakers.Player
 --- !u!1 &899077158608188103
 GameObject:
   m_ObjectHideFlags: 0
@@ -977,6 +991,7 @@ GameObject:
   - component: {fileID: 899077160423792583}
   - component: {fileID: 899077160423792580}
   - component: {fileID: 899077160423792582}
+  - component: {fileID: 2521510456695367338}
   m_Layer: 5
   m_Name: DialogueWindow
   m_TagString: Untagged
@@ -1058,6 +1073,22 @@ MonoBehaviour:
   choicePrefab: {fileID: 7648842818745389769, guid: 5c691ac4ae48b9949b056361187bcdd5,
     type: 3}
   buttonContainer: {fileID: 899077159266581159}
+--- !u!114 &2521510456695367338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899077160423792586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dea0f0c17147754fb982037dfeb8b3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftSpeakerPortrait: {fileID: 6836680090792842873}
+  rightSpeakerPortrait: {fileID: 8107193932097272601}
+  leftSpeakerLocalization: {fileID: 2248963471971303217}
+  rightSpeakerLocalization: {fileID: 492883409640592666}
 --- !u!1 &899077160473023495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1447,7 @@ GameObject:
   - component: {fileID: 5643406139009906650}
   - component: {fileID: 7757810698078845483}
   - component: {fileID: 7502204067492469607}
+  - component: {fileID: 492883409640592666}
   m_Layer: 5
   m_Name: Speaker Name
   m_TagString: Untagged
@@ -1563,6 +1595,19 @@ MonoBehaviour:
   - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &492883409640592666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3413528768991826333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64f2bbf76c19fd74db7c285ddb08acde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localizationKey: Speakers.Player
 --- !u!1 &3840674762746672713
 GameObject:
   m_ObjectHideFlags: 0

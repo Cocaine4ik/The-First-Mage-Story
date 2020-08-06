@@ -1,19 +1,17 @@
 ﻿
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "Quests/Quest")]
 public class Quest : ScriptableObject, IJournalItem {
 
-    public QuestName Name;
-    public QuestStatus Status = QuestStatus.Active;
+    [SerializeField] private QuestName questName;
+    [SerializeField] private QuestStatus questStatus = QuestStatus.Active;
 
-    public string NameKey {
-        get { return "Quests." + Name.ToString(); }
-    }
-    public string DescriptionKey {
-        get { return "Quests.Description." + Name.ToString(); }
-    }
+    [SerializeField] private List<QuestTask> questTasks;
+    public string NameKey => "Quests." + questName.ToString();
+    public string DescriptionKey => "Quests.Description." + questName.ToString();
 
-    public Quest (QuestName name) {
-        this.Name = name;
-    }
+
 }

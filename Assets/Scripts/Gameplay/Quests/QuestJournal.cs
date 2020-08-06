@@ -56,7 +56,7 @@ public class QuestJournal : UIElementBase
         storyPageChilds = UnityExtensions.CreateChildsList(storyPage);
 
         EventManager.StartListening(EventName.AddQuest, OnAddJorunalItem);
-        EventManager.TriggerEvent(EventName.AddQuest, new EventArg(new Quest(QuestName.FirstTrial)));
+        //EventManager.TriggerEvent(EventName.AddQuest, new EventArg(new Quest(QuestName.FirstTrial)));
 
         mainPageRect = mainPage.GetComponent<RectTransform>();
         questPageRect = questPage.GetComponent<RectTransform>();
@@ -72,7 +72,7 @@ public class QuestJournal : UIElementBase
         
         if(arg.Quest != null) {
             var quest = arg.Quest;
-            quests.Add(quest.Name, quest);
+            //quests.Add(quest.Name, quest);
             AddJorunalItem(questNamesContainer, quest.NameKey, quest);
         }
         else if(arg.Story != null) {

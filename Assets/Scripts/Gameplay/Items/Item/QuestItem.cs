@@ -6,7 +6,7 @@ using UnityEngine;
 public class QuestItem : Item
 {
     [Header("Quest Data")]
-    [SerializeField] private Quest quest;
+    [SerializeField] private QuestName questName;
     protected override void OnEnable() {
         base.OnEnable();
         itemColor = new Color32(203, 190, 0, 255);

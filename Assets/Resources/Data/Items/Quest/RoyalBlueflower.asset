@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bc1eda598acf53f4c950acc94d149556, type: 3}
-  m_Name: BlueMagicFlower
+  m_Name: RoyalBlueflower
   m_EditorClassIdentifier: 
   itemName: 0
   itemType: 0
@@ -19,3 +19,6 @@ MonoBehaviour:
   itemColor:
     serializedVersion: 2
     rgba: 4278238923
+  isSellable: 0
+  itemPrice: 0
+  questName: 0

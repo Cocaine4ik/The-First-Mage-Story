@@ -1,4 +1,9 @@
 Key,Russian,English,German,Spanish,Ukrainian
-Quests.QuestName,Название квеста,Quest name,,,
-Quests.Description,Описание квеста,Quest Description,,,
 Quests.FirstTrial,Первое испытание,First trial,,,
+Quests.Tasks.FirstTrial-0,Собрать 5 Королевских Синецветов,,,,
+Quests.Tasks.FirstTrial-1,Доставить Королевские Синецветы учителю,,,,
+Quests.Description.FirstTrial-0,"В башне закочниллись запасы зелий маны. А ингридиентов чтобы приготовить новые нет. Учитель уже был староват для путешествий, поэтому отправил меня за ними. Это мое первое испытание и шанс повидать большой мир. Мне надо пройти через врата перемещения который ведут ведут к Парящим Скалам. И собрать там необходимые растения.",,,,
+Quests.Description.FirstTrial-1,"Я собрал достаточно цветов, теперь надо доставить их учичтелю в Башню Архимага.",,,,
+Quests.BreachInTheVeil,Брешь в Завесе,Breach In The Veil,,,
+Quests.Description.BreachInTheVeil-0,,,,,
+Quests.Description.BreachInTheVeil-1,,,,,

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum QuestStatus
+public enum CompletnessStatus
 {
+    NoActive,
     Active,
     Done,
     Failed

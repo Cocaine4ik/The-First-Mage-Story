@@ -5,6 +5,9 @@ using TMPro;
 using System;
 using UnityEngine.UI;
 
+/// <summary>
+/// Quest Journal (UI presentation)
+/// </summary>
 public class QuestJournal : UIElementBase
 {
     [Header("Journal pages:")]
@@ -17,20 +20,16 @@ public class QuestJournal : UIElementBase
 
     [Header("For quests: ")]
     [SerializeField] private Transform questNamesContainer;
-    [SerializeField] private TextMeshProUGUI questDescription;
+    [SerializeField] private Transform questTasksConainer;
+    [SerializeField] private LocalizedTMPro questDescription;
 
     [Header("For stories: ")]
     [SerializeField] private Transform storyNamesContainer;
-    [SerializeField] private TextMeshProUGUI storyDescription;
+    [SerializeField] private LocalizedTMPro storyDescription;
 
     [Header("For quest and story: ")]
-    [SerializeField] private GameObject questNameButtonPrefab;
-
-    // quest names and descriptions
-    private Dictionary<QuestName, Quest> quests = new Dictionary<QuestName, Quest>();
-    private Dictionary<StoryName, Story> stories = new Dictionary<StoryName, Story>();
+    [SerializeField] private GameObject journalItemNameButtonPrefab;
     
-
     private List<GameObject> mainPageChilds = new List<GameObject>();
     private List<GameObject> questPageChilds = new List<GameObject>();
     private List<GameObject> storyPageChilds = new List<GameObject>();
@@ -41,12 +40,6 @@ public class QuestJournal : UIElementBase
     private RectTransform backButtonRect;
     private RectTransform closeButtonRect;
 
-    private void OnEnable() {
-
-    }
-    private void OnDisable() {
-        EventManager.StopListening(EventName.AddQuest, OnAddJorunalItem);
-    }
     protected override void Start() {
 
         base.Start();
@@ -55,8 +48,7 @@ public class QuestJournal : UIElementBase
         questPageChilds = UnityExtensions.CreateChildsList(questPage);
         storyPageChilds = UnityExtensions.CreateChildsList(storyPage);
 
-        EventManager.StartListening(EventName.AddQuest, OnAddJorunalItem);
-        //EventManager.TriggerEvent(EventName.AddQuest, new EventArg(new Quest(QuestName.FirstTrial)));
+        QuestSystem.Instance.AddQuest(QuestName.FirstTrial);
 
         mainPageRect = mainPage.GetComponent<RectTransform>();
         questPageRect = questPage.GetComponent<RectTransform>();
@@ -66,46 +58,60 @@ public class QuestJournal : UIElementBase
 
         backButton.SetActive(!gameObject.activeSelf);
 }
-
-    private void OnAddJorunalItem(EventArg arg) {
-
-        
-        if(arg.Quest != null) {
-            var quest = arg.Quest;
-            //quests.Add(quest.Name, quest);
-            AddJorunalItem(questNamesContainer, quest.NameKey, quest);
-        }
-        else if(arg.Story != null) {
-            var story = arg.Story;
-            stories.Add(story.Name, story);
-            AddJorunalItem(storyNamesContainer, story.NameKey, story);
-        }
-
+    /// <summary>
+    /// Add quest to Journal
+    /// Instantiate button in quest names container
+    /// Change button text localization to quest name
+    /// Add onClick event to button which invoke ShowQuestInfo method
+    /// Add first task
+    /// </summary>
+    /// <param name="quest"></param>
+    public void AddQuestToJournal(Quest quest)
+    {
+        var button = Instantiate(journalItemNameButtonPrefab, questNamesContainer);
+        button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(quest.NameKey);
+        button.GetComponent<Button>().onClick.AddListener(() => ShowTaskDescription(quest.CurrentTask));
+        AddTaskToJournal(quest);
     }
 
-    private void AddJorunalItem(Transform container, string nameKey, IJournalItem journalItem) {
-
-        var button = Instantiate(questNameButtonPrefab, container);
-        button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(nameKey);
-        button.GetComponent<Button>().onClick.AddListener(() => OnShowJournalItemDesciption(journalItem));
+    /// <summary>
+    /// Add story to Journal
+    /// Intantiate button in story names container
+    /// Change button text localization to story name
+    /// Add onClick event to button which invoke ShowStoryDescription method
+    /// </summary>
+    /// <param name="story"></param>
+    public void AddStoryToJournal(Story story)
+    {
+        var button = Instantiate(journalItemNameButtonPrefab, storyNamesContainer);
+        button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(story.NameKey);
+        button.GetComponent<Button>().onClick.AddListener(() => ShowStoryDescription(story));
     }
 
-    public void OnShowJournalItemDesciption(IJournalItem journalItem) {
-
-        var journalItemNameText = GetComponentInChildren<LocalizedTMPro>().LocalizationKey;
-
-        // remove localization prefix
-        journalItemNameText = journalItemNameText.Remove(0, 7);
-
-        if (journalItem.GetType().ToString() == "Quest") {
-            QuestName questName = (QuestName)Enum.Parse(typeof(QuestName), journalItemNameText);
-            questDescription.text = quests[questName].DescriptionKey;
-        }
-        else if (journalItem.GetType().ToString() == "Story") {
-            StoryName storyName = (StoryName)Enum.Parse(typeof(StoryName), journalItemNameText);
-            questDescription.text = stories[storyName].DescriptionKey;
-        }
+    /// <summary>
+    /// Add task to Journal
+    /// Intantiate button in tasks name container
+    /// Change task text localization to task name
+    /// Add onClick event to button which invoke ShowTaskDescription method
+    /// </summary>
+    /// <param name="quest"></param>
+    public void AddTaskToJournal(Quest quest)
+    {
+        var button = Instantiate(journalItemNameButtonPrefab, questTasksConainer);
+        Debug.Log(quest.CurrentTask.name);
+        button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(quest.CurrentTask.NameKey);
+        button.GetComponent<Button>().onClick.AddListener(() => ShowTaskDescription(quest.CurrentTask));
     }
+
+    public void ShowTaskDescription(QuestTask task)
+    {
+        questDescription.ChangeLocalization(task.DescriptionKey);
+    }
+    public void ShowStoryDescription(Story story)
+    {
+        storyDescription.ChangeLocalization(story.DescriptionKey);
+    }
+
     /// <summary>
     /// Invoke closing QuestJournal event
     /// </summary>

@@ -19,7 +19,6 @@ public class QuestSystem : MonoBehaviour
         }
         else if (Instance != this)
         {
-
             Destroy(gameObject);
         }
     }
@@ -36,12 +35,14 @@ public class QuestSystem : MonoBehaviour
     public void AddQuest(QuestName name)
     {
         var questName = name.ToString();
-        var quest = Resources.Load<Quest>($"Quests/{questName}/{questName}");
-        quest.Status = CompletnessStatus.Active;
+        var quest = Instantiate(Resources.Load<Quest>($"Quests/{questName}/{questName}"));
         quests.Add(name, quest);
+        quests[name].Status = CompletnessStatus.Active;
 
-        AddTask(quest);
-        questJournal.AddQuestToJournal(quest);
+        Debug.Log("Quest:" + quest.name + " added.");
+        AddTask(quests[name]);
+
+        questJournal.AddQuestToJournal(quests[name]);
     }
     /// <summary>
     /// Set task status to Active
@@ -50,6 +51,11 @@ public class QuestSystem : MonoBehaviour
     /// <param name="quest"></param>
     public void AddTask(Quest quest)
     {
+        // clear links to SO
+        for (int i = 0; i < quest.QuestTasks.Count-1; i++)
+        {
+            quest.QuestTasks[i] = Instantiate(quest.QuestTasks[i]);
+        }
         foreach(QuestTask task in quest.QuestTasks)
         {
            if(task.Status == CompletnessStatus.NoActive)
@@ -60,16 +66,29 @@ public class QuestSystem : MonoBehaviour
             }
         }
     }
-    public void CheckQuest(Quest quest)
+    public Quest CheckQuest(QuestName name)
     {
-
+        if (quests.ContainsKey(name)) return quests[name];
+        return null;
     }
-    public void CheckTask(Task task)
+    public QuestTask CheckTask(Quest quest, TaskType type)
     {
-
+        if (quest.CurrentTask.TaskType == type) return quest.CurrentTask;
+        return null;
     }
-    public void RefreshTask(Task task)
+    public void RefreshTask(QuestTask task)
     {
-
+        switch(task.TaskType)
+        {
+            case TaskType.Collect: break;
+            case TaskType.Decide: break;
+            case TaskType.Deliver: break;
+            case TaskType.Reach: break;
+            case TaskType.Slay: break;
+            case TaskType.Talk: 
+                task.Status = CompletnessStatus.Done;
+                questJournal.CloseTask(task);
+                break;
+        }
     }
 }

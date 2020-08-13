@@ -60,7 +60,7 @@ public class GUIController : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.J) && StatusUtils.DialogueIsActive == false) {
             OpenCloseGUIElement(questJournalChilds);
-            questJournal.GetComponent<QuestJournal>().PanelRectTransform.SetAsLastSibling();
+            questJournal.GetComponentInParent<QuestJournal>().PanelRectTransform.SetAsLastSibling();
         }
 
         if (Input.GetKeyDown(KeyCode.C) && StatusUtils.DialogueIsActive == false) {

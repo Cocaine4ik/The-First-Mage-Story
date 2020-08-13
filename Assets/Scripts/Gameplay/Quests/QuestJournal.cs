@@ -11,16 +11,12 @@ using UnityEngine.UI;
 public class QuestJournal : UIElementBase
 {
     [Header("Journal pages:")]
-    [SerializeField] private Transform mainPage;
     [SerializeField] private Transform questPage;
     [SerializeField] private Transform storyPage;
 
-    [SerializeField] private GameObject backButton;
-    [SerializeField] private GameObject closeButton;
-
     [Header("For quests: ")]
     [SerializeField] private Transform questNamesContainer;
-    [SerializeField] private Transform questTasksConainer;
+    [SerializeField] private Transform questTasksContainer;
     [SerializeField] private LocalizedTMPro questDescription;
 
     [Header("For stories: ")]
@@ -30,34 +26,28 @@ public class QuestJournal : UIElementBase
     [Header("For quest and story: ")]
     [SerializeField] private GameObject journalItemNameButtonPrefab;
     
-    private List<GameObject> mainPageChilds = new List<GameObject>();
     private List<GameObject> questPageChilds = new List<GameObject>();
     private List<GameObject> storyPageChilds = new List<GameObject>();
 
-    private RectTransform mainPageRect;
     private RectTransform questPageRect;
     private RectTransform storyPageRect;
-    private RectTransform backButtonRect;
-    private RectTransform closeButtonRect;
+
+    public bool IsQuestPage { get; set; }
+    public bool IsStoriesPage { get; set; }
 
     protected override void Start() {
 
         base.Start();
 
-        mainPageChilds = UnityExtensions.CreateChildsList(mainPage);
         questPageChilds = UnityExtensions.CreateChildsList(questPage);
         storyPageChilds = UnityExtensions.CreateChildsList(storyPage);
 
         QuestSystem.Instance.AddQuest(QuestName.FirstTrial);
 
-        mainPageRect = mainPage.GetComponent<RectTransform>();
         questPageRect = questPage.GetComponent<RectTransform>();
         storyPageRect = storyPage.GetComponent<RectTransform>();
-        closeButtonRect = closeButton.GetComponent<RectTransform>();
-        backButtonRect = backButton.GetComponent<RectTransform>();
 
-        backButton.SetActive(!gameObject.activeSelf);
-}
+    }
     /// <summary>
     /// Add quest to Journal
     /// Instantiate button in quest names container
@@ -97,12 +87,19 @@ public class QuestJournal : UIElementBase
     /// <param name="quest"></param>
     public void AddTaskToJournal(Quest quest)
     {
-        var button = Instantiate(journalItemNameButtonPrefab, questTasksConainer);
-        Debug.Log(quest.CurrentTask.name);
+        var button = Instantiate(journalItemNameButtonPrefab, questTasksContainer);
+        button.name = quest.CurrentTask.NameKey;
         button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(quest.CurrentTask.NameKey);
         button.GetComponent<Button>().onClick.AddListener(() => ShowTaskDescription(quest.CurrentTask));
+
     }
 
+    public void CloseTask(QuestTask task)
+    {
+        var taskButton = questTasksContainer.Find(task.NameKey);
+        var taskButtonText = taskButton.GetComponent<TextMeshProUGUI>();
+        taskButtonText.fontStyle = FontStyles.Strikethrough;
+    }
     public void ShowTaskDescription(QuestTask task)
     {
         questDescription.ChangeLocalization(task.DescriptionKey);
@@ -122,46 +119,23 @@ public class QuestJournal : UIElementBase
     /// <summary>
     /// Show on quest page and back button show off main page
     /// </summary>
-    public void OpenQuestsPageButton() {
+    public void OpenQuestsPage() {
 
+        OpenCloseUIEelement(storyPageRect, storyPageChilds);
         OpenCloseUIEelement(questPageRect, questPageChilds);
     }
-
-    public void OpenStoryPageButton() {
-
+    public void OpenStoriesPage()
+    {
+        OpenCloseUIEelement(questPageRect, questPageChilds);
         OpenCloseUIEelement(storyPageRect, storyPageChilds);
     }
 
     private void OpenCloseUIEelement(RectTransform elementRect, List<GameObject> uiElementChilds) {
 
-        UnityExtensions.SetActiveGameObjectChilds(mainPageChilds);
         UnityExtensions.SetActiveGameObjectChilds(uiElementChilds);
-
-        mainPage.gameObject.SetActive(!gameObject.activeSelf);
-        backButton.SetActive(gameObject.activeSelf);
 
         elementRect.SetAsLastSibling();
 
-        backButtonRect.SetAsLastSibling();
-        closeButtonRect.SetAsLastSibling();
-    }
-
-    public void BackButton() {
-
-        if(UnityExtensions.IsActiveChilds(questPageChilds)) {
-            UnityExtensions.SetActiveGameObjectChilds(questPageChilds);
-            questPageRect.SetAsFirstSibling();
-        }
-        else if (UnityExtensions.IsActiveChilds(storyPageChilds)) {
-            UnityExtensions.SetActiveGameObjectChilds(storyPageChilds);
-            storyPageRect.SetAsFirstSibling();
-        }
-        UnityExtensions.SetActiveGameObjectChilds(mainPageChilds);
-
-        mainPage.gameObject.SetActive(gameObject.activeSelf);
-        mainPageRect.SetAsLastSibling();
-        closeButtonRect.SetAsLastSibling();
-        backButton.SetActive(!gameObject.activeSelf);
     }
 
 }

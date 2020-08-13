@@ -24,7 +24,6 @@ public enum EventName {
     ExitConversation,
     ReadyToInteract,
     CloseQuestJournal,
-    AddQuest,
     RefreshCharacterMenuValues,
     SaveCharacterMenuCash,
     SetSkillDescription,

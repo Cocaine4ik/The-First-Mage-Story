@@ -9,6 +9,7 @@ public interface IITem {
     Sprite ItemIcon { get; }
     Sprite ItemBorder { get; }
     Color32 ItemColor { get; }
+    int ItemNumber { get; set; }
     bool IsSellable { get; }
     int ItemPrice { get; }
 

@@ -27,6 +27,11 @@ public class QuestSystem : MonoBehaviour
     {
         questJournal = GetComponent<QuestJournal>();
     }
+
+    public void AddStory(StoryName name)
+    {
+
+    }
     /// <summary>
     /// Add quest to quests, set quest status to Active
     /// Add quest to QuestJournal (UI presentation)
@@ -35,7 +40,7 @@ public class QuestSystem : MonoBehaviour
     public void AddQuest(QuestName name)
     {
         var questName = name.ToString();
-        var quest = Instantiate(Resources.Load<Quest>($"Quests/{questName}/{questName}"));
+        var quest = Instantiate(Resources.Load<Quest>($"Data/Quests/{questName}/{questName}"));      
         quests.Add(name, quest);
         quests[name].Status = CompletnessStatus.Active;
 
@@ -80,15 +85,25 @@ public class QuestSystem : MonoBehaviour
     {
         switch(task.TaskType)
         {
-            case TaskType.Collect: break;
+            case TaskType.Collect: RefreshCollectTask(task);  break;
             case TaskType.Decide: break;
             case TaskType.Deliver: break;
             case TaskType.Reach: break;
             case TaskType.Slay: break;
             case TaskType.Talk: 
-                task.Status = CompletnessStatus.Done;
+                
                 questJournal.CloseTask(task);
                 break;
+        }
+    }
+
+    private void RefreshCollectTask(QuestTask task)
+    {
+        task.CollectedItemNumber += 1;
+        if(task.CollectedItemNumber == task.CollectItemNumber)
+        {
+            task.Status = CompletnessStatus.Done;
+            questJournal.CloseTask(task);
         }
     }
 }

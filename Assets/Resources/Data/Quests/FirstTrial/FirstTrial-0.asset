@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0772a82b9d27b144f8a4818ca86e2e80, type: 3}
   m_Name: FirstTrial-0
   m_EditorClassIdentifier: 
+  questName: 0
+  id: 0
   taskType: 0
+  status: 0
   expReward: 0
   goldReward: 0
   itemReward: {fileID: 0}
-  itemToCollect: {fileID: 0}
-  collectItemNumber: 0
+  itemToCollect: 0
+  collectItemNumber: 5

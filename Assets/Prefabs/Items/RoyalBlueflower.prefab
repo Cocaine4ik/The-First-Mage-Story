@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 601854942643654599}
   - component: {fileID: 2311857840201815926}
   m_Layer: 0
-  m_Name: BlueMagicFlower
+  m_Name: RoyalBlueflower
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aee3a205933dfd429c5df571a59f9b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 845dcc69e3f393d4a884457a86fc2fa2, type: 2}
 --- !u!114 &601854942643654599
 MonoBehaviour:
   m_ObjectHideFlags: 0

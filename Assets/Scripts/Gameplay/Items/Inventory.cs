@@ -12,7 +12,6 @@ public class Inventory : UIElementBase {
     [Header("Inventory components")]
     [SerializeField] private int inventorySize;
 
-    [SerializeField] private List<Item> items;
     [SerializeField] private List<InventoryCell> inventoryCells;
     [SerializeField] private InventoryCell inventoryCellTemplate;
     [SerializeField] private Transform storage;
@@ -36,16 +35,33 @@ public class Inventory : UIElementBase {
 
     protected override void Start() {
         base.Start();
-        EventManager.StartListening(EventName.PickupItem, AddItem);
         EventManager.StartListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
         EventManager.StartListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
     private void OnDestroy() {
-        EventManager.StopListening(EventName.PickupItem, AddItem);
         EventManager.StopListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
         EventManager.StopListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
 
+    public void AddItemToInventory(Item item)
+    {
+        foreach (InventoryCell cell in inventoryCells)
+        {
+            // Increase stack item number value
+            if (!cell.IsEmpty && item.ItemName == cell.ItemName)
+            {
+                cell.AddItemToStack(item.ItemNumber);
+                break;
+            }
+            // add item to Inventory Cell
+            else if (cell.IsEmpty)
+            {
+                cell.AddItemToCell(item);
+                Debug.Log("AddItem: " + item.name);
+                break;
+            }
+        }
+    }
     private void AddInventoryCells() {
 
         for (int i = 0; i < inventorySize; i++) {
@@ -53,26 +69,6 @@ public class Inventory : UIElementBase {
             var cell = Instantiate(inventoryCellTemplate, storage);
             cell.SetId(i);
             inventoryCells.Add(cell);
-
-        }
-    }
-
-    public void AddItem(EventArg arg) {
-
-        var item = arg.Item;
-        items.Add(item);
-
-        foreach (InventoryCell cell in inventoryCells) {
-
-           if(!cell.IsEmpty && item.ItemName == cell.ItemName) {
-                cell.AddItemToStack();
-                break;
-            }
-           else if(cell.IsEmpty) {
-                cell.AddItemToCell(item);
-                Debug.Log("AddItem: " + item.name);
-                break;
-            }     
 
         }
     }

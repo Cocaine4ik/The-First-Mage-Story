@@ -71,7 +71,7 @@ public class Player : MagicCharacter {
         Item pickupItem = tempPickupItem.GetComponent<GameItem>().ItemData;
 
         animator.SetTrigger("Pickup");
-        EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
+        InventorySystem.Instance.AddItem(pickupItem);
 
         if (tempPickupItem.GetComponent<SaveMe>() != null)
         {

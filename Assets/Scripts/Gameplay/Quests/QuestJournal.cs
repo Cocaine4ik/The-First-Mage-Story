@@ -87,6 +87,7 @@ public class QuestJournal : UIElementBase
     /// <param name="quest"></param>
     public void AddTaskToJournal(Quest quest)
     {
+        Debug.Log("AddTasl");
         var button = Instantiate(journalItemNameButtonPrefab, questTasksContainer);
         button.name = quest.CurrentTask.NameKey;
         button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(quest.CurrentTask.NameKey);

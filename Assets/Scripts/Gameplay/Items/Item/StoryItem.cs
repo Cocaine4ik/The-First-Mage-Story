@@ -8,6 +8,8 @@ public class StoryItem : Item
     [Header("Story Data")]
     [SerializeField] private StoryName story;
 
+    public StoryName Story => story;
+
     protected override void OnEnable() {
         base.OnEnable();
         itemColor = new Color32(0, 0, 0, 255);

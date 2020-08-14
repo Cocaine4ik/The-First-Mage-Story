@@ -59,12 +59,12 @@ public class InventoryCell : Cell<SupplyPanelCell>, IStack
         }
 
     }
-    public void AddItemToStack() {
+    public void AddItemToStack(int num) {
         if(isStack == false) {
             itemNumberText.gameObject.SetActive(true);
             isStack = true;
         }
-        itemNumber += 1;
+        itemNumber = num;
         itemNumberText.text = itemNumber.ToString();
     }
 

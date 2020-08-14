@@ -23,9 +23,7 @@ public class QuestTask : ScriptableObject, IJournalItem
     public int Id => id;
     public string NameKey => "Quests.Tasks." + questName.ToString() + "-" + id;
     public string DescriptionKey => "Quests.Description." + questName.ToString() + "-" + id;
-
-    public void RefreshCollectTask()
-    {
-
-    }
+    public ItemName ItemToCollect => itemToCollect;
+    public int CollectItemNumber => collectItemNumber;
+    public int CollectedItemNumber { get => collectedItemNumber; set => collectedItemNumber = value; }
 }

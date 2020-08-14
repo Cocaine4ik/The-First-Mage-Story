@@ -11,10 +11,12 @@ public class Item : ScriptableObject, IITem {
     [SerializeField] protected Sprite itemIcon;
     [SerializeField] protected Sprite itemBorder;
     [SerializeField] protected Color32 itemColor;
+    [SerializeField] protected int itemNumber = 1;
+
     [Header("Buy/Sell Data")]
     [SerializeField] protected bool isSellable;
     [SerializeField] protected int itemPrice;
-
+    
     #endregion
 
     #region Properties
@@ -26,6 +28,8 @@ public class Item : ScriptableObject, IITem {
     public Color32 ItemColor => itemColor;
     public bool IsSellable => isSellable;
     public int ItemPrice => itemPrice;
+
+    public int ItemNumber { get => itemNumber; set => itemNumber = value; }
     #endregion
 
     protected virtual void OnEnable() {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FirstTrial
   m_EditorClassIdentifier: 
   questName: 0
-  questStatus: 0
+  status: 0
   questTasks:
   - {fileID: 11400000, guid: 3d8d1d844ca8b014c9878c3347980ab7, type: 2}
   - {fileID: 0}

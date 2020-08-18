@@ -57,7 +57,7 @@ public class QuestSystem : MonoBehaviour
     public void AddTask(Quest quest)
     {
         // clear links to SO
-        for (int i = 0; i < quest.QuestTasks.Count-1; i++)
+        for (int i = 0; i < quest.QuestTasks.Count; i++)
         {
             quest.QuestTasks[i] = Instantiate(quest.QuestTasks[i]);
         }
@@ -81,11 +81,11 @@ public class QuestSystem : MonoBehaviour
         if (quest.CurrentTask.TaskType == type) return quest.CurrentTask;
         return null;
     }
-    public void RefreshTask(QuestTask task)
+    public void UpdateTask(QuestTask task)
     {
         switch(task.TaskType)
         {
-            case TaskType.Collect: RefreshCollectTask(task);  break;
+            case TaskType.Collect: UpdateCollectTask(task);  break;
             case TaskType.Decide: break;
             case TaskType.Deliver: break;
             case TaskType.Reach: break;
@@ -95,15 +95,19 @@ public class QuestSystem : MonoBehaviour
                 questJournal.CloseTask(task);
                 break;
         }
+        Debug.Log("Journal updated.");
     }
 
-    private void RefreshCollectTask(QuestTask task)
+    private void UpdateCollectTask(QuestTask task)
     {
         task.CollectedItemNumber += 1;
+        Debug.Log("Collected Items: " + task.CollectedItemNumber);
         if(task.CollectedItemNumber == task.CollectItemNumber)
         {
             task.Status = CompletnessStatus.Done;
             questJournal.CloseTask(task);
+            AddTask(quests[task.QuestName]);
+            questJournal.AddTaskToJournal(quests[task.QuestName]);
         }
     }
 }

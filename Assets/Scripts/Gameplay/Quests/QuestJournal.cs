@@ -87,18 +87,21 @@ public class QuestJournal : UIElementBase
     /// <param name="quest"></param>
     public void AddTaskToJournal(Quest quest)
     {
-        Debug.Log("AddTasl");
+
         var button = Instantiate(journalItemNameButtonPrefab, questTasksContainer);
         button.name = quest.CurrentTask.NameKey;
         button.GetComponentInChildren<LocalizedTMPro>().ChangeLocalization(quest.CurrentTask.NameKey);
-        button.GetComponent<Button>().onClick.AddListener(() => ShowTaskDescription(quest.CurrentTask));
+        var task = quest.CurrentTask;
+        button.GetComponent<Button>().onClick.AddListener(() => ShowTaskDescription(task));
 
     }
 
     public void CloseTask(QuestTask task)
     {
+        Debug.Log("CloseTask");
         var taskButton = questTasksContainer.Find(task.NameKey);
-        var taskButtonText = taskButton.GetComponent<TextMeshProUGUI>();
+        var taskButtonText = taskButton.GetComponentInChildren<TextMeshProUGUI>();
+        
         taskButtonText.fontStyle = FontStyles.Strikethrough;
     }
     public void ShowTaskDescription(QuestTask task)

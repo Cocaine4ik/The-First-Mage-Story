@@ -10,10 +10,10 @@ public class InventorySystem : MonoBehaviour
     private Inventory inventory;
 
     [SerializeField] private Dictionary<ItemName, QuestItem> questItems = new Dictionary<ItemName, QuestItem>();
-    [SerializeField] private Dictionary<ItemName, SupplyItem> supplyItems;
-    [SerializeField] private Dictionary<ItemName, RelicItem> relicItems;
-    [SerializeField] private Dictionary<ItemName, StoryItem> storyItems;
-    [SerializeField] private Dictionary<ItemName, TreasureItem> treasureItems;
+    [SerializeField] private Dictionary<ItemName, SupplyItem> supplyItems = new Dictionary<ItemName, SupplyItem>();
+    [SerializeField] private Dictionary<ItemName, RelicItem> relicItems = new Dictionary<ItemName, RelicItem>();
+    [SerializeField] private Dictionary<ItemName, StoryItem> storyItems = new Dictionary<ItemName, StoryItem>();
+    [SerializeField] private Dictionary<ItemName, TreasureItem> treasureItems = new Dictionary<ItemName, TreasureItem>();
 
     private void Awake()
     {
@@ -41,8 +41,6 @@ public class InventorySystem : MonoBehaviour
             case ItemType.RelicItem: AddRelicItem(item.ItemName); break;
             case ItemType.TreasureItem: AddTreasureItem(item.ItemName); break;
         }
-        // Add item to Inventory (UI presentataion)
-        inventory.AddItemToInventory(item);
     }
 
     /// <summary>
@@ -61,8 +59,11 @@ public class InventorySystem : MonoBehaviour
         var quest = QuestSystem.Instance.CheckQuest(questItem.QuestName);
         if (quest != null) 
         {   
-            if (quest.CurrentTask.ItemToCollect == name) QuestSystem.Instance.RefreshTask(quest.CurrentTask);
-        } 
+            if (quest.CurrentTask.ItemToCollect == name) QuestSystem.Instance.UpdateTask(quest.CurrentTask);
+        }
+
+        // Add item to Inventory (UI presentataion)
+        inventory.AddItemToInventory(questItems[name]);
     }
 
     private void AddSupplyItem(ItemName name)
@@ -70,7 +71,11 @@ public class InventorySystem : MonoBehaviour
         var itemName = name.ToString();
 
         var supply = Instantiate(Resources.Load<SupplyItem>($"Data/Items/Supply/{itemName}"));
-        supplyItems.Add(name, supply);
+        if (!supplyItems.ContainsKey(name)) supplyItems.Add(name, supply);
+        else supplyItems[name].ItemNumber += 1;
+
+        // Add item to Inventory (UI presentataion)
+        inventory.AddItemToInventory(supplyItems[name]);
     }
 
     private void AddStoryItem(ItemName name)
@@ -80,6 +85,9 @@ public class InventorySystem : MonoBehaviour
         var storyItem = Instantiate(Resources.Load<StoryItem>($"Data/Items/Story/{itemName}"));
         storyItems.Add(name, storyItem);
         QuestSystem.Instance.AddStory(storyItem.Story);
+
+        // Add item to Inventory (UI presentataion)
+        inventory.AddItemToInventory(storyItems[name]);
     }
 
     private void AddRelicItem(ItemName name)
@@ -87,7 +95,11 @@ public class InventorySystem : MonoBehaviour
         var itemName = name.ToString();
 
         var relic = Instantiate(Resources.Load<RelicItem>($"Data/Items/Relic/{itemName}"));
-        relicItems.Add(name, relic);
+        if (!relicItems.ContainsKey(name)) relicItems.Add(name, relic);
+        else relicItems[name].ItemNumber += 1;
+
+        // Add item to Inventory (UI presentataion)
+        inventory.AddItemToInventory(relicItems[name]);
     }
 
     private void AddTreasureItem(ItemName name)
@@ -95,6 +107,10 @@ public class InventorySystem : MonoBehaviour
         var itemName = name.ToString();
 
         var treasure = Instantiate(Resources.Load<TreasureItem>($"Data/Items/Treasure/{itemName}"));
-        treasureItems.Add(name, treasure);
+        if (!treasureItems.ContainsKey(name)) treasureItems.Add(name, treasure);
+        else treasureItems[name].ItemNumber += 1;
+
+        // Add item to Inventory (UI presentataion)
+        inventory.AddItemToInventory(treasureItems[name]);
     }
 }

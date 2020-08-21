@@ -5,7 +5,7 @@ using UnityEngine;
 public class SupplyPanel : MonoBehaviour
 {
     [SerializeField] private List<SupplyInvoker> supplyInvokers;
-    private List<SupplyPanelCell> panelCells = new List<SupplyPanelCell>();
+    public List<SupplyPanelCell> panelCells = new List<SupplyPanelCell>();
 
     private void OnEnable()
     {
@@ -16,7 +16,7 @@ public class SupplyPanel : MonoBehaviour
        EventManager.StopListening(EventName.AddSupplyToPanelCell, OnAddSupply);
     }
 
-    private void Start()
+    private void Awake()
     {
         foreach (SupplyInvoker spellInvoker in supplyInvokers)
         {
@@ -54,8 +54,6 @@ public class SupplyPanel : MonoBehaviour
     private void OnAddSupply(EventArg arg)
     {
         var id = arg.FirstIntArg;
-        var inventoryCell = arg.Cell;
-        Debug.Log(inventoryCell.IsStack);
         var supply = arg.Supply;
 
         foreach (SupplyPanelCell cell in panelCells)
@@ -64,24 +62,21 @@ public class SupplyPanel : MonoBehaviour
             {
                 if (cell.Invoker.Supply.ItemName == supply.ItemName)
                 {
+                    Debug.Log("checked");
+                    var cellData = cell.GetComponent<InventoryCell>();
                     cell.Invoker.Supply = null;
-                    cell.Image.sprite = null;
-                    cell.Image.gameObject.SetActive(false);
+                    cellData.ClearCell();
+                    cellData.Icon.gameObject.SetActive(false);
                 }
             }
 
             if (cell.Id == id)
             {
-                cell.Image.gameObject.SetActive(true);
-                cell.Image.sprite = inventoryCell.Icon.sprite;
+                var cellData = cell.GetComponent<InventoryCell>();
+                cellData.Icon.gameObject.SetActive(true);
+                cellData.AddItemToCell(supply);
+                if(supply.ItemNumber > 1) cellData.SetItemStack(supply.ItemNumber);
                 cell.Invoker.Supply = supply;
-                if(inventoryCell.IsStack)
-                {
-                    cell.IsStack = inventoryCell.IsStack;
-                    cell.ItemNumber = inventoryCell.ItemNumber;
-                    cell.SetStack();
-                }
-                
             }
         }
     }

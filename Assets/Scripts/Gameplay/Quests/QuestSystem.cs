@@ -105,9 +105,16 @@ public class QuestSystem : MonoBehaviour
         if(task.CollectedItemNumber == task.CollectItemNumber)
         {
             task.Status = CompletnessStatus.Done;
+
             questJournal.CloseTask(task);
             AddTask(quests[task.QuestName]);
-            questJournal.AddTaskToJournal(quests[task.QuestName]);
+            questJournal.AddTaskToJournal(quests[task.QuestName]);            
         }
+    }
+    public void GetTaskReward(QuestTask task)
+    {
+        Attributes.Instance.AddExp(task.ExpReward);
+
+        InventorySystem.Instance.AddItem(task.ItemReward);
     }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class Event : UnityEvent<EventArg> { }
+public class Event : UnityEvent<EventArg>
+{
+}
 
 /// <summary>
 /// Event Manager using Unity Event with EventArg like argument

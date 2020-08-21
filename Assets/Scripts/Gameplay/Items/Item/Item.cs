@@ -29,12 +29,26 @@ public class Item : ScriptableObject, IITem {
     public bool IsSellable => isSellable;
     public int ItemPrice => itemPrice;
 
-    public int ItemNumber { get => itemNumber; set => itemNumber = value; }
+    public int ItemNumber {
+        get => itemNumber;
+        set
+        {
+            itemNumber = value;
+            EventManager.TriggerEvent(EventName.ChangeItemNumber, new EventArg(itemName, itemNumber));
+        }
+    }
     #endregion
 
     protected virtual void OnEnable() {
-
-        itemType = (ItemType)Enum.Parse(typeof(ItemType), GetType().ToString());
+        switch(GetType().ToString())
+        {
+            case "QuestItem": itemType = ItemType.Quest; break;
+            case "SupplyItem": itemType = ItemType.Supply; break;
+            case "RelicItem": itemType = ItemType.Relic; break;
+            case "StoryItem": itemType = ItemType.Story; break;
+            case "TreasureItem": itemType = ItemType.Treasure; break;
+            default: itemType = ItemType.Undefined; break;
+        }
         itemBorder = Resources.Load<Sprite>("Sprites/UI/Frames/frame-0-grey");
     }
 }

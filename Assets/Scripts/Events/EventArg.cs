@@ -29,7 +29,6 @@ public class EventArg {
     private SupplyItem supply;
     private Sprite sprite;
     private GameObject gameObject;
-    private InventoryCell cell;
 
     #endregion
 
@@ -54,7 +53,6 @@ public class EventArg {
     public SupplyItem Supply => supply;
     public Sprite Sprite => sprite;
     public GameObject GameObject => gameObject;
-    public InventoryCell Cell => cell;
 
     #endregion
 
@@ -151,6 +149,14 @@ public class EventArg {
         this.itemName = name;
         this.itemType = type;
     }
+
+    // costructor with ItemName and number
+    public EventArg(ItemName name, int number)
+    {
+        this.itemName = name;
+        this.firstIntArg = number;
+    }
+
     // constructor with Spell
     public EventArg(Spell spell) {
         this.spell = spell;
@@ -170,12 +176,10 @@ public class EventArg {
     }
 
     // constructor for supply cell
-    public EventArg(int id, InventoryCell cell, SupplyItem supply)
+    public EventArg(int id, SupplyItem supply)
     {
         this.firstIntArg = id;
-        this.cell = cell;
         this.supply = supply;
-
     }
 
     // constructor for gamrojects

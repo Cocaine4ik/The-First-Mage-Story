@@ -30,15 +30,14 @@ public class Inventory : UIElementBase {
     #region Methods
 
     private void OnEnable() {
-           AddInventoryCells();
-    }
 
-    protected override void Start() {
-        base.Start();
+        AddInventoryCells();
         EventManager.StartListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
         EventManager.StartListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
-    private void OnDestroy() {
+
+    private void OnDisable() {
+
         EventManager.StopListening(EventName.ShowInventoryItemData, OnSetSelectedItemData);
         EventManager.StopListening(EventName.ChangeItemTypeColor, OnChangeItemTypeColor);
     }
@@ -47,19 +46,20 @@ public class Inventory : UIElementBase {
     {
         foreach (InventoryCell cell in inventoryCells)
         {
-            // Increase stack item number value
-            if (!cell.IsEmpty && item.ItemName == cell.ItemName)
-            {
-                cell.AddItemToStack(item.ItemNumber);
-                break;
-            }
-            // add item to Inventory Cell
-            else if (cell.IsEmpty)
+            if (cell.IsEmpty)
             {
                 cell.AddItemToCell(item);
                 Debug.Log("AddItem: " + item.name);
                 break;
             }
+        }
+    }
+
+    public void RemoveItemFromInventory(ItemName name)
+    {
+        foreach(InventoryCell cell in inventoryCells)
+        {
+            if (cell.ItemName == name) cell.ClearCell();
         }
     }
     private void AddInventoryCells() {
@@ -84,5 +84,6 @@ public class Inventory : UIElementBase {
 
         itemType.gameObject.GetComponent<TextMeshProUGUI>().color = arg.Color;
     }
+
     #endregion
 }

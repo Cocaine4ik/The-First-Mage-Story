@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
-    protected bool onPanel;
+    [SerializeField] protected bool onPanel;
     protected bool canDrag = false;
     [SerializeField] protected Image icon;
     protected GameObject draggingCell;
@@ -15,8 +15,15 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
     protected Cell<T> draggingCellData;
 
     public Image Icon => icon;
-    public bool OnPanel => onPanel;
+    public bool OnPanel { get => onPanel; set => onPanel = value; }
     public GameObject PanelCell { get => panelCell; set => panelCell = value; }
+
+    protected Sprite defaultIcon;
+
+    protected virtual void Awake()
+    {
+        defaultIcon = icon.sprite;
+    }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {

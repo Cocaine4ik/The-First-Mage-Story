@@ -4,10 +4,11 @@ using UnityEngine;
 
 public enum ItemType
 {
-    QuestItem,
-    StoryItem,
-    RelicItem,
-    SupplyItem,
-    TreasureItem,
+    Undefined,
+    Quest,
+    Story,
+    Relic,
+    Supply,
+    Treasure,
 
 }

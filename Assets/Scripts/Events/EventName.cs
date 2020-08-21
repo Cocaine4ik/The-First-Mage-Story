@@ -40,5 +40,6 @@ public enum EventName {
     SetLeftSpeakerPortrait,
     SetLeftSpeakerNameKey,
     SetRightSpeakerPortrait,
-    SetRightSpeakerNameKey
+    SetRightSpeakerNameKey,
+    ChangeItemNumber,
 }

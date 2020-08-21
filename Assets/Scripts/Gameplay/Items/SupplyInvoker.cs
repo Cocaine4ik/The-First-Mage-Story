@@ -5,12 +5,17 @@ using UnityEngine;
 public class SupplyInvoker : MonoBehaviour
 {
     [SerializeField] private SupplyItem supply;
+    private InventoryCell inventoryCell;
 
     public SupplyItem Supply { get => supply; set => supply = value; }
 
+    private void Start()
+    {
+        inventoryCell = GetComponent<InventoryCell>();
+    }
     public void InvokeSupply()
     {
-        if (supply != null)
+        if (supply != null && supply.ItemNumber > 0)
         {
             // For instant supply effect
             if(!supply.IsDurable)
@@ -33,6 +38,19 @@ public class SupplyInvoker : MonoBehaviour
                     supply.VeilResistannce, supply.FireResistance, supply.IceResistance, supply.NatureResistance, supply.DivineResitance);
 
                 StartCoroutine(StartDurableSupply(supply.BonusDuratation));
+            }
+            // remove item from the inventory
+            
+            if(supply.ItemNumber > 1)
+            {
+                InventorySystem.Instance.RemoveItem(supply.ItemName);
+            }
+            else
+            {
+                inventoryCell.ClearCell();
+                inventoryCell.Icon.gameObject.SetActive(false);
+                InventorySystem.Instance.RemoveItem(supply.ItemName);
+                supply = null;
             }
         }
         else

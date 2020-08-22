@@ -7,8 +7,10 @@ public class SaveLoadInventory : SaveLoadData
 {
     protected override void OnLoadData(EventArg arg)
     {
+        // fore each item name in ItemName enum
         foreach (ItemName name in Enum.GetValues(typeof(ItemName)))
         {
+            // if PlayerPrefs has this key
             if(PlayerPrefs.HasKey("ItemData." + name.ToString()))
             {
                 var itemData = PlayerPrefs.GetString("ItemData." + name.ToString());
@@ -20,6 +22,7 @@ public class SaveLoadInventory : SaveLoadData
                 var item = Resources.Load<Item>($"Data/Items/{itemType}/{itemName}");
                 Debug.Log("path: " + $"Items/{itemType}/{itemName}");
 
+                // add item (item number times)
                 for (int i = 0; i < itemNumber; i++)
                 {
                     InventorySystem.Instance.AddItem(item);
@@ -30,6 +33,7 @@ public class SaveLoadInventory : SaveLoadData
 
     protected override void OnSaveData(EventArg arg)
     {
+        // delete all ItemData keys saved before
         foreach (ItemName name in Enum.GetValues(typeof(ItemName)))
         {
             if(PlayerPrefs.HasKey("ItemData." + name.ToString()))
@@ -37,6 +41,7 @@ public class SaveLoadInventory : SaveLoadData
                 PlayerPrefs.DeleteKey("ItemData." + name.ToString());
             }
         }
+        // check each Dictionary with items and save item - item name + item type  + item number
         foreach (var item in InventorySystem.Instance.QuestItems)
         {
             PlayerPrefs.SetString("ItemData." + item.Key.ToString(), item.Key.ToString() +

@@ -281,6 +281,8 @@ public class DialogueGraphView : GraphView {
 
     public void GenerateDefaultProperties() {
         AddPropertyToBlackBoard(new ExposedProperty("Exit", "(End dialogue)"), true);
+        AddPropertyToBlackBoard(new ExposedProperty("AddQuestAndExit", "(End dialogue)"), true);
+        AddPropertyToBlackBoard(new ExposedProperty("AddQuest", "(Accept quest)"), true);
     }
     #endregion
 }

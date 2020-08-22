@@ -15,6 +15,8 @@ public class DialogueParser : UIElementBase
     [SerializeField] private Button choicePrefab;
     [SerializeField] private Transform buttonContainer;
 
+    private QuestName questName;
+
     private void OnEnable() {
         EventManager.StartListening(EventName.StartConversation, StartConversationEvent);
     }
@@ -57,9 +59,12 @@ public class DialogueParser : UIElementBase
     private void AddOnClickEvents(string text, Button button, NodeLinkData choice) {
 
         bool isExit = text.IndexOf("Exit") != -1 ? true : false;
-        if(isExit) {
-            button.onClick.AddListener(() => ExitDialogue());
-        }
+        bool isAddQuestAndExit = text.IndexOf("AddQuestAndExit ") != -1 ? true : false;
+        bool isAddQuest = text.IndexOf("AddQuest") != -1 ? true : false;
+
+        if (isExit) button.onClick.AddListener(() => ExitDialogue());
+        if (isAddQuestAndExit) button.onClick.AddListener(() => AddQuestAndExit());
+        if (isAddQuest) button.onClick.AddListener(() => AddQuest());
         else {
             button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID));
         }
@@ -69,8 +74,14 @@ public class DialogueParser : UIElementBase
 
             EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogue.name));
     }
-    private void AddNewQuest() {
+    private void AddQuest() {
 
+        QuestSystem.Instance.AddQuest(questName);
+    }
+    private void AddQuestAndExit()
+    {
+        ExitDialogue();
+        AddQuest();
     }
 
     private void OnDestroy() {
@@ -97,6 +108,11 @@ public class DialogueParser : UIElementBase
     public void SetDialogue(DialogueContainer dialogue) {
 
         this.dialogue = dialogue;
+    }
+
+    public void SetQuest(QuestName questName)
+    {
+        this.questName = questName;
     }
 
 }

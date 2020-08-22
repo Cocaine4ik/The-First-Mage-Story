@@ -85,10 +85,19 @@ public class DialogueTrigger : TalkTrigger
     /// Invoke StartConversation event
     /// </summary>
     protected override void StartConversation() {
-        dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
+
+        var parser = dialogueWindow.GetComponent<DialogueParser>();
+        parser.SetDialogue(dialogue);
         dialogueSet = true;
         SetDialogueSpeakersData();
         Debug.Log("Dialogue set: " + dialogue.name);
+
+        // set quest
+        if (GetComponent<QuestGiver>() != null)
+        {
+            parser.SetQuest(GetComponent<QuestGiver>().QuestName);
+        }
+
         EventManager.TriggerEvent(EventName.StartConversation);
         Debug.Log("Starting conversation.");
         EventManager.StartListening(EventName.ExitConversation, OnExitConversation);

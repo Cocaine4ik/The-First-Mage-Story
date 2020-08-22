@@ -17,7 +17,7 @@ MonoBehaviour:
     PortName: Next
     TargetNodeGUID: 2a154189-ae63-4744-8b99-a9f0d2173cc7
   - BaseNodeGUID: 2a154189-ae63-4744-8b99-a9f0d2173cc7
-    PortName: '[Exit]'
+    PortName: '[AddQuestAndExit]'
     TargetNodeGUID: 3087b1a1-379a-4ebf-b48b-b31e275c8dbd
   DialogueNodeData:
   - NodeGUID: 2a154189-ae63-4744-8b99-a9f0d2173cc7
@@ -37,4 +37,6 @@ MonoBehaviour:
     Position: {x: 707, y: 174}
   ExposedProperties:
   - PropertyName: Exit
+    PropertyValue: "(\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433)"
+  - PropertyName: AddQuestAndExit
     PropertyValue: "(\u0417\u0430\u043A\u043E\u043D\u0447\u0438\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433)"

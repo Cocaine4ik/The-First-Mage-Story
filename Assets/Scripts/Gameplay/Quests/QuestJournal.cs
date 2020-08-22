@@ -42,8 +42,6 @@ public class QuestJournal : UIElementBase
         questPageChilds = UnityExtensions.CreateChildsList(questPage);
         storyPageChilds = UnityExtensions.CreateChildsList(storyPage);
 
-        QuestSystem.Instance.AddQuest(QuestName.FirstTrial);
-
         questPageRect = questPage.GetComponent<RectTransform>();
         storyPageRect = storyPage.GetComponent<RectTransform>();
 

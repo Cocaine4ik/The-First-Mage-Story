@@ -30,6 +30,7 @@ public class Character : CharacterBase {
     protected bool isHurt = false;
     protected bool isAtack = false;
     protected bool isJump = false;
+    protected bool offMovement = false;
 
     protected bool isGrounded;
 
@@ -117,7 +118,7 @@ public class Character : CharacterBase {
     }
     public override void Move(float moveX) {
 
-        if (!isAtack && isAlive) {
+        if (!isAtack && isAlive && !offMovement) {
             this.moveX = moveX;
             rb.velocity = new Vector2(speed * moveX, rb.velocity.y);
         }

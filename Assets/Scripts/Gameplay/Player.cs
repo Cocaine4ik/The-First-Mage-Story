@@ -63,6 +63,8 @@ public class Player : MagicCharacter {
     // pickup smth or collect item
     private void Pickup() {
 
+        offMovement = true;
+
         if (tempPickupItem.GetComponent<Reward>() != null)
         {
             tempPickupItem.GetComponent<Reward>().AddExpRevard();
@@ -137,6 +139,7 @@ public class Player : MagicCharacter {
     private void OnPickupEnd() {
         canPickup = false;
         tempPickupItem = null;
+        offMovement = false;
     }
     #endregion
 

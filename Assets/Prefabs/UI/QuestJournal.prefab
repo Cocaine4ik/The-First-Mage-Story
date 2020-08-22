@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 1325522810575568112}
   - component: {fileID: 1325522810575568113}
   - component: {fileID: 8272486033154799823}
+  - component: {fileID: 2224369424486462461}
   m_Layer: 5
   m_Name: QuestJournal
   m_TagString: Untagged
@@ -941,6 +942,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e65fd918773c804b9db2b80316f7fc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2224369424486462461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325522810575568114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8a1fdd7a3872441a1cb2aa6bb39e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1325522810717557524

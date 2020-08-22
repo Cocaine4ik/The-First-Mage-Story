@@ -6,10 +6,10 @@ using UnityEngine;
 public class QuestSystem : MonoBehaviour
 {
     public static QuestSystem Instance;
+    public Dictionary<QuestName, Quest> Quests = new Dictionary<QuestName, Quest>();
+    public Dictionary<StoryName, Story> Stories = new Dictionary<StoryName, Story>();
 
     private QuestJournal questJournal;
-    private Dictionary<QuestName, Quest> quests = new Dictionary<QuestName, Quest>();
-    private Dictionary<StoryName, Story> stories = new Dictionary<StoryName, Story>();
 
     private void Awake()
     {
@@ -41,13 +41,13 @@ public class QuestSystem : MonoBehaviour
     {
         var questName = name.ToString();
         var quest = Instantiate(Resources.Load<Quest>($"Data/Quests/{questName}/{questName}"));      
-        quests.Add(name, quest);
-        quests[name].Status = CompletnessStatus.Active;
+        Quests.Add(name, quest);
+        Quests[name].Status = CompletnessStatus.Active;
 
         Debug.Log("Quest:" + quest.name + " added.");
-        AddTask(quests[name]);
+        AddTask(Quests[name]);
 
-        questJournal.AddQuestToJournal(quests[name]);
+        questJournal.AddQuestToJournal(Quests[name]);
     }
     /// <summary>
     /// Set task status to Active
@@ -73,7 +73,7 @@ public class QuestSystem : MonoBehaviour
     }
     public Quest CheckQuest(QuestName name)
     {
-        if (quests.ContainsKey(name)) return quests[name];
+        if (Quests.ContainsKey(name)) return Quests[name];
         return null;
     }
     public QuestTask CheckTask(Quest quest, TaskType type)
@@ -107,8 +107,8 @@ public class QuestSystem : MonoBehaviour
             task.Status = CompletnessStatus.Done;
 
             questJournal.CloseTask(task);
-            AddTask(quests[task.QuestName]);
-            questJournal.AddTaskToJournal(quests[task.QuestName]);            
+            AddTask(Quests[task.QuestName]);
+            questJournal.AddTaskToJournal(Quests[task.QuestName]);            
         }
     }
     public void GetTaskReward(QuestTask task)

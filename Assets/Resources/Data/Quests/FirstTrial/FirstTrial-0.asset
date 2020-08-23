@@ -19,5 +19,5 @@ MonoBehaviour:
   expReward: 0
   goldReward: 0
   itemReward: {fileID: 0}
-  itemToCollect: 0
+  itemToCollect: 1
   collectItemNumber: 5

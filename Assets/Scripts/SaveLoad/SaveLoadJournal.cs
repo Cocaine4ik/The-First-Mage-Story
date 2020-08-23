@@ -24,18 +24,19 @@ public class SaveLoadJournal : SaveLoadData
                 var questStatus = (CompletnessStatus)Enum.Parse(typeof(CompletnessStatus), splitQuestData[1]);
                 var currentTaskId = Int16.Parse(splitQuestData[2]);
 
+                // add quest, add first task, set task status to active
                 QuestSystem.Instance.AddQuest(questName);
                 var quest = QuestSystem.Instance.Quests[questName];
-                foreach (QuestTask task in QuestSystem.Instance.Quests[questName].QuestTasks)
+                for (int i = 0; i < quest.QuestTasks.Count; i++)
                 {
-                    if (task.Id != currentTaskId)
-                    {
-                        task.Status = CompletnessStatus.Done;
-                        questJournal.CloseTask(task);
-                        QuestSystem.Instance.AddTask(quest);
-                        questJournal.AddTaskToJournal(quest);
-                    }
+                    if (quest.QuestTasks[i].Id == currentTaskId) break;
+
+                    quest.QuestTasks[i].Status = CompletnessStatus.Done;
+                    questJournal.CloseTask(quest.CurrentTask);
+                    QuestSystem.Instance.AddTask(quest);
+                    questJournal.AddTaskToJournal(quest);
                 }
+
                 if (questStatus == CompletnessStatus.Done || questStatus == CompletnessStatus.Failed)
                 {
                     questJournal.CloseTask(quest.CurrentTask);

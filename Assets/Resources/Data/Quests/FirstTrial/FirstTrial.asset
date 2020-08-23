@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questName: 0
   status: 0
-  questTasks:
+  QuestTasks:
   - {fileID: 11400000, guid: 3d8d1d844ca8b014c9878c3347980ab7, type: 2}
   - {fileID: 11400000, guid: 1a5d6c8a4e14c5a4f80cd997dc563dac, type: 2}

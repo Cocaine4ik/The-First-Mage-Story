@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 9060274504244457323}
   - component: {fileID: 9060274504244457322}
   - component: {fileID: 9060274504244457324}
+  - component: {fileID: 6465245259774016000}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -261,11 +262,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 159528df72809a0489b9508e531e42ee, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 0d4b627ea0c20a542bef2fd4c29b3864, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 40
+--- !u!114 &6465245259774016000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504244457326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504276156749
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +296,7 @@ GameObject:
   - component: {fileID: 9060274504276156745}
   - component: {fileID: 9060274504276156744}
   - component: {fileID: 9060274504276156747}
+  - component: {fileID: 2131492977420357081}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -439,9 +454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!50 &9060274504276156747
@@ -465,6 +481,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2131492977420357081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504276156749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504299644172
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,6 +586,7 @@ GameObject:
   - component: {fileID: 9060274504302558788}
   - component: {fileID: 9060274504302558787}
   - component: {fileID: 9060274504302558789}
+  - component: {fileID: 486251662248701981}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -723,11 +752,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: e830d5726d56b0e40a9872f6176cd2cf, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 959578909eae7344185f709d50adb503, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: -10
+--- !u!114 &486251662248701981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504302558811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504354531387
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,6 +785,7 @@ GameObject:
   - component: {fileID: 9060274504354531364}
   - component: {fileID: 9060274504354531367}
   - component: {fileID: 9060274504354531385}
+  - component: {fileID: 226236173181619129}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -908,11 +951,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 6746959d77daee64ebba400a14431cac, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 5bd8402eaa0552c40a8eae900490f9c7, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 20
+--- !u!114 &226236173181619129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504354531387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504364338081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,6 +1061,7 @@ GameObject:
   - component: {fileID: 9060274504364685317}
   - component: {fileID: 9060274504364685316}
   - component: {fileID: 9060274504364685318}
+  - component: {fileID: 8088729688239891334}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1170,11 +1227,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b9d6ba887f187d7458514b5c03c06e8c, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 72f6d7fad1ff45841ac8de36e046124c, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 30
+--- !u!114 &8088729688239891334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504364685336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504370222918
 GameObject:
   m_ObjectHideFlags: 0
@@ -1307,9 +1377,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 987dc2f205a24384caaaa9ffa58975e5, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 6526137b023e27f4ca6bc2fb2c1d0788, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!114 &9060274504370222916
@@ -1340,6 +1411,7 @@ GameObject:
   - component: {fileID: 9060274504370859530}
   - component: {fileID: 9060274504370859532}
   - component: {fileID: 9060274504370859535}
+  - component: {fileID: 5256974619894359842}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -1484,9 +1556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 79c30746aedf9f744a622fb144843671, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: c642572600370f0428643998fea176a6, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 30
 --- !u!50 &9060274504370859535
@@ -1510,6 +1583,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5256974619894359842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504370859521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504382106983
 GameObject:
   m_ObjectHideFlags: 0
@@ -1602,6 +1687,7 @@ GameObject:
   - component: {fileID: 9060274504393352636}
   - component: {fileID: 9060274504393352639}
   - component: {fileID: 9060274504393352625}
+  - component: {fileID: 201330826867659490}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1767,11 +1853,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 85de43cb557924f4db7242f7f3aedd28, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 8f715f10abdceb14aa9fe1b84cb38e89, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 40
+--- !u!114 &201330826867659490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504393352627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504421759529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2276,6 +2375,7 @@ GameObject:
   - component: {fileID: 9060274504479702188}
   - component: {fileID: 9060274504479702187}
   - component: {fileID: 9060274504479702189}
+  - component: {fileID: 5784948387335881718}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2441,11 +2541,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: f0c37c5dd6abcd6419bd947d617bd186, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: da03d2667488a3a45821e0c613c4561d, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: -20
+--- !u!114 &5784948387335881718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504479702179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504479799635
 GameObject:
   m_ObjectHideFlags: 0
@@ -2461,6 +2574,7 @@ GameObject:
   - component: {fileID: 9060274504479799644}
   - component: {fileID: 9060274504479799647}
   - component: {fileID: 9060274504479799633}
+  - component: {fileID: 8661788229291615469}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -2626,11 +2740,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: f9cfd598b604c8d48b2ef8a4b748c25e, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b510f53e75e48764d8d57853b4e0d893, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 20
+--- !u!114 &8661788229291615469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504479799635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504480384783
 GameObject:
   m_ObjectHideFlags: 0
@@ -2646,6 +2773,7 @@ GameObject:
   - component: {fileID: 9060274504480384776}
   - component: {fileID: 9060274504480384779}
   - component: {fileID: 9060274504480384781}
+  - component: {fileID: 1893728151168893064}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2811,11 +2939,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 0e3912a2caa464a40b7db16da391f50e, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 652a374ba765b714daaf15fc8100eea9, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 20
+--- !u!114 &1893728151168893064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504480384783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504496484026
 GameObject:
   m_ObjectHideFlags: 0
@@ -2831,6 +2972,7 @@ GameObject:
   - component: {fileID: 9060274504496484007}
   - component: {fileID: 9060274504496484002}
   - component: {fileID: 9060274504496484004}
+  - component: {fileID: 2657042698322521908}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -2996,11 +3138,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 7ff54290900ebf24aba565cd2a3c3407, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 230486a3780346c40a21d26a03c60bcb, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 10
+--- !u!114 &2657042698322521908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504496484026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504604584501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3016,6 +3171,7 @@ GameObject:
   - component: {fileID: 9060274504604584510}
   - component: {fileID: 9060274504604584497}
   - component: {fileID: 9060274504604584499}
+  - component: {fileID: 941505983620929823}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3181,11 +3337,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 6746959d77daee64ebba400a14431cac, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 5bd8402eaa0552c40a8eae900490f9c7, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 20
+--- !u!114 &941505983620929823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504604584501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504613533536
 GameObject:
   m_ObjectHideFlags: 0
@@ -3276,6 +3445,7 @@ GameObject:
   - component: {fileID: 9060274504615375169}
   - component: {fileID: 9060274504615375180}
   - component: {fileID: 9060274504615375182}
+  - component: {fileID: 1772732230298543385}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -3441,11 +3611,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 308d223a10672d646953acff0789a33f, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 308d223a10672d646953acff0789a33f, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 10
+--- !u!114 &1772732230298543385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504615375172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504620868993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3845,6 +4028,7 @@ GameObject:
   - component: {fileID: 9060274504653402932}
   - component: {fileID: 9060274504653402935}
   - component: {fileID: 9060274504653402889}
+  - component: {fileID: 2783489019046003765}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -4010,11 +4194,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: da1720baadbcace43a3cad361f15beba, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 99830e0b499f1474a991f6185d7f56b5, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 20
+--- !u!114 &2783489019046003765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504653402891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504670058316
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4302,7 @@ GameObject:
   - component: {fileID: 9060274504671756721}
   - component: {fileID: 9060274504671756720}
   - component: {fileID: 9060274504671756722}
+  - component: {fileID: 6850787541769981908}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -4270,11 +4468,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 7c4487bc8890a864cae7624958d8e511, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 2e7ac28e946d9b84dbcca368e5b33bc2, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 10
+--- !u!114 &6850787541769981908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504671756724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504689845600
 GameObject:
   m_ObjectHideFlags: 0
@@ -4447,6 +4658,7 @@ GameObject:
   - component: {fileID: 9060274504695845974}
   - component: {fileID: 9060274504695845973}
   - component: {fileID: 9060274504695845975}
+  - component: {fileID: 3442045474986906065}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -4612,11 +4824,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: f3f71386ea1dba84b818aae6333138af, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 6e232d8a05c66a84ea20e07de91fd49a, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: -10
+--- !u!114 &3442045474986906065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504695845933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504732009908
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,9 +4974,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: a2b00f6e4a560c64d90a38f0d7da3873, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: aa89041c8a9fd8642bcb5e3f2c4e10f6, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!114 &9060274504732009906
@@ -4782,6 +5008,7 @@ GameObject:
   - component: {fileID: 9060274504774396876}
   - component: {fileID: 9060274504774396879}
   - component: {fileID: 9060274504774396865}
+  - component: {fileID: 7141342733780902332}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -4947,11 +5174,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: d9c1dc73b0eac0946892c9a63d7a8dc4, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 6b4979c3f06837740a50533ba8829c3a, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 30
+--- !u!114 &7141342733780902332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504774396867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504786013206
 GameObject:
   m_ObjectHideFlags: 0
@@ -5431,6 +5671,7 @@ GameObject:
   - component: {fileID: 9060274504838525752}
   - component: {fileID: 9060274504838525753}
   - component: {fileID: 9060274504838525759}
+  - component: {fileID: 6078979237729023582}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -5596,11 +5837,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: a6994d114aa194c448fbf859249fd1d7, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b4d2facf7d994a84f94ce475c7720110, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 0
+--- !u!114 &6078979237729023582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504838525745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504846447165
 GameObject:
   m_ObjectHideFlags: 0
@@ -5691,6 +5945,7 @@ GameObject:
   - component: {fileID: 9060274504889099581}
   - component: {fileID: 9060274504889099580}
   - component: {fileID: 9060274504889099582}
+  - component: {fileID: 6945188080296637014}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -5856,11 +6111,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b9d6ba887f187d7458514b5c03c06e8c, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 72f6d7fad1ff45841ac8de36e046124c, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 30
+--- !u!114 &6945188080296637014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504889099568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504895925278
 GameObject:
   m_ObjectHideFlags: 0
@@ -5876,6 +6144,7 @@ GameObject:
   - component: {fileID: 9060274504895925275}
   - component: {fileID: 9060274504895925277}
   - component: {fileID: 9060274504895925276}
+  - component: {fileID: 2964258673834059774}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -6020,9 +6289,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 32b90d19943dd64458c958b3784cd09e, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: e7d591d555f3e0b4482490fc61fe6c69, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 30
 --- !u!50 &9060274504895925276
@@ -6046,6 +6316,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2964258673834059774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504895925278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504909234989
 GameObject:
   m_ObjectHideFlags: 0
@@ -6218,6 +6500,7 @@ GameObject:
   - component: {fileID: 9060274504914961962}
   - component: {fileID: 9060274504914961961}
   - component: {fileID: 9060274504914961963}
+  - component: {fileID: 1596771590060299579}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -6383,11 +6666,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: c40693da21573d84caf05e9b89700d77, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 67d2e29cbce1b4143ad4a2dda81009ba, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: -20
+--- !u!114 &1596771590060299579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504914961953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504920434399
 GameObject:
   m_ObjectHideFlags: 0
@@ -6403,6 +6699,7 @@ GameObject:
   - component: {fileID: 9060274504920434392}
   - component: {fileID: 9060274504920434395}
   - component: {fileID: 9060274504920434397}
+  - component: {fileID: 3255884321480587051}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -6568,11 +6865,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: 023922ca125ad0d47ac0414e67277995, type: 2}
-  spellIcon: {fileID: 21300000, guid: 11241d870a97df643b9a1291bb49e484, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b1c63ce88cccb6d4fb5f6273794591d3, type: 3}
+  spell: {fileID: 11400000, guid: 023922ca125ad0d47ac0414e67277995, type: 2}
   requiredSkill: 0
   requiredSkillValue: 10
+--- !u!114 &3255884321480587051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504920434399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504935552248
 GameObject:
   m_ObjectHideFlags: 0
@@ -6588,6 +6898,7 @@ GameObject:
   - component: {fileID: 9060274504935552229}
   - component: {fileID: 9060274504935552231}
   - component: {fileID: 9060274504935552230}
+  - component: {fileID: 2262249835266909917}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -6732,9 +7043,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 1c0ee399687f1e44b9a896ca979743e6, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: faf894b2c923c27439c060d31cb40f18, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 30
 --- !u!50 &9060274504935552230
@@ -6758,6 +7070,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2262249835266909917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274504935552248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274504956404152
 GameObject:
   m_ObjectHideFlags: 0
@@ -7240,6 +7564,7 @@ GameObject:
   - component: {fileID: 9060274505010223638}
   - component: {fileID: 9060274505010224617}
   - component: {fileID: 9060274505010224619}
+  - component: {fileID: 8846420414875737628}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7405,11 +7730,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 1189dc1980ae3bd4b90bfbe00d3f42da, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 2d4471106fd84dd40a6c050889d83735, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 20
+--- !u!114 &8846420414875737628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505010224621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505015509568
 GameObject:
   m_ObjectHideFlags: 0
@@ -7621,6 +7959,7 @@ GameObject:
   - component: {fileID: 9060274505025184732}
   - component: {fileID: 9060274505025184735}
   - component: {fileID: 9060274505025184721}
+  - component: {fileID: 2239155434355693976}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7786,11 +8125,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 07800ab72bba5ef42939d83077abceee, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 97f98e1c7466e87479462ea4da9987a3, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 20
+--- !u!114 &2239155434355693976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505025184723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505025201562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7806,6 +8158,7 @@ GameObject:
   - component: {fileID: 9060274505025201543}
   - component: {fileID: 9060274505025201542}
   - component: {fileID: 9060274505025201560}
+  - component: {fileID: 6887403591543091444}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -7971,11 +8324,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 4ac79ca893689034a8ea5f86ca0aad21, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: c9676d032d6a47b499def76db0a252bf, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 40
+--- !u!114 &6887403591543091444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505025201562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505027686422
 GameObject:
   m_ObjectHideFlags: 0
@@ -8066,6 +8432,7 @@ GameObject:
   - component: {fileID: 9060274505037913868}
   - component: {fileID: 9060274505037913870}
   - component: {fileID: 9060274505037913857}
+  - component: {fileID: 1962800607043004914}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -8210,9 +8577,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 32b90d19943dd64458c958b3784cd09e, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: e7d591d555f3e0b4482490fc61fe6c69, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 30
 --- !u!50 &9060274505037913857
@@ -8236,6 +8604,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1962800607043004914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505037913859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505041107969
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,9 +8748,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 688b58dbf1ec2234da4779c3e68c1a69, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 4984bf1fd3054a7498f70228b91bb178, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!114 &9060274505041107983
@@ -8872,6 +9253,7 @@ GameObject:
   - component: {fileID: 9060274505109828851}
   - component: {fileID: 9060274505109828850}
   - component: {fileID: 9060274505109828848}
+  - component: {fileID: 6096646525197429677}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -9037,11 +9419,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: c7bfd186be700b0408519f4845ccdc4f, type: 2}
-  spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  spell: {fileID: 11400000, guid: c7bfd186be700b0408519f4845ccdc4f, type: 2}
   requiredSkill: 4
   requiredSkillValue: 0
+--- !u!114 &6096646525197429677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505109828852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505109973454
 GameObject:
   m_ObjectHideFlags: 0
@@ -9132,6 +9527,7 @@ GameObject:
   - component: {fileID: 9060274505139523508}
   - component: {fileID: 9060274505139523511}
   - component: {fileID: 9060274505139523465}
+  - component: {fileID: 117636805738919383}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -9297,11 +9693,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 4ac79ca893689034a8ea5f86ca0aad21, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: c9676d032d6a47b499def76db0a252bf, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 40
+--- !u!114 &117636805738919383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505139523467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505142647909
 GameObject:
   m_ObjectHideFlags: 0
@@ -9317,6 +9726,7 @@ GameObject:
   - component: {fileID: 9060274505142647918}
   - component: {fileID: 9060274505142647905}
   - component: {fileID: 9060274505142647907}
+  - component: {fileID: 9173550789210024224}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -9482,11 +9892,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 78f30626e3484a143ada96702a2b0be1, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 9f3d8d080249d1f41bed39989d000656, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 10
+--- !u!114 &9173550789210024224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505142647909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505156578880
 GameObject:
   m_ObjectHideFlags: 0
@@ -9805,6 +10228,7 @@ GameObject:
   - component: {fileID: 9060274505211525524}
   - component: {fileID: 9060274505211525523}
   - component: {fileID: 9060274505211525525}
+  - component: {fileID: 1660283241950924331}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -9970,11 +10394,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: fbfd0ba3ac7a695449a7265f64b2a126, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 2daaa40990def3548a2a3757db858216, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: -10
+--- !u!114 &1660283241950924331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505211525483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505220010539
 GameObject:
   m_ObjectHideFlags: 0
@@ -9990,6 +10427,7 @@ GameObject:
   - component: {fileID: 9060274505220010580}
   - component: {fileID: 9060274505220010583}
   - component: {fileID: 9060274505220010537}
+  - component: {fileID: 9157632731195526978}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -10155,11 +10593,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 1189dc1980ae3bd4b90bfbe00d3f42da, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 2d4471106fd84dd40a6c050889d83735, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 20
+--- !u!114 &9157632731195526978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505220010539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505226958424
 GameObject:
   m_ObjectHideFlags: 0
@@ -10175,6 +10626,7 @@ GameObject:
   - component: {fileID: 9060274505226958405}
   - component: {fileID: 9060274505226958404}
   - component: {fileID: 9060274505226958406}
+  - component: {fileID: 2577929416411967254}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -10340,11 +10792,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 85de43cb557924f4db7242f7f3aedd28, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 8f715f10abdceb14aa9fe1b84cb38e89, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 40
+--- !u!114 &2577929416411967254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505226958424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505268870409
 GameObject:
   m_ObjectHideFlags: 0
@@ -10749,6 +11214,7 @@ GameObject:
   - component: {fileID: 9060274505281809511}
   - component: {fileID: 9060274505281809510}
   - component: {fileID: 9060274505281809528}
+  - component: {fileID: 3487582807427696906}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -10914,11 +11380,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 9470e4474430c5f4bad47450d9916c7d, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 8b11c089f044dcb4b89ca39b41c1ab75, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 40
+--- !u!114 &3487582807427696906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505281809530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505287031055
 GameObject:
   m_ObjectHideFlags: 0
@@ -10934,6 +11413,7 @@ GameObject:
   - component: {fileID: 9060274505287031048}
   - component: {fileID: 9060274505287031051}
   - component: {fileID: 9060274505287031053}
+  - component: {fileID: 6271488391627889608}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -11099,11 +11579,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: a0e5a28e5d074224fb49a4964f9029d4, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 2191bbb73fa3cd949a5ab39dbf89aeea, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 10
+--- !u!114 &6271488391627889608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505287031055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505297436412
 GameObject:
   m_ObjectHideFlags: 0
@@ -11332,6 +11825,7 @@ GameObject:
   - component: {fileID: 9060274505323608491}
   - component: {fileID: 9060274505323608534}
   - component: {fileID: 9060274505323608488}
+  - component: {fileID: 676664841667298333}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -11497,11 +11991,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: da4ffc9f7b5a0a64d936dc717e9a9600, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 796d808ef77d1464cbf11faa3d6b1c8c, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 20
+--- !u!114 &676664841667298333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505323608494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505328647365
 GameObject:
   m_ObjectHideFlags: 0
@@ -11753,6 +12260,7 @@ GameObject:
   - component: {fileID: 9060274505341764879}
   - component: {fileID: 9060274505341764878}
   - component: {fileID: 9060274505341764864}
+  - component: {fileID: 872650584417169123}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -11918,11 +12426,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 8411c4019e3b5aa49a6d8d60dcdab954, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 74d8d1f3d79bc2449866284ab0d7116d, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 20
+--- !u!114 &872650584417169123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505341764866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505355378525
 GameObject:
   m_ObjectHideFlags: 0
@@ -12527,9 +13048,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 688b58dbf1ec2234da4779c3e68c1a69, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 4984bf1fd3054a7498f70228b91bb178, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!114 &9060274505379816191
@@ -12560,6 +13082,7 @@ GameObject:
   - component: {fileID: 9060274505412779084}
   - component: {fileID: 9060274505412779087}
   - component: {fileID: 9060274505412779073}
+  - component: {fileID: 1834764705913397684}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -12725,11 +13248,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b7444a35ea9caa24da64d1a1bcdf536e, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b14a99e7f2b7d9841a53d41ae1528050, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 10
+--- !u!114 &1834764705913397684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505412779075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505417082645
 GameObject:
   m_ObjectHideFlags: 0
@@ -12902,6 +13438,7 @@ GameObject:
   - component: {fileID: 9060274505431364602}
   - component: {fileID: 9060274505431364604}
   - component: {fileID: 9060274505431364607}
+  - component: {fileID: 3528194538897531806}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -13046,9 +13583,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 113ec4a400d0d6f4ea228e12b01a183a, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: a11485405a161cd43a23e8e04ce3d519, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 30
 --- !u!50 &9060274505431364607
@@ -13072,6 +13610,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3528194538897531806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505431364593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505436495104
 GameObject:
   m_ObjectHideFlags: 0
@@ -13163,6 +13713,7 @@ GameObject:
   - component: {fileID: 9060274505445826160}
   - component: {fileID: 9060274505445826163}
   - component: {fileID: 9060274505445826162}
+  - component: {fileID: 6987846012126074772}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -13320,9 +13871,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!50 &9060274505445826162
@@ -13346,6 +13898,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &6987846012126074772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505445826164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505458166863
 GameObject:
   m_ObjectHideFlags: 0
@@ -13361,6 +13925,7 @@ GameObject:
   - component: {fileID: 9060274505458166856}
   - component: {fileID: 9060274505458166859}
   - component: {fileID: 9060274505458166861}
+  - component: {fileID: 8104620826596959569}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -13526,11 +14091,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: f5282cb89f99c6f42a3549320393141c, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: c975e6428a36c9d468aa691276f7b04a, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 10
+--- !u!114 &8104620826596959569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505458166863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505466260682
 GameObject:
   m_ObjectHideFlags: 0
@@ -13774,6 +14352,7 @@ GameObject:
   - component: {fileID: 9060274505474105388}
   - component: {fileID: 9060274505474105391}
   - component: {fileID: 9060274505474105377}
+  - component: {fileID: 5487407332527491702}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -13939,11 +14518,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 729ac8da266dec34ba5a45b39630cd39, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: d685a13feef2f7c4a97758c63fea9c79, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 30
+--- !u!114 &5487407332527491702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505474105379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505490524282
 GameObject:
   m_ObjectHideFlags: 0
@@ -13960,6 +14552,7 @@ GameObject:
   - component: {fileID: 9060274505490524262}
   - component: {fileID: 9060274505490524281}
   - component: {fileID: 9060274505490524280}
+  - component: {fileID: 8625241267333936344}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -14117,9 +14710,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!50 &9060274505490524280
@@ -14143,6 +14737,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &8625241267333936344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505490524282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505493947539
 GameObject:
   m_ObjectHideFlags: 0
@@ -14158,6 +14764,7 @@ GameObject:
   - component: {fileID: 9060274505493947548}
   - component: {fileID: 9060274505493947551}
   - component: {fileID: 9060274505493947537}
+  - component: {fileID: 968706429961231342}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -14323,11 +14930,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: da1720baadbcace43a3cad361f15beba, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 99830e0b499f1474a991f6185d7f56b5, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 3
   requiredSkillValue: 20
+--- !u!114 &968706429961231342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505493947539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505514735811
 GameObject:
   m_ObjectHideFlags: 0
@@ -14460,9 +15080,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 0394b3aab9ecc6d4697f307ae6a188bb, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 3925e5888e273de42a604aa4b73bc8af, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!114 &9060274505514735809
@@ -14571,6 +15192,7 @@ GameObject:
   - component: {fileID: 9060274505534897463}
   - component: {fileID: 9060274505534897462}
   - component: {fileID: 9060274505534897416}
+  - component: {fileID: 3405096365677927974}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -14736,11 +15358,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: a62572d82d54105419dad06e33e23f82, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 8982a8c6190efde49af66c41328be340, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 40
+--- !u!114 &3405096365677927974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505534897418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505551835681
 GameObject:
   m_ObjectHideFlags: 0
@@ -14908,6 +15543,7 @@ GameObject:
   - component: {fileID: 9060274505556888673}
   - component: {fileID: 9060274505556888672}
   - component: {fileID: 9060274505556888674}
+  - component: {fileID: 8487935254092229141}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -15073,11 +15709,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: a8cc8ad483ec4434fbf9f92b36106325, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: ceb9e4a62eb8c6348ae045c64ba5b36e, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 20
+--- !u!114 &8487935254092229141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505556888676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505565951466
 GameObject:
   m_ObjectHideFlags: 0
@@ -15164,6 +15813,7 @@ GameObject:
   - component: {fileID: 9060274505583591923}
   - component: {fileID: 9060274505583591925}
   - component: {fileID: 9060274505583591924}
+  - component: {fileID: 2777451039982159219}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -15308,9 +15958,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 79c30746aedf9f744a622fb144843671, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: c642572600370f0428643998fea176a6, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 30
 --- !u!50 &9060274505583591924
@@ -15334,6 +15985,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2777451039982159219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505583591926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505584469900
 GameObject:
   m_ObjectHideFlags: 0
@@ -15722,6 +16385,7 @@ GameObject:
   - component: {fileID: 9060274505647852456}
   - component: {fileID: 9060274505647852459}
   - component: {fileID: 9060274505647852461}
+  - component: {fileID: 6978385297629889258}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -15887,11 +16551,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 11400000, guid: 1f407934269cb4e408ec5bffd2731611, type: 2}
-  spellIcon: {fileID: 21300000, guid: d9d8cf4787399534186fa18753b63131, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 5d4c7d730da0c7c43aa0e760ab9db9bc, type: 3}
+  spell: {fileID: 11400000, guid: 1f407934269cb4e408ec5bffd2731611, type: 2}
   requiredSkill: 0
   requiredSkillValue: 10
+--- !u!114 &6978385297629889258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505647852463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505682027738
 GameObject:
   m_ObjectHideFlags: 0
@@ -15985,6 +16662,7 @@ GameObject:
   - component: {fileID: 9060274505716499315}
   - component: {fileID: 9060274505716499326}
   - component: {fileID: 9060274505716499312}
+  - component: {fileID: 7881423026821338219}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -16150,11 +16828,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 1cf5abc70540ad848b35f51c8632185b, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b8491ba868bce9a4f9c8c8b1e5bc0ca4, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 10
+--- !u!114 &7881423026821338219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505716499318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505717865275
 GameObject:
   m_ObjectHideFlags: 0
@@ -16171,6 +16862,7 @@ GameObject:
   - component: {fileID: 9060274505717865255}
   - component: {fileID: 9060274505717865254}
   - component: {fileID: 9060274505717865273}
+  - component: {fileID: 3212741601251318693}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -16328,9 +17020,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: b34395cda1b2c264d957a9cd39a97677, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 68ff95a32411e95468929b28f324dd84, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 0
 --- !u!50 &9060274505717865273
@@ -16354,6 +17047,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &3212741601251318693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505717865275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505743950458
 GameObject:
   m_ObjectHideFlags: 0
@@ -16986,6 +17691,7 @@ GameObject:
   - component: {fileID: 9060274505949655342}
   - component: {fileID: 9060274505949655329}
   - component: {fileID: 9060274505949655331}
+  - component: {fileID: 108420777796922515}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -17151,11 +17857,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 8411c4019e3b5aa49a6d8d60dcdab954, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 74d8d1f3d79bc2449866284ab0d7116d, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 20
+--- !u!114 &108420777796922515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505949655333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505950509789
 GameObject:
   m_ObjectHideFlags: 0
@@ -17323,6 +18042,7 @@ GameObject:
   - component: {fileID: 9060274505954651303}
   - component: {fileID: 9060274505954651321}
   - component: {fileID: 9060274505954651320}
+  - component: {fileID: 4710383417877640766}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -17467,9 +18187,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 0b5c69b3018a7cc45a1966b00f459766, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: b49760e315c5f1c428dbc4a5a469c83a, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 30
 --- !u!50 &9060274505954651320
@@ -17493,6 +18214,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4710383417877640766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505954651322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505968810208
 GameObject:
   m_ObjectHideFlags: 0
@@ -17744,6 +18477,7 @@ GameObject:
   - component: {fileID: 9060274505995465102}
   - component: {fileID: 9060274505995465089}
   - component: {fileID: 9060274505995465091}
+  - component: {fileID: 3691079968928965958}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -17909,11 +18643,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: e7ad556fcd203a64498b0e19a5591316, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: abcf04f524c77d0498c9fe3153b1c6c5, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 1
   requiredSkillValue: 40
+--- !u!114 &3691079968928965958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274505995465093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274505999474837
 GameObject:
   m_ObjectHideFlags: 0
@@ -18316,6 +19063,7 @@ GameObject:
   - component: {fileID: 9060274506026510407}
   - component: {fileID: 9060274506026510402}
   - component: {fileID: 9060274506026510427}
+  - component: {fileID: 8503657715895009303}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -18481,11 +19229,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 4aa3950fb6bba3848a0a0809ce2dad5a, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 3add451a0bdbfe24db3e3b6898cc63ee, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 4
   requiredSkillValue: 20
+--- !u!114 &8503657715895009303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274506026510428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274506068973117
 GameObject:
   m_ObjectHideFlags: 0
@@ -19151,6 +19912,7 @@ GameObject:
   - component: {fileID: 9060274506158612923}
   - component: {fileID: 9060274506158612925}
   - component: {fileID: 9060274506158612924}
+  - component: {fileID: 12922422366331526}
   m_Layer: 5
   m_Name: Button (2)
   m_TagString: Untagged
@@ -19295,9 +20057,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: 2104372f58fd3794cab35613abc97017, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: 74b759f1ee09aaa4289f41637d5cf27c, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 0
   requiredSkillValue: 30
 --- !u!50 &9060274506158612924
@@ -19321,6 +20084,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &12922422366331526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274506158612926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274506179723786
 GameObject:
   m_ObjectHideFlags: 0
@@ -19493,6 +20268,7 @@ GameObject:
   - component: {fileID: 9060274506184789263}
   - component: {fileID: 9060274506184789262}
   - component: {fileID: 9060274506184789248}
+  - component: {fileID: 5949554824907507484}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -19658,11 +20434,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d6bc298a390141459d697820318154d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
-  spellIcon: {fileID: 21300000, guid: ef4d83e253b20d24dbfa70b70644021a, type: 3}
+  onPanel: 0
+  icon: {fileID: 0}
   learnedSpellIcon: {fileID: 21300000, guid: e704140a3f06af64b90a597c6c921002, type: 3}
+  spell: {fileID: 0}
   requiredSkill: 2
   requiredSkillValue: 10
+--- !u!114 &5949554824907507484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9060274506184789250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb957e6e486cbe489464908207b753e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9060274506205308998
 GameObject:
   m_ObjectHideFlags: 0

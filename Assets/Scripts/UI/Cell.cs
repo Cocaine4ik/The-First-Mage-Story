@@ -22,6 +22,7 @@ public abstract class Cell<T> : MonoBehaviour, IDragHandler, IBeginDragHandler, 
 
     protected virtual void Awake()
     {
+        icon = GetComponent<Image>();
         defaultIcon = icon.sprite;
     }
 

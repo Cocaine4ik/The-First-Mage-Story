@@ -7,6 +7,7 @@ public class Spell : ScriptableObject, ISpell
 {
     [Header("Spell Data")]
     [SerializeField] private SpellName spellName;
+    [SerializeField] private Sprite spellIcon;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private SpellType spellType;
     [SerializeField] private int spellDamage;
@@ -16,6 +17,7 @@ public class Spell : ScriptableObject, ISpell
     [SerializeField] private float cooldown;
 
     public SpellName SpellName => spellName;
+    public Sprite SpellIcon => spellIcon;
     public GameObject ProjectilePrefab => projectilePrefab;
     public SpellType SpellType => spellType;
     public EffectName SpellEffect => spellEffect;

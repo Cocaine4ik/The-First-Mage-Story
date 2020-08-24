@@ -5,7 +5,8 @@ using UnityEngine;
 public class SpellPanel : MonoBehaviour
 {
     [SerializeField] private List<SpellInvoker> spellInvokers;
-    private List<SpellPanelCell> panelCells = new List<SpellPanelCell>();
+
+    public List<SpellPanelCell> panelCells = new List<SpellPanelCell>();
 
     private void OnEnable() {
         EventManager.StartListening(EventName.AddSpelltoPanelCell, OnAddSpell);
@@ -60,13 +61,12 @@ public class SpellPanel : MonoBehaviour
     private void OnAddSpell(EventArg arg) {
 
         var id = arg.FirstIntArg;
-        var icon = arg.Sprite;
         var spell = arg.Spell;
 
         foreach(SpellPanelCell cell in panelCells) {
             
             if(cell.Id == id) {
-                cell.Image.sprite = icon;
+                cell.Image.sprite = spell.SpellIcon;
                 cell.Invoker.Spell = spell;
             }
         }

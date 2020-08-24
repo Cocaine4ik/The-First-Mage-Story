@@ -16,6 +16,7 @@ public class SpellBook : UIElementBase
     [SerializeField] private Button divineMagicButton;
     [SerializeField] private Button spiritMagicButton;
 
+    public List<SpellCell> SpellCells = new List<SpellCell>();
 
     private void OnEnable() {
         EventManager.StartListening(EventName.RefreshSpellBook, OnRefreshSpellbook);

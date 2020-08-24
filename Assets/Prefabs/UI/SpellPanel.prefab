@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 8638775843427158072}
   - component: {fileID: 8638775843427158073}
   - component: {fileID: 8638775843427158075}
+  - component: {fileID: 7682334291952930962}
   m_Layer: 5
   m_Name: SpellPanel
   m_TagString: Untagged
@@ -183,6 +184,19 @@ MonoBehaviour:
   - {fileID: 8638775843663036587}
   - {fileID: 8638775844985699333}
   - {fileID: 8638775844094408700}
+  panelCells: []
+--- !u!114 &7682334291952930962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8638775843427158071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 465b153fbf463ce47bf1e6fa7f218a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8638775843581046091
 GameObject:
   m_ObjectHideFlags: 0
@@ -378,6 +392,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 1
+  image: {fileID: 0}
 --- !u!1 &8638775843599285582
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +588,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 10
+  image: {fileID: 0}
 --- !u!1 &8638775843663036579
 GameObject:
   m_ObjectHideFlags: 0
@@ -768,6 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 7
+  image: {fileID: 0}
 --- !u!1 &8638775843691650758
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 6
+  image: {fileID: 0}
 --- !u!1 &8638775844037808627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,6 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 3
+  image: {fileID: 0}
 --- !u!1 &8638775844086733803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,6 +1372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 4
+  image: {fileID: 0}
 --- !u!1 &8638775844094408692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1548,6 +1568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 9
+  image: {fileID: 0}
 --- !u!1 &8638775844408060559
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,6 +1764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 2
+  image: {fileID: 0}
 --- !u!1 &8638775844833237052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1938,6 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 5
+  image: {fileID: 0}
 --- !u!1 &8638775844985699389
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,3 +2156,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 8
+  image: {fileID: 0}

@@ -13,8 +13,11 @@ MonoBehaviour:
   m_Name: SummonVeilSkull
   m_EditorClassIdentifier: 
   spellName: 0
-  spellCastPrefab: {fileID: 0}
+  spellIcon: {fileID: 21300000, guid: 3add451a0bdbfe24db3e3b6898cc63ee, type: 3}
   projectilePrefab: {fileID: 0}
-  invokeEvent: 25
+  spellType: 0
+  spellDamage: 0
   damageType: 0
   spellEffect: 6
+  manaCost: 0
+  cooldown: 0

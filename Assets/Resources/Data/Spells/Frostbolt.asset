@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Frostbolt
   m_EditorClassIdentifier: 
   spellName: 3
+  spellIcon: {fileID: 21300000, guid: b1c63ce88cccb6d4fb5f6273794591d3, type: 3}
   projectilePrefab: {fileID: 5036661645459858037, guid: 9c540405f9951154181a8e7b7498f679,
     type: 3}
   spellType: 1

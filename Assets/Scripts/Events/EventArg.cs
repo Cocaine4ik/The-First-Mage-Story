@@ -168,9 +168,8 @@ public class EventArg {
     }
 
     // constructor for spellCell
-    public EventArg(int id, Sprite icon, Spell spell) {
+    public EventArg(int id, Spell spell) {
         this.firstIntArg = id;
-        this.sprite = icon;
         this.spell = spell;
 
     }

@@ -2,6 +2,7 @@
 public interface ISpell
 {
     SpellName SpellName { get; }
+    Sprite SpellIcon { get; }
     GameObject ProjectilePrefab { get; }
     SpellType SpellType { get;  }
     int SpellDamage { get; }

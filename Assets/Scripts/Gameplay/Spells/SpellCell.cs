@@ -24,9 +24,13 @@ public class SpellCell : Cell<SpellPanelCell> {
 
     private Button button;
 
+    public bool IsLearned => isLearned;
+    public Spell Spell => spell;
+
     protected void Start() {
 
         icon = GetComponent<Image>();
+        if (spell != null) learnedSpellIcon = spell.SpellIcon;
         button = GetComponent<Button>();
         button.onClick.AddListener(() => LearnSpell());
 
@@ -46,12 +50,23 @@ public class SpellCell : Cell<SpellPanelCell> {
         }
     }
 
+    // learn spells with out checking and decreasing spell points, for Load only
+    public void LearnSpell(bool isLoad)
+    {
+        if(isLoad)
+        {
+            isLearned = true;
+            canDrag = true;
+            icon.sprite = learnedSpellIcon;
+        }
+    }
+
     public override void SetPanelCell()
     {
         if(panelCell != null)
         {
             var panelCellData = panelCell.GetComponent<SpellPanelCell>();
-            EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, icon.sprite, spell));
+            EventManager.TriggerEvent(EventName.AddSpelltoPanelCell, new EventArg(panelCellData.Id, spell));
         }
         
     }

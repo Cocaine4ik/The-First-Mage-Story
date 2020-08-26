@@ -57,6 +57,8 @@ public class SpellCell : Cell<SpellPanelCell> {
         {
             isLearned = true;
             canDrag = true;
+            learnedSpellIcon = spell.SpellIcon;
+            icon = GetComponent<Image>();
             icon.sprite = learnedSpellIcon;
         }
     }

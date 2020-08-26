@@ -12,17 +12,17 @@ public class SaveLoadSpellCell : SaveLoadData
 
     }
     protected override void OnEnable()
-    {
+    {/*
         base.OnEnable();
-        OnLoadData(new EventArg());
+        OnLoadData(new EventArg());*/
     }
     protected override void OnLoadData(EventArg arg)
-    {
+    {/*
         if (spellCell != null && spellCell.Spell != null)
         {
             if (PlayerPrefs.HasKey("SpellCell." + spellCell.Spell.SpellName.ToString()))
                 spellCell.LearnSpell(true);
-        }
+        }*/
     }
 
     protected override void OnSaveData(EventArg arg)

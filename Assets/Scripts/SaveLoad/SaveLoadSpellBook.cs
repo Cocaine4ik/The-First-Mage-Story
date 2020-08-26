@@ -12,7 +12,18 @@ public class SaveLoadSpellBook : SaveLoadData
     }
     protected override void OnLoadData(EventArg arg)
     {
-
+        foreach (SpellCell cell in spellBook.SpellCells)
+        {
+            if(cell.Spell != null)
+            {
+                Debug.Log("LoadSpell: " + cell.Spell.SpellName.ToString());
+                if (PlayerPrefs.HasKey("SpellCell." + cell.Spell.SpellName.ToString()))
+                {
+                    Debug.Log("LoadSpell 2");
+                    cell.LearnSpell(true);
+                }
+            }
+        }
     }
 
     protected override void OnSaveData(EventArg arg)

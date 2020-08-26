@@ -3,7 +3,7 @@ public enum SpellName
 {
     SummonVeilSkull,
     IncreasedMagicArrow,
-    FireBall,
-    FrostBolt,
+    Fireball,
+    Frostbolt,
     Shock,
 }

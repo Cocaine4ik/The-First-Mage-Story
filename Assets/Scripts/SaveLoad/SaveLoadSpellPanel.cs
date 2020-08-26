@@ -7,9 +7,14 @@ public class SaveLoadSpellPanel : SaveLoadData
 {
     private SpellPanel spellPanel;
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+    }
     private void Start()
     {
         spellPanel = GetComponent<SpellPanel>();
+        if (transform.parent.name == "NavigationMain") OnLoadData(new EventArg());
     }
     protected override void OnLoadData(EventArg arg)
     {

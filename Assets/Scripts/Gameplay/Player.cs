@@ -12,6 +12,8 @@ public class Player : MagicCharacter {
     private GameObject tempPickupItem;
     private SaveTrigger saveTrigger;
 
+    [SerializeField] private Transform pauseMenu;
+
     #endregion
 
     #region Methods
@@ -132,6 +134,13 @@ public class Player : MagicCharacter {
         }
     }
 
+    private void OnDestroy()
+    {
+        var pauseMenuChilds = UnityExtensions.CreateChildsList(pauseMenu);
+        UnityExtensions.SetActiveGameObjectChilds(pauseMenuChilds);
+        pauseMenu.GetComponent<PauseMenu>().PanelRectTransform.SetAsLastSibling();
+
+    }
     #endregion
 
     #region Animation Events

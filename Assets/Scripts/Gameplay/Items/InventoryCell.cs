@@ -33,7 +33,6 @@ public class InventoryCell : Cell<SupplyPanelCell>, IStack
     }
     protected override void Awake()
     {
-        base.Awake();
         isEmpty = true;
         isStack = false;
         borderField = GetComponent<Image>();

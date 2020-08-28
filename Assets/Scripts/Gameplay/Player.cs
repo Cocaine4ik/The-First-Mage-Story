@@ -76,6 +76,7 @@ public class Player : MagicCharacter {
 
         animator.SetTrigger("Pickup");
         InventorySystem.Instance.AddItem(pickupItem);
+        EventManager.TriggerEvent(EventName.PickupItem, new EventArg(pickupItem));
 
         if (tempPickupItem.GetComponent<SaveMe>() != null)
         {
@@ -136,10 +137,12 @@ public class Player : MagicCharacter {
 
     private void OnDestroy()
     {
-        var pauseMenuChilds = UnityExtensions.CreateChildsList(pauseMenu);
-        UnityExtensions.SetActiveGameObjectChilds(pauseMenuChilds);
-        pauseMenu.GetComponent<PauseMenu>().PanelRectTransform.SetAsLastSibling();
-
+        if(pauseMenu != null)
+        {
+            var pauseMenuChilds = UnityExtensions.CreateChildsList(pauseMenu);
+            UnityExtensions.SetActiveGameObjectChilds(pauseMenuChilds);
+            pauseMenu.GetComponent<PauseMenu>().PanelRectTransform.SetAsLastSibling();
+        }
     }
     #endregion
 

@@ -1,4 +1,5 @@
-﻿using System.CodeDom.Compiler;
+﻿using JetBrains.Annotations;
+using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,11 @@ public class MagicCliffsDirector : MonoBehaviour
     [SerializeField] private float alphaPerFrame;
     [SerializeField] private GameObject movingPlatform;
     [SerializeField] private GameObject player;
+    [SerializeField] private GameObject wolfDemon;
+    [SerializeField] private List<GameObject> veils = new List<GameObject>();
+    [SerializeField] private GameObject dialogueTrigger;
+    [SerializeField] private GameObject filter;
+
     private SpriteRenderer playerSprite;
     private bool appearFlag = false;
 
@@ -15,7 +21,7 @@ public class MagicCliffsDirector : MonoBehaviour
     {
         playerSprite = player.GetComponent<SpriteRenderer>();
         EventManager.StartListening(EventName.AppearPlayer, OnAppearPlayer);
-        EventManager.StartListening(EventName.PickupItem, OnPlatformUp);
+        EventManager.StartListening(EventName.PickupItem, OnPickupItem);
 
         var alpha = playerSprite.color;
         alpha.a = 0;
@@ -37,14 +43,29 @@ public class MagicCliffsDirector : MonoBehaviour
     {
         appearFlag = true;
     }
-    private void OnPlatformUp(EventArg arg)
+    private void OnPickupItem(EventArg arg)
     {
-        if (arg.Item.name == "FlyingStones")
+        if (arg.Item.ItemName == ItemName.FlyingStones)
         {
             movingPlatform.GetComponent<MovingPlatform>().MoveUp();
             AudioManager.SFXAudioSource.Play(SFXClipName.PlatformMove);
-            EventManager.StopListening(EventName.PickupItem, OnPlatformUp);
+            EventManager.StopListening(EventName.PickupItem, OnPickupItem);
         }
+
+        if(arg.Item.ItemName == ItemName.RoyalBlueflower && player.transform.position.x > 120f)
+        {
+            wolfDemon.SetActive(true);
+            foreach(GameObject veil in veils)
+            {
+                veil.SetActive(true);
+            }
+            dialogueTrigger.SetActive(true);
+        }
+    }
+
+    private void DemonWolfEnter()
+    {
+
     }
     private void AppearPlayer(float alphaPerFrame)
     {

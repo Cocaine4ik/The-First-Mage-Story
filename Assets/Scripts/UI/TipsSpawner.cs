@@ -28,6 +28,7 @@ public class TipsSpawner : MonoBehaviour
     }
 
     private void OnSpawnTip(EventArg arg) {
+
         if(arg.FirstStringArg == GetComponent<DialogueTrigger>().Dialogue.name) {
             Debug.Log(gameObject.name);
             SpawnTip();

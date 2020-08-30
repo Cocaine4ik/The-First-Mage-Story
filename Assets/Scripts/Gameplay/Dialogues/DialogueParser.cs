@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using System;
 
 /// <summary>
 /// 
@@ -46,10 +47,10 @@ public class DialogueParser : UIElementBase
     private string ProcessProperties(string text) {
 
         foreach (var exposedProperty in dialogue.ExposedProperties) {
-
+            /*
             exposedProperty.Localize();
             LocalizationManager.LocalizationChanged += exposedProperty.Localize;
-
+            */
             text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
 
         }
@@ -58,18 +59,29 @@ public class DialogueParser : UIElementBase
 
     private void AddOnClickEvents(string text, Button button, NodeLinkData choice) {
 
-        bool isExit = text.IndexOf("Exit") != -1 ? true : false;
-        bool isAddQuestAndExit = text.IndexOf("AddQuestAndExit ") != -1 ? true : false;
-        bool isAddQuest = text.IndexOf("AddQuest") != -1 ? true : false;
-
-        if (isExit) button.onClick.AddListener(() => ExitDialogue());
-        if (isAddQuestAndExit) button.onClick.AddListener(() => AddQuestAndExit());
-        if (isAddQuest) button.onClick.AddListener(() => AddQuest());
-        else {
-            button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID));
-        }
+        var propertyName = GetProperty(text);
+        Debug.Log(propertyName.ToString());
+        switch(propertyName)
+        {
+            case PropertyName.AddQuestAndExit: button.onClick.AddListener(() => AddQuestAndExit()); break;
+            case PropertyName.AddQuest: button.onClick.AddListener(() => AddQuest()); break;
+            case PropertyName.ChangeSpeaker: break;
+            case PropertyName.Atack: break;
+            case PropertyName.CompleteTask: break;
+            case PropertyName.Exit: button.onClick.AddListener(() => ExitDialogue()); break;
+            default: button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID)); break;
+        }       
     }
 
+    private PropertyName GetProperty(string text)
+    {
+        foreach (PropertyName property in Enum.GetValues(typeof(PropertyName)))
+        {
+            bool isProperty = text.IndexOf(property.ToString()) != -1 ? true : false;
+            if (isProperty) return property;
+        }
+        return PropertyName.Proceed;
+    }
     private void ExitDialogue() {
 
             EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogue.name));
@@ -80,19 +92,20 @@ public class DialogueParser : UIElementBase
     }
     private void AddQuestAndExit()
     {
+        Debug.Log(dialogue.name);
         ExitDialogue();
         AddQuest();
     }
 
     private void OnDestroy() {
-
+        /*
         if(dialogue != null) {
 
             foreach (var exposedProperty in dialogue.ExposedProperties) {
                 LocalizationManager.LocalizationChanged -= exposedProperty.Localize;
             }
         }
-
+        */
     }
     private void StartConversationEvent(EventArg arg) {
 

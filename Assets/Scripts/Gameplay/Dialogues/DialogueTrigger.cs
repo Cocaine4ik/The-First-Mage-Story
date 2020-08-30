@@ -139,7 +139,7 @@ public class DialogueTrigger : TalkTrigger
         if (GetComponent<DialogueSpeaker>() != null)
         {
             EventManager.TriggerEvent(EventName.SetRightSpeakerPortrait, new EventArg(rightSpeakerPortrait));
-            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(rightSpeakerPortrait));
+            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(rightSpeakerNameKey));
         }
         else
         {

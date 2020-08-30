@@ -57,6 +57,7 @@ public class Character : CharacterBase {
     public float CheckRadius { get => checkRadius; set => checkRadius = value; }
     public float JumpForce { get => jumpForce; set => jumpForce = value; }
     public float JumpControlTime { get => jumpControlTime; set => jumpControlTime = value; }
+    public float Speed { get => speed; set => speed = value; }
     #endregion
 
     #region Methods

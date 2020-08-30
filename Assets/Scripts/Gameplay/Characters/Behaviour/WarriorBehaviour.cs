@@ -241,7 +241,7 @@ public class WarriorBehaviour : BehaviourBase {
     /// Move to target
     /// </summary>
     /// <param name="targetPositionX"></param>
-    protected void MoveToTarget(float targetPositionX) {
+    public void MoveToTarget(float targetPositionX) {
 
         float characterPositionX = gameObject.transform.position.x;
 

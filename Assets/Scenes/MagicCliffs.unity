@@ -52062,7 +52062,8 @@ PrefabInstance:
         type: 3}
       propertyPath: dialogue
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: e975000ab0678794da7771a03536f595,
+        type: 2}
     - target: {fileID: 5927159310761189374, guid: a77b0b7bf0657774e883ec422606c4bd,
         type: 3}
       propertyPath: rightSpeakerPortrait

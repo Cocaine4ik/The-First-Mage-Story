@@ -4,9 +4,8 @@ using System.Net.NetworkInformation;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem : Singleton<InventorySystem>
 {
-    public static InventorySystem Instance;
     private Inventory inventory;
 
     public Dictionary<ItemName, QuestItem> QuestItems = new Dictionary<ItemName, QuestItem>();
@@ -14,18 +13,6 @@ public class InventorySystem : MonoBehaviour
     public Dictionary<ItemName, RelicItem> RelicItems = new Dictionary<ItemName, RelicItem>();
     public Dictionary<ItemName, StoryItem> StoryItems = new Dictionary<ItemName, StoryItem>();
     public Dictionary<ItemName, TreasureItem> TreasureItems = new Dictionary<ItemName, TreasureItem>();
-
-    private void Awake()
-    {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
-        }
-    }
 
     private void Start()
     {

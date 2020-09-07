@@ -97,6 +97,11 @@ public class DialogueParser : UIElementBase
         AddQuest();
     }
 
+    private void ChangeSpeaker()
+    {
+       // EventManager.TriggerEvent(EventName.SetLeftSpeakerPortrait())
+    }
+
     private void OnDestroy() {
         /*
         if(dialogue != null) {

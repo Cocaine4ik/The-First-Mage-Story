@@ -17,6 +17,7 @@ public class DialogueParser : UIElementBase
     [SerializeField] private Transform buttonContainer;
 
     private QuestName questName;
+    private DialogueWindow
 
     private void OnEnable() {
         EventManager.StartListening(EventName.StartConversation, StartConversationEvent);

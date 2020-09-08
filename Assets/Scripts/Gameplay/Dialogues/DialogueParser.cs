@@ -11,7 +11,7 @@ using System;
 /// </summary>
 public class DialogueParser : UIElementBase
 {
-    [SerializeField] private DialogueContainer dialogue;
+    private DialogueContainer dialogue;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private Button choicePrefab;
     [SerializeField] private Transform buttonContainer;
@@ -19,14 +19,9 @@ public class DialogueParser : UIElementBase
     private QuestName questName;
     private DialogueWindow
 
-    private void OnEnable() {
-        EventManager.StartListening(EventName.StartConversation, StartConversationEvent);
-    }
-    private void OnDisable() {
-        EventManager.StopListening(EventName.StartConversation, StartConversationEvent);
-    }
+    public DialogueContainer Dialogue => dialogue;
 
-    private void ProceedToDialogue(string dialogueDataGUID) {
+    public void ProceedToDialogue(string dialogueDataGUID) {
 
         var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == dialogueDataGUID).DialogueText;
         var choices = dialogue.NodeLinks.Where(x => x.BaseNodeGUID == dialogueDataGUID);
@@ -112,21 +107,6 @@ public class DialogueParser : UIElementBase
             }
         }
         */
-    }
-    private void StartConversationEvent(EventArg arg) {
-
-        if (dialogue != null) {
-            var dialogueData = dialogue.NodeLinks.First();
-            ProceedToDialogue(dialogueData.TargetNodeGUID);
-        }
-    }
-    /// <summary>
-    /// Set dialogue data
-    /// </summary>
-    /// <param name="dialogue"></param>
-    public void SetDialogue(DialogueContainer dialogue) {
-
-        this.dialogue = dialogue;
     }
 
     public void SetQuest(QuestName questName)

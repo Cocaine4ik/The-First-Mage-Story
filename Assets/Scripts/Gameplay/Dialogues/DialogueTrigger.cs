@@ -10,13 +10,6 @@ public class DialogueTrigger : TalkTrigger
     [Header("Dialogue Options:")]
     [SerializeField] private DialogueContainer dialogue;
 
-    private Transform dialogueWindow;
-    [SerializeField] private Sprite leftSpeakerPortrait;
-    [SerializeField] private Sprite rightSpeakerPortrait;
-    [SerializeField] private string leftSpeakerNameKey;
-    [SerializeField] private string rightSpeakerNameKey;
-
-    public DialogueContainer Dialogue => dialogue;
     /// <summary>
     /// Start conversation with trigger with out interact from player
     /// </summary>
@@ -25,9 +18,7 @@ public class DialogueTrigger : TalkTrigger
 
         if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            leftSpeakerPortrait = GetSpeakerPortrait(collision.gameObject);
-            leftSpeakerNameKey = GetSpeakerNameKey(collision.gameObject);
-            StartConversation();
+            DialogueSystem.
         }
     }
     /// <summary>

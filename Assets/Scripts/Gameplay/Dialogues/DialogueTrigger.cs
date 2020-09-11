@@ -10,6 +10,7 @@ public class DialogueTrigger : TalkTrigger
     [Header("Dialogue Options:")]
     [SerializeField] private DialogueContainer dialogue;
 
+    public DialogueContainer Dialogue => dialogue;
     /// <summary>
     /// Start conversation with trigger with out interact from player
     /// </summary>
@@ -18,7 +19,18 @@ public class DialogueTrigger : TalkTrigger
 
         if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            DialogueSystem.
+            if(gameObject.GetComponent<DialogueSpeaker>()!= null)
+            {
+                DialogueSystem.Instance.SetDialogueData(dialogue, GetSpeakerPortrait(collision.gameObject),
+                    GetSpeakerPortrait(gameObject), GetSpeakerNameKey(collision.gameObject), GetSpeakerNameKey(gameObject));
+            }
+            else
+            {
+                DialogueSystem.Instance.SetDialogueData(dialogue, GetSpeakerPortrait(collision.gameObject),
+                    GetSpeakerNameKey(collision.gameObject));
+            }
+            DialogueSystem.Instance.StartConversation();
+            DialogueSystem.Instance.SetQuestData(GetComponent<QuestGiver>());
         }
     }
     /// <summary>
@@ -29,14 +41,6 @@ public class DialogueTrigger : TalkTrigger
 
         if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            leftSpeakerPortrait = GetSpeakerPortrait(collision.gameObject);
-            leftSpeakerNameKey = GetSpeakerNameKey(collision.gameObject);
-
-            if (dialogueWindow != null && !dialogueSet) {
-                dialogueWindow.GetComponent<DialogueParser>().SetDialogue(dialogue);
-                dialogueSet = true;
-                Debug.Log("Dialogue set: " + dialogue.name);
-            }
             EventManager.TriggerEvent(EventName.ReadyToInteract, new EventArg(true));
         }
     }
@@ -50,55 +54,9 @@ public class DialogueTrigger : TalkTrigger
             EventManager.TriggerEvent(EventName.ReadyToInteract, new EventArg(false));
         }
     }
-    /// <summary>
-    /// Initialize dialogue window
-    /// </summary>
-    private void Awake() {
 
-        dialogueWindow = GameObject.FindGameObjectWithTag("DialogueWindow").transform;
-    }
-
-    private void Start() {
-        if (isScriptable == true) {
-            StartCoroutine(StartScriptableConversation(scriptableTime));
-        }
-        if(GetComponent<DialogueSpeaker>() != null)
-        {
-            rightSpeakerPortrait = GetSpeakerPortrait(gameObject);
-            rightSpeakerNameKey = GetSpeakerNameKey(gameObject);
-        }
-    }
     private void OnDestroy() {
         EventManager.StopListening(EventName.ExitConversation, OnExitConversation);
-    }
-    /// <summary>
-    /// Set diallogue to dialogue window
-    /// Invoke StartConversation event
-    /// </summary>
-    protected override void StartConversation() {
-
-        var parser = dialogueWindow.GetComponent<DialogueParser>();
-        parser.SetDialogue(dialogue);
-        dialogueSet = true;
-        SetDialogueSpeakersData();
-        Debug.Log("Dialogue set: " + dialogue.name);
-
-        // set quest
-        if (GetComponent<QuestGiver>() != null)
-        {
-            parser.SetQuest(GetComponent<QuestGiver>().QuestName);
-        }
-
-        EventManager.TriggerEvent(EventName.StartConversation);
-        Debug.Log("Starting conversation.");
-        EventManager.StartListening(EventName.ExitConversation, OnExitConversation);
-
-    }
-
-    protected override IEnumerator StartScriptableConversation(float scriptableTime) {
-
-        yield return new WaitForSeconds(scriptableTime);
-        StartConversation();
     }
 
     private void OnExitConversation(EventArg arg) {
@@ -114,28 +72,11 @@ public class DialogueTrigger : TalkTrigger
 
     private Sprite GetSpeakerPortrait(GameObject gameObject)
     {
+        Debug.Log(gameObject.name);
         return gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait;
     }
     private string GetSpeakerNameKey(GameObject gameObject)
     {
         return gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey;
-    }
-
-    private void SetDialogueSpeakersData()
-    {
-        EventManager.TriggerEvent(EventName.SetLeftSpeakerPortrait, new EventArg(leftSpeakerPortrait));
-        
-        EventManager.TriggerEvent(EventName.SetLeftSpeakerNameKey, new EventArg(leftSpeakerNameKey));
-
-        if (GetComponent<DialogueSpeaker>() != null)
-        {
-            EventManager.TriggerEvent(EventName.SetRightSpeakerPortrait, new EventArg(rightSpeakerPortrait));
-            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(rightSpeakerNameKey));
-        }
-        else
-        {
-            EventManager.TriggerEvent(EventName.SetRightSpeakerPortrait, new EventArg(leftSpeakerPortrait));
-            EventManager.TriggerEvent(EventName.SetRightSpeakerNameKey, new EventArg(leftSpeakerNameKey));
-        }
     }
 }

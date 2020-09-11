@@ -77,9 +77,9 @@ public class GUIController : MonoBehaviour {
         }
 
         // if we player is ready to interact (watch DialogueTrigger class)and get E key
-        // invoke StartConversation event
+        // DialogueSystem.Instance.StartConversation()
         if (Input.GetKeyDown(KeyCode.E) && readyToInteract == true) {
-            EventManager.TriggerEvent(EventName.StartConversation);
+            DialogueSystem.Instance.StartInteractiveConversation();
         }
     }
 

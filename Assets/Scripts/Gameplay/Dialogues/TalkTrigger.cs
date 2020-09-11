@@ -12,10 +12,4 @@ public abstract class TalkTrigger : MonoBehaviour{
     [SerializeField] protected bool isScriptable = false;
     [SerializeField] protected float scriptableTime;
 
-    protected bool dialogueSet = false;
-
-    protected abstract void StartConversation();
-
-    protected abstract IEnumerator StartScriptableConversation(float scriptableTime);
-
 }

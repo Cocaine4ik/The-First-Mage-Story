@@ -42,6 +42,7 @@ public class SaveLoadGameLevel : SaveLoadData
         SceneManager.LoadScene(sceneName);
         StartCoroutine(LoadData());
         Debug.Log("LoadData");
+        StatusUtils.IsLoad = true;
     }
 
     /// <summary>

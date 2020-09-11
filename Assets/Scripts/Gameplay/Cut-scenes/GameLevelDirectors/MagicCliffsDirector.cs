@@ -13,6 +13,7 @@ public class MagicCliffsDirector : MonoBehaviour
     [SerializeField] private List<GameObject> veils = new List<GameObject>();
     [SerializeField] private GameObject dialogueTrigger;
     [SerializeField] private GameObject filter;
+    [SerializeField] private DialogueContainer entireDialogue;
 
     private SpriteRenderer playerSprite;
     private bool appearFlag = false;
@@ -81,8 +82,18 @@ public class MagicCliffsDirector : MonoBehaviour
             {
                 appearFlag = false;
                 StatusUtils.CutScenePlaying = false;
+                StartEntireDialogue();
             }
+        }
+    }
 
+    private void StartEntireDialogue()
+    {
+        if(!StatusUtils.IsLoad)
+        {
+            DialogueSystem.Instance.StartConversation(entireDialogue, player.gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait,
+    player.gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait, player.gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey,
+    player.gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey);
         }
     }
 }

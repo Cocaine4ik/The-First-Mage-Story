@@ -16,9 +16,6 @@ public class DialogueParser : UIElementBase
     [SerializeField] private Button choicePrefab;
     [SerializeField] private Transform buttonContainer;
 
-    private QuestName questName;
-    private DialogueWindow
-
     public DialogueContainer Dialogue => dialogue;
 
     public void ProceedToDialogue(string dialogueDataGUID) {
@@ -48,7 +45,6 @@ public class DialogueParser : UIElementBase
             LocalizationManager.LocalizationChanged += exposedProperty.Localize;
             */
             text = text.Replace($"[{exposedProperty.PropertyName}]", exposedProperty.PropertyValue);
-
         }
         return text;
     }
@@ -78,40 +74,9 @@ public class DialogueParser : UIElementBase
         }
         return PropertyName.Proceed;
     }
-    private void ExitDialogue() {
 
-            EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogue.name));
-    }
-    private void AddQuest() {
-
-        QuestSystem.Instance.AddQuest(questName);
-    }
-    private void AddQuestAndExit()
+    public void SetDialogue(DialogueContainer dialogue)
     {
-        Debug.Log(dialogue.name);
-        ExitDialogue();
-        AddQuest();
+        this.dialogue = dialogue;
     }
-
-    private void ChangeSpeaker()
-    {
-       // EventManager.TriggerEvent(EventName.SetLeftSpeakerPortrait())
-    }
-
-    private void OnDestroy() {
-        /*
-        if(dialogue != null) {
-
-            foreach (var exposedProperty in dialogue.ExposedProperties) {
-                LocalizationManager.LocalizationChanged -= exposedProperty.Localize;
-            }
-        }
-        */
-    }
-
-    public void SetQuest(QuestName questName)
-    {
-        this.questName = questName;
-    }
-
 }

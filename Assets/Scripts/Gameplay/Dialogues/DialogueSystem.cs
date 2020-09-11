@@ -1,42 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-<<<<<<< Updated upstream
 using UnityEngine;
-
-public class DialogueSystem : Singleton<DialogueSystem>
-=======
 using System.Linq;
-using UnityEngine;
+public class DialogueSystem : Singleton<DialogueSystem>
 
-public class DialogueSystem : MonoBehaviour
->>>>>>> Stashed changes
 {
     private DialogueWindow dialogueWindow;
     private DialogueParser dialogueParser;
 
-<<<<<<< Updated upstream
+    private QuestGiver questGiver;
+
+    private bool isSetDialogue;
     private void Start()
     {
         dialogueWindow = GetComponent<DialogueWindow>();
         dialogueParser = GetComponent<DialogueParser>();
     }
 
-
-
-=======
-    // Start is called before the first frame update
-    void Start()
-    {
-        dialogueWindow = GetComponent<DialogueWindow>();
-        dialogueParser = GetComponent<DialogueParser>();
-        
-    }
-
-    public void StartConversation(DialogueContainer dialogue, Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
+    public void SetDialogueData(DialogueContainer dialogue, Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
     {
         SetSpeakers(leftPortait, rightPortrait, leftSpeakerKey, rightSpeakerKey);
         dialogueParser.SetDialogue(dialogue);
-        if(dialogueParser.Dialogue != null)
+        isSetDialogue = true;
+    }
+    public void SetDialogueData(DialogueContainer dialogue, Sprite leftPortait, string leftSpeakerKey)
+    {
+        SetSpeakers(leftPortait, leftPortait, leftSpeakerKey, leftSpeakerKey);
+        dialogueParser.SetDialogue(dialogue);
+    }
+    public void StartConversation()
+    {
+        if(isSetDialogue)
         {
             var dialogueData = dialogueParser.Dialogue.NodeLinks.First();
             dialogueParser.ProceedToDialogue(dialogueData.TargetNodeGUID);
@@ -44,15 +38,30 @@ public class DialogueSystem : MonoBehaviour
         EventManager.TriggerEvent(EventName.StartConversation);
     }
 
-    public void StartScriptableConversation(DialogueContainer dialogue, Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
-    {
-        StartConversation(dialogue, leftPortait, rightPortrait, leftSpeakerKey, rightSpeakerKey);
-    }
-
     public void SetSpeakers(Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
     {
         dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
         dialogueWindow.SetRightSpeaker(rightPortrait, rightSpeakerKey);
     }
->>>>>>> Stashed changes
+
+    public void ExitDialogue()
+    {
+        isSetDialogue = false;
+        EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogueParser.Dialogue.name));
+    }
+    public void AddQuest()
+    {
+        if(questGiver != null) QuestSystem.Instance.AddQuest(questGiver.QuestName);
+
+    }
+    public void AddQuestAndExit()
+    {
+        ExitDialogue();
+        AddQuest();
+    }
+
+    public void SetQuestData(QuestGiver questGiver)
+    {
+        this.questGiver = questGiver;
+    }
 }

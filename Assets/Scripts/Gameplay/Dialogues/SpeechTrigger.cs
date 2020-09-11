@@ -28,7 +28,7 @@ public class SpeechTrigger : TalkTrigger
         if (isInteractable == false) {
 
             if (collision.GetComponentInChildren<Character>() != null)
-            StartConversation();
+                StartSpeech();
         }
 
     }
@@ -48,20 +48,15 @@ public class SpeechTrigger : TalkTrigger
             }
         }
         if (speechIsEnd == false) {
-            StartConversation();
+            StartSpeech();
         }
 
     }
-    protected override void StartConversation() {
+    protected void StartSpeech() {
 
         speechBubble.SetActive(true);
         speechLocalization.ChangeLocalization(speechKeys[currentSpeechKeyIndex]);
 
         StartCoroutine(DeactivateBubble(bubbleLifetime));      
     }
-
-    protected override IEnumerator StartScriptableConversation(float scriptableTime) {
-        throw new System.NotImplementedException();
-    }
-
 }

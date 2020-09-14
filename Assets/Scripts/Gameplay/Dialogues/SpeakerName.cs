@@ -6,5 +6,6 @@ public enum SpeakerName
 {
     Player,
     WolfDemon,
-    Archmage
+    Archmage,
+    Asur,
 }

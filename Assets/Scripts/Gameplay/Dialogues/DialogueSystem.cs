@@ -11,6 +11,8 @@ public class DialogueSystem : Singleton<DialogueSystem>
     private QuestGiver questGiver;
 
     private bool isSetDialogue;
+
+    private Sprite changedFormPortrait;
     private void Start()
     {
         dialogueWindow = GetComponent<DialogueWindow>();
@@ -64,5 +66,9 @@ public class DialogueSystem : Singleton<DialogueSystem>
     public void SetQuestData(QuestGiver questGiver)
     {
         this.questGiver = questGiver;
+    }
+    public void ChangeForm()
+    {
+        dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
     }
 }

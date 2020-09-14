@@ -55,12 +55,12 @@ public class DialogueParser : UIElementBase
         Debug.Log(propertyName.ToString());
         switch(propertyName)
         {
-            case PropertyName.AddQuestAndExit: button.onClick.AddListener(() => AddQuestAndExit()); break;
-            case PropertyName.AddQuest: button.onClick.AddListener(() => AddQuest()); break;
+            case PropertyName.AddQuestAndExit: button.onClick.AddListener(() => DialogueSystem.Instance.AddQuestAndExit()); break;
+            case PropertyName.AddQuest: button.onClick.AddListener(() => DialogueSystem.Instance.AddQuest()); break;
             case PropertyName.ChangeSpeaker: break;
             case PropertyName.Atack: break;
             case PropertyName.CompleteTask: break;
-            case PropertyName.Exit: button.onClick.AddListener(() => ExitDialogue()); break;
+            case PropertyName.Exit: button.onClick.AddListener(() => DialogueSystem.Instance.ExitDialogue()); break;
             default: button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID)); break;
         }       
     }

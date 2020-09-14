@@ -274,8 +274,8 @@ MonoBehaviour:
   checkRadius: 0.3
   jumpForce: 0
   jumpControlTime: 0
-  atackSound: 0
-  jumpSound: 0
+  atackSound: 4
+  jumpSound: 3
 --- !u!114 &1274651235567594231
 MonoBehaviour:
   m_ObjectHideFlags: 0

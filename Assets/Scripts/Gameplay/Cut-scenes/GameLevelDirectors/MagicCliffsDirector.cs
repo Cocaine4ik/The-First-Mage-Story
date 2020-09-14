@@ -89,11 +89,14 @@ public class MagicCliffsDirector : MonoBehaviour
 
     private void StartEntireDialogue()
     {
-        if(!StatusUtils.IsLoad)
+        if (!StatusUtils.IsLoad)
         {
-            DialogueSystem.Instance.StartConversation(entireDialogue, player.gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait,
-    player.gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait, player.gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey,
-    player.gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey);
+            Debug.Log("Start Entire Dialogue");
+            DialogueSystem.Instance.SetDialogueData(entireDialogue,
+                player.GetComponent<DialogueSpeaker>().SpeakerPortait,
+                player.GetComponent<DialogueSpeaker>().SpeakerNameKey);
+            DialogueSystem.Instance.StartConversation();
+            QuestSystem.Instance.AddQuest(QuestName.FirstTrial);
         }
     }
 }

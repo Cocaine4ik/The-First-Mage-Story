@@ -27,6 +27,7 @@ public class DialogueSystem : Singleton<DialogueSystem>
     {
         SetSpeakers(leftPortait, leftPortait, leftSpeakerKey, leftSpeakerKey);
         dialogueParser.SetDialogue(dialogue);
+        isSetDialogue = true;
     }
     public void StartConversation()
     {

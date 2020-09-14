@@ -36,6 +36,11 @@ public class MagicCharacter : RangeCharacter{
 
     }
 
+    public override void Atack()
+    {
+        base.Atack();
+        AudioManager.SFXAudioSource.Play(atackSound);
+    }
     protected void ShieldUp() {
 
         if(activeShield == null) {

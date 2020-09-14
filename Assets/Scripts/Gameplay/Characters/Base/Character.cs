@@ -146,9 +146,7 @@ public class Character : CharacterBase {
     public override void Atack() {
 
         isAtack = true;
-        animator.SetBool("IsAtack", isAtack);
-        AudioManager.SFXAudioSource.Play(atackSound);
-
+        animator.SetBool("IsAtack", isAtack);       
     }
 
     protected override void Jump(float jumpForce) {
@@ -196,6 +194,7 @@ public class Character : CharacterBase {
         if(targetColider != null) {
             targetColider.GetComponent<CharacterHealth>().TakeDamage(damageData.Damage, DamageData.DamageType);
         }
+        AudioManager.SFXAudioSource.Play(atackSound);
     }
     // if atack end stop animation
     protected void OnAtackEnd() {

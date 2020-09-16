@@ -69,6 +69,6 @@ public class DialogueSystem : Singleton<DialogueSystem>
     }
     public void ChangeForm()
     {
-        dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
+        //dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
     }
 }

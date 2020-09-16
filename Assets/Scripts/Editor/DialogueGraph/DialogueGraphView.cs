@@ -242,6 +242,8 @@ public class DialogueGraphView : GraphView {
 
         var localPropertyName = property.PropertyName;
         var localPropertyValue = property.PropertyValue;
+        var locaPropertyPortrait = property.Portrait;
+
         if (!loadMode) {
             while (ExposedProperties.Any(x => x.PropertyName == localPropertyName))
                 localPropertyName = $"{localPropertyName}(1)";
@@ -250,10 +252,11 @@ public class DialogueGraphView : GraphView {
         var item = new ExposedProperty();
         item.PropertyName = localPropertyName;
         item.PropertyValue = localPropertyValue;
+        
         ExposedProperties.Add(item);
-
+        
         var container = new VisualElement();
-        var field = new BlackboardField { text = localPropertyName, typeText = "string" };
+        var field = new BlackboardField { text = localPropertyName, typeText = "string"};
         container.Add(field);
 
         var propertyValueTextField = new TextField() {

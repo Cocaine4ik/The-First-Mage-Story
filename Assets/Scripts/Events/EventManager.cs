@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 [System.Serializable]
-public class Event : UnityEvent<EventArg>
+public class GameEvent : UnityEvent<EventArg>
 {
 }
 
@@ -17,7 +17,7 @@ public class EventManager : MonoBehaviour {
     #region Fields
 
     // create new dictionary with events and their names on string
-    private Dictionary<EventName, Event> eventDictionary;
+    private Dictionary<EventName, GameEvent> eventDictionary;
 
     public static EventManager Instance;
 
@@ -29,7 +29,7 @@ public class EventManager : MonoBehaviour {
         if (Instance == null) {
 
             Instance = this;
-            eventDictionary = new Dictionary<EventName, Event>();
+            eventDictionary = new Dictionary<EventName, GameEvent>();
         }
         else if (Instance != this) {
 
@@ -40,13 +40,13 @@ public class EventManager : MonoBehaviour {
     // add listener to dictionary
     public static void StartListening(EventName eventName, UnityAction<EventArg> listener) {
 
-        Event thisEvent = null;
+        GameEvent thisEvent = null;
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
 
             thisEvent.AddListener(listener);
         }
         else {
-            thisEvent = new Event();
+            thisEvent = new GameEvent();
             thisEvent.AddListener(listener);
             Instance.eventDictionary.Add(eventName, thisEvent);
         }
@@ -55,7 +55,7 @@ public class EventManager : MonoBehaviour {
     public static void StopListening(EventName eventName, UnityAction<EventArg> listener) {
 
         if (Instance == null) return;
-        Event thisEvent = null;
+        GameEvent thisEvent = null;
 
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
 
@@ -65,7 +65,7 @@ public class EventManager : MonoBehaviour {
     // invoke event from the dictionary
     public static void TriggerEvent(EventName eventName, EventArg arg) {
 
-        Event thisEvent = null;
+        GameEvent thisEvent = null;
 
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
 
@@ -75,7 +75,7 @@ public class EventManager : MonoBehaviour {
 
     public static void TriggerEvent(EventName eventName) {
 
-        Event thisEvent = null;
+        GameEvent thisEvent = null;
 
         if (Instance.eventDictionary.TryGetValue(eventName, out thisEvent)) {
 

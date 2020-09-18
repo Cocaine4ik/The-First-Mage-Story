@@ -17,7 +17,7 @@ public class DialogueParser : UIElementBase
     [SerializeField] private Transform buttonContainer;
 
     public DialogueContainer Dialogue => dialogue;
-
+    /*
     public void ProceedToDialogue(string dialogueDataGUID) {
 
         var text = dialogue.DialogueNodeData.Find(x => x.NodeGUID == dialogueDataGUID).DialogueText;
@@ -35,7 +35,7 @@ public class DialogueParser : UIElementBase
 
             button.GetComponentInChildren<TextMeshProUGUI>().text = ProcessProperties(choice.PortName);
         }
-    }
+    }*/
 
     private string ProcessProperties(string text) {
 
@@ -48,7 +48,7 @@ public class DialogueParser : UIElementBase
         }
         return text;
     }
-
+    /*
     private void AddOnClickEvents(string text, Button button, NodeLinkData choice) {
 
         var propertyName = GetProperty(text);
@@ -63,8 +63,8 @@ public class DialogueParser : UIElementBase
             case PropertyName.Exit: button.onClick.AddListener(() => DialogueSystem.Instance.ExitDialogue()); break;
             default: button.onClick.AddListener(() => ProceedToDialogue(choice.TargetNodeGUID)); break;
         }       
-    }
-
+}
+        /*
     private PropertyName GetProperty(string text)
     {
         foreach (PropertyName property in Enum.GetValues(typeof(PropertyName)))
@@ -73,10 +73,10 @@ public class DialogueParser : UIElementBase
             if (isProperty) return property;
         }
         return PropertyName.Proceed;
-    }
-
+    }*/
+        /*
     public void SetDialogue(DialogueContainer dialogue)
     {
         this.dialogue = dialogue;
-    }
+    }*/
 }

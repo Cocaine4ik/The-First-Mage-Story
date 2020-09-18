@@ -4108,14 +4108,14 @@ public class VIDE_Editor : EditorWindow
         }
         GUIStyle stf = new GUIStyle(EditorStyles.textArea);
         stf.wordWrap = true;
-        stf.normal.textColor = Color.white;
-        stf.focused.textColor = Color.white;
-        stf.active.textColor = Color.white;
+        stf.normal.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+        stf.focused.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+        stf.active.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
         Color last = GUI.backgroundColor;
         GUIStyle exD = new GUIStyle(EditorStyles.textArea);
-        exD.normal.textColor = Color.white;
-        exD.active.textColor = Color.white;
-        exD.focused.textColor = Color.white;
+        exD.normal.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+        exD.active.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+        exD.focused.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
         exD.wordWrap = false;
 
         if (id >= db.playerDiags.Count)
@@ -4820,9 +4820,9 @@ public class VIDE_Editor : EditorWindow
 
             last = GUI.contentColor;
             GUIStyle intStyle = new GUIStyle(EditorStyles.textField);
-            intStyle.normal.textColor = Color.white;
-            intStyle.focused.textColor = Color.white;
-            intStyle.active.textColor = Color.white;
+            intStyle.normal.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+            intStyle.focused.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+            intStyle.active.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
             GUI.contentColor = VIDE_Editor_Skin.GetColor(16, db.skinIndex);
 
             GUI.color = Color.white;
@@ -5058,9 +5058,9 @@ public class VIDE_Editor : EditorWindow
                 GUILayout.Label("Param: ", GUILayout.Width(60));
 
             GUIStyle intStyle = new GUIStyle(EditorStyles.textField);
-            intStyle.normal.textColor = Color.white;
-            intStyle.focused.textColor = Color.white;
-            intStyle.active.textColor = Color.white;
+            intStyle.normal.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+            intStyle.focused.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
+            intStyle.active.textColor = (Application.HasProLicense()) ? Color.white : Color.black;
 
 
             if (db.actionNodes[aID].paramType == 1)

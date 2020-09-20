@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VIDE_Data;
 
 /// <summary>
 /// Dialogue Trigger
 /// </summary>
 public class DialogueTrigger : TalkTrigger
 {
-    [Header("Dialogue Options:")]
-    [SerializeField] private DialogueContainer dialogue;
+    private VIDE_Assign dialogue;
 
-    public DialogueContainer Dialogue => dialogue;
     /// <summary>
     /// Start conversation with trigger with out interact from player
     /// </summary>
@@ -19,18 +18,8 @@ public class DialogueTrigger : TalkTrigger
 
         if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            if(gameObject.GetComponent<DialogueSpeaker>()!= null)
-            {
-                DialogueSystem.Instance.SetDialogueData(dialogue, GetSpeakerPortrait(collision.gameObject),
-                    GetSpeakerPortrait(gameObject), GetSpeakerNameKey(collision.gameObject), GetSpeakerNameKey(gameObject));
-            }
-            else
-            {
-                DialogueSystem.Instance.SetDialogueData(dialogue, GetSpeakerPortrait(collision.gameObject),
-                    GetSpeakerNameKey(collision.gameObject));
-            }
-            DialogueSystem.Instance.StartConversation();
-            DialogueSystem.Instance.SetQuestData(GetComponent<QuestGiver>());
+            DialogueSystem.Instance.Interact(dialogue);
+            VD.assigned
         }
     }
     /// <summary>

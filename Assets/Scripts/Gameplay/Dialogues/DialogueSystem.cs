@@ -4,100 +4,96 @@ using UnityEngine;
 using System.Linq;
 using VIDE_Data;
 public class DialogueSystem : Singleton<DialogueSystem>
-
 {
-    private DialogueWindow dialogueWindow;
-    private DialogueParser dialogueParser;
-
-    private QuestGiver questGiver;
-
-    private bool isSetDialogue;
-
-    private Sprite changedFormPortrait;
+    private DialogueWindow dialogueWindow; // UI options
+    private QuestGiver questGiver; // Quest options
 
     protected override void Awake()
     {
         base.Awake();
-
         VD.LoadDialogues();
+    }
 
+    private void Start()
+    {
+        dialogueWindow = GetComponent<DialogueWindow>();
     }
 
     public void Interact(VIDE_Assign dialogue)
     {
-
+        if (!VD.isActive) Begin(dialogue);
+        else VD.Next();
     }
 
     private void Begin(VIDE_Assign dialogue)
     {
+        //Let's reset the NPC text variables
+        dialogueWindow.NPC_Text.text = "";
+        dialogueWindow.NPC_Label.text = "";
+        dialogueWindow.PlayerLabel.text = "";
 
-    }
+        //First step is to call BeginDialogue, passing the required VIDE_Assign component 
+        //This will store the first Node data in VD.nodeData
+        //But before we do so, let's subscribe to certain events that will allow us to easily
+        //Handle the node-changes
+        VD.OnActionNode += ActionHandler;
+        VD.OnNodeChange += dialogueWindow.UpdateUI;
+        VD.OnEnd += EndDialogue;
 
-    private void Update()
-    {
-        
-    }
+        VD.BeginDialogue(dialogue); //Begins dialogue, will call the first OnNodeChange
 
-    private void UpdateUI()
-    {
-
-    }
-    private void Start()
-    {
-        dialogueWindow = GetComponent<DialogueWindow>();
-        dialogueParser = GetComponent<DialogueParser>();
-    }
-
-    public void SetDialogueData(DialogueContainer dialogue, Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
-    {/*
-        SetSpeakers(leftPortait, rightPortrait, leftSpeakerKey, rightSpeakerKey);
-        dialogueParser.SetDialogue(dialogue);
-        isSetDialogue = true;*/
-    }
-    public void SetDialogueData(DialogueContainer dialogue, Sprite leftPortait, string leftSpeakerKey)
-    {/*
-        SetSpeakers(leftPortait, leftPortait, leftSpeakerKey, leftSpeakerKey);
-        dialogueParser.SetDialogue(dialogue);
-        isSetDialogue = true;*/
-    }
-    public void StartConversation()
-    {/*
-        if(isSetDialogue)
-        {
-            var dialogueData = dialogueParser.Dialogue.NodeLinks.First();
-            dialogueParser.ProceedToDialogue(dialogueData.TargetNodeGUID);
-        }
-        EventManager.TriggerEvent(EventName.StartConversation);*/
-    }
-    /*
-    public void SetSpeakers(Sprite leftPortait, Sprite rightPortrait, string leftSpeakerKey, string rightSpeakerKey)
-    {
-        dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
-        dialogueWindow.SetRightSpeaker(rightPortrait, rightSpeakerKey);
+        dW.DialogueContainer.SetActive(true); //Let's make our dialogue container visible
     }
 
-    public void ExitDialogue()
+    //Unsuscribe from everything, disable UI, and end dialogue
+    //Called automatically because we subscribed to the OnEnd event
+    void EndDialogue(VD.NodeData data)
     {
-        isSetDialogue = false;
-        EventManager.TriggerEvent(EventName.ExitConversation, new EventArg(dialogueParser.Dialogue.name));
-    }*/
-    public void AddQuest()
-    {
-        if(questGiver != null) QuestSystem.Instance.AddQuest(questGiver.QuestName);
+        CheckTasks();
+        VD.OnActionNode -= ActionHandler;
+        VD.OnNodeChange -= dialogueWindow.UpdateUI;
+        VD.OnEnd -= EndDialogue;
+        dialogueWindow.DialogueContainer.SetActive(false);
+        VD.EndDialogue();
 
-    }/*
-    public void AddQuestAndExit()
-    {
-        ExitDialogue();
-        AddQuest();
+        VD.SaveState("VIDEDEMOScene1", true); //Saves VIDE stuff related to EVs and override start nodes
+        QuestChartDemo.SaveProgress(); //saves OUR custom game data
     }
-    */
-    public void SetQuestData(QuestGiver questGiver)
+    void OnDisable()
     {
-        this.questGiver = questGiver;
+        //If the script gets destroyed, let's make sure we force-end the dialogue to prevent errors
+        VD.OnActionNode -= ActionHandler;
+        VD.OnNodeChange -= dialogueWindow.UpdateUI;
+        VD.OnEnd -= EndDialogue;
+        if (dialogueWindow.DialogueContainer != null)
+            dialogueWindow.DialogueContainer.SetActive(false);
+        VD.EndDialogue();
     }
-    public void ChangeForm()
+    #region EVENTS AND HANDLERS
+
+    //Just so we know when we finished loading all dialogues, then we unsubscribe
+    void OnLoadedAction()
     {
-        //dialogueWindow.SetLeftSpeaker(leftPortait, leftSpeakerKey);
+        Debug.Log("Finished loading all dialogues");
+        VD.OnLoaded -= OnLoadedAction;
     }
+
+    //Another way to handle Action Nodes is to listen to the OnActionNode event, which sends the ID of the action node
+    void ActionHandler(int actionNodeID)
+    {
+        //Debug.Log("ACTION TRIGGERED: " + actionNodeID.ToString());
+    }
+
+    //Adds item to demo inventory
+    void GiveItem(Item item)
+    {
+        InventorySystem.Instance.AddItem(item);
+    }
+
+    #endregion
+    public void AddQuest(QuestName questName)
+    {
+        QuestSystem.Instance.AddQuest(questGiver.QuestName);
+    }
+
 }

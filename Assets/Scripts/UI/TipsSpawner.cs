@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TipsSpawner : MonoBehaviour
 {
+    [SerializeField] private int id;
     [SerializeField] private GameObject tipsPrefab;
     [SerializeField] private bool isTrigger = true;
 
@@ -17,20 +18,13 @@ public class TipsSpawner : MonoBehaviour
     private void Start() {
         canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         if (isTrigger == false) {
-            EventManager.StartListening(EventName.ExitConversation, OnSpawnTip);
-        }
-    }
-
-    private void OnDestroy() {
-        if (!isTrigger) {
-            EventManager.StopListening(EventName.ExitConversation, OnSpawnTip);
+            EventManager.StartListening(EventName.SpawnTip, OnSpawnTip);
         }
     }
 
     private void OnSpawnTip(EventArg arg) {
-
-        if(arg.FirstStringArg == GetComponent<DialogueTrigger>().Dialogue.name) {
-            Debug.Log(gameObject.name);
+        
+        if(arg.FirstIntArg == id) {
             SpawnTip();
         }
     }

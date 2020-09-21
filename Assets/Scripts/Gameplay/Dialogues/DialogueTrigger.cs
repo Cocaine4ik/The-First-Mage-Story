@@ -18,8 +18,8 @@ public class DialogueTrigger : TalkTrigger
 
         if(isInteractable == false && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            DialogueSystem.Instance.Interact(dialogue);
-            VD.assigned
+            dialogue = GetComponent<VIDE_Assign>();
+            if(dialogue != null) DialogueSystem.Instance.Interact(dialogue);      
         }
     }
     /// <summary>
@@ -30,7 +30,7 @@ public class DialogueTrigger : TalkTrigger
 
         if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
 
-            EventManager.TriggerEvent(EventName.ReadyToInteract, new EventArg(true));
+            if(dialogue == null) dialogue = GetComponent<VIDE_Assign>();
         }
     }
     /// <summary>
@@ -40,12 +40,8 @@ public class DialogueTrigger : TalkTrigger
     private void OnTriggerExit2D(Collider2D collision) {
 
         if (isInteractable == true && isScriptable == false && collision.GetComponent<Player>() != null) {
-            EventManager.TriggerEvent(EventName.ReadyToInteract, new EventArg(false));
+            if (dialogue != null) dialogue = null;
         }
-    }
-
-    private void OnDestroy() {
-        EventManager.StopListening(EventName.ExitConversation, OnExitConversation);
     }
 
     private void OnExitConversation(EventArg arg) {
@@ -57,15 +53,5 @@ public class DialogueTrigger : TalkTrigger
             }
 
         }
-    }
-
-    private Sprite GetSpeakerPortrait(GameObject gameObject)
-    {
-        Debug.Log(gameObject.name);
-        return gameObject.GetComponent<DialogueSpeaker>().SpeakerPortait;
-    }
-    private string GetSpeakerNameKey(GameObject gameObject)
-    {
-        return gameObject.GetComponent<DialogueSpeaker>().SpeakerNameKey;
     }
 }

@@ -20,8 +20,6 @@ public enum EventName {
     SpawnRavens,
     ShowInventoryItemData,
     ChangeItemTypeColor,
-    StartConversation,
-    ExitConversation,
     ReadyToInteract,
     CloseQuestJournal,
     RefreshCharacterMenuValues,
@@ -37,9 +35,6 @@ public enum EventName {
     AddToGameLevelObjectsList,
     InvokeSupply,
     AddSupplyToPanelCell,
-    SetLeftSpeakerPortrait,
-    SetLeftSpeakerNameKey,
-    SetRightSpeakerPortrait,
-    SetRightSpeakerNameKey,
     ChangeItemNumber,
+    SpawnTip
 }

@@ -6,13 +6,6 @@ using VIDE_Data;
 public class DialogueSystem : Singleton<DialogueSystem>
 {
     private DialogueWindow dialogueWindow; // UI options
-    private QuestGiver questGiver; // Quest options
-
-    protected override void Awake()
-    {
-        base.Awake();
-        VD.LoadDialogues();
-    }
 
     private void Start()
     {
@@ -42,14 +35,13 @@ public class DialogueSystem : Singleton<DialogueSystem>
 
         VD.BeginDialogue(dialogue); //Begins dialogue, will call the first OnNodeChange
 
-        dW.DialogueContainer.SetActive(true); //Let's make our dialogue container visible
+        dialogueWindow.DialogueContainer.SetActive(true); //Let's make our dialogue container visible
     }
 
     //Unsuscribe from everything, disable UI, and end dialogue
     //Called automatically because we subscribed to the OnEnd event
     void EndDialogue(VD.NodeData data)
     {
-        CheckTasks();
         VD.OnActionNode -= ActionHandler;
         VD.OnNodeChange -= dialogueWindow.UpdateUI;
         VD.OnEnd -= EndDialogue;
@@ -57,7 +49,7 @@ public class DialogueSystem : Singleton<DialogueSystem>
         VD.EndDialogue();
 
         VD.SaveState("VIDEDEMOScene1", true); //Saves VIDE stuff related to EVs and override start nodes
-        QuestChartDemo.SaveProgress(); //saves OUR custom game data
+        
     }
     void OnDisable()
     {
@@ -85,7 +77,7 @@ public class DialogueSystem : Singleton<DialogueSystem>
     }
 
     //Adds item to demo inventory
-    void GiveItem(Item item)
+    private void GiveItem(Item item)
     {
         InventorySystem.Instance.AddItem(item);
     }
@@ -93,7 +85,11 @@ public class DialogueSystem : Singleton<DialogueSystem>
     #endregion
     public void AddQuest(QuestName questName)
     {
-        QuestSystem.Instance.AddQuest(questGiver.QuestName);
+        QuestSystem.Instance.AddQuest(questName);
     }
 
+    public void SpawnTip(int id)
+    {
+        EventManager.TriggerEvent(EventName.SpawnTip, new EventArg(id));
+    }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VIDE_Data;
 
 /// <summary>
 /// Main GUI class to control and manage player interface
@@ -8,14 +9,12 @@ using UnityEngine;
 public class GUIController : MonoBehaviour {
 
     [SerializeField] private GameObject inventory;
-    [SerializeField] private GameObject dialogueWindow;
     [SerializeField] private GameObject questJournal;
     [SerializeField] private GameObject characterMenu;
     [SerializeField] private GameObject spellbook;
 
     private List<List<GameObject>> allChildsList = new List<List<GameObject>>();
     private List<GameObject> inventoryChilds;
-    private List<GameObject> dialogueWindowChilds;
     private List<GameObject> questJournalChilds;
     private List<GameObject> characterMenuChilds;
     private List<GameObject> spellbookChilds;
@@ -24,16 +23,12 @@ public class GUIController : MonoBehaviour {
 
     private void OnEnable() {
 
-        EventManager.StartListening(EventName.StartConversation, StartOrExitConversationEvent);
-        EventManager.StartListening(EventName.ExitConversation, StartOrExitConversationEvent);
         EventManager.StartListening(EventName.ReadyToInteract, ReadyToInteractEvent);
         EventManager.StartListening(EventName.CloseQuestJournal, CloseQuestJournalEvent);
 
     }
     private void OnDisable() {
 
-        EventManager.StopListening(EventName.StartConversation, StartOrExitConversationEvent);
-        EventManager.StopListening(EventName.ExitConversation, StartOrExitConversationEvent);
         EventManager.StopListening(EventName.ReadyToInteract, ReadyToInteractEvent);
         EventManager.StopListening(EventName.CloseQuestJournal, CloseQuestJournalEvent);
 
@@ -42,7 +37,6 @@ public class GUIController : MonoBehaviour {
     private void Start() {
 
         allChildsList.Add(inventoryChilds = UnityExtensions.CreateChildsList(inventory.transform));
-        allChildsList.Add(dialogueWindowChilds = UnityExtensions.CreateChildsList(dialogueWindow.transform));
         allChildsList.Add(questJournalChilds = UnityExtensions.CreateChildsList(questJournal.transform));
         allChildsList.Add(characterMenuChilds = UnityExtensions.CreateChildsList(characterMenu.transform));
         allChildsList.Add(spellbookChilds = UnityExtensions.CreateChildsList(spellbook.transform));
@@ -78,8 +72,8 @@ public class GUIController : MonoBehaviour {
 
         // if we player is ready to interact (watch DialogueTrigger class)and get E key
         // DialogueSystem.Instance.StartConversation()
-        if (Input.GetKeyDown(KeyCode.E) && readyToInteract == true) {
-            DialogueSystem.Instance.StartConversation();
+        if (Input.GetKeyDown(KeyCode.E) && VD.assigned != null) {
+            DialogueSystem.Instance.Interact(VD.assigned);
         }
     }
 
@@ -104,15 +98,6 @@ public class GUIController : MonoBehaviour {
                 }
             }
         }
-    }
-    /// <summary>
-    /// Open/close dialogue window if StartConversation event invoked
-    /// </summary>
-    /// <param name="arg"></param>
-    private void StartOrExitConversationEvent(EventArg arg) {
-        OpenCloseGUIElement(dialogueWindowChilds);
-        dialogueWindow.GetComponent<DialogueParser>().PanelRectTransform.SetAsLastSibling();
-        StatusUtils.DialogueIsActive = !StatusUtils.DialogueIsActive;
     }
 
     /// <summary>

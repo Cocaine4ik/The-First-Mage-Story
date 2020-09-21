@@ -23,6 +23,7 @@ public class DialogueWindow : MonoBehaviour
     //We'll be using this to store references of the current player choices
     private List<TextMeshProUGUI> currentChoices = new List<TextMeshProUGUI>();
 
+    private int tipId;
     #endregion
 
     #region Properties
@@ -37,6 +38,42 @@ public class DialogueWindow : MonoBehaviour
     public GameObject PlayerChoicePrefab => playerChoicePrefab;
     public Image PlayerSprtie => playerSprite;
     public TextMeshProUGUI PlayerLabel => playerLabel;
+
+    public int TipID => tipId;
+    //Input related stuff (scroll through player choices and update highlight)
+    void Update()
+    {
+        //Lets just store the Node Data variable for the sake of fewer words
+        var data = VD.nodeData;
+
+        if (VD.isActive) //If there is a dialogue active
+        {
+            //Scroll through Player dialogue options if dialogue is not paused and we are on a player node
+            //For player nodes, NodeData.commentIndex is the index of the picked choice
+            if (!data.pausedAction && data.isPlayer)
+            {
+                if (Input.GetKeyDown(KeyCode.S))
+                {
+                    if (data.commentIndex < currentChoices.Count - 1)
+                        data.commentIndex++;
+                }
+                if (Input.GetKeyDown(KeyCode.W))
+                {
+                    if (data.commentIndex > 0)
+                        data.commentIndex--;
+                }
+
+                //Color the Player options. Blue for the selected one
+                for (int i = 0; i < currentChoices.Count; i++)
+                {
+                    currentChoices[i].color = new Color32(63, 16, 3, 255);
+                    if (i == data.commentIndex) currentChoices[i].color = new Color32(92, 5, 154, 255);
+                }
+            }
+        }
+
+        //Note you could also use Unity's Navi system
+    }
 
     #endregion
     public void UpdateUI(VD.NodeData data)
@@ -93,6 +130,8 @@ public class DialogueWindow : MonoBehaviour
             } //or use the default sprite if there isnt a node sprite at all
             else if (VD.assigned.defaultNPCSprite != null)
                 NPCSprite.sprite = VD.assigned.defaultNPCSprite;
+            
+            nPC_Text.text = data.comments[data.commentIndex]; 
 
             //If it has a tag, show it, otherwise let's use the alias we set in the VIDE Assign
             if (data.tag.Length > 0)

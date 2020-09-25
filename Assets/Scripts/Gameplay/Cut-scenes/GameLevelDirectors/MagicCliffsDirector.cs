@@ -87,9 +87,6 @@ public class MagicCliffsDirector : MonoBehaviour
 
     private void StartEntireDialogue()
     {
-        if (!StatusUtils.IsLoad)
-        {
-            DialogueSystem.Instance.Interact(GetComponent<VIDE_Assign>());
-        }
+       
     }
 }

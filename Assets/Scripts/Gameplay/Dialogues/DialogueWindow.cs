@@ -78,6 +78,7 @@ public class DialogueWindow : MonoBehaviour
     #endregion
     public void UpdateUI(VD.NodeData data)
     {
+        Debug.Log(data.extraVars.Count);
         //Reset some variables
         //Destroy the current choices
         foreach (TextMeshProUGUI op in currentChoices)

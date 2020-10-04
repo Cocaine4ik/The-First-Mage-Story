@@ -83,10 +83,6 @@ public class DialogueSystem : Singleton<DialogueSystem>
     }
 
     #endregion
-    public void AddQuest(QuestName questName)
-    {
-        QuestSystem.Instance.AddQuest(questName);
-    }
 
     public void SpawnTip(int id)
     {

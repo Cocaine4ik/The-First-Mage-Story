@@ -29,7 +29,7 @@ public class TipsSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnTip() {
+    public void SpawnTip() {
         Debug.Log("SpawnTip: " + tipsPrefab.name);
         
        GameObject[] oldTips = GameObject.FindGameObjectsWithTag("Tip");

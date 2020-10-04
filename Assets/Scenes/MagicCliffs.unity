@@ -13574,7 +13574,7 @@ GameObject:
   - component: {fileID: 299184535}
   - component: {fileID: 299184531}
   m_Layer: 13
-  m_Name: Tips Spawner
+  m_Name: DialogueTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 7250588514170254948, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -13659,7 +13659,7 @@ MonoBehaviour:
   id: 0
   tipsPrefab: {fileID: 8636685435302196939, guid: f8f9a6d9392ae364d89a41f090365038,
     type: 3}
-  isTrigger: 1
+  isTrigger: 0
 --- !u!114 &299184534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13701,7 +13701,7 @@ MonoBehaviour:
   - TriggeredDude
   - Witch
   assignedIndex: 9
-  assignedID: 37897
+  assignedID: 84236
   assignedDialogue: MC_Entire_0
   interactionCount: 0
   alias: 
@@ -13746,21 +13746,33 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: -1
-      outActionIndex: -1
+      outActionIndex: 0
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
     ID: 0
-    pTag: "\u041A\u0430\u0439\u0440\u0438\u043A"
+    pTag: 
     sprite: {fileID: 0}
     vars:
-    - 0
     - FirstTrial
     varKeys:
-    - SpawnTip
-    - AddQuest
+    - Quest
     isPlayer: 0
-  S_actionNodes: []
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: DialogueTrigger
+    methodName: SpawnTip
+    paramType: 0
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 1
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!1 &299740306
 GameObject:
   m_ObjectHideFlags: 0
@@ -39093,6 +39105,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2014361174389939612, guid: d922f6ed849880d4e975e5f08b44a4c7,
         type: 3}
+    - target: {fileID: 6173750032574578973, guid: 73ca6fd0ca80ee74fa978fe5f7718b53,
+        type: 3}
+      propertyPath: id
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ca6fd0ca80ee74fa978fe5f7718b53, type: 3}
 --- !u!1 &844276107
@@ -80865,6 +80882,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8939579740289971529, guid: 59bb39fd73bc559449f0abee5fd94492,
         type: 3}
+    - target: {fileID: 6173750032574578973, guid: 73ca6fd0ca80ee74fa978fe5f7718b53,
+        type: 3}
+      propertyPath: id
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ca6fd0ca80ee74fa978fe5f7718b53, type: 3}
 --- !u!1 &1650279437
@@ -82703,6 +82725,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7816877710329238820, guid: eb35af18625d01f418a48f597bb46a20,
         type: 3}
+    - target: {fileID: 6173750032574578973, guid: 73ca6fd0ca80ee74fa978fe5f7718b53,
+        type: 3}
+      propertyPath: id
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ca6fd0ca80ee74fa978fe5f7718b53, type: 3}
 --- !u!1001 &1693889823
@@ -95993,6 +96020,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7816877710329238820, guid: eb35af18625d01f418a48f597bb46a20,
         type: 3}
+    - target: {fileID: 6173750032574578973, guid: 73ca6fd0ca80ee74fa978fe5f7718b53,
+        type: 3}
+      propertyPath: id
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 73ca6fd0ca80ee74fa978fe5f7718b53, type: 3}
 --- !u!1 &2008865216

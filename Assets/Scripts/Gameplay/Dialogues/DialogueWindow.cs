@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using VIDE_Data;
+using System.Data;
+using System;
 
 public class DialogueWindow : MonoBehaviour
 {
@@ -40,6 +42,8 @@ public class DialogueWindow : MonoBehaviour
     public TextMeshProUGUI PlayerLabel => playerLabel;
 
     public int TipID => tipId;
+
+    #endregion
     //Input related stuff (scroll through player choices and update highlight)
     void Update()
     {
@@ -48,6 +52,10 @@ public class DialogueWindow : MonoBehaviour
 
         if (VD.isActive) //If there is a dialogue active
         {
+            if (Input.GetKeyDown(KeyCode.E)){
+                VD.Next();
+              
+            } 
             //Scroll through Player dialogue options if dialogue is not paused and we are on a player node
             //For player nodes, NodeData.commentIndex is the index of the picked choice
             if (!data.pausedAction && data.isPlayer)
@@ -74,8 +82,6 @@ public class DialogueWindow : MonoBehaviour
 
         //Note you could also use Unity's Navi system
     }
-
-    #endregion
     public void UpdateUI(VD.NodeData data)
     {
         Debug.Log(data.extraVars.Count);
@@ -111,25 +117,14 @@ public class DialogueWindow : MonoBehaviour
         }
         else  //If it's an NPC Node, let's just update NPC's text and sprite
         {
+            if (data.extraVars.ContainsKey("Quest"))
+                QuestSystem.Instance.AddQuest((QuestName)Enum.Parse(typeof(QuestName),
+                    data.extraVars["Quest"].ToString()));
+
             //Set node sprite if there's any, otherwise try to use default sprite
-            if (data.sprite != null)
-            {
-                //For NPC sprite, we'll first check if there's any "sprite" key
-                //Such key is being used to apply the sprite only when at a certain comment index
-                //Check CrazyCap dialogue for reference
-                if (data.extraVars.ContainsKey("sprite"))
-                {
-                    if (data.commentIndex == (int)data.extraVars["sprite"])
-                        NPCSprite.sprite = data.sprite;
-                    else
-                        NPCSprite.sprite = VD.assigned.defaultNPCSprite; //If not there yet, set default dialogue sprite
-                }
-                else //Otherwise use the node sprites
-                {
-                    NPCSprite.sprite = data.sprite;
-                }
-            } //or use the default sprite if there isnt a node sprite at all
-            else if (VD.assigned.defaultNPCSprite != null)
+            if (data.sprite != null) NPCSprite.sprite = data.sprite;
+            //or use the default sprite if there isnt a node sprite at all
+            else if (VD.assigned.defaultNPCSprite != null) 
                 NPCSprite.sprite = VD.assigned.defaultNPCSprite;
             
             nPC_Text.text = data.comments[data.commentIndex]; 

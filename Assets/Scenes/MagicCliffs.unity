@@ -13584,7 +13584,7 @@ GameObject:
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &299184529
 Animator:
   serializedVersion: 3
@@ -13699,13 +13699,18 @@ MonoBehaviour:
   - Example4_dialogue
   - Item_LookUp
   - Laura
+  - MC_DemonWolf_1
   - MC_Entire_0
+  - MC_Entire_1
+  - MC_Entire_2
+  - MC_Entire_3
+  - MC_Entire_4
   - MrCube
   - NPCOnly
   - QuestChartDemo
   - TriggeredDude
   - Witch
-  assignedIndex: 9
+  assignedIndex: 10
   assignedID: 84236
   assignedDialogue: MC_Entire_0
   interactionCount: 0
@@ -16808,10 +16813,20 @@ PrefabInstance:
       propertyPath: rightChargeClamp
       value: 
       objectReference: {fileID: 529939671}
+    - target: {fileID: 1713088764733088640, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
       propertyPath: m_Name
       value: Wolf
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101560476304868748, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868754, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
         type: 3}
@@ -16867,6 +16882,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645783864200237586, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 5685968796007970896, guid: 36e2e54240ff12e43a26ebcf1edc4f68,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 36e2e54240ff12e43a26ebcf1edc4f68, type: 3}
@@ -22374,7 +22399,7 @@ PrefabInstance:
     - target: {fileID: 2101560476304868748, guid: 35d764cc710868948b0177758cd2a825,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2101560476304868754, guid: 35d764cc710868948b0177758cd2a825,
         type: 3}
@@ -22446,7 +22471,8 @@ PrefabInstance:
       propertyPath: enemies.m_Bits
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6051626309401515420, guid: 35d764cc710868948b0177758cd2a825, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35d764cc710868948b0177758cd2a825, type: 3}
 --- !u!1 &498953884
 GameObject:
@@ -28085,6 +28111,11 @@ PrefabInstance:
     - target: {fileID: 9145966301490246284, guid: a77b0b7bf0657774e883ec422606c4bd,
         type: 3}
       propertyPath: S_playerDiags.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145966301490246284, guid: a77b0b7bf0657774e883ec422606c4bd,
+        type: 3}
+      propertyPath: S_actionNodes.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9145966301490246284, guid: a77b0b7bf0657774e883ec422606c4bd,
@@ -28156,6 +28187,11 @@ PrefabInstance:
         type: 3}
       propertyPath: preload
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9145966301490246284, guid: a77b0b7bf0657774e883ec422606c4bd,
+        type: 3}
+      propertyPath: overrideStartNode
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a77b0b7bf0657774e883ec422606c4bd, type: 3}
@@ -57983,6 +58019,7 @@ MonoBehaviour:
   - {fileID: 1750064698}
   - {fileID: 553607268}
   - {fileID: 950575761}
+  firstDialogue: {fileID: 299184528}
   dialogueTrigger: {fileID: 1913760108}
   filter: {fileID: 1459454660}
 --- !u!4 &1142848521
@@ -97607,7 +97644,7 @@ MonoBehaviour:
       extraData: ExtraData
       inputSetIndex: 0
       outputNodeIndex: -1
-      outActionIndex: -1
+      outActionIndex: 0
       sprites: {fileID: 0}
       audios: {fileID: 0}
       visible: 1
@@ -97617,7 +97654,21 @@ MonoBehaviour:
     vars: []
     varKeys: []
     isPlayer: 0
-  S_actionNodes: []
+  S_actionNodes:
+  - pauseHere: 0
+    gameObjectName: DialogueTrigger (4)
+    methodName: SaveDestroyedObject
+    paramType: 0
+    gotoNode: -1
+    param_bool: 0
+    param_string: 
+    param_int: 0
+    param_float: 0
+    ID: 1
+    outPlayerIndex: -1
+    outActionIndex: -1
+    ovrStartNode: -1
+    renameDialogue: 
 --- !u!1 &2028512597
 GameObject:
   m_ObjectHideFlags: 0

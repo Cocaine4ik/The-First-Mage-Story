@@ -52,10 +52,13 @@ public class DialogueWindow : MonoBehaviour
 
         if (VD.isActive) //If there is a dialogue active
         {
-            if (Input.GetKeyDown(KeyCode.E)){
+            StatusUtils.DialogueIsActive = true;
+
+            if (Input.GetKeyDown(KeyCode.E) && VD.isActive){
                 VD.Next();
               
-            } 
+            }
+
             //Scroll through Player dialogue options if dialogue is not paused and we are on a player node
             //For player nodes, NodeData.commentIndex is the index of the picked choice
             if (!data.pausedAction && data.isPlayer)
@@ -79,7 +82,10 @@ public class DialogueWindow : MonoBehaviour
                 }
             }
         }
-
+        else
+        {
+            StatusUtils.DialogueIsActive = false;
+        }
         //Note you could also use Unity's Navi system
     }
     public void UpdateUI(VD.NodeData data)

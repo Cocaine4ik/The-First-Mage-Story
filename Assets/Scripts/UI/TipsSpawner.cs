@@ -41,6 +41,7 @@ public class TipsSpawner : MonoBehaviour
             }
         }
         Instantiate(tipsPrefab, canvas);
+        if(GetComponent<SaveMe>() != null) GetComponent<SaveMe>().SaveDestroyedObject();
         Destroy(gameObject);
     }
 }

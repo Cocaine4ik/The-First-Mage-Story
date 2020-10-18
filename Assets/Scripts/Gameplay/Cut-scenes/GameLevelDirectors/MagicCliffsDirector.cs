@@ -11,6 +11,7 @@ public class MagicCliffsDirector : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject wolfDemon;
     [SerializeField] private List<GameObject> veils = new List<GameObject>();
+    [SerializeField] private GameObject firstDialogue;
     [SerializeField] private GameObject dialogueTrigger;
     [SerializeField] private GameObject filter;
     private SpriteRenderer playerSprite;
@@ -25,6 +26,8 @@ public class MagicCliffsDirector : MonoBehaviour
         var alpha = playerSprite.color;
         alpha.a = 0;
         playerSprite.color = alpha;
+
+        wolfDemon.SetActive(false);
     }
     private void Update()
     {
@@ -53,18 +56,18 @@ public class MagicCliffsDirector : MonoBehaviour
 
         if(arg.Item.ItemName == ItemName.RoyalBlueflower && player.transform.position.x > 120f)
         {
-            wolfDemon.SetActive(true);
-            foreach(GameObject veil in veils)
-            {
-                veil.SetActive(true);
-            }
-            dialogueTrigger.SetActive(true);
+           
         }
     }
 
-    private void DemonWolfEnter()
+    public void DemonWolfEnter()
     {
-
+        wolfDemon.SetActive(true);
+        foreach (GameObject veil in veils)
+        {
+            veil.SetActive(true);
+        }
+        dialogueTrigger.SetActive(true);
     }
     private void AppearPlayer(float alphaPerFrame)
     {
@@ -80,13 +83,9 @@ public class MagicCliffsDirector : MonoBehaviour
             {
                 appearFlag = false;
                 StatusUtils.CutScenePlaying = false;
-                StartEntireDialogue();
+                if (firstDialogue != null) firstDialogue.SetActive(true);
+
             }
         }
-    }
-
-    private void StartEntireDialogue()
-    {
-       
     }
 }

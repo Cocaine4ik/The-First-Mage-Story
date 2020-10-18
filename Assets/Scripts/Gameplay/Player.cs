@@ -56,7 +56,7 @@ public class Player : MagicCharacter {
 
             }
 
-            if (StatusUtils.GUIisActive == true) {
+            if (StatusUtils.GUIisActive == true || StatusUtils.DialogueIsActive == true) {
                 Move(0);
             }
         }
@@ -99,8 +99,8 @@ public class Player : MagicCharacter {
             moveX = 0;
             Move(moveX);
         }
-        if (Input.GetAxis("Horizontal") != 0 && !isCast && StatusUtils.GUIisActive == false 
-            && StatusUtils.CutScenePlaying == false) {
+        if (Input.GetAxis("Horizontal") != 0 && !isCast && StatusUtils.GUIisActive == false
+            && StatusUtils.CutScenePlaying == false && StatusUtils.DialogueIsActive == false) {
 
             if(!isGrounded && !jumpControlTimer.IsRunnig) {
                 moveX = 0;

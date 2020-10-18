@@ -44,6 +44,9 @@ public class DialogueTrigger : TalkTrigger
         }
     }
 
+    private void Update()
+    {
+    }
     private void OnExitConversation(EventArg arg) {
         if(isInteractable == false) {
             GetComponent<SaveMe>().SaveDestroyedObject();

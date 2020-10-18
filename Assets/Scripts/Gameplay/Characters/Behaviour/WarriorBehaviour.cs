@@ -49,7 +49,6 @@ public class WarriorBehaviour : BehaviourBase {
             guardPosition = transform.position;
         }
 
-
     }
     /// <summary>
     /// Patrol behaviour: If character iы not on guard and have no target or target far away he patroling
@@ -289,5 +288,9 @@ public class WarriorBehaviour : BehaviourBase {
             isGuard = false;
     }
 
+    public override void ChangeLayer()
+    {
+        base.ChangeLayer();
+    }
     #endregion
 }

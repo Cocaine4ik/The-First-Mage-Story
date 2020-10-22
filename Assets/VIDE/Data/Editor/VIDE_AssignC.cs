@@ -42,7 +42,7 @@ public class VIDE_AssignC : Editor
         path = Directory.GetParent(path).ToString();
         path = Directory.GetParent(path).ToString();
 
-        loadFiles();
+        // loadFiles();
     }
 
     bool HasUniqueID(int id, string[] saveNames, int currentDiag)

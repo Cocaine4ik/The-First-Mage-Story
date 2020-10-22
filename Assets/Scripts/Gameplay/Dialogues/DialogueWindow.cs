@@ -54,11 +54,6 @@ public class DialogueWindow : MonoBehaviour
         {
             StatusUtils.DialogueIsActive = true;
 
-            if (Input.GetKeyDown(KeyCode.E) && VD.isActive){
-                VD.Next();
-              
-            }
-
             //Scroll through Player dialogue options if dialogue is not paused and we are on a player node
             //For player nodes, NodeData.commentIndex is the index of the picked choice
             if (!data.pausedAction && data.isPlayer)
@@ -158,6 +153,7 @@ public class DialogueWindow : MonoBehaviour
             newOp.SetActive(true);
 
             currentChoices.Add(newOp.GetComponent<TextMeshProUGUI>());
+            Debug.Log("Test");
         }
     }
 }

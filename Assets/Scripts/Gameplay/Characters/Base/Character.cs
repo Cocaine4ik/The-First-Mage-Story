@@ -129,10 +129,10 @@ public class Character : CharacterBase {
     }
 
     // flip left and right
-    protected override void Flip(float moveX) {
+    public override void Flip(float moveX) {
 
         if(IsAlive) {
-
+            Debug.Log(moveX);
             if (moveX > 0 && !isRight || moveX < 0 && isRight) {
 
                 isRight = !isRight;
@@ -181,6 +181,11 @@ public class Character : CharacterBase {
                 GetComponent<SaveMe>().SaveDestroyedObject();
             }
         }
+    }
+
+    public void ChangeEnemy()
+    {
+
     }
     #endregion
 

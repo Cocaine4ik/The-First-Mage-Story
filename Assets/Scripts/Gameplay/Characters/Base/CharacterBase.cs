@@ -17,7 +17,7 @@ public abstract class CharacterBase : MonoBehaviour{
 
     public abstract void Move(float moveX);
 
-    protected abstract void Flip(float moveX);
+    public abstract void Flip(float moveX);
 
     public abstract void Atack();
 

@@ -2,7 +2,9 @@
 using System.CodeDom.Compiler;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 
 public class MagicCliffsDirector : MonoBehaviour
 {
@@ -54,20 +56,17 @@ public class MagicCliffsDirector : MonoBehaviour
             EventManager.StopListening(EventName.PickupItem, OnPickupItem);
         }
 
-        if(arg.Item.ItemName == ItemName.RoyalBlueflower && player.transform.position.x > 120f)
-        {
-           
-        }
     }
 
     public void DemonWolfEnter()
     {
+        Debug.Log("Demon wolf enter");
         wolfDemon.SetActive(true);
+        player.GetComponent<Player>().Flip(-2);
         foreach (GameObject veil in veils)
         {
             veil.SetActive(true);
         }
-        dialogueTrigger.SetActive(true);
     }
     private void AppearPlayer(float alphaPerFrame)
     {

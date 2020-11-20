@@ -87,4 +87,24 @@ public class MagicCliffsDirector : MonoBehaviour
             }
         }
     }
+
+    public void SetToEnemy(Character character)
+    {
+        Debug.Log("SET TO ENEMY");
+        var npcLayer = LayerMask.NameToLayer("NPC");
+        var playerLayer = LayerMask.NameToLayer("Player");
+
+        character.Enemies = new LayerMask();
+
+        character.Enemies += npcLayer;
+        character.Enemies += playerLayer;
+    }
+    public void SetToNPC()
+    {
+
+    }
+    public void SetToPassive()
+    {
+
+    }
 }

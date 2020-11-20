@@ -274,6 +274,25 @@ public class WarriorBehaviour : BehaviourBase {
         }
     }
 
+    public void SetToEnemy()
+    {
+        Debug.Log("SET TO ENEMY");
+        var npcLayer = LayerMask.NameToLayer("NPC");
+        var playerLayer = LayerMask.NameToLayer("Player");
+
+        character.Enemies = new LayerMask();
+
+        character.Enemies += npcLayer;
+        character.Enemies += playerLayer;
+    }
+    public void SetToNPC()
+    {
+
+    }
+    public void SetToPassive()
+    {
+
+    }
     #endregion
 
     #region Courotine

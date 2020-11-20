@@ -49,7 +49,7 @@ public class Character : CharacterBase {
 
     public bool IsAlive => isAlive;
     public bool IsHurt => isHurt;
-    public LayerMask Enemies => enemies;
+    public LayerMask Enemies { get => enemies; set => enemies = value; }
     public DamageData DamageData => damageData;
     public Transform AtackTrigger => atackTrigger; 
     public bool IsRight => isRight;
@@ -132,7 +132,6 @@ public class Character : CharacterBase {
     public override void Flip(float moveX) {
 
         if(IsAlive) {
-            Debug.Log(moveX);
             if (moveX > 0 && !isRight || moveX < 0 && isRight) {
 
                 isRight = !isRight;
@@ -183,10 +182,6 @@ public class Character : CharacterBase {
         }
     }
 
-    public void ChangeEnemy()
-    {
-
-    }
     #endregion
 
 

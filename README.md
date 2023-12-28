@@ -30,4 +30,12 @@ Game promises an immersive blend of classic gameplay and RPG depth, making it a 
 **Story:**
 “The battle between humans and demons army over the Valley of the Mists was over. Battlefield was littered with the bodies of the fallen. It was raining, the sky was torn by thunder, slightly hearable against the background of wounded endless screams.There was a smell of death in the air. The greatest sage of the valley, and possibly the whole Upperworld, wizard Nidir, slowly, walked through the battlefield to the ruined house, driven by an unknown mystical voice coming from there. Sorcerer went to the house and looked around. The house was completely broken, flames blazing everywhere. But in the center of the ruins, whence came the voice calling the wizard, lay a living human child...”
 
-
+**Screenshots:**<br><br>
+Gameplay #1<br>
+![1](https://github.com/Cocaine4ik/The-First-Mage-Story/assets/35273835/3a0b12ec-0b47-41a4-9412-e8dd31221552)
+Gameplay #2<br>
+![2](https://github.com/Cocaine4ik/The-First-Mage-Story/assets/35273835/7e922adc-a8c4-48ee-9972-bdd07deaa396)
+Gameplay #3<br>
+![3](https://github.com/Cocaine4ik/The-First-Mage-Story/assets/35273835/b0ffd783-bcf4-4f46-89aa-6731df229bb8)
+Gameplay #4<br>
+![4](https://github.com/Cocaine4ik/The-First-Mage-Story/assets/35273835/5f79fa3f-2084-41d5-8c10-33bfad3a922c)

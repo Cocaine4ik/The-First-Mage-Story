@@ -13,7 +13,7 @@
 Follow the journey of a young sorcerer as he discovers his own path in the magical realm, encountering friends and foes along the way.
 This unique game offers a fusion of platformer and RPG experiences. Engage with the pixelated environment by interacting with objects and characters, collecting items, and upgrading your character stats.
 Dive into the intricacies of magic as you learn spells from various magic schools, all while exploring a visually captivating pixel art world. Embark on quests that weave into the rich narrative, and fear not about losing progress with the ability to save your journey.
-Game promises an immersive blend of classic gameplay and RPG depth, making it a must-play for fans of the genre
+Game promises an immersive blend of classic gameplay and RPG depth, making it a must-play for fans of the genre.
 <br> <br>
 
 **Features:** <br>

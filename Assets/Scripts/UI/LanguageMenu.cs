@@ -35,7 +35,7 @@ public class LanguageMenu : MonoBehaviour
             case "Deutsch": LocalizationManager.Language = SystemLanguage.German.ToString(); break;
             case "Français": LocalizationManager.Language = SystemLanguage.French.ToString(); break; 
                 
-            default: LocalizationManager.Language = SystemLanguage.Russian.ToString(); break; ;
+            default: LocalizationManager.Language = SystemLanguage.English.ToString(); break; ;
         }
         Debug.Log(LocalizationManager.Language);
         SceneManager.LoadScene("MainMenu");

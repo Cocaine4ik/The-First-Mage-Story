@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0430\u0436\u043C\u0438\u0442\u0435"
+  m_text: Press
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ab9e86ec299e949b024b6b160e505f, type: 2}
   m_sharedMaterial: {fileID: -9099364329272856438, guid: f9ab9e86ec299e949b024b6b160e505f,
@@ -134,7 +134,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -0.4237427, w: 0}
   m_textInfo:
     textComponent: {fileID: 2014361174179215753}
-    characterCount: 7
+    characterCount: 5
     spriteCount: 0
     spaceCount: 0
     wordCount: 1
@@ -388,9 +388,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0434\u043B\u044F \u043F\u0440\u044B\u0436\u043A\u0430 \u0438 \u043A\u043B\u0430\u0432\u0438\u0448\u0438
-    \u0434\u0432\u0438\u0436\u0435\u043D\u0438\u044F \u0434\u043B\u044F \u0432\u044B\u0431\u043E\u0440\u0430
-    \u043D\u0430\u043F\u0440\u0430\u0432\u043B\u0435\u043D\u0438\u044F"
+  m_text: to jump and movement keys to select direction
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ab9e86ec299e949b024b6b160e505f, type: 2}
   m_sharedMaterial: {fileID: -9099364329272856438, guid: f9ab9e86ec299e949b024b6b160e505f,
@@ -457,10 +455,10 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.4237427, w: 0}
+  m_margin: {x: -104.27533, y: 0, z: -0.4237427, w: 0}
   m_textInfo:
     textComponent: {fileID: 2014361174749779251}
-    characterCount: 52
+    characterCount: 45
     spriteCount: 0
     spaceCount: 7
     wordCount: 8

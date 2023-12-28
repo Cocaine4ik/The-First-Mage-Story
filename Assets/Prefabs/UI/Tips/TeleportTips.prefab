@@ -64,8 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0442\u043E\u0447\u043A\u0443 \u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0430\u0442\u0438\u0446\u0438
-    \u0438 \u043D\u0430\u0436\u043C\u0438\u0442\u0435"
+  m_text: point for teleportation and press
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ab9e86ec299e949b024b6b160e505f, type: 2}
   m_sharedMaterial: {fileID: -9099364329272856438, guid: f9ab9e86ec299e949b024b6b160e505f,
@@ -132,13 +131,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.4237427, w: 0}
+  m_margin: {x: -5.94281, y: 0, z: -0.42368174, w: 0}
   m_textInfo:
     textComponent: {fileID: 811706123875698000}
-    characterCount: 28
+    characterCount: 33
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 4
+    spaceCount: 4
+    wordCount: 5
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -296,7 +295,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0423\u043A\u0430\u0436\u0438\u0442\u0435 \u0441 \u043F\u043E\u043C\u043E\u0449\u044C\u044E "
+  m_text: choose with
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9ab9e86ec299e949b024b6b160e505f, type: 2}
   m_sharedMaterial: {fileID: -9099364329272856438, guid: f9ab9e86ec299e949b024b6b160e505f,
@@ -363,13 +362,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -0.4237427, w: 0}
+  m_margin: {x: 80.22803, y: 0, z: -0.4237427, w: 0}
   m_textInfo:
     textComponent: {fileID: 811706124815227003}
-    characterCount: 18
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1

@@ -9,36 +9,25 @@
 
 **Input:** A - move left, D - move right, SPACE - jump, E - interact, I - inventory, J - quest journal, C - character menu, B - spellbook, 1-9-0 - spellbar, F1-F4 - quick item bar<br>
 
-**Description:** Blackjack, also known as Twenty-One, is a popular casino card game
-that involves comparing cards between a player and the dealer. The goal is to have a hand with a value
-closer to 21 than the dealer's hand without going over 21. <br> <br>
-[Gameplay Showcase](https://www.youtube.com/watch?v=YUcl5DImIoI)<br><br>
-**Rules:** <br>
+**Description:** The First Mage Story" is a captivating prototype of a classic pixel-art platformer with RPG elements, immersing players in the enchanting world of fantasy pixel art.
+Follow the journey of a young sorcerer as he discovers his own path in the magical realm, encountering friends and foes along the way.
+This unique game offers a fusion of platformer and RPG experiences. Engage with the pixelated environment by interacting with objects and characters, collecting items, and upgrading your character stats.
+Dive into the intricacies of magic as you learn spells from various magic schools, all while exploring a visually captivating pixel art world. Embark on quests that weave into the rich narrative, and fear not about losing progress with the ability to save your journey.
+Game promises an immersive blend of classic gameplay and RPG depth, making it a must-play for fans of the genre
+<br> <br>
 
-1. The game is played with one or more decks of standard playing cards.
+**Features:** <br>
 
-2. Each card has a point value: 2 through 10 are worth their face value,
- face cards (Jack, Queen, King) are worth 10, and Aces can be worth 1 or 11, depending on what works best for the player's hand.
+1. Fantasy style pixel art
+2. Original plot based on my and my friends adventures in Dungeon Dragons
+3. Epic characters and enemies with their own story, problems and wishes
+4. Unique character progression system based on 4 magic stats
+5. Spellbook instead skills
+6. Player decisions have consequences
+7. Character equip powerful artefacts
+8. RPG dialogue system
 
-3. The game starts with the player placing a bet. The dealer then deals two cards to the player,
- face up, and two cards to themselves, one face up and one face down.
+**Story:**
+“The battle between humans and demons army over the Valley of the Mists was over. Battlefield was littered with the bodies of the fallen. It was raining, the sky was torn by thunder, slightly hearable against the background of wounded endless screams.There was a smell of death in the air. The greatest sage of the valley, and possibly the whole Upperworld, wizard Nidir, slowly, walked through the battlefield to the ruined house, driven by an unknown mystical voice coming from there. Sorcerer went to the house and looked around. The house was completely broken, flames blazing everywhere. But in the center of the ruins, whence came the voice calling the wizard, lay a living human child...”
 
-4. The player can choose to "hit" (take another card) or "stand" (keep their current hand).
- The player can continue to hit until they decide to stand, or until their hand goes over 21, which is called "busting".
-
-5. The dealer must follow a specific set of rules for hitting and standing.
- The dealer must always hit if their hand value is 16 or less, and must stand if their hand value is 17 or more.
-
-6. The objective of the game is to have a hand value closer to 21 than the dealer's hand value,
- without going over 21. If the player's hand is closer to 21 than the dealer's hand, the player wins.
- If the dealer's hand is closer to 21 than the player's hand, the dealer wins.
- If both the player and the dealer have the same hand value, it's a push, and the player's bet is returned.
-
-7. A "Blackjack" is a hand that consists of an Ace and a 10-point card.
- This is the strongest hand in the game, and if the player has a Blackjack, they win automatically,
- unless the dealer also has a Blackjack, in which case it's a push.
-
-8. If the player wins, they are paid out 1:1 on their bet. If the player wins with a Blackjack,
- If the player loses, the dealer collects their bet.
- If the game ends in a push, the player's bet is returned.<br>
 

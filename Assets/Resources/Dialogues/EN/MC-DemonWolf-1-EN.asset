@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56034b0e3d3a89f46b65b1e30ab1ff0a, type: 3}
-  m_Name: MC-DemonWolf-1-RU
+  m_Name: MC-DemonWolf-1-EN
   m_EditorClassIdentifier: 
   NodeLinks:
   - BaseNodeGUID: 66b365f5c7510ac4396571bcd779b957
@@ -22,24 +22,48 @@ MonoBehaviour:
   - BaseNodeGUID: 76fb6b7c-7ac4-48e4-a0be-e6cf01de6d1d
     PortName: You will talk to me.
     TargetNodeGUID: 913af720-4830-4d07-81ee-a2ae15c67f95
+  - BaseNodeGUID: 913af720-4830-4d07-81ee-a2ae15c67f95
+    PortName: wegweg
+    TargetNodeGUID: c0008dd0-84ee-4701-90bc-1ef55ae5453a
+  - BaseNodeGUID: 913af720-4830-4d07-81ee-a2ae15c67f95
+    PortName: (Give a word to demo inside)
+    TargetNodeGUID: 3211196b-df84-486a-8bbe-1727f5be12bc
+  - BaseNodeGUID: 913af720-4830-4d07-81ee-a2ae15c67f95
+    PortName: (Give a word to demo inside)
+    TargetNodeGUID: 11c8ed02-b9d1-490a-a115-87aa76bd630c
+  - BaseNodeGUID: c0008dd0-84ee-4701-90bc-1ef55ae5453a
+    PortName: Choice 1
+    TargetNodeGUID: 7ea2ab42-6149-48b0-a3aa-e87be2efc513
   DialogueNodeData:
   - NodeGUID: 76fb6b7c-7ac4-48e4-a0be-e6cf01de6d1d
     DialogueText: '[Demonic] Worthless little man! And it seems that you did not
       come alone, but took our brother with you. Come on, show yourself, Demon!'
     Position: {x: 401, y: 107}
   - NodeGUID: 99a1f21e-3a5f-45e7-a285-631915b429ed
-    DialogueText: Dialogue Node
+    DialogueText: TEXT
     Position: {x: 764, y: -105}
   - NodeGUID: 913af720-4830-4d07-81ee-a2ae15c67f95
-    DialogueText: Dialogue Node
+    DialogueText: TEXT
     Position: {x: 775, y: 255}
-  - NodeGUID: 57746538-75bc-44e7-af9c-aab08966bf25
+  - NodeGUID: 3211196b-df84-486a-8bbe-1727f5be12bc
     DialogueText: Dialogue Node
-    Position: {x: 1232, y: 299}
+    Position: {x: 1319, y: 386}
+  - NodeGUID: 11c8ed02-b9d1-490a-a115-87aa76bd630c
+    DialogueText: Dialogue Node
+    Position: {x: 1320, y: 556}
+  - NodeGUID: c0008dd0-84ee-4701-90bc-1ef55ae5453a
+    DialogueText: Dialogue Node
+    Position: {x: 1239, y: -9}
+  - NodeGUID: 7ea2ab42-6149-48b0-a3aa-e87be2efc513
+    DialogueText: Dialogue Node
+    Position: {x: 1746, y: -10}
   ExposedProperties:
   - PropertyName: Exit
     PropertyValue: (End Dialogue)
     Portrait: {fileID: 0}
   - PropertyName: ChangeSpeaker
     PropertyValue: (Give a word to demo inside)
+    Portrait: {fileID: 0}
+  - PropertyName: New String
+    PropertyValue: New Value
     Portrait: {fileID: 0}
